@@ -1,0 +1,259 @@
+﻿@model LiquidacionVista
+@{
+    int fila = 0;
+}
+@if (Model.ListaBeneficiario != null && Model.ListaBeneficiario.Count > 0)
+{
+    <div>
+        <table id="grilla" align="center" width="900px" cellpadding="0" cellspacing="0">
+            <thead>
+                <tr>
+                    <th height="30px" width="50px">
+                        <div align="center">
+                            Fila</div>
+                    </th>
+                    <th height="30px" width="150px">
+                        <div align="center">
+                            Ap. y Nom. Ben.</div>
+                    </th>
+                    @*<th height="30px" width="100px">
+                        <div align="center">
+                            CUIL</div>
+                    </th>*@
+                    <th height="30px" width="55px">
+                        <div align="center">
+                            Nro. Doc. Ben.</div>
+                    </th>
+                    <th height="30px" width="150px">
+                        <div align="center">
+                            Ap. y Nom. Apo.</div>
+                    </th>
+                    <th height="30px" width="55px">
+                        <div align="center">
+                            Nro. Doc. Apo.</div>
+                    </th>
+                    <th height="30px" width="100px">
+                        <div align="center">
+                            Programa</div>
+                    </th>
+                     <th height="30px" width="100px">
+                        <div align="center">
+                            Monto</div>
+                    </th>
+                    <th height="30px" width="40px">
+                        <div align="center">
+                            Cant. Per.</div>
+                    </th>
+                    @if ((Model.Accion != "Ver" && Model.Accion != "CambiarEstado" && (Model.NroResolucion == null || Model.NroResolucion == 0)) || (Model.Accion == "Alta" || Model.Accion == "Modificar"))
+                    {
+                        <th height="30px" width="100px">
+                            <div align="center">
+                                Acciones</div>
+                        </th>
+                    }
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.ListaBeneficiario)
+                {
+                    fila++;
+                    if (@item.Ficha.NumeroDocumento == Model.Encontrado)
+                    {
+                    <tr style="background-color: @((item.IdEstadoBenConcLiq != (short)Enums.EstadoBeneficiarioLiquidacion.Excluido || item.IdEstadoBenConcLiq != (short)Enums.EstadoBeneficiarioLiquidacion.ExcluidoNoApto) ? "" : "#FF636B;")">
+                        <td align="right" height="28">
+                            @((item.IdEstadoBenConcLiq != (short)Enums.EstadoBeneficiarioLiquidacion.Excluido && item.IdEstadoBenConcLiq != (short)Enums.EstadoBeneficiarioLiquidacion.ExcluidoNoApto) ? fila.ToString() : "X")
+                        </td>
+                        <td align="left" height="28">
+                            @(item.Ficha.Apellido.ToUpper() + " " + item.Ficha.Nombre.ToUpper())
+                        </td>
+                        @if (Model.NumeroDocumento == item.Ficha.NumeroDocumento)
+                        {
+                            <td align="right" style="background-color: Aqua" width="50">
+                                @string.Format("{0:##,###,###}", Convert.ToInt32(item.Ficha.NumeroDocumento))<span>&nbsp;&nbsp;</span>
+                            </td>
+                        }
+                        else
+                        {
+                            <td align="right" width="50">
+                                @string.Format("{0:##,###,###}", Convert.ToInt32(item.Ficha.NumeroDocumento))<span>&nbsp;&nbsp;</span>
+                            </td>
+                        }
+                        <td align="left" height="28">
+                            @(item.Apoderado.Apellido.ToUpper() + " " + item.Apoderado.Nombre.ToUpper())
+                        </td>
+                        @if (Model.NumeroDocumento == (item.Apoderado.NumeroDocumento == " " ? "" : item.Apoderado.NumeroDocumento) && (Model.NumeroDocumento != "" || Model.NumeroDocumento != null))
+                         {
+                            <td align="right" style="background-color: Aqua" width="50">
+                                @string.Format("{0:##,###,###}", Convert.ToInt32((item.Apoderado.NumeroDocumento == " " ? "" : item.Apoderado.NumeroDocumento)))<span>&nbsp;&nbsp;</span>
+                            </td>
+                         }
+                         else
+                         {
+                            <td align="right"  width="50">
+                                @string.Format("{0:##,###,###}", Convert.ToInt32((item.Apoderado.NumeroDocumento == " " ? "" : item.Apoderado.NumeroDocumento)))<span>&nbsp;&nbsp;</span>
+                            </td>
+                         }
+                        <td align="left" width="50">
+                            @item.Programa
+                        </td>
+                        <td align="center" width="50">
+                            @item.MontoPrograma
+                        </td>
+                        <td align="right"  width="40">
+                            @item.Conceptos.Count<span>&nbsp;&nbsp;</span>
+                        </td>
+                        @if ((Model.Accion != "Ver" && Model.Accion != "CambiarEstado" && (Model.NroResolucion == null || Model.NroResolucion == 0)) || (Model.Accion == "Alta" || Model.Accion == "Modificar"))
+                        {
+
+                            if (item.IdEstadoBenConcLiq != (short)Enums.EstadoBeneficiarioLiquidacion.Excluido && item.IdEstadoBenConcLiq != (short)Enums.EstadoBeneficiarioLiquidacion.ExcluidoNoApto)
+                            {
+                            <td align="center" width="50">
+                                @Html.ActionLink("Conceptos", "VerConceptosBeneficiario", "Liquidacion", new { IdBeneficiario = item.IdBeneficiario }, new { @class = "Lupa", title = "Ver Periodos" })
+                                @Html.ActionLink("Quitar", "QuitarBeneficiario", "Liquidacion", new { IdBeneficiario = item.IdBeneficiario }, new { @class = "Eliminar", title = "Quitar Beneficiario" })
+                               
+                                @if (Model.GenerarFile == "N")
+                                {
+                                    if(item.IdPrograma == (short)Enums.TipoFicha.EfectoresSociales)
+                                    {
+                                        @Html.ActionLink("Conceptos", "VerMontoBeneficiario", "Liquidacion", new { IdBeneficiario = item.IdBeneficiario, importeAliquidar= item.MontoPrograma }, new { @class = "Modificar", title = "Editar Monto" })
+                                    }
+                                }
+                            </td>
+                            }
+                            else
+                            {
+                            <td align="center" width="50">
+                                @if (item.IdEstadoBenConcLiq != (short)Enums.EstadoBeneficiarioLiquidacion.ExcluidoNoApto)
+                                {
+                                    @Html.ActionLink("Quitar", "AgregarBeneficiario", "Liquidacion", new { IdBeneficiario = item.IdBeneficiario }, new { @class = "Agregar", title = "Agregar Beneficiario" })
+                                }
+                            </td>  
+                            }
+                        }
+                    </tr>
+                    
+                    }
+                    else
+                    {  <tr style="background-color: @((item.IdEstadoBenConcLiq != (short)Enums.EstadoBeneficiarioLiquidacion.Excluido && item.IdEstadoBenConcLiq != (short)Enums.EstadoBeneficiarioLiquidacion.ExcluidoNoApto) ? "" : "#FF636B;")">
+                        <td align="right" height="28">
+                            @((item.IdEstadoBenConcLiq != (short)Enums.EstadoBeneficiarioLiquidacion.Excluido && item.IdEstadoBenConcLiq != (short)Enums.EstadoBeneficiarioLiquidacion.ExcluidoNoApto) ? fila.ToString() : "X")
+                        </td>
+                        <td align="left" height="28">
+                            @(item.Ficha.Apellido.ToUpper() + " " + item.Ficha.Nombre.ToUpper())
+                        </td>
+                        @if (Model.NumeroDocumento == item.Ficha.NumeroDocumento)
+                        {
+                            <td align="right" style="background-color: Aqua" width="50">
+                                @string.Format("{0:##,###,###}", Convert.ToInt32(item.Ficha.NumeroDocumento))<span>&nbsp;&nbsp;</span>
+                            </td>
+                        }
+                        else
+                        {
+                            <td align="right" width="50">
+                                @string.Format("{0:##,###,###}", Convert.ToInt32(item.Ficha.NumeroDocumento))<span>&nbsp;&nbsp;</span>
+                            </td>
+                        }
+                        <td align="left" height="28">
+                            @(item.Apoderado.Apellido.ToUpper() + " " + item.Apoderado.Nombre.ToUpper())
+                        </td>
+                        @if (Model.NumeroDocumento == (item.Apoderado.NumeroDocumento == " " ? "" : item.Apoderado.NumeroDocumento) && (Model.NumeroDocumento != "" || Model.NumeroDocumento != null))
+                        {
+                            <td align="right" style="background-color: Aqua" width="50">
+                                @string.Format("{0:##,###,###}", Convert.ToInt32((item.Apoderado.NumeroDocumento == " " ? "" : item.Apoderado.NumeroDocumento)))<span>&nbsp;&nbsp;</span>
+                            </td>
+                        }
+                        else
+                        {
+                            <td align="right"  width="50">
+                                @string.Format("{0:##,###,###}", Convert.ToInt32((item.Apoderado.NumeroDocumento == " " ? "" : item.Apoderado.NumeroDocumento)))<span>&nbsp;&nbsp;</span>
+                            </td>
+                        }
+                        <td align="left" width="50">
+                            @if (item.IdPrograma == 3)
+                            {
+                                switch(item.TipoPrograma)
+                                {
+                                    case 1:
+                                       <span>PPP</span>
+                                        break;
+                                    case 2:
+                                        <span>APRENDIZ</span>
+                                        break;
+                                    case 3:
+                                        <span>XMÍ</span>
+                                        break;
+                                    case 4:
+                                        <span>PILA</span>
+                                        break;
+                                    case 5:
+                                        <span>PIP</span>
+                                        break;
+                                     default:
+                                        @item.Programa
+                                   break;
+                                }
+
+                            }
+                            else
+                            {
+                                @item.Programa
+                            }
+
+                        </td>
+                        <td align="center" width="50">
+                        @if (Model.Accion == "Alta")
+                        {
+                            @item.MontoPrograma
+                        }
+                        else
+                        {
+                            @item.MontoLiquidado
+                        }
+                        </td>
+                        <td align="right" width="40">
+                            @item.Conceptos.Count<span>&nbsp;&nbsp;</span>
+                        </td>
+                        @if ((Model.Accion != "Ver" && Model.Accion != "CambiarEstado" && (Model.NroResolucion == null || Model.NroResolucion == 0)) || (Model.Accion == "Alta" || Model.Accion == "Modificar"))
+                        {
+                            if (item.IdEstadoBenConcLiq != (short)Enums.EstadoBeneficiarioLiquidacion.Excluido && item.IdEstadoBenConcLiq != (short)Enums.EstadoBeneficiarioLiquidacion.ExcluidoNoApto)
+                            {
+                            <td align="center" width="50">
+                                @Html.ActionLink("Conceptos", "VerConceptosBeneficiario", "Liquidacion", new { IdBeneficiario = item.IdBeneficiario }, new { @class = "Lupa", title = "Ver Periodos" })
+                                @Html.ActionLink("Quitar", "QuitarBeneficiario", "Liquidacion", new { IdBeneficiario = item.IdBeneficiario }, new { @class = "Eliminar", title = "Quitar Beneficiario" })
+                                
+                                @if (Model.GenerarFile == "N")
+                                {
+                                    if (item.IdPrograma == (short)Enums.TipoFicha.EfectoresSociales || item.IdPrograma == (short)Enums.TipoFicha.ReconversionProductiva)
+                                    {
+                                        @Html.ActionLink("Conceptos", "VerMontoBeneficiario", "Liquidacion", new { IdBeneficiario = item.IdBeneficiario, importeAliquidar = item.MontoPrograma }, new { @class = "Modificar", title = "Editar Monto" })
+                                   
+                                    }
+                                }
+                                </td>
+                            }
+                            else
+                            {
+                            <td align="center" width="50">
+                                @if (item.IdEstadoBenConcLiq != (short)Enums.EstadoBeneficiarioLiquidacion.ExcluidoNoApto)
+                                {
+                                    @Html.ActionLink("Quitar", "AgregarBeneficiario", "Liquidacion", new { IdBeneficiario = item.IdBeneficiario }, new { @class = "Agregar", title = "Agregar Beneficiario" })
+                                }
+                            </td>
+                            }
+                        }
+                    </tr>}
+                }
+            </tbody>
+        </table>
+    </div>
+}
+else
+{
+    <table id="grilla" align="center" width="930px" cellpadding="0" cellspacing="0">
+        <tr>
+            <td width="930px">
+                @Html.Partial("_SinDatos", "Liquidacion")
+            </td>
+        </tr>
+    </table>
+}

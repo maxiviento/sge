@@ -1,0 +1,76 @@
+﻿@model AsistenciaRptVista
+
+
+@if (Model.ListaAsistencias != null && Model.ListaAsistencias.Count > 0)
+{ 
+    <div style="text-align:center;">
+        <table id="grillaFichas" align="center" width="925px" cellpadding="0" cellspacing="0">
+            <thead>
+                <tr>
+                   <th height="30px" width="150px">
+                        <div align="left">Ficha</div>
+                    </th>
+                    <th height="30px" width="150px">
+                        <div align="left">Apellido</div>
+                    </th>
+                    <th width="250px">
+                        <div align="left">Nombre</div>
+                    </th>
+                    <th width="150px">
+                        <div align="left">Documento</div>
+                    </th>
+                    <th width="100px">
+                        <div align="left">Porc Asistencia</div>
+                    </th>
+                    <th width="100px">
+                        <div align="left">Período</div>
+                    </th>
+
+                </tr>
+            </thead>
+            <tbody>
+
+
+                @foreach (var item in Model.ListaAsistencias)
+                {
+
+                    <tr>
+                        <td style="height: 28px; text-align: left;">
+                            @item.ID_FICHA
+                        </td>
+                        <td style="text-align: left;">
+                           @item.APELLIDO
+                        </td>
+                        <td style="text-align: left;">
+                          @item.NOMBRE
+                       </td>
+                        <td style="text-align: left;">
+                          @item.NUMERO_DOCUMENTO
+                        </td>
+                        <td style="text-align: left;">
+                          @item.PORC_ASISTENCIA
+                        </td>
+                        <td style="text-align: left;">
+                          @item.PERIODO
+                        </td>
+
+                    </tr>
+                    
+
+                }
+                  
+
+            </tbody>
+        </table>
+    </div>
+}
+else
+{
+    <table align="center" width="930px" cellpadding="0" cellspacing="0">
+        <tr>
+            <td width="930px">
+                @Html.Partial("_SinDatos", "Cursos")
+            </td>
+        </tr>
+    </table>
+}

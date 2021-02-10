@@ -1,0 +1,35 @@
+﻿@model UsuarioLoginVista
+@{
+    ViewBag.Title = "Ingreso al Sistema";
+    Layout = "~/Views/Shared/_LayoutLogin.cshtml";
+}
+@section Stylesheets{
+    @Content.Stylesheet("MVCFramework.css", Url)
+}
+@section Scripts{
+    @Content.Script("SGE.Usuarios.js", Url)
+}
+<div id="contenido">
+    @using (Html.BeginForm("Login", "Login", FormMethod.Post, new { Id = "login" }))
+    {
+        <h1>
+            Ingresar al Sistema</h1>
+        <div>
+            <label for="login_username">
+                @Html.LabelFor(model => model.Login):</label>
+            @Html.TextBoxFor(model => model.Login, new { @class = "field required" })
+        </div>
+        <div>
+            <label for="login_password">@Html.LabelFor(model => model.Password):</label>
+            @Html.PasswordFor(model => model.Password, new { @class = "field required" })
+        </div>
+        <div class="Separador">
+            @Html.ValidationSummary(false)
+        </div>
+        
+        <div class="submit">
+            <a href="javascript: document.forms['login'].submit();" class="btnIngresar">Ingresar</a>
+        </div>
+               
+    }
+</div>

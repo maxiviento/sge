@@ -1,0 +1,58 @@
+﻿#pager ul.pages
+{
+    display: block;
+    border: none;
+    text-transform: uppercase;
+    font-size: 10px;
+    margin: 3px 0 3px 0;
+    padding: 0;
+	text-align: center;
+	position:relative;
+}
+
+#pager ul.pages li
+{
+    list-style: none;
+    border: 1px solid #ccc;
+    text-decoration: none;
+    margin:   10px  0 10px 0;
+    padding: 5px;
+    color: #fff;
+	display:inline;
+	background: #3e83c9;
+}
+
+#pager ul.pages li:hover
+{
+    border: 1px solid #666666;
+    background: #bcd4ec;
+    color: #000;
+}
+
+#pager ul.pages li.pgEmpty {
+border:1px solid #eee;
+color: #fff;
+}
+
+#pager ul.pages li.pgCurrent
+{
+    border: 1px solid #666666;
+    color: #333333;
+    font-weight: 700;
+    background-color: #eee;
+}
+
+#Dario
+{
+    display: block;
+    color: #fff;
+    border: none;
+    text-transform: uppercase;
+    font-size: 10px;
+    margin: 3px 0 3px 0;
+    padding: 0;
+	text-align: center;
+	position:relative;
+	width: 250px;
+	background: #3e83c9;
+}

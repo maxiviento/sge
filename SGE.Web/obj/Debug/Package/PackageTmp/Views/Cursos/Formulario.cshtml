@@ -1,0 +1,636 @@
+﻿@model CursoVista
+@{
+    ViewBag.Title = "Curso";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section Scripts{
+    @Content.Script("SGE.Cursos.js", Url)
+}
+<div class="box">
+    <h2>
+        Curso</h2>
+    @using (Html.BeginForm("ModificarCurso", "Cursos", FormMethod.Post, new { Id = "FormularioCurso" }))
+    {
+        <table align="center" style="width: 930px; border: 1px">
+            <tr>
+                <td>
+                    <fieldset style="width: 925px;">
+                        <legend align="center"><b>@Model.Accion</b></legend>
+                        <table align="left" style="width: 920px;">
+                            <tr>
+                                <td align="right" valign="top">
+                                    <b>Nro Curso: </b>
+                                </td>
+                                <td align="left" valign="middle">
+                                    @if (Model.Accion == "Ver" || Model.Accion == "Eliminar")
+                                    {
+                                        @Html.TextBoxFor(model => model.NRO_COND_CURSO, new { disabled = "disabled", style = "width:300px;" })
+                                    }
+                                    else
+                                    {
+                                        @Html.TextBoxFor(model => model.NRO_COND_CURSO, new { style = "width:300px;", MaxLength = "100" })
+                                    }
+                                </td>
+                                <td align="right" valign="top">
+                                    <b>Nombre: </b>
+                                </td>
+                                <td align="left" valign="middle">
+                                    @if (Model.Accion == "Ver" || Model.Accion == "Eliminar")
+                                    {
+                                        @Html.TextBoxFor(model => model.N_CURSO, new { disabled = "disabled", style = "width:300px;" })
+                                    }
+                                    else
+                                    {
+                                        @Html.TextBoxFor(model => model.N_CURSO, new { style = "width:300px;", MaxLength = "100" })
+                                    }
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right" valign="top">
+                                    <b>Expediente: </b>
+                                </td>
+                                <td align="left" valign="middle">
+                                    @if (Model.Accion == "Ver" || Model.Accion == "Eliminar")
+                                    {
+                                        @Html.TextBoxFor(model => model.EXPEDIENTE_LEG, new { disabled = "disabled", style = "width:300px;" })
+                                    }
+                                    else
+                                    {
+                                        @Html.TextBoxFor(model => model.EXPEDIENTE_LEG, new { style = "width:300px;", MaxLength = "100" })
+                                    }
+                                </td>
+                                <td align="right" valign="top">
+                                    <b>Inicio: </b>
+                                </td>
+                                <td align="left" valign="middle">
+                                    @if (Model.Accion == "Ver" || Model.Accion == "Eliminar")
+                                    {
+                                        @Html.TextBoxFor(model => model.F_INICIO, new { disabled = "disabled", style = "width:300px;" })
+                                    }
+                                    else
+                                    {
+                                        @Html.EditorFor(model => model.F_INICIO, new { style = "width:300px;", MaxLength = "100" })
+                                    }
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right" valign="top">
+                                    <b>Fin: </b>
+                                </td>
+                                <td align="left" valign="middle">
+                                    @if (Model.Accion == "Ver" || Model.Accion == "Eliminar")
+                                    {
+                                        @Html.TextBoxFor(model => model.F_FIN, new { disabled = "disabled", style = "width:300px;" })
+                                    }
+                                    else
+                                    {
+                                        @Html.EditorFor(model => model.F_FIN, new { style = "width:300px;", MaxLength = "100" })
+                                    }
+                                </td>
+                                <td align="right" valign="top">
+                                    <b>Duración: </b>
+                                </td>
+                                <td align="left" valign="middle">
+                                    @if (Model.Accion == "Ver" || Model.Accion == "Eliminar")
+                                    {
+                                        @Html.TextBoxFor(model => model.DURACION, new { disabled = "disabled", style = "width:300px;" })
+                                    }
+                                    else
+                                    {
+                                        @Html.TextBoxFor(model => model.DURACION, new { style = "width:300px;", MaxLength = "100" })
+                                    }
+                                </td>
+                            </tr>
+
+                        </table>
+                        
+                        @Html.ValidationSummary(false)
+                    </fieldset>
+                </td>
+            </tr>
+        </table>
+        <br />
+        <table>
+                <tr><td colspan="4" align="center"><b class="similLegend" >Datos del Docente</b></td></tr>
+                <tr>
+                                <td align="right">
+                                    <b>DNI: </b>                   
+                                </td>
+                                <td align="left" valign="middle">
+                                    @if (Model.Accion == "Ver" || Model.Accion == "CambiarEstado")
+                                    {
+                                        @Html.TextBoxFor(model => model.DOC_DNI, new { disabled = "disabled", style = "width:250px;" })
+                                    }
+                                    else
+                                    {
+                                        @Html.TextBoxFor(model => model.DOC_DNI, new { style = "width:250px;", MaxLength = "100", @class = "validar" }) 
+                                    }
+                                    @if ((Model.Accion != "Ver" && Model.Accion != "CambiarEstado"))
+                                    {
+                                        <a class="Lupa" title="Buscar Docente" href="#" id="BuscarDocente">Buscar</a>
+                                        
+                                    }
+                                </td>
+                                <td align="right">
+                                                  
+                                </td>
+                                <td align="left" valign="middle"></td>
+                            </tr>
+                            <tr>
+                                <td align="right">
+                                    <b>Apellido: </b>
+                                </td>
+                                <td align="left" valign="middle">
+
+                                        @Html.TextBoxFor(c => c.DOC_APELLIDO, new { disabled = "disabled", style = "width:200px; text-align: left;" })
+
+                                </td>
+                                <td align="right">
+                                    <b>Nombre: </b>
+                                </td>
+                                <td align="left" valign="middle">
+
+                                        @Html.TextBoxFor(c => c.DOC_NOMBRE, new { disabled = "disabled", style = "width:200px; text-align: left;" })
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right">
+                                    <b>Celular: </b>
+                                </td>
+                                <td align="left" valign="middle">
+
+                                        @Html.TextBoxFor(c => c.DOC_CELULAR, new { disabled = "disabled", style = "width:100px; text-align: left;" })
+
+                                </td>
+                             <td align="right">
+                                    <b>Teléfono: </b>
+                                </td>
+                                <td align="left" valign="middle">
+
+                                        @Html.TextBoxFor(c => c.DOC_TELEFONO, new { disabled = "disabled", style = "width:250px; text-align: left;" })
+
+                                </td>
+                            </tr>
+                            <tr>
+                             <td align="right">
+                                    <b>Localidad: </b>
+                                </td>
+                                <td align="left" valign="middle">
+
+                                        @Html.TextBoxFor(c => c.DOC_N_LOCALIDAD, new { disabled = "disabled", style = "width:250px; text-align: left;" })
+
+                                </td>
+                                <td align="right">
+                                    <b>Mail: </b>
+                                </td>
+                                <td align="left" valign="middle">
+
+                                        @Html.TextBoxFor(c => c.DOC_MAIL, new { disabled = "disabled", style = "width:250px; text-align: left;" })
+
+                                </td>
+                            </tr>
+                        
+                        </table>
+        <br />
+        <table>
+                <tr><td colspan="4" align="center"><b class="similLegend" >Datos del Tutor</b></td></tr>
+                <tr>
+                                <td align="right">
+                                    <b>DNI: </b>                   
+                                </td>
+                                <td align="left" valign="middle">
+                                    @if (Model.Accion == "Ver" || Model.Accion == "CambiarEstado")
+                                    {
+                                        @Html.TextBoxFor(model => model.TUT_DNI, new { disabled = "disabled", style = "width:250px;" })
+                                    }
+                                    else
+                                    {
+                                        @Html.TextBoxFor(model => model.TUT_DNI, new { style = "width:250px;", MaxLength = "100", @class = "validar" }) 
+                                    }
+                                    @if ((Model.Accion != "Ver" && Model.Accion != "CambiarEstado"))
+                                    {
+                                        <a class="Lupa" title="Buscar Tutor" href="#" id="BuscarTutor">Buscar</a>
+                                        
+                                    }
+                                </td>
+                                <td align="right">
+                                                  
+                                </td>
+                                <td align="left" valign="middle"></td>
+                            </tr>
+                            <tr>
+                                <td align="right">
+                                    <b>Apellido: </b>
+                                </td>
+                                <td align="left" valign="middle">
+
+                                        @Html.TextBoxFor(c => c.TUT_APELLIDO, new { disabled = "disabled", style = "width:200px; text-align: left;" })
+
+                                </td>
+                                <td align="right">
+                                    <b>Nombre: </b>
+                                </td>
+                                <td align="left" valign="middle">
+
+                                        @Html.TextBoxFor(c => c.TUT_NOMBRE, new { disabled = "disabled", style = "width:200px; text-align: left;" })
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right">
+                                    <b>Celular: </b>
+                                </td>
+                                <td align="left" valign="middle">
+
+                                        @Html.TextBoxFor(c => c.TUT_CELULAR, new { disabled = "disabled", style = "width:100px; text-align: left;" })
+
+                                </td>
+                             <td align="right">
+                                    <b>Teléfono: </b>
+                                </td>
+                                <td align="left" valign="middle">
+
+                                        @Html.TextBoxFor(c => c.TUT_TELEFONO, new { disabled = "disabled", style = "width:250px; text-align: left;" })
+
+                                </td>
+                            </tr>
+                            <tr>
+                             <td align="right">
+                                    <b>Localidad: </b>
+                                </td>
+                                <td align="left" valign="middle">
+
+                                        @Html.TextBoxFor(c => c.TUT_N_LOCALIDAD, new { disabled = "disabled", style = "width:250px; text-align: left;" })
+
+                                </td>
+                                <td align="right">
+                                    <b>Mail: </b>
+                                </td>
+                                <td align="left" valign="middle">
+
+                                        @Html.TextBoxFor(c => c.TUT_MAIL, new { disabled = "disabled", style = "width:250px; text-align: left;" })
+
+                                </td>
+                            </tr>
+                        
+                        </table>
+        <br />
+        @*<table align="left" style="width: 920px;" >
+        <tr><td colspan="4" align="center"><b class="similLegend" >Datos de la ONG</b></td></tr>
+                              <tr>
+                                <td align="right">
+                                    <b>CUIT: </b>                   
+                                </td>
+                                <td align="left" valign="middle">
+                                    @if (Model.Accion == "Ver" || Model.Accion == "CambiarEstado")
+                                    {
+                                        @Html.TextBoxFor(model => model.ONG_CUIT, new { disabled = "disabled", style = "width:250px;" })
+                                    }
+                                    else
+                                    {
+                                        @Html.TextBoxFor(model => model.ONG_CUIT, new { style = "width:250px;", MaxLength = "100" }) 
+                                    }
+                                    @if ((Model.Accion != "Ver" && Model.Accion != "CambiarEstado"))
+                                    {
+                                        <a class="Lupa" title="Buscar ONG" href="#" id="BuscarONG">Buscar</a>
+                                        
+                                    }
+                                </td>
+                                <td align="right">
+                                    <b>Razón Social: </b>                   
+                                </td>
+                                <td align="left" valign="middle">@Html.TextBoxFor(c => c.ONG_N_NOMBRE, new { disabled = "disabled", style = "width:200px; text-align: left;" })</td>
+                            </tr>
+                            
+                            <tr>                               
+                                <td align="right">
+                                    <b>Celular: </b>
+                                </td>
+                                <td align="left" valign="middle">
+                                        @Html.TextBoxFor(c => c.ONG_CELULAR, new { disabled = "disabled", style = "width:120px; text-align: left;", maxlength = 10 })
+                                </td>
+                                <td align="right">
+                                    <b>Teléfono: </b>
+                                </td>
+                                <td align="left" valign="middle">
+                                        @Html.TextBoxFor(c => c.ONG_TELEFONO, new { disabled = "disabled", style = "width:120px; text-align: left;", maxlength = 10 })
+                                </td>
+                                
+                            </tr>
+                            <tr>
+                                <td align="right">
+                                    <b>Mail: </b>
+                                </td>
+                                <td align="left" valign="middle" colspan="3">
+
+                                        @Html.TextBoxFor(c => c.ONG_MAIL, new { disabled = "disabled", style = "width:250px; text-align: left;" })
+                                </td>
+                            </tr>
+                            <tr><td colspan="4" align="center"><b class="similLegend" >Información del responsable</b></td></tr>
+                            <tr>
+                                <td align="right">
+                                    <b>Apellido: </b>
+                                </td>
+                                <td align="left" valign="middle">
+
+                                        @Html.TextBoxFor(c => c.RES_APELLIDO, new { disabled = "disabled", style = "width:200px; text-align: left;" })
+
+                                </td>
+                                <td align="right">
+                                    <b>Nombre: </b>
+                                </td>
+                                <td align="left" valign="middle">
+
+                                        @Html.TextBoxFor(c => c.RES_NOMBRE, new { disabled = "disabled", style = "width:200px; text-align: left;" })
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right">
+                                    <b>Celular: </b>
+                                </td>
+                                <td align="left" valign="middle">
+
+                                        @Html.TextBoxFor(c => c.RES_CELULAR, new { disabled = "disabled", style = "width:100px; text-align: left;" })
+
+                                </td>
+                             <td align="right">
+                                    <b>Localidad: </b>
+                                </td>
+                                <td align="left" valign="middle">
+
+                                        @Html.TextBoxFor(c => c.RES_N_LOCALIDAD, new { disabled = "disabled", style = "width:250px; text-align: left;" })
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right">
+                                    <b>Mail: </b>
+                                </td>
+                                <td align="left" valign="middle">
+
+                                        @Html.TextBoxFor(c => c.RES_MAIL, new { disabled = "disabled", style = "width:250px; text-align: left;" })
+
+                                </td>
+                                <td align="right">
+                                  
+                                </td>
+                                <td align="left" valign="middle">
+
+                                </td>
+                            </tr>
+                            <tr><td colspan="4" align="center"><b class="similLegend" >Información del contacto</b></td></tr>
+                            <tr>
+                                <td align="right">
+                                    <b>Apellido: </b>
+                                </td>
+                                <td align="left" valign="middle">
+
+                                        @Html.TextBoxFor(c => c.CON_APELLIDO, new { disabled = "disabled", style = "width:200px; text-align: left;" })
+
+                                </td>
+                                <td align="right">
+                                    <b>Nombre: </b>
+                                </td>
+                                <td align="left" valign="middle">
+
+                                        @Html.TextBoxFor(c => c.CON_NOMBRE, new { disabled = "disabled", style = "width:200px; text-align: left;" })
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right">
+                                    <b>Celular: </b>
+                                </td>
+                                <td align="left" valign="middle">
+
+                                        @Html.TextBoxFor(c => c.CON_CELULAR, new { disabled = "disabled", style = "width:100px; text-align: left;" })
+
+                                </td>
+                             <td align="right">
+                                    <b>Localidad: </b>
+                                </td>
+                                <td align="left" valign="middle">
+
+                                        @Html.TextBoxFor(c => c.CON_N_LOCALIDAD, new { disabled = "disabled", style = "width:250px; text-align: left;" })
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right">
+                                    <b>Mail: </b>
+                                </td>
+                                <td align="left" valign="middle">
+
+                                        @Html.TextBoxFor(c => c.CON_MAIL, new { disabled = "disabled", style = "width:250px; text-align: left;" })
+
+                                </td>
+                                <td align="right">
+                                  
+                                </td>
+                                <td align="left" valign="middle">
+
+                                </td>
+                            </tr>
+        </table>*@
+        <br />
+        <table>
+        <tr><td colspan="4" align="center"><b class="similLegend" >Escuela</b></td></tr>
+
+                            <tr>
+                                <td align="right" >
+                                    <b>Nombre: </b>
+                                </td>
+                                <td align="left" valign="middle" colspan="2">
+                                    @if (Model.Accion == "Ver" || Model.Accion == "CambiarEstado")
+                                    {
+                                        @Html.TextBoxFor(model => model.N_ESCUELA, new { disabled = "disabled", style = "width:350px;" })
+                                    }
+                                    else
+                                    {
+                                        @Html.TextBoxFor(model => model.N_ESCUELA, new { style = "width:350px;", MaxLength = "100" }) 
+                                    }
+                                    @if ((Model.Accion != "Ver" && Model.Accion != "CambiarEstado"))
+                                    {
+                                        <a class="Lupa" title="Buscar Escuela" href="#" id="BuscarEscuela">Buscar</a>
+                                        
+                                    }
+                                </td>
+@*                                <td align="right">
+                                    <b>Localidad: </b>
+                                </td>
+                                <td align="left" valign="middle">
+                                    @Html.EditorFor(c => c.lo)
+                                </td>*@
+                            </tr>
+                            <tr>
+                                <td align="right">
+                                    @*<b>Nombre: </b>*@
+                                </td>
+                                <td align="left" valign="middle" colspan="3">
+                                   @* @Html.EditorFor(c => c.Escuelas)*@
+                                </td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                
+                            <tr>
+                                <td align="right">
+                                    <b>Director: </b>
+                                </td>
+                                <td align="left" valign="middle">
+                                @Html.TextBoxFor(c => c.DIR_APELLIDO, new { disabled = "disabled", style = "width:200px;" }) @Html.TextBoxFor(c => c.DIR_NOMBRE, new { disabled = "disabled", style = "width:150px;" })</td>
+                            
+                                 <td></td>
+                                <td></td>
+                            </tr>                            
+                            <tr>
+                                <td align="right">
+                                    <b>Dirección: </b>
+                                </td>
+                                <td align="left" valign="middle" colspan="3">
+                                    @Html.TextBoxFor(c => c.CALLE, new { disabled = "disabled", style = "width:300px;" })  @Html.TextBoxFor(c => c.NUMERO, new { disabled = "disabled", style = "width:50px;" }) 
+                                </td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td align="right">
+                                    <b>Teléfono: </b>
+                                </td>
+                                <td align="left" valign="middle">
+                                    @Html.TextBoxFor(c => c.TELEFONO, new { disabled = "disabled", style = "width:100px;" })  
+                                </td>
+                                <td align="right">
+                                    <b>CUE: </b>
+                                </td>
+                                <td align="left" valign="middle">
+                                 @Html.TextBoxFor(c => c.Cue, new { disabled = "disabled", style = "width:150px;" })
+                                 </td>
+                            </tr>
+                            <tr>                         
+                                 <td align="right"><b>Cupos: </b></td>
+                                <td align="left" valign="middle"> @Html.TextBoxFor(c => c.CUPO_CONFIAMOS, new { disabled = "disabled", style = "width:100px;" })
+                                </td>
+                            
+                                 <td align="right"></td>
+                                <td align="left" valign="middle">
+                                </td>
+                            </tr>
+                <tr><td colspan="4" align="center"><b class="similLegend" >Coordinador de Escuela</b></td></tr>
+                            <tr>                         
+                                 <td align="right"><b>Apellido: </b></td>
+                                <td align="left" valign="middle"> @Html.TextBoxFor(c => c.COOR_APELLIDO, new { disabled = "disabled", style = "width:200px;" })
+                                </td>
+                                 <td align="right"><b>Nombre: </b></td>
+                                <td align="left" valign="middle"> @Html.TextBoxFor(c => c.COOR_NOMBRE, new { disabled = "disabled", style = "width:200px;" })
+                                </td>
+                            </tr>
+                            <tr>                         
+                                 <td align="right"><b>Celular: </b></td>
+                                <td align="left" valign="middle"> @Html.TextBoxFor(c => c.COOR_CELULAR, new { disabled = "disabled", style = "width:100px;" })
+                                </td>                         
+                                 <td align="right"><b>Localidad: </b></td>
+                                <td align="left" valign="middle"> @Html.TextBoxFor(c => c.COOR_N_LOCALIDAD, new { disabled = "disabled", style = "width:200px;" })
+                                </td>
+                            </tr>
+                            <tr>                         
+                                 <td align="right"><b>Mail: </b></td>
+                                <td align="left" valign="middle"> @Html.TextBoxFor(c => c.COOR_MAIL, new { disabled = "disabled", style = "width:200px;" })
+                                </td>
+                            
+                                 <td align="right"></td>
+                                <td align="left" valign="middle">
+                                </td>
+                            </tr>
+                <tr><td colspan="4" align="center"><b class="similLegend" >Encargado de Escuela</b></td></tr>
+                                            <tr>                         
+                                 <td align="right"><b>Apellido: </b></td>
+                                <td align="left" valign="middle"> @Html.TextBoxFor(c => c.ENC_APELLIDO, new { disabled = "disabled", style = "width:200px;" })
+                                </td>
+                                 <td align="right"><b>Nombre: </b></td>
+                                <td align="left" valign="middle"> @Html.TextBoxFor(c => c.ENC_NOMBRE, new { disabled = "disabled", style = "width:200px;" })
+                                </td>
+                            </tr>
+                            <tr>                         
+                                 <td align="right"><b>Celular: </b></td>
+                                <td align="left" valign="middle"> @Html.TextBoxFor(c => c.ENC_CELULAR, new { disabled = "disabled", style = "width:100px;" })
+                                </td>                         
+                                 <td align="right"><b>Localidad: </b></td>
+                                <td align="left" valign="middle"> @Html.TextBoxFor(c => c.ENC_N_LOCALIDAD, new { disabled = "disabled", style = "width:200px;" })
+                                </td>
+                            </tr>
+                            <tr>                         
+                                 <td align="right"><b>Mail: </b></td>
+                                <td align="left" valign="middle"> @Html.TextBoxFor(c => c.ENC_MAIL, new { disabled = "disabled", style = "width:200px;" })
+                                </td>
+                            
+                                 <td align="right"></td>
+                                <td align="left" valign="middle">
+                                </td>
+                            </tr>
+        </table>
+        
+        
+        @Html.HiddenFor(model => model.Accion)
+        @Html.HiddenFor(model => model.ID_DOCENTE)
+        @Html.HiddenFor(model => model.ID_CURSO)
+        @Html.HiddenFor(model => model.ID_TUTOR)
+        @Html.HiddenFor(model => model.ID_ONG)
+        @Html.HiddenFor(model => model.ID_ESCUELA)
+
+   //@Html.HiddenFor(model => model.id)
+        <br />
+        <table id="btnfin" width="100%">
+            <tr>
+                <td align="center" valign="middle">
+                    @switch (Model.Accion)
+                    {
+                        case "Ver":
+                            break;
+                        case "Agregar":
+                        <a class="btnIngresar" href="#" id="Agregar">Guardar</a>
+                            break;
+                        case "Modificar":
+                        <a class="btnIngresar" href="#" id="Modificar">Guardar</a>
+                            break;
+                        @*case "Eliminar":
+                        <a class="btnIngresar" href="#" id="Eliminar">Eliminar</a>
+                            break;*@
+                    }
+                    &nbsp;&nbsp;@Html.ActionLink("Cancelar", "Index", "Cursos", null, new { Class = "btnIngresar" })
+                </td>
+            </tr>
+        </table>
+
+        <table>
+            <tr>
+                <td>
+                    <div id="MensajeError">
+                        @TempData["MensajeError"]
+                    </div>
+                </td>
+            </tr>
+        </table>
+    }
+</div>
+<div id="dialogConfirmarEliminar" title="Mensaje">
+    <p>¿Está seguro que desea eliminar este registro?</p>
+</div>
+<div id="dialog" title="Mensaje">
+    <p>Esta Carrera no se puede eliminar porque está en uso.</p>
+</div>
+<div id="dialogActores" title="Actores">
+    @Html.Partial("_BuscarActores", Model)
+</div>
+
+<div id="dialogONG" title="ONG">
+    @Html.Partial("_BuscarONG", Model)
+</div>
+<div id="dialogEscuela" title="Escuelas">
+    @Html.Partial("_BuscarEscuela", Model)
+</div>
+
+
+

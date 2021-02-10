@@ -1,0 +1,85 @@
+﻿@model ReporteDepLocProgEsta
+@{
+    var acciones = ViewData["Acciones"] as IList<string>;
+    int cantidad = 0;    
+}
+@if (Model.ContenidoReporte != null && Model.ContenidoReporte.Count > 0)
+{ 
+    <div style="text-align: center;">
+        <table id="grilla" align="center" width="925px" cellpadding="0" cellspacing="0">
+            <thead>
+                <tr>
+                    <th height="30" width="200">
+                        <div align="center">
+                            Departamento</div>
+                    </th>
+                    <th height="30" width="200">
+                        <div align="center">
+                            Localidad</div>
+                    </th>
+                    <th height="30" width="200">
+                        <div align="center">
+                            Programa</div>
+                    </th>
+                    <th height="30px" width="100">
+                        <div align="center">
+                            Cantidad</div>
+                    </th>
+                    <th height="20px" width="100">
+                        <div align="center">
+                            Exportar</div>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.ContenidoReporte)
+                {
+                    <tr>
+                        <td align="left" style="height: 28px; width: 100px; " >
+                            @item.Departamento
+                        </td>
+                        <td align="left" style="height: 28px; width: 100px;">
+                            @item.Localidad
+                        </td>
+                        <td align="left" style="height: 28px; width: 100px;">
+                            @item.Programa
+                        </td>
+                        <td align="left" style="height: 28px; width: 100px;">
+                            @item.Cantidad
+                        </td>
+                        <td>
+                            @Html.ActionLink("Exportar", "ExportarRDepLocProgEst", "Reportes", new { departamento = item.Departamento, localidad = item.Localidad, programa = item.Programa, idDepartamento = item.idDepartamento, idPrograma = item.idPrograma, idLocalidad = item.idLocalidad, estado = Model.Estado, estadoBenef = Model.EstadoBenef.Selected, tipoprograma = Model.ComboTiposPpp.Selected }, new { @class = "Reporte", title = "Export Detalle" })                          
+                        </td>
+                    </tr>
+                    
+                    cantidad = cantidad + item.Cantidad;
+                }
+              @*   @Html.HiddenFor(c => c.idPrograma)
+                   @Html.HiddenFor(c => c.idLocalidad)
+                   @Html.HiddenFor(c => c.idDepartamento)*@
+                <tr style="background-color: #bcd4ec;">
+                    <td align="left" style="height: 28px; width: 100px;">
+                    </td>
+                    <td align="left" style="height: 28px; width: 100px;">
+                    </td>
+                    <td align="left" style="height: 28px; width: 100px;">
+                        <b>Total</b>
+                    </td>
+                    <td align="left" style="height: 28px; width: 100px;">
+                        @cantidad
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+}
+else
+{
+    <table align="center" width="930px" cellpadding="0" cellspacing="0">
+        <tr>
+            <td width="930px">
+                @Html.Partial("_SinDatos", "Reporte Dep. Loc. Prog. Est.")
+            </td>
+        </tr>
+    </table>
+}

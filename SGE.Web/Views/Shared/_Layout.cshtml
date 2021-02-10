@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewBag.Title</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    @Content.Stylesheet("css/SGEMaster.css", Url)
+    @Content.Stylesheet("css/MVCFramework.css", Url)
+    @Content.Stylesheet("Css/superfish.css", Url)
+    @Content.Stylesheet("redmond/jquery-ui-1.8.18.custom.css", Url)
+    @Content.Stylesheet("css/Pager.css", Url)
+    @RenderSection("Stylesheets", false)
+</head>
+<body>
+    <input type="hidden" name="CurrentDate" id="CurrentDate" value="@System.DateTime.Today" />
+    <div id="wrap">
+        <div id="Espace">
+            <div id="header">
+                @{
+                    <table style="height: 130px; width: 100%" cellpadding="0" cellspacing="0">
+                        <tr style="width: 100%; height: 100px">
+                            <td style="width: 70%">
+                            </td>
+                            <td style="width: 30%">
+                            </td>
+                        </tr>
+                        <tr style="width: 100%; height: 20px;">
+                            <td align="right" colspan="2" valign="bottom">@Html.Partial("_LogOn", null)&nbsp;&nbsp;
+                            </td>
+                        </tr>
+                    </table>
+                }
+            </div>
+            <div id="menu">
+               @{
+                    var menu = ViewData["Menu"];
+                    if (menu != null)
+                    {
+                        @Html.Partial("_Menu", null)
+                    }
+      
+                }
+            </div>
+            <div id="out" align="right">
+            </div>
+            <div id="content">
+                <div class="right">
+                    @RenderBody()
+                </div>
+                <div style="clear: both;">
+                </div>
+            </div>
+            <div id="footer">
+                &copy; Copyright - Agencia de Promoción de Empleo y Formación Profesional - Gobierno
+                de Córdoba GOBCBA - v1.76
+            </div>
+        </div>
+        <input type="hidden" id="UltimaActividad" />
+        <input type="hidden" id="x" />
+        <input type="hidden" id="y" />
+    </div>
+    @Content.Script("jquery-1.5.2.min.js", Url)
+    @Content.Script("jquery.unobtrusive-ajax.min.js", Url)
+    @Content.Script("jquery.validate.min.js", Url)
+    @Content.Script("jquery.validate.unobtrusive.min.js", Url)
+    @Content.Script("jquery.validate.unobtrusive.validationgroups.js", Url)
+    @Content.Script("jquery-ui-1.8.11.min.js", Url)
+    @Content.Script("jquery.ui.datepicker-es.js", Url)
+    @Content.Script("jquery.maskedinput-1.3.min.js", Url)
+    @RenderSection("Scripts", false)
+    @Content.Script("SGE.SetFront.js", Url)
+    @Content.Script("jquery.pager.js", Url)
+    @Content.Script("superfish.js", Url)
+    @Content.Script("hoverIntent.js", Url)
+    @Content.Script("SGE.Layout.js", Url)
+    @Content.Script("Validate_Decimal.js", Url)
+    @Content.Script("SGE.Timer.js", Url)
+    @*@Content.Script("SGE.Seccion.js", Url)*@
+    @Content.Script("smartpaginator.js", Url)   @*19/02/2013 - DI CAMPLI LEANDRO - SE AÑADE LIBRERIA PARA NUEVO PAGINADOR*@ 
+</body>
+</html>
+<div id="dialog60s" title="Mensaje">
+<p>Su Sesión está apunto de Expirar!!!</p>
+</div>
+<div id="dialogExpiracion" title="Mensaje">
+<p>Su Sesión ha Expirado</p>
+</div>

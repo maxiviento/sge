@@ -1,0 +1,71 @@
+﻿@model UsuariosVista
+
+@{
+    var acciones = ViewData["Acciones"] as IList<string>;  
+ }
+
+@if (Model.Usuarios != null && Model.Usuarios.Count > 0)
+{ 
+    <div style="text-align: center;">
+        <table id="grilla" width="925px" cellpadding="0" cellspacing="0">
+            <thead>
+                <tr>
+                    <th height="30px" width="230px">
+                        <div align="center">@Html.LabelFor(model => model.Apellido)</div>
+                    </th>
+                    <th width="230px">
+                        <div align="center">@Html.LabelFor(model => model.Nombre)</div>
+                    </th>
+                    <th width="230px">
+                        <div align="center">@Html.LabelFor(model => model.Login)</div>
+                    </th>
+                    <th width="115">
+                        <div align="center">Acciones</div>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Usuarios)
+                {
+                    <tr>
+                        <td height="28px" align="left" width="50">
+                            @item.Apellido_Usuario.ToMaxLenght(100)
+                        </td>
+                        <td align="left" width="50">
+                            @item.Nombre_Usuario.ToMaxLenght(100)
+                        </td>
+                        <td align="left" height="28">
+                            @item.Login_Usuario.ToMaxLenght(20)
+                        </td>
+                        <td>
+                         @{                    
+                    if (acciones.Contains(((int)Enums.Acciones.Consultar).ToString()))
+                            {
+                                @Html.ActionLink("Ver", "Ver", "Usuarios", new { idUsuario = item.Id_Usuario }, new { @class = "Lupa", title = "Ver Usuario" })
+                            }
+                    if (acciones.Contains(((int)Enums.Acciones.Modificar).ToString()))
+                            {
+                                @Html.ActionLink("Modificar", "Modificar", "Usuarios", new { idUsuario = item.Id_Usuario }, new { @class = "Modificar", title = "Modificar Usuario" })
+                            }
+                    if (acciones.Contains(((int)Enums.Acciones.Eliminar).ToString()))
+                            {
+                                @Html.ActionLink("Eliminar", "Eliminar", "Usuarios", new { idUsuario = item.Id_Usuario }, new { @class = "Eliminar", title = "Eliminar Usuario" })
+                            }
+                         }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
+else
+{
+    <table id="grilla" align="center" width="930px" cellpadding="0" cellspacing="0">
+        <tr>
+            <td width="930px">
+                @Html.Partial("_SinDatos", "Usuarios")
+            </td>
+        </tr>
+    </table>
+}

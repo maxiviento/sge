@@ -1,0 +1,26 @@
+﻿@using SGE.Servicio.Vista.Shared
+@model IPager
+@Html.HiddenFor(c => c.PageSize)
+@Html.HiddenFor(c => c.PageNumber)
+@Html.HiddenFor(c => c.TotalCount)
+@Html.HiddenFor(c => c.TotalPages)
+@Html.HiddenFor(c => c.FormName)
+@Html.HiddenFor(c => c.ActionName)
+<table cellpadding="10" cellspacing="0" border="0" width="100%">
+    <tr>
+        <td>
+            <div id="pager">
+            </div>
+        </td>
+    </tr>
+    @if (Model.TotalCount > 0)
+    {
+        <tr align="center">
+            <td>
+                <div id="Dario">
+                    <b>Total : @Model.TotalCount</b>
+                </div>
+            </td>
+        </tr>
+    }
+</table>

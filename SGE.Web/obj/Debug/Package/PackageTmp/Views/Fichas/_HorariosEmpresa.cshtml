@@ -1,0 +1,390 @@
+﻿@model FichaVista
+<table style="width: 890px;">
+    <tr>
+        <td style="width: 60px;">
+            <b>Lunes</b>
+        </td>
+        <td style="width: 600px;">
+            <table style="width: 590px;">
+                @for (int i = 0; i < Model.HorarioLunes.Count; i++)
+                {
+                    <tr>
+                        <td style="text-align: left; width: 120px;">
+                            @Html.EditorFor(c => c.HorarioLunes[i])
+                        </td>
+                        <td style="text-align: left; width: 580px;">
+                            @if (Model.Accion == "Modificar")
+                            {
+                                @Html.TextBoxFor(c => c.ObsLunes[i], new { style = "width:500px;", maxlength = 250 })
+                            }
+                            else
+                            { 
+                                @Html.TextBoxFor(c => c.ObsLunes[i], new { disabled = "disabled", style = "width:500px;", maxlength = 250 })
+                            }
+                        </td>
+                    </tr>    
+                }
+            </table>
+        </td>
+        <td style="width: 200px;">
+            @if (Model.Accion == "Modificar")
+            {
+                <a class="btnIngresar" title="Agregar Horario Lunes" id="AgregarHrLunes">Agregar Horario</a><span>&nbsp;&nbsp;</span>
+                <a class="btnIngresar" title="Agregar Corte Lunes" id="AgregarCiLunes">Agregar Corte</a>
+            }
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <b>Martes</b>
+        </td>
+        <td style="width: 600px;">
+            <table style="width: 590px;">
+                @for (int i = 0; i < Model.HorarioMartes.Count; i++)
+                {
+                    <tr>
+                        <td style="text-align: left; width: 120px;">
+                            @Html.EditorFor(c => c.HorarioMartes[i])
+                        </td>
+                        <td style="text-align: left; width: 580px;">
+                            @if (Model.Accion == "Modificar")
+                            {
+                                @Html.TextBoxFor(c => c.ObsMartes[i], new { style = "width:500px;", maxlength = 250 })
+                            }
+                            else
+                            { 
+                                @Html.TextBoxFor(c => c.ObsMartes[i], new { disabled = "disabled", style = "width:500px;", maxlength = 250 })
+                            }
+                        </td>
+                    </tr>    
+                }
+            </table>
+        </td>
+        <td>
+            @if (Model.Accion == "Modificar")
+            {
+                <a class="btnIngresar" title="Agregar Horario Martes" id="AgregarHrMartes">Agregar Horario</a><span>&nbsp;&nbsp;</span>
+                <a class="btnIngresar" title="Agregar Corte Martes" id="AgregarCiMartes">Agregar Corte</a>
+            }
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <b>Miércoles</b>
+        </td>
+        <td style="width: 600px;">
+            <table style="width: 590px;">
+                @for (int i = 0; i < Model.HorarioMiercoles.Count; i++)
+                {
+                    <tr>
+                        <td style="text-align: left; width: 120px;">
+                            @Html.EditorFor(c => c.HorarioMiercoles[i])
+                        </td>
+                        <td style="text-align: left; width: 580px;">
+                            @if (Model.Accion == "Modificar")
+                            {
+                                @Html.TextBoxFor(c => c.ObsMiercoles[i], new { style = "width:500px;", maxlength = 250 })
+                            }
+                            else
+                            { 
+                                @Html.TextBoxFor(c => c.ObsMiercoles[i], new { disabled = "disabled", style = "width:500px;", maxlength = 250 })
+                            }
+                        </td>
+                    </tr>    
+                }
+            </table>
+        </td>
+        <td>
+            @if (Model.Accion == "Modificar")
+            {
+                <a class="btnIngresar" title="Agregar Horario Miércoles" id="AgregarHrMiercoles">Agregar Horario</a><span>&nbsp;&nbsp;</span>
+                <a class="btnIngresar" title="Agregar Corte Miércoles" id="AgregarCiMiercoles">Agregar Corte</a>
+            }
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <b>Jueves</b>
+        </td>
+        <td style="width: 600px;">
+            <table style="width: 590px;">
+                @for (int i = 0; i < Model.HorarioJueves.Count; i++)
+                {
+                    <tr>
+                        <td style="text-align: left; width: 120px;">
+                            @Html.EditorFor(c => c.HorarioJueves[i])
+                        </td>
+                        <td style="text-align: left; width: 580px;">
+                            @if (Model.Accion == "Modificar")
+                            {
+                                @Html.TextBoxFor(c => c.ObsJueves[i], new { style = "width:500px;", maxlength = 250 })
+                            }
+                            else
+                            { 
+                                @Html.TextBoxFor(c => c.ObsJueves[i], new { disabled = "disabled", style = "width:500px;", maxlength = 250 })
+                            }
+                        </td>
+                    </tr>    
+                }
+            </table>
+        </td>
+        <td>
+            @if (Model.Accion == "Modificar")
+            {
+                <a class="btnIngresar" title="Agregar Horario Jueves" id="AgregarHrJueves">Agregar Horario</a><span>&nbsp;&nbsp;</span>
+                <a class="btnIngresar" title="Agregar Corte Jueves" id="AgregarCiJueves">Agregar Corte</a>
+            }
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <b>Viernes</b>
+        </td>
+        <td style="width: 600px;">
+            <table style="width: 590px;">
+                @for (int i = 0; i < Model.HorarioViernes.Count; i++)
+                {
+                    <tr>
+                        <td style="text-align: left; width: 120px;">
+                            @Html.EditorFor(c => c.HorarioViernes[i])
+                        </td>
+                        <td style="text-align: left; width: 580px;">
+                            @if (Model.Accion == "Modificar")
+                            {
+                                @Html.TextBoxFor(c => c.ObsViernes[i], new { style = "width:500px;", maxlength = 250 })
+                            }
+                            else
+                            { 
+                                @Html.TextBoxFor(c => c.ObsViernes[i], new { disabled = "disabled", style = "width:500px;", maxlength = 250 })
+                            }
+                        </td>
+                    </tr>    
+                }
+            </table>
+        </td>
+        <td>
+            @if (Model.Accion == "Modificar")
+            {
+                <a class="btnIngresar" title="Agregar Horario Viernes" id="AgregarHrViernes">Agregar Horario</a><span>&nbsp;&nbsp;</span>
+                <a class="btnIngresar" title="Agregar Corte Viernes" id="AgregarCiViernes">Agregar Corte</a>
+            }
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <b>Sábados</b>
+        </td>
+        <td style="width: 600px;">
+            <table style="width: 590px;">
+                @for (int i = 0; i < Model.HorarioSabado.Count; i++)
+                {
+                    <tr>
+                        <td style="text-align: left; width: 120px;">
+                            @Html.EditorFor(c => c.HorarioSabado[i])
+                        </td>
+                        <td style="text-align: left; width: 580px;">
+                            @if (Model.Accion == "Modificar")
+                            {
+                                @Html.TextBoxFor(c => c.ObsSabado[i], new { style = "width:500px;", maxlength = 250 })
+                            }
+                            else
+                            { 
+                                @Html.TextBoxFor(c => c.ObsSabado[i], new { disabled = "disabled", style = "width:500px;", maxlength = 250 })
+                            }
+                        </td>
+                    </tr>    
+                }
+            </table>
+        </td>
+        <td>
+            @if (Model.Accion == "Modificar")
+            {
+                <a class="btnIngresar" title="Agregar Horario Sábado" id="AgregarHrSabado">Agregar Horario</a><span>&nbsp;&nbsp;</span>
+                <a class="btnIngresar" title="Agregar Corte Sábado" id="AgregarCiSabado">Agregar Corte</a>
+            }
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <b>Domingo</b>
+        </td>
+        <td style="width: 600px;">
+            <table style="width: 590px;">
+                @for (int i = 0; i < Model.HorarioDomingo.Count; i++)
+                {
+                    <tr>
+                        <td style="text-align: left; width: 120px;">
+                            @Html.EditorFor(c => c.HorarioDomingo[i])
+                        </td>
+                        <td style="text-align: left; width: 580px;">
+                            @if (Model.Accion == "Modificar")
+                            {
+                                @Html.TextBoxFor(c => c.ObsDomingo[i], new { style = "width:500px;", maxlength = 250 })
+                            }
+                            else
+                            { 
+                                @Html.TextBoxFor(c => c.ObsDomingo[i], new { disabled = "disabled", style = "width:500px;", maxlength = 250 })
+                            }
+                        </td>
+                    </tr>    
+                }
+            </table>
+        </td>
+        <td>
+            @if (Model.Accion == "Modificar")
+            {
+                <a class="btnIngresar" title="Agregar Horario Domingo" id="AgregarHrDomingo">Agregar Horario</a><span>&nbsp;&nbsp;</span>
+                <a class="btnIngresar" title="Agregar Corte Domingo" id="AgregarCiDomingo">Agregar Corte</a>
+            }
+        </td>
+    </tr>
+</table>
+<div id="dialogHorarioAdd" title="Mensaje">
+    <fieldset>
+        <legend align="center">
+            <label id="DiaSemanaTitulo">
+            </label>
+        </legend>
+        <table>
+            <tr>
+                <td>
+                    Hora Inicio/Fin
+                </td>
+                <td>
+                    <select id="HoraInicioSelect">
+                        <option value="00">00</option>
+                        <option value="01">01</option>
+                        <option value="02">02</option>
+                        <option value="03">03</option>
+                        <option value="04">04</option>
+                        <option value="05">05</option>
+                        <option value="06">06</option>
+                        <option value="07">07</option>
+                        <option value="08">08</option>
+                        <option value="09">09</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                        <option value="13">13</option>
+                        <option value="14">14</option>
+                        <option value="15">15</option>
+                        <option value="16">16</option>
+                        <option value="17">17</option>
+                        <option value="18">18</option>
+                        <option value="19">19</option>
+                        <option value="20">20</option>
+                        <option value="21">21</option>
+                        <option value="22">22</option>
+                        <option value="23">23</option>
+                    </select>
+                    :
+                    <select id="MinutoInicioSelect">
+                        <option value="00">00</option>
+                        <option value="05">05</option>
+                        <option value="10">10</option>
+                        <option value="15">15</option>
+                        <option value="20">20</option>
+                        <option value="25">25</option>
+                        <option value="30">30</option>
+                        <option value="35">35</option>
+                        <option value="40">40</option>
+                        <option value="45">45</option>
+                        <option value="50">50</option>
+                        <option value="55">55</option>
+                    </select>
+                </td>
+                <td>
+                    &nbsp;a&nbsp;
+                </td>
+                <td>
+                    <select id="HoraFinSelect">
+                        <option value="00">00</option>
+                        <option value="01">01</option>
+                        <option value="02">02</option>
+                        <option value="03">03</option>
+                        <option value="04">04</option>
+                        <option value="05">05</option>
+                        <option value="06">06</option>
+                        <option value="07">07</option>
+                        <option value="08">08</option>
+                        <option value="09">09</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                        <option value="13">13</option>
+                        <option value="14">14</option>
+                        <option value="15">15</option>
+                        <option value="16">16</option>
+                        <option value="17">17</option>
+                        <option value="18">18</option>
+                        <option value="19">19</option>
+                        <option value="20">20</option>
+                        <option value="21">21</option>
+                        <option value="22">22</option>
+                        <option value="23">23</option>
+                    </select>
+                    :
+                    <select id="MinutoFinSelect">
+                        <option value="00">00</option>
+                        <option value="05">05</option>
+                        <option value="10">10</option>
+                        <option value="15">15</option>
+                        <option value="20">20</option>
+                        <option value="25">25</option>
+                        <option value="30">30</option>
+                        <option value="35">35</option>
+                        <option value="40">40</option>
+                        <option value="45">45</option>
+                        <option value="50">50</option>
+                        <option value="55">55</option>
+                    </select>
+                </td>
+            </tr>
+        </table>
+    </fieldset>
+</div>
+@for (int i = 0; i < Model.HorarioLunes.Count; i++)
+{
+    @Html.HiddenFor(c => c.HorarioLunes[i].Selected)
+    @Html.HiddenFor(c => c.ObsLunes[i])
+}
+@for (int i = 0; i < Model.HorarioMartes.Count; i++)
+{
+    @Html.HiddenFor(c => c.HorarioMartes[i].Selected)
+    @Html.HiddenFor(c => c.ObsMartes[i])
+}
+@for (int i = 0; i < Model.HorarioMiercoles.Count; i++)
+{
+    @Html.HiddenFor(c => c.HorarioMiercoles[i].Selected)
+    @Html.HiddenFor(c => c.ObsMiercoles[i])
+}
+@for (int i = 0; i < Model.HorarioJueves.Count; i++)
+{
+    @Html.HiddenFor(c => c.HorarioJueves[i].Selected)
+    @Html.HiddenFor(c => c.ObsJueves[i])
+}
+@for (int i = 0; i < Model.HorarioViernes.Count; i++)
+{
+    @Html.HiddenFor(c => c.HorarioViernes[i].Selected)
+    @Html.HiddenFor(c => c.ObsViernes[i])
+}
+@for (int i = 0; i < Model.HorarioSabado.Count; i++)
+{
+    @Html.HiddenFor(c => c.HorarioSabado[i].Selected)
+    @Html.HiddenFor(c => c.ObsSabado[i])
+}
+@for (int i = 0; i < Model.HorarioDomingo.Count; i++)
+{
+    @Html.HiddenFor(c => c.HorarioDomingo[i].Selected)
+    @Html.HiddenFor(c => c.ObsDomingo[i])
+}
+@Html.HiddenFor(c => c.DiaSemana)
+@Html.HiddenFor(c => c.HoraInicio)
+@Html.HiddenFor(c => c.MinutoInicio)
+@Html.HiddenFor(c => c.HoraFin)
+@Html.HiddenFor(c => c.MinutoFin)
+
+@if (Model.FechaCambioHorario != null && Model.FechaCambioHorario != "")
+{
+<p class="similLegend"><b>"Ultima actualización del horario: @Model.FechaCambioHorario"</b></p>
+}

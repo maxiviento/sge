@@ -1,0 +1,58 @@
+﻿
+@model BeneficiariosVista
+
+@{
+    ViewBag.Title = "ReportesArt";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var acciones = ViewData["Acciones"] as IList<string>;
+    var form = ViewData["Menu"] as IList<string>;
+    var verEfectores = (bool)TempData["VerEfectores"];
+}
+@section Scripts{
+    @Content.Script("SGE.ReportesArt.js", Url)
+}
+
+
+<div class="box" style="text-align:center;">
+    <h2>
+        Reportes ART</h2>
+    @using (Html.BeginForm("ReporteArtPpp", "Reportes", FormMethod.Post, new { Id = "FormIndexReportesArt" }))
+    {
+         <b>Filtrar por fecha de incio beneficiario:</b><br/>
+        <b>Fec. desde: </b>@Html.EditorFor(c => c.FechaInicioBeneficio, new { style = "width:71px; text-align: right;" })
+        <br/>
+        <b>Fec. hasta: </b>@Html.EditorFor(c => c.FechaBenefHasta, new { style = "width:71px; text-align: right;" })
+        <br/>
+@*        @Html.ActionLink("Reporte de ART - Ppp", "ReporteArtPpp", "Beneficiarios", null, new { style = "width: 500px;" })*@
+          
+        //if (acciones.Contains(((int)Enums.Formulario.RepArtHorariosEntPpp).ToString()))
+        //{
+            <br/><a class="btnIngresar" href="#" id="RptArtPpp">Reporte de ART - Ppp</a><br/>
+        //}
+
+        //if (acciones.Contains(((int)Enums.Formulario.RepArtHorariosEntReconversion).ToString()))
+        //{
+            <br/><a class="btnIngresar" href="#" id="RptArtReconv">Reporte de ART - Reconversión</a><br/>
+        //}
+        //if (acciones.Contains(((int)Enums.Acciones.VerEfectoresSociales).ToString()))
+        if (verEfectores == true)
+        {
+          
+        <br/><a class="btnIngresar" href="#" id="RptArtEfect">Reporte de ART - Efectores</a><br/>
+        }
+        //if (acciones.Contains(((int)Enums.Formulario.RepArtHorariosEntVat).ToString()))
+        //{
+        <br/><a class="btnIngresar" href="#" id="RptArtVat">Reporte de ART - VAT</a><br/>
+                    
+        //}
+        //if (acciones.Contains(((int)Enums.Formulario.RepArtHorariosEntPppp).ToString()))
+        //{
+        <br/><a class="btnIngresar" href="#" id="RptArtPprof">Reporte de ART - Pprof</a><br/>
+        //}
+        
+        <br/><a class="btnIngresar" href="#" id="RptArtConfVos">Reporte de ART - Conf. en Vos</a><br/>
+        
+          
+    }
+
+</div>

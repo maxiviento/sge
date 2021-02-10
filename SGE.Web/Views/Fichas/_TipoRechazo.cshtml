@@ -1,0 +1,73 @@
+﻿@model FichaVista
+<fieldset style="width: 925px;">
+    <legend align="center"><b>Tipos de Rechazos</b></legend>
+    <div id="Panel" style="height: 200px">
+        <table id="grilla" align="center" style="width: 900px; height: 10px;" cellpadding="0"
+            cellspacing="0">
+            <tr>
+                <th height="30" width="50px" align="center">
+                    <div align="center">
+                        Id</div>
+                </th>
+                <th height="30" width="730px" align="center">
+                    <div align="center">
+                        Descripción</div>
+                </th>
+                <th height="30" width="120px" align="center">
+                    <div align="center">
+                    </div>
+                </th>
+            </tr>
+            @for (int i = 0; i < Model.TipoRechazos.Count; i++)
+            {
+                if (Model.Accion.Equals("Ver") && Model.TipoRechazos[i].Selected == true)
+                {
+                <tr>
+                    <td height="30px" width="50px" align="right">
+                        @Html.DisplayFor(model => model.TipoRechazos[i].Id)&nbsp;&nbsp;
+                    </td>
+                    <td height="30px" width="730px" align="left">
+                        @Html.DisplayFor(model => model.TipoRechazos[i].Descripcion)
+                    </td>
+                    <td height="30px" width="120px" align="center">
+                        @Html.CheckBoxFor(model => model.TipoRechazos[i].Selected, new { disabled = "disabled" })
+                    </td>
+                </tr>
+                }
+                else if (Model.Accion.Equals("Modificar") || Model.Accion.Equals("CambiarEstado"))
+                {
+                <tr>
+                    <td height="30" width="0" align="left" style="display: none">
+                        @Html.HiddenFor(model => model.TipoRechazos[i].Id)
+                    </td>
+                    <td height="30px" width="50px" align="right">
+                        @Html.DisplayFor(model => model.TipoRechazos[i].Id)&nbsp;&nbsp;
+                    </td>
+                    <td height="30px" width="730px" align="left">
+                        @Html.DisplayFor(model => model.TipoRechazos[i].Descripcion)
+                    </td>
+                    <td height="30px" width="120px" align="center">
+                        @Html.CheckBoxFor(model => model.TipoRechazos[i].Selected)
+                    </td>
+                </tr>
+                } if (Model.Accion.Equals("Agregar"))
+                {
+                <tr>
+                    <td height="30" width="0" align="left" style="display: none">
+                        @Html.HiddenFor(model => model.TipoRechazos[i].Id)
+                    </td>
+                    <td height="30px" width="50px" align="right">
+                        @Html.DisplayFor(model => model.TipoRechazos[i].Id)&nbsp;&nbsp;
+                    </td>
+                    <td height="30px" width="730px" align="left">
+                        @Html.DisplayFor(model => model.TipoRechazos[i].Descripcion)
+                    </td>
+                    <td height="30px" width="120px" align="center">
+                        @Html.CheckBoxFor(model => model.TipoRechazos[i].Selected)
+                    </td>
+                </tr>
+                }
+            }
+        </table>
+    </div>
+</fieldset>

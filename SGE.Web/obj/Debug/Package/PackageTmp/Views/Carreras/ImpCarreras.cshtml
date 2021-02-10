@@ -1,0 +1,52 @@
+﻿@model CarrerasVista
+<br/>
+<table>
+<tr border="1">
+<td  width="25%" align="center"><img src="@Server.MapPath("~/Content/images/Logo Agencia.jpg")" width="124px" height="60px"  /></td>
+<td  width="62%" align="center"><h3>LISTADO DE SECTOR-INSTITUCIÓN-CARRERA</h3><br/>@if (Model.idNivel == 1){<p>CARRERAS TERCIARIAS</p>}else if (Model.idNivel == 2){<p>CARRERAS UNIVERSITARIAS</p>}
+                                                                                   else
+                                                                                   {<p>CARRERAS TODOS LOS NIVELES</p>}</td>
+<td width="13%"  align="center"><img src="@Server.MapPath("~/Content/images/EscudoCordoba.png")" width="60px" height="60px" /> </td>
+</tr>
+</table>
+
+<br/>
+<table cellpadding="3" cellspacing="3">
+    <tr border="1" bgcolor="#3e83c9" color="#ffffff" >
+        <td width="20%" align="center">
+            Sector
+        </td>
+        <td width="50%" align="center">
+            Institución
+        </td>
+        <td width="30%" align="center">
+            Carrera
+        </td>
+    </tr>
+    @{
+        var OddColor = "#DDEEEE";
+        var evenColor = "#ffffff";//EEFFFF
+        var Odd = OddColor;
+    }
+@foreach (ICarrera carrera in Model.Carreras)
+{
+        <tr border="1" bgcolor="@Odd">
+            <td><font size="1">@carrera.NombreSector</font>
+            </td>
+            <td><font size="1">@carrera.NombreInstitucion</font>
+            </td>
+            <td><font size="1">@carrera.NombreCarrera</font>
+            </td>
+        </tr>
+        if (Odd == OddColor)
+        {
+            Odd = evenColor;
+        }
+        else
+        {
+            Odd = OddColor;
+        }
+
+    }
+</table>
+

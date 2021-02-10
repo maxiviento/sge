@@ -1,0 +1,53 @@
+﻿@model UniversidadesVista
+@{
+    var acciones = ViewData["Acciones"] as IList<string>;    
+}
+@if (Model.Universidades != null && Model.Universidades.Count > 0)
+{ 
+    <div style="text-align: center;">
+        <table id="grilla" align="center" width="925px" cellpadding="0" cellspacing="0">
+            <thead>
+                <tr>
+                    <th height="30px" width="825px">
+                        <div align="center">
+                            Descripción</div>
+                    </th>
+                    <th width="100">
+                        <div align="center">
+                            Acciones</div>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Universidades)
+                {
+                    <tr>
+                        <td style="text-align: left; height: 28px;">
+                            @item.NombreUniversidad.ToMaxLenght(100)
+                        </td>
+                        <td style="text-align: center;">
+                         @if (acciones.Contains(((int)Enums.Acciones.Consultar).ToString()))
+                         { 
+                            @Html.ActionLink("Ver", "Ver", "Universidades", new { IdUniversidad = item.IdUniversidad }, new { @class = "Lupa", title = "Ver Universidad" })
+                         }
+                         @if (acciones.Contains(((int)Enums.Acciones.Modificar).ToString()))
+                         { 
+                            @Html.ActionLink("Modificar", "Modificar", "Universidades", new { IdUniversidad = item.IdUniversidad }, new { @class = "Modificar", title = "Modificar Universidad" })
+                         }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
+else
+{
+    <table align="center" width="930px" cellpadding="0" cellspacing="0">
+        <tr>
+            <td width="930px">
+                @Html.Partial("_SinDatos", "Universidades")
+            </td>
+        </tr>
+    </table>
+}

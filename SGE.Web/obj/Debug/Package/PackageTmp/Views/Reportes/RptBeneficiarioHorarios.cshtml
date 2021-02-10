@@ -1,0 +1,40 @@
+﻿
+@model BeneficiariosVista
+
+@{
+    ViewBag.Title = "Reporte Beneficiario Horarios";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var acciones = ViewData["Acciones"] as IList<string>;
+    var form = ViewData["Menu"] as IList<string>;
+    //var verEfectores = (bool)TempData["VerEfectores"];
+}
+@section Scripts{
+    @Content.Script("SGE.BeneficiarioHorarios.js", Url)
+}
+
+
+<div class="box" style="text-align:center;">
+    <h2>
+       Reporte Beneficiario Horarios</h2>
+    @using (Html.BeginForm("ReporteArtPpp", "Reportes", FormMethod.Post, new { Id = "FormIndexBeneficiarioHorarios" }))
+    {
+        <table>
+        <tr><td colspan='2'><b>Filtros</b></td></tr>
+        <tr align="right"><td><b>Estado beneficiario: </b></td><td align="left">@Html.EditorFor(c => c.EstadosBeneficiarios)</td></tr>
+        <tr align="right"><td><b>Tipo Ppp: </b></td><td align="left">@Html.EditorFor(c => c.ComboTiposPpp)</td></tr>
+        <tr align="right"><td><b>Fec. desde: </b></td><td align="left">@Html.EditorFor(c => c.FechaInicioBeneficio, new { style = "width:71px; text-align: right;" })</td></tr>
+        <tr align="right"><td><b>Fec. hasta: </b></td><td align="left">@Html.EditorFor(c => c.FechaBenefHasta, new { style = "width:71px; text-align: right;" })</td></tr>
+        </table>
+        <br/>
+@*        @Html.ActionLink("Reporte de ART - Ppp", "ReporteArtPpp", "Beneficiarios", null, new { style = "width: 500px;" })*@
+          
+        //if (acciones.Contains(((int)Enums.Formulario.RepArtHorariosEntPpp).ToString()))
+        //{
+            <br/><a class="btnIngresar" href="#" id="RptBeneficiarioHorariosPpp">Reporte Beneficiario Horarios - Ppp</a><br/>
+        //}
+        <br/><br/>
+    }
+
+</div>
+
+

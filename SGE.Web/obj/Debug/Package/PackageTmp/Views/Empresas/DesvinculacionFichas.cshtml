@@ -1,0 +1,156 @@
+﻿@model EmpresasVista
+@{
+    ViewBag.Title = "Desvincular Fichas";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section Scripts{
+    @Content.Script("SGE.Empresas.js", Url)
+}
+<div class="box">
+    <h2>
+        Desvincular fichas</h2>
+    @using (Html.BeginForm("DesvincularFichas", "Empresas", FormMethod.Post, new { Id = "FormDesvincularFichas" }))
+    {
+        <fieldset style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 925px;
+            text-align: center;">
+            <legend style="color: #FF9900"><b>Empresa Origen</b></legend>
+            <table>
+                <tr>
+                    <td align="right">
+                        <b>Razón Social: </b>
+                    </td>
+                    <td align="left" valign="middle">
+                        @Html.TextBoxFor(model => model.ObjEmpresaOrigen.Descripcion, new { disabled = "disabled", style = "width:380px;" })
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">
+                        <b>CUIT: </b>
+                    </td>
+                    <td align="left" valign="middle">
+                        @Html.TextBoxFor(model => model.ObjEmpresaOrigen.Cuit, new { disabled = "disabled", style = "width:200px;" })
+                    </td>
+                    <td align="right">
+                        <b>Localidad: </b>
+                    </td>
+                    <td align="left" valign="middle">
+                        @Html.EditorFor(model => model.ObjEmpresaOrigen.Localidades, new { disabled = "disabled", style = "width:180px;" })
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">
+                        <b>Código de Actividad: </b>
+                    </td>
+                    <td align="left" valign="middle">
+                        @Html.TextBoxFor(model => model.ObjEmpresaOrigen.CodigoActividad, new { disabled = "disabled", style = "width:80px;" })
+                    </td>
+                    <td align="right">
+                        <b>Cantidad de Empleados: </b>
+                    </td>
+                    <td align="left" valign="middle">
+                        @Html.TextBoxFor(model => model.ObjEmpresaOrigen.CantidadEmpleados, new { disabled = "disabled", style = "width:80px;", MaxLength = "5" })
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">
+                        <b>Calle: </b>
+                    </td>
+                    <td align="left" valign="middle">
+                        @Html.TextBoxFor(model => model.ObjEmpresaOrigen.Calle, new { disabled = "disabled", style = "width:300px;" })
+                    </td>
+                    <td align="right">
+                        <b>Número: </b>
+                    </td>
+                    <td align="left" valign="middle">
+                        @Html.TextBoxFor(model => model.ObjEmpresaOrigen.Numero, new { disabled = "disabled", style = "width:80px;" })
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">
+                        <b>Piso: </b>
+                    </td>
+                    <td align="left" valign="middle">
+                        @Html.TextBoxFor(model => model.ObjEmpresaOrigen.Piso, new { disabled = "disabled", style = "width:80px;" })
+                    </td>
+                    <td align="right">
+                        <b>Dpto.: </b>
+                    </td>
+                    <td align="left" valign="middle">
+                        @Html.TextBoxFor(model => model.ObjEmpresaOrigen.Dpto, new { disabled = "disabled", style = "width:80px;" })
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">
+                        <b>Código Postal: </b>
+                    </td>
+                    <td align="left" valign="middle">
+                        @Html.TextBoxFor(model => model.ObjEmpresaOrigen.CodigoPostal, new { disabled = "disabled", style = "width:80px;" })
+                    </td>
+                    <td align="right">
+                        <b>Domicilio Laboral Idem: </b>
+                    </td>
+                    <td align="left" valign="middle">
+                        @Html.EditorFor(model => model.ObjEmpresaOrigen.DomicilioLaboralIdem, new { disabled = "disabled", style = "width:180px;" })
+                    </td>
+                </tr>
+            </table>
+        </fieldset>
+        @Html.HiddenFor(model => model.Id) 
+        @Html.HiddenFor(model => model.Descripcion)             
+        @Html.HiddenFor(model => model.IdEmpresaOrigen)
+        @Html.HiddenFor(model => model.EmpresaOrigen)
+        @Html.HiddenFor(model => model.IdEmpresaDestino)
+        <table align="center" style="width: 930px;">
+            <tr>
+                <td>
+                    <fieldset style="width: 925px;">
+                        <table align="center" style="width: 930px;">
+                            <tr>
+                                <td>
+                                    <fieldset style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 925px;
+                                        text-align: center;">
+                                        <legend style="color: #FF9900"><b>Filtros</b></legend>
+                                        <table style="width: 924px;">
+                                            <tr>
+                                                <td style="width: 20%; text-align: right;">
+                                                    <b>Razón Social: </b>
+                                                </td>
+                                                <td style="width: 30%; text-align: left;">
+                                                    @Html.TextBoxFor(c => c.Descripcion, new { style = "width:80%" })
+                                                </td>
+                                                <td style="width: 10%; text-align: right;">
+                                                    <b>CUIT: </b>
+                                                </td>
+                                                <td style="width: 40%; text-align: left;">
+                                                    @Html.TextBoxFor(c => c.Cuit, new { style = "width:45%" })
+                                                </td>
+                                            </tr>
+                                        </table>
+                                        <br />
+                                        <div>
+                                            <a class="btnIngresar" href="#" id="BuscarEmpAvincular">Buscar</a> <a class="btnIngresar"
+                                                href="#" id="VolverFormEmpresa">Volver</a>
+                                        </div>
+                                        <br />
+                                    </fieldset>
+                                </td>
+                            </tr>
+                        </table>
+                        <table>
+                            <tr>
+                                <td style="font-weight: bold">
+                                    <div id="titulo">
+                                    </div>
+                                    <div id="DivSuperviciones">
+                                        @Html.Partial("_Lista", Model)
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                        @Html.Partial("_Pager", Model.Pager)
+                    </fieldset>
+                </td>
+            </tr>
+        </table>
+    }
+</div>

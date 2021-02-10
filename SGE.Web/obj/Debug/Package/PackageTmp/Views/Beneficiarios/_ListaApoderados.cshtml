@@ -1,0 +1,107 @@
+﻿@model BeneficiarioVista
+@{
+    ViewBag.Title = "Beneficiarios";
+    var acciones = ViewData["Acciones"] as IList<string>;
+}
+@if (Model.ListaApoderados != null && Model.ListaApoderados.Count > 0)
+{
+    <div style="text-align: center;">
+        <table id="grilla" align="center" width="925px" cellpadding="0" cellspacing="0">
+            <thead>
+                <tr>
+                    <th height="30px" width="200px">
+                        <div align="center">
+                            Apellido</div>
+                    </th>
+                    <th width="200px">
+                        <div align="center">
+                            Nombre</div>
+                    </th>
+                    <th width="80px">
+                        <div align="center">
+                            Nro. Doc.</div>
+                    </th>
+                    <th width="100px">
+                        <div align="center">
+                            Desde</div>
+                    </th>
+                    <th width="100px">
+                        <div align="center">
+                            Hasta</div>
+                    </th>
+                    <th width="100px">
+                        <div align="center">
+                            Estado</div>
+                    </th>
+                    <th width="75px">
+                        <div align="center">
+                            Acciones</div>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.ListaApoderados)
+                {
+                    <tr>
+                        <td align="left" style="height: 28px; width: 200px;">
+                            @item.Apellido.ToMaxLenght(100)
+                        </td>
+                        <td align="left" style="width: 200px;">
+                            @item.Nombre.ToMaxLenght(100)
+                        </td>
+                        <td style="text-align: right;">
+                            @string.Format("{0:##,###,###}", Convert.ToInt32(item.NumeroDocumento))
+                        </td>
+                        <td style="text-align: right;">
+                            @if (item.ApoderadoDesde != null)
+                            {   @item.ApoderadoDesde.Value.ToShortDateString()   }
+                        </td>
+                        <td style="text-align: right;">
+                            @if (item.ApoderadoHasta != null)
+                            { @item.ApoderadoHasta.Value.ToShortDateString()}
+                        </td>
+                        <td>
+                            @item.NombreEstadoApoderado.ToMaxLenght(50)
+                        </td>
+                        <td>
+                            @if (acciones.Contains(((int)Enums.Acciones.ConsultarApoderado).ToString()))
+                            {
+                                @Html.ActionLink("Ver", "Ver", "Apoderados", new { idApoderado = item.IdApoderado, accion = Model.Accion }, new { @class = "Lupa", title = "Ver Apoderado" })
+                            }
+                            @if (Model.Accion == "Agregar" || Model.Accion == "Modificar")
+                            {
+                                if (item.NombreEstadoApoderado == "ACTIVO")
+                                {
+                                    if (acciones.Contains(((int)Enums.Acciones.ModificarApoderado).ToString()))
+                                    {
+                                @Html.ActionLink("Modificar", "Modificar", "Apoderados", new { idApoderado = item.IdApoderado, idBeneficiario = item.IdBeneficiario }, new { @class = "Modificar", title = "Modificar Apoderado" })
+                                    }
+                                }
+                                else
+                                { 
+                                @Html.ActionLink("Cambiar Estado", "CambiarEstado", "Apoderados", new { idApoderado = item.IdApoderado, idBeneficiario = item.IdBeneficiario }, new { @class = "EstadoGenerico", title = "Cambiar Estado" }) 
+                                }
+
+
+                                if (acciones.Contains(((int)Enums.Acciones.EliminarApoderado).ToString()))
+                                {
+                                @Html.ActionLink("Eliminar", "Eliminar", "Apoderados", new { idApoderado = item.IdApoderado, accion = Model.Accion }, new { @class = "Eliminar", title = "Eliminar Apoderado" })
+                                }
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>  
+}
+else
+{
+    <table align="center" width="930px" cellpadding="0" cellspacing="0">
+        <tr>
+            <td width="930px">
+                @Html.Partial("_SinDatos", "Apoderado")
+            </td>
+        </tr>
+    </table>
+}

@@ -1,0 +1,64 @@
+﻿@model FichaVista
+
+<table>
+    <tr>
+        <td align="right" valign="top">
+            <b>Nombre de la Escuela: </b>
+        </td>
+        <td align="left" valign="middle" colspan="7">
+            @Html.TextBox("ABMN_ESCUELA", null, new { Class = "ABMSede", style = "width:547px;" })
+        </td>
+
+    </tr>
+    <tr>
+        <td align="right" valign="top">
+            <b>Calle: </b>
+        </td>
+        <td align="left" valign="middle">
+            @Html.TextBox("ABMCALLEEsc", null, new { Class = "ABMSede", style = "width:150px;" })
+        </td>
+        <td align="right" valign="top">
+            <b>Nro: </b>
+        </td>
+        <td align="left" valign="middle" colspan="5">
+            @Html.TextBox("ABMNro", null, new { Class = "ABMSede", style = "width:90px;" })
+        </td>
+    </tr>
+    <tr>
+        <td align="right" valign="top">
+            <b>Teléfono: </b>
+        </td>
+        <td align="left" valign="middle">
+            @Html.TextBox("ABMTELEFONOEsc", null, new { Class = "ABMSede", style = "width:150px;" })
+        </td>
+        <td align="right" valign="top">
+            <b>CUE: </b>
+        </td>
+        <td align="left" valign="middle" colspan="5">
+            @Html.TextBox("ABMCueEsc", null, new { Class = "ABMSede", style = "width:90px;" })
+        </td>
+    </tr>
+    <tr>
+
+        <td align="right" valign="top">
+            <b>Regise: </b>
+        </td>
+        <td align="left" valign="middle" colspan="7">
+            @Html.TextBox("ABMRegiseEsc", null, new { Class = "ABMSede", style = "width:250px;" })
+        </td>
+    </tr>
+
+    <tr>
+        <td colspan="4">
+            <br />
+        </td>
+    </tr>
+    <tr>
+        <td align="center" valign="top" colspan="4">
+            <a class="btnIngresar"  id="AgregarEsc">Agregar Escuela</a>
+        </td>
+    </tr>
+</table>
+            <br />
+<table id="grillaEscuela" align="center" width="600px" cellpadding="0" cellspacing="0" style="font-size:small;">
+</table>

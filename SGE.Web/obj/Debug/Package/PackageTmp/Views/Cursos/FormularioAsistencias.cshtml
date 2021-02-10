@@ -1,0 +1,127 @@
+﻿@model List<IFichasCurso>
+@{Int32 contador = 0;}
+@{
+    ViewBag.Title = "Asistencias por período";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    DateTimeFormatInfo formatoFec = CultureInfo.CurrentCulture.DateTimeFormat;
+    string mes = formatoFec.GetMonthName(Convert.ToInt32(Model[0].MES));
+    var PERIODO = Model[0].MES;
+    var IDCURSO = Model[0].id_curso;
+}
+@section Scripts{
+    @Content.Script("SGE.Cursos.js", Url)
+}
+<div class="box">
+    <h2>
+       Asistencias Período @mes</h2>
+    @using (Html.BeginForm("AsistenciaCurso", "Cursos", FormMethod.Post, new { Id = "FormularioAsistencias" }))
+    {
+ <div style="text-align:center;">
+        <table id="grillaFichas" align="center" width="925px" cellpadding="0" cellspacing="0">
+            <thead>
+                <tr>
+                   <th height="30px" width="150px">
+                        <div align="left">Ficha</div>
+                    </th>
+                    <th height="30px" width="150px">
+                        <div align="left">Apellido</div>
+                    </th>
+                    <th width="250px">
+                        <div align="left">Nombre</div>
+                    </th>
+                    <th width="150px">
+                        <div align="left">Documento</div>
+                    </th>
+                    <th width="100px">
+                        <div align="left">Porc Asistencia</div>
+                    </th>
+
+                </tr>
+            </thead>
+            <tbody>
+
+
+                @foreach (var item in Model)
+                {
+                    contador++;
+                    <tr>
+                        <td style="height: 28px; text-align: left;">
+                            @*@Html.TextBoxFor(m => m[contador - 1].IdFicha, new { disabled = "disabled", style = "width:100px; text-align: left;" })*@
+                            @item.IdFicha
+                            @Html.HiddenFor(m => m[contador - 1].IdFicha, new { id = "[" + (contador - 1) + "].IdFicha" })
+                            @Html.HiddenFor(m => m[contador - 1].idAsistencia, new { id = "[" + (contador - 1) + "].idAsistencia" })
+                            @Html.HiddenFor(m => m[contador - 1].id_curso, new { id = "[" + (contador - 1) + "].id_curso" })
+                            @Html.HiddenFor(m => m[contador - 1].MES, new { id = "[" + (contador - 1) + "].MES" })
+                        </td>
+                        <td style="text-align: left;">
+                           @item.Apellido
+                            @Html.HiddenFor(m => m[contador - 1].Apellido, new { id = "[" + (contador - 1) + "].Apellido" })
+                        </td>
+                        <td style="text-align: left;">
+                          @item.Nombre
+                            @Html.HiddenFor(m => m[contador - 1].Nombre, new { id = "[" + (contador - 1) + "].Nombre" })
+                        </td>
+                        <td style="text-align: left;">
+
+                            @item.NumeroDocumento
+                            @Html.HiddenFor(m => m[contador - 1].NumeroDocumento, new { id = "[" + (contador - 1) + "].NumeroDocumento" })
+
+                        </td>
+                        <td style="text-align: left;">
+                            @*@Html.TextBox("TxtPorcAsistencia" + item.IdFicha, item.PORC_ASISTENCIA, new { style = "width:80px;", MaxLength = "3" })*@
+                            @Html.TextBoxFor(m => m[contador - 1].PORC_ASISTENCIA, new { style = "width: 80px; text-align: left;", @class = "validar"})
+                            
+                        </td>
+
+                    </tr>
+                    
+
+                }
+                  
+
+            </tbody>
+        </table>
+    </div>
+        <br />
+       
+        <br />
+        <table id="btnfin" width="100%">
+            <tr>
+                <td align="center" valign="middle">
+
+                    <a class="btnIngresar" href="#" id="ModificarAsistencias">Modificar</a>
+                    &nbsp;&nbsp;@Html.ActionLink("Volver", "Asistencias", "Cursos", new { IdCurso = IDCURSO }, new { @class = "btnIngresar" })
+                    @*<a class="btnIngresar" href="#" id="CargarAsistencia">Cargar Asistencia</a> *@
+                    &nbsp;&nbsp;@Html.ActionLink("Cargar Asistencia", "CargarAsistencias", "Cursos", new { idCurso = IDCURSO, mesPeriodo = PERIODO }, new { @class = "btnIngresar" })      
+                </td>
+            </tr>
+        </table>
+
+        <table>
+            <tr>
+                <td>
+                    <div id="MensajeError">
+                        @TempData["MensajeError"]
+                    </div>
+                </td>
+            </tr>
+        </table>
+        
+        @Html.Hidden("idCurso", @IDCURSO)
+        @Html.Hidden("mesPeriodo", @PERIODO)
+    }
+</div>
+
+         <br />  
+<div id="dialogConfirmarEliminar" title="Mensaje">
+    <p>¿Está seguro que desea eliminar este registro?</p>
+</div>
+<div id="dialog" title="Mensaje">
+    <p>Esta Carrera no se puede eliminar porque está en uso.</p>
+</div>
+
+
+
+
+
+

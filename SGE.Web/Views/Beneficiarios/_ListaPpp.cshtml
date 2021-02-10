@@ -1,0 +1,163 @@
+﻿@model BeneficiariosVista
+@{
+    var acciones = ViewData["Acciones"] as IList<string>;
+    string tipoPrograma = "";
+    var tiposppp = Model.ComboTiposPpp;
+}
+@if (Model.ListaBeneficiarios != null && Model.ListaBeneficiarios.Count > 0)
+{ 
+    @Html.Hidden("ContBenef", Model.ListaBeneficiarios.Count, new { name = "ContBenef" })
+    
+    <div style="text-align: center;">
+        <table id="grilla" align="center" width="925px" cellpadding="0" cellspacing="0">
+            <thead>
+                <tr>
+                    <th style="height: 30px; width: 180px;">
+                        <div align="center">
+                            Apellido</div>
+                    </th>
+                    <th style="width: 180px;">
+                        <div align="center">
+                            Nombre</div>
+                    </th>
+                    <th style="width: 100px;">
+                        <div align="center">
+                            Nro. Doc.</div>
+                    </th>
+                    <th style="width: 100px;">
+                        <div align="center">
+                           Tipo Programa</div>
+                    </th>
+                    <th style="width: 100px;">
+                        <div align="center">
+                            Nro Caja</div>
+                    </th>
+                    <th style="width: 80px;">
+                        <div align="center">
+                            Estado</div>
+                    </th>
+                     <th style="width: 80px;">
+                        <div align="center">
+                            Discapacitado</div>
+                    </th>
+                    <th style="width: 100px;">
+                        <div align="center">
+                            Acciones</div>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.ListaBeneficiarios)
+                {
+                    <tr>
+                        <td align="left" style="height: 28px; width: 180px;">
+                            @item.Ficha.Apellido.ToMaxLenght(30)
+                        </td>
+                        <td align="left" style="width: 180px;">
+                            @item.Ficha.Nombre.ToMaxLenght(30)
+                        </td>
+                        <td align="center" style="width: 100px;">
+                            @string.Format("{0:##,###,###}", Convert.ToInt32(item.Ficha.NumeroDocumento == " " ? "0" : item.Ficha.NumeroDocumento))
+                        </td>
+                        <td align="center" style="width: 100px;">
+                            @{
+                                switch (item.TipoPrograma)
+                                {
+                                    case 1:
+                                        tipoPrograma = "PPP";
+                                        break;
+                                    case 2:
+                                        tipoPrograma = "PPP APRENDIZ";
+                                        break;
+                                    case 3:
+                                        tipoPrograma = "XMÍ";
+                                        break;
+                                    case 4:
+                                        tipoPrograma = "PILA";
+                                        break;
+                                    case 5:
+                                        tipoPrograma = "PIP";
+                                        break;
+                                    case 6:
+                                        tipoPrograma = "CLIP";
+                                        break;
+                                    case 7:
+                                        tipoPrograma = "PIL-COM EXT";
+                                        break;
+                                    case 8:
+                                        tipoPrograma = "PIL-COM ELECTR";
+                                        break;
+                                    case 9:
+                                        tipoPrograma = "PIL-MAQ AGR";
+                                        break;
+                                    case 10:
+                                        tipoPrograma = "PIL-TUR";
+                                        break;
+                                    default:
+                                        foreach (var tipo in tiposppp.Combo)
+                                        {
+                                            if (tipo.Id == item.TipoPrograma)
+                                            {
+                                                tipoPrograma = tipo.Description;
+                                            }
+                                        }
+                                        //tipoPrograma = item.NombreTipoFicha;//"";
+                                        break;
+
+                                }
+                            @tipoPrograma;
+                            }
+                        </td>
+                        <td align="center" style="width: 80px;">
+                            @{
+                            if (item.Ficha.idCaja == 0)
+                                { }
+                                else
+                                {
+                                            @item.Ficha.idCaja;
+                                }
+                             }
+                        </td>
+                         <td align="center" style="width: 100px;">
+                            @item.NombreEstado
+                        </td>
+                        <td align="center" style="width: 50px;">
+                            @(item.Ficha.EsDiscapacitado == true ? "Si" : "No")
+                        </td>
+                        <td align="center" style="width: 100px;">
+                            @{
+                    
+                        if (acciones.Contains(((int)Enums.Acciones.Consultar).ToString()))
+                        {
+                                @Html.ActionLink("Ver", "Ver", "Beneficiarios", new { idBeneficiario = item.IdBeneficiario }, new { @class = "Lupa", title = "Ver Beneficiario" })
+                        }
+                        if (acciones.Contains(((int)Enums.Acciones.Modificar).ToString()))
+                        {
+                                @Html.ActionLink("Modificar", "Modificar", "Beneficiarios", new { idBeneficiario = item.IdBeneficiario }, new { @class = "Modificar", title = "Modificar Beneficiario" })
+                        }
+                         
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+@*        <table align="center" width="925px" cellpadding="0" cellspacing="0"> 
+            <tr>
+                <td>                     
+                     <div id="Paginador"></div>
+               </td>
+           </tr>
+       </table> *@
+    </div>
+}
+else
+{
+    <table id="grilla" align="center" width="930px" cellpadding="0" cellspacing="0">
+        <tr>
+            <td width="930px">
+                @Html.Partial("_SinDatos", "Beneficiarios")
+            </td>
+        </tr>
+    </table>
+}

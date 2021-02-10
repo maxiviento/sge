@@ -1,0 +1,13 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using SGE.Model.Entidades.Interfaces;
+
+namespace SGE.Model.Repositorio
+{
+    public interface IModalidadContratacionAFIPRepositorio
+    {
+        IList<IModalidadContratacionAFIP> GetModalidadesContratacionAFIP();
+    }
+}

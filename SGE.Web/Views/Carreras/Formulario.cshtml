@@ -1,0 +1,129 @@
+﻿@model CarreraVista
+@{
+    ViewBag.Title = "Carrera";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section Scripts{
+    @Content.Script("SGE.Carreras.js", Url)
+}
+<div class="box">
+    <h2>
+        Carrera</h2>
+    @using (Html.BeginForm("ModificarCarrera", "Carreras", FormMethod.Post, new { Id = "FormularioCarrera" }))
+    {
+        <table align="center" style="width: 930px; border: 1px">
+            <tr>
+                <td>
+                    <fieldset style="width: 925px;">
+                        <legend align="center"><b>@Model.Accion</b></legend>
+                        <table align="left" style="width: 920px;">
+                            <tr>
+                                <td align="right" valign="top">
+                                    <b>Carrera: </b>
+                                </td>
+                                <td align="left" valign="middle">
+                                    @if (Model.Accion == "Ver" || Model.Accion == "Eliminar")
+                                    {
+                                        @Html.TextBoxFor(model => model.Nombre, new { disabled = "disabled", style = "width:650px;" })
+                                    }
+                                    else
+                                    {
+                                        @Html.TextBoxFor(model => model.Nombre, new { style = "width:650px;", MaxLength = "100" })
+                                    }
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right" valign="top">
+                                    <b>@Html.LabelFor(model => model.NombreNivel): </b>
+                                </td>
+                                <td align="left" valign="middle">
+                                    @if (Model.Accion == "Ver" || Model.Accion == "Eliminar")
+                                    {
+                                        @Html.EditorFor(model => model.NombreNivel, new { disabled = "disabled", style = "width:220px;" })
+                                    }
+                                    else
+                                    {
+                                        @Html.EditorFor(model => model.NombreNivel, new { style = "width:220px;" })
+                                    }
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right" valign="top">
+                                    <b>@Html.LabelFor(model => model.NombreInstitucion): </b>
+                                </td>
+                                <td align="left" valign="middle">
+                                    @if (Model.Accion == "Ver" || Model.Accion == "Eliminar")
+                                    {
+                                        @Html.EditorFor(model => model.NombreInstitucion, new { disabled = "disabled", style = "width:220px;" })
+                                    }
+                                    else
+                                    {
+                                        @Html.EditorFor(model => model.NombreInstitucion, new { style = "width:220px;" })
+                                    }
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right" valign="top">
+                                    <b>@Html.LabelFor(model => model.NombreSector): </b>
+                                </td>
+                                <td align="left" valign="middle">
+                                    @if (Model.Accion == "Ver" || Model.Accion == "Eliminar")
+                                    {
+                                        @Html.EditorFor(model => model.NombreSector, new { disabled = "disabled", style = "width:220px;" })
+                                    }
+                                    else
+                                    {
+                                        @Html.EditorFor(model => model.NombreSector, new { style = "width:220px;" })
+                                    }
+                                </td>
+                            </tr>
+                        </table>
+                        @Html.ValidationSummary(false)
+                    </fieldset>
+                </td>
+            </tr>
+        </table>
+        <br />
+        @Html.HiddenFor(model => model.Accion)
+        @Html.HiddenFor(model => model.Id)
+        if(Model.Accion == "Eliminar") {@Html.HiddenFor(model => model.Nombre)}
+        @Html.HiddenFor(model => model.IdSector)
+        @Html.HiddenFor(model => model.IdNivel)
+        <table id="btnfin" width="100%">
+            <tr>
+                <td align="center" valign="middle">
+                    @switch (Model.Accion)
+                    {
+                        case "Ver":
+                            break;
+                        case "Agregar":
+                        <a class="btnIngresar" href="#" id="Agregar">Guardar</a>
+                            break;
+                        case "Modificar":
+                        <a class="btnIngresar" href="#" id="Modificar">Guardar</a>
+                            break;
+                        case "Eliminar":
+                        <a class="btnIngresar" href="#" id="Eliminar">Eliminar</a>
+                            break;
+                    }
+                    &nbsp;&nbsp;@Html.ActionLink("Cancelar", "Index", "Carreras", null, new { Class = "btnIngresar" })
+                </td>
+            </tr>
+        </table>
+        <table>
+            <tr>
+                <td>
+                    <div id="MensajeError">
+                        @TempData["MensajeError"]
+                    </div>
+                </td>
+            </tr>
+        </table>
+    }
+</div>
+<div id="dialogConfirmarEliminar" title="Mensaje">
+    <p>¿Está seguro que desea eliminar este registro?</p>
+</div>
+<div id="dialog" title="Mensaje">
+    <p>Esta Carrera no se puede eliminar porque está en uso.</p>
+</div>

@@ -1,0 +1,80 @@
+﻿@model FichaVista
+<table>
+    <tr>
+        <td align="right" valign="top">
+            <b>Nombre de la Sede: </b>
+        </td>
+        <td align="left" valign="middle" colspan="7">
+            @Html.TextBox("ABMNombreSede", null, new { Class = "ABMSede", style = "width:547px;" })
+        </td>
+    </tr>
+    <tr>
+        <td align="right" valign="top">
+            <b>Apellido del Contacto: </b>
+        </td>
+        <td align="left" valign="middle">
+            @Html.TextBox("ABMSedeApellidoContacto", null, new { Class = "ABMSede", style = "width:150px;" })
+        </td>
+        <td align="right" valign="top">
+            <b>Nombre del Contacto: </b>
+        </td>
+        <td align="left" valign="middle" colspan="5">
+            @Html.TextBox("ABMSedeNombreContacto", null, new { Class = "ABMSede", style = "width:150px;" })
+        </td>
+    </tr>
+    <tr>
+        <td align="right" valign="top">
+            <b>Teléfono: </b>
+        </td>
+        <td align="left" valign="middle">
+            @Html.TextBox("ABMSedeTelefonoContacto", null, new { Class = "ABMSede", style = "width:90px;" })
+        </td>
+        <td align="right" valign="top">
+            <b>Localidad: </b>
+        </td>
+        <td align="left" valign="middle" colspan="5">
+            @Html.EditorFor(c => c.LocalidadesSedes)
+        </td>
+    </tr>
+    <tr>
+        <td align="right" valign="top">
+            <b>Calle: </b>
+        </td>
+        <td align="left" valign="middle">
+            @Html.TextBox("ABMSedeCalle", null, new { Class = "ABMSede", style = "width:250px;" })
+        </td>
+        <td align="right" valign="top">
+            <b>Nro.: </b>
+        </td>
+        <td align="left" valign="middle">
+            @Html.TextBox("ABMSedeNumero", null, new { Class = "ABMSede", style = "width:90px;" })
+        </td>
+    </tr>
+    <tr>
+        <td align="right" valign="top">
+            <b>Piso: </b>
+        </td>
+        <td align="left" valign="middle">
+            @Html.TextBox("ABMSedePiso", null, new { Class = "ABMSede", style = "width:50px;" })
+        </td>
+        <td align="right" valign="top">
+            <b>Dpto.: </b>
+        </td>
+        <td align="left" valign="middle">
+            @Html.TextBox("ABMSedeDpto", null, new { Class = "ABMSede", style = "width:50px;" })
+        </td>
+    </tr>
+    <tr>
+        <td colspan="4">
+            <br />
+        </td>
+    </tr>
+    <tr>
+        <td align="center" valign="top" colspan="4">
+            <a class="btnIngresar"  id="AgregarSede">Agregar Sede</a>
+        </td>
+    </tr>
+</table>
+<br />
+<table id="grillaSede" align="center" width="650px" cellpadding="0" cellspacing="0">
+</table>

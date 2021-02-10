@@ -1,0 +1,124 @@
+﻿@model IList<SGE.Servicio.Comun.ICuentaImportar>
+@{
+    ViewBag.Title = "Beneficiarios";
+    ViewBag.SubMenuSelected = "Resultado Importación";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    Int32 fila = 0;
+}
+@section Scripts{
+    @Content.Script("SGE.Beneficiario.js", Url)
+}
+<div class="box">
+    <h2>
+        Beneficiarios - Resultado Importación</h2>
+    @using (Html.BeginForm("ExportarResultado", "Beneficiarios", FormMethod.Post, new { id = "FormImportar", enctype = "multipart/form-data" }))
+    {
+        <table align="center" style="width: 950px;">
+            <tr>
+                <td>
+                    <fieldset style="width: 925px;">
+                        <legend align="center"><b>Resultado Importación</b></legend>
+                        @if (Model != null && Model.Count > 0)
+                        { 
+                            <div style="text-align: center;">
+                                <table id="grilla" align="center" width="925px" cellpadding="0" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th style="height: 30px; width: 30px;">
+                                                <div align="right">
+                                                    Fila</div>
+                                            </th>
+                                            <th style="height: 30px; width: 80px;">
+                                                <div align="center">
+                                                    Apellido</div>
+                                            </th>
+                                            <th style="width: 80px;">
+                                                <div align="center">
+                                                    Nombre</div>
+                                            </th>
+                                            <th style="width: 80px;">
+                                                <div align="center">
+                                                    Nro. Doc.</div>
+                                            </th>
+                                            <th style="width: 80px;">
+                                                <div align="center">
+                                                    Nro. Cuenta</div>
+                                            </th>
+                                            <th style="width: 120px;">
+                                                <div align="center">
+                                                    CBU</div>
+                                            </th>
+                                            <th style="width: 100px;">
+                                                <div align="center">
+                                                    Sucursal</div>
+                                            </th>
+                                            <th style="width: 70px;">
+                                                <div align="center">
+                                                    Es Apoderado</div>
+                                            </th>
+                                            <th style="width: 60px;">
+                                                <div align="center">
+                                                    Resultado</div>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in Model)
+                                        {
+                                            fila++;
+                                            <tr>
+                                                <td align="right" style="height: 28px; width: 15px;">
+                                                    <b>@(fila)</b>
+                                                </td>
+                                                <td align="left" style="height: 28px; width: 80px;">
+                                                    <b>@(item.Apellido + " " + item.SegundoApellido)</b>
+                                                </td>
+                                                <td align="left" style="width: 80px;">
+                                                    <b>@(item.Nombre + " " + item.SegundoNombre)</b>
+                                                </td>
+                                                <td align="center" style="width: 80px;">
+                                                    <b>@(item.NumeroDocumento)</b>
+                                                </td>
+                                                <td align="center" style="width: 80px;">
+                                                    <b>@(item.NroCuenta)</b>
+                                                </td>
+                                                <td align="left" style="width: 100px;">
+                                                    <b>@(item.Cbu)</b>
+                                                </td>
+                                                <td align="left" style="width: 100px;">
+                                                    <b>@(item.NombreSucursal)</b>
+                                                </td>
+                                                <td align="center" style="width: 70px;">
+                                                    <b>@(item.EsApoderado == true ? "Si" : "No")</b>
+                                                </td>
+                                                <td align="center" style="width: 70px;">
+                                                    <b>@(item.Importado == true ? "Ok" : "Fallo")</b>
+                                                </td>
+                                            </tr>
+                                            
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        }
+                        else
+                        {
+                            <table id="grilla" align="center" width="930px" cellpadding="0" cellspacing="0">
+                                <tr>
+                                    <td width="930px">
+                                        @Html.Partial("_SinDatos", "Beneficiarios")
+                                    </td>
+                                </tr>
+                            </table>
+                        }
+                        <br />
+                        <div>
+                            @Html.ActionLink("Cancelar", "Importar", "Beneficiarios", null, new { Class = "btnIngresar" })</div>
+                        <br />
+                    </fieldset>
+                </td>
+            </tr>
+        </table>
+       
+    }
+</div>

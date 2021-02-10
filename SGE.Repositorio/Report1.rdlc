@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2008/01/reportdefinition">
+  <DataSources>
+    <DataSource Name="SGERepositorioModelo">
+      <ConnectionProperties>
+        <DataProvider>System.Data.DataSet</DataProvider>
+        <ConnectString>/* Local Connection */</ConnectString>
+      </ConnectionProperties>
+      <rd:DataSourceID>bb2899cb-b85e-4c7a-8c4a-6c43d8990458</rd:DataSourceID>
+    </DataSource>
+  </DataSources>
+  <DataSets>
+    <DataSet Name="DSBeneficiarios">
+      <Fields>
+        <Field Name="APELLIDO">
+          <DataField>APELLIDO</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="BARRIO">
+          <DataField>BARRIO</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="CALLE">
+          <DataField>CALLE</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="CANTIDAD_HIJOS">
+          <DataField>CANTIDAD_HIJOS</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="CERTIF_DISCAP">
+          <DataField>CERTIF_DISCAP</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="CODIGO_POSTAL">
+          <DataField>CODIGO_POSTAL</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="CODIGO_SEGURIDAD">
+          <DataField>CODIGO_SEGURIDAD</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="CONTACTO">
+          <DataField>CONTACTO</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="CUIL">
+          <DataField>CUIL</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="DEFICIENCIA_OTRA">
+          <DataField>DEFICIENCIA_OTRA</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="DPTO">
+          <DataField>DPTO</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ENTRECALLES">
+          <DataField>ENTRECALLES</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ES_DISCAPACITADO">
+          <DataField>ES_DISCAPACITADO</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ESTADO_CIVIL">
+          <DataField>ESTADO_CIVIL</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="FEC_SIST">
+          <DataField>FEC_SIST</DataField>
+          <rd:TypeName>System.Nullable`1[[System.DateTime, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]</rd:TypeName>
+        </Field>
+        <Field Name="FER_NAC">
+          <DataField>FER_NAC</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="ID_ESTADO_FICHA">
+          <DataField>ID_ESTADO_FICHA</DataField>
+          <rd:TypeName>System.Nullable`1[[System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]</rd:TypeName>
+        </Field>
+        <Field Name="ID_FICHA">
+          <DataField>ID_FICHA</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="ID_LOCALIDAD">
+          <DataField>ID_LOCALIDAD</DataField>
+          <rd:TypeName>System.Nullable`1[[System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]</rd:TypeName>
+        </Field>
+        <Field Name="ID_USR_SIST">
+          <DataField>ID_USR_SIST</DataField>
+          <rd:TypeName>System.Nullable`1[[System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]</rd:TypeName>
+        </Field>
+        <Field Name="MAIL">
+          <DataField>MAIL</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="MANZANA">
+          <DataField>MANZANA</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="MONOBLOCK">
+          <DataField>MONOBLOCK</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="NOMBRE">
+          <DataField>NOMBRE</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="NRO_TRAMITE">
+          <DataField>NRO_TRAMITE</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="NUMERO">
+          <DataField>NUMERO</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="NUMERO_DOCUMENTO">
+          <DataField>NUMERO_DOCUMENTO</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ORIGEN_CARGA">
+          <DataField>ORIGEN_CARGA</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="PARCELA">
+          <DataField>PARCELA</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="PISO">
+          <DataField>PISO</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="SEXO">
+          <DataField>SEXO</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="T_ESTADO_CIVIL">
+          <DataField>T_ESTADO_CIVIL</DataField>
+          <rd:TypeName>SGE.Repositorio.Modelo.T_ESTADO_CIVIL</rd:TypeName>
+        </Field>
+        <Field Name="T_ESTADOS_FICHA">
+          <DataField>T_ESTADOS_FICHA</DataField>
+          <rd:TypeName>SGE.Repositorio.Modelo.T_ESTADOS_FICHA</rd:TypeName>
+        </Field>
+        <Field Name="T_FICHA_EFEC_SOC">
+          <DataField>T_FICHA_EFEC_SOC</DataField>
+          <rd:TypeName>SGE.Repositorio.Modelo.T_FICHA_EFEC_SOC</rd:TypeName>
+        </Field>
+        <Field Name="T_FICHA_PPP">
+          <DataField>T_FICHA_PPP</DataField>
+          <rd:TypeName>SGE.Repositorio.Modelo.T_FICHA_PPP</rd:TypeName>
+        </Field>
+        <Field Name="T_FICHA_PPP_PROF">
+          <DataField>T_FICHA_PPP_PROF</DataField>
+          <rd:TypeName>SGE.Repositorio.Modelo.T_FICHA_PPP_PROF</rd:TypeName>
+        </Field>
+        <Field Name="T_FICHA_REC_PROD">
+          <DataField>T_FICHA_REC_PROD</DataField>
+          <rd:TypeName>SGE.Repositorio.Modelo.T_FICHA_REC_PROD</rd:TypeName>
+        </Field>
+        <Field Name="T_FICHA_TERCIARIO">
+          <DataField>T_FICHA_TERCIARIO</DataField>
+          <rd:TypeName>SGE.Repositorio.Modelo.T_FICHA_TERCIARIO</rd:TypeName>
+        </Field>
+        <Field Name="T_FICHA_UNIVERSITARIO">
+          <DataField>T_FICHA_UNIVERSITARIO</DataField>
+          <rd:TypeName>SGE.Repositorio.Modelo.T_FICHA_UNIVERSITARIO</rd:TypeName>
+        </Field>
+        <Field Name="T_FICHA_VAT">
+          <DataField>T_FICHA_VAT</DataField>
+          <rd:TypeName>SGE.Repositorio.Modelo.T_FICHA_VAT</rd:TypeName>
+        </Field>
+        <Field Name="T_LOCALIDADES">
+          <DataField>T_LOCALIDADES</DataField>
+          <rd:TypeName>SGE.Repositorio.Modelo.T_LOCALIDADES</rd:TypeName>
+        </Field>
+        <Field Name="T_TIPO_FICHA">
+          <DataField>T_TIPO_FICHA</DataField>
+          <rd:TypeName>SGE.Repositorio.Modelo.T_TIPO_FICHA</rd:TypeName>
+        </Field>
+        <Field Name="T_USUARIOS">
+          <DataField>T_USUARIOS</DataField>
+          <rd:TypeName>SGE.Repositorio.Modelo.T_USUARIOS</rd:TypeName>
+        </Field>
+        <Field Name="TEL_CELULAR">
+          <DataField>TEL_CELULAR</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="TEL_FIJO">
+          <DataField>TEL_FIJO</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="TIENE_DEF_MENTAL">
+          <DataField>TIENE_DEF_MENTAL</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="TIENE_DEF_MOTORA">
+          <DataField>TIENE_DEF_MOTORA</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="TIENE_DEF_PSICOLOGICA">
+          <DataField>TIENE_DEF_PSICOLOGICA</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="TIENE_DEF_SENSORIAL">
+          <DataField>TIENE_DEF_SENSORIAL</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="TIENE_HIJOS">
+          <DataField>TIENE_HIJOS</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="TIPO_DOCUMENTO">
+          <DataField>TIPO_DOCUMENTO</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="TIPO_FICHA">
+          <DataField>TIPO_FICHA</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="USUARIO_ALTA">
+          <DataField>USUARIO_ALTA</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>SGERepositorioModelo</DataSourceName>
+        <CommandText>/* Local Query */</CommandText>
+      </Query>
+      <rd:DataSetInfo>
+        <rd:DataSetName>SGE.Repositorio.Modelo</rd:DataSetName>
+        <rd:TableName>T_FICHAS</rd:TableName>
+        <rd:ObjectDataSourceType>SGE.Repositorio.Modelo.T_FICHAS, Modelo.ModelSGE.Designer.cs, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</rd:ObjectDataSourceType>
+      </rd:DataSetInfo>
+    </DataSet>
+  </DataSets>
+  <Body>
+    <ReportItems>
+      <Textbox Name="APELLIDO">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=First(Fields!APELLIDO.Value, "DSBeneficiarios")</Value>
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>APELLIDO</rd:DefaultName>
+        <Top>0.99695cm</Top>
+        <Left>1.7907cm</Left>
+        <Height>0.6cm</Height>
+        <Width>2.5cm</Width>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+    </ReportItems>
+    <Height>2in</Height>
+    <Style />
+  </Body>
+  <Width>6.5in</Width>
+  <Page>
+    <PageHeight>29.7cm</PageHeight>
+    <PageWidth>21cm</PageWidth>
+    <LeftMargin>2cm</LeftMargin>
+    <RightMargin>2cm</RightMargin>
+    <TopMargin>2cm</TopMargin>
+    <BottomMargin>2cm</BottomMargin>
+    <ColumnSpacing>0.13cm</ColumnSpacing>
+    <Style />
+  </Page>
+  <rd:ReportID>44c6651f-d503-4eab-906b-414acfd6a7d0</rd:ReportID>
+  <rd:ReportUnitType>Cm</rd:ReportUnitType>
+</Report>

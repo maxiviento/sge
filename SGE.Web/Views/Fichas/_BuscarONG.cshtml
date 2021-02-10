@@ -1,0 +1,53 @@
+﻿@model FichaVista
+<table>
+    <tr>
+        <td align="right" valign="top">
+            <b>Nombre ONG: </b>
+        </td>
+        <td align="left" valign="middle" colspan="7">
+            @Html.TextBox("ABMNombreONG", null, new { Class = "ABMONG", style = "width:450px;" })
+        </td>
+    </tr>
+    <tr>
+        <td align="right" valign="top">
+            <b>CUIT: </b>
+        </td>
+        <td align="left" valign="middle">
+            @Html.TextBox("ABMONGCUIT", null, new { Class = "ABMSede", style = "width:150px;" })
+        </td>
+        <td align="right" valign="top">
+            <b>Celular: </b>
+        </td>
+        <td align="left" valign="middle" colspan="5">
+            @Html.TextBox("ABMONGCelular", null, new { Class = "ABMSede", style = "width:150px;" })
+        </td>
+    </tr>
+    <tr>
+        <td align="right" valign="top">
+            <b>Teléfono: </b>
+        </td>
+        <td align="left" valign="middle">
+            @Html.TextBox("ABMONGTelefono", null, new { Class = "ABMSede", style = "width:90px;" })
+        </td>
+        <td align="right" valign="top">
+            <b>MAIL: </b>
+        </td>
+        <td align="left" valign="middle" colspan="5">
+            @Html.TextBox("ABMONGMail", null, new { Class = "ABMSede", style = "width:150px;" })
+        </td>
+    </tr>
+
+    <tr>
+        <td colspan="4">
+            <br />
+        </td>
+    </tr>
+    <tr>
+        <td align="center" valign="top" colspan="4">
+            <a class="btnIngresar"  id="AgregarONG">Agregar ONG</a>
+        </td>
+    </tr>
+</table>
+<br />
+<table id="grillaONG" align="center" width="750px" cellpadding="0" cellspacing="0" style="font-size:small;">
+</table>

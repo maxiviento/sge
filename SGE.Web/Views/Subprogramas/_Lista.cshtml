@@ -1,0 +1,59 @@
+﻿@model SubprogramasVista
+@{
+    var acciones = ViewData["Acciones"] as IList<string>;    
+}
+
+@if (Model.Subprogramas != null && Model.Subprogramas.Count > 0)
+{ 
+    <div style="text-align:center;">
+        <table id="grilla" align="center" width="925px" cellpadding="0" cellspacing="0">
+            <thead>
+                <tr>                 
+                    <th height="30" width="400px">
+                        <div align="center">Nombre</div>
+                    </th>
+                    <th height="30" width="200px">
+                        <div align="center">Descripción</div>
+                    </th>
+                    <th height="30" width="90px">
+                        <div align="center">Acciones</div>
+                    </th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Subprogramas)
+                {
+                    <tr>                       
+                        <td align="left" style="padding-left:3%">
+                            @item.NombreSubprograma.ToMaxLenght(100)
+                        </td>
+                         <td align="left" style="padding-left:3%">
+                            @item.Descripcion.ToMaxLenght(100)
+                        </td>
+                        <td>
+                            @if (acciones.Contains(((int)Enums.Acciones.Consultar).ToString()))
+                            { 
+                                 @Html.ActionLink("Ver", "Ver", "Subprogramas", new { IdSubprograma = item.IdSubprograma }, new { @class = "Lupa", title = "Ver Subprograma" })
+                            }
+                            @if (acciones.Contains(((int)Enums.Acciones.Modificar).ToString()))
+                            { 
+                                 @Html.ActionLink("Modificar", "Modificar", "Subprogramas", new { IdSubprograma = item.IdSubprograma }, new { @class = "Modificar", title = "Modificar Subprograma" })
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
+else
+{
+    <table align="center" width="930px" cellpadding="0" cellspacing="0">
+        <tr>
+            <td width="930px">
+                @Html.Partial("_SinDatos", "Subprogramas")
+            </td>
+        </tr>
+    </table>
+}

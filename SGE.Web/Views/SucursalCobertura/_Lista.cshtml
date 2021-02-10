@@ -1,0 +1,65 @@
+﻿@model SucursalesCoberturaVista
+@{
+    var acciones = ViewData["Acciones"] as IList<string>;    
+}
+
+@if (Model.ListaSucursalesCobertura != null && Model.ListaSucursalesCobertura.Count > 0)
+{ 
+    <div style="text-align: center;">
+        <table id="grilla" align="center" width="925px" cellpadding="0" cellspacing="0">
+            <thead>
+                <tr>                    
+                    <th height="30" width="200">
+                        <div align="center">Departamento</div>
+                    </th>
+                    <th height="30" width="200">
+                        <div align="center">Localidad</div>
+                    </th>
+                    <th height="30" width="200">
+                        <div align="center">Sucursal</div>
+                    </th>
+                    <th height="30px" width="100">
+                        <div align="center">Acciones</div>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.ListaSucursalesCobertura)
+                {
+                    <tr>
+                        <td align="left" style="height: 28px; width: 100px;">
+                            @item.NombreDepartamento
+                        </td>
+                        <td align="left" style="height: 28px; width: 100px;">
+                            @item.NombreLocalidad
+                        </td>
+                        <td align="left" style="height: 28px; width: 100px;">
+                            @( item.Sucursales != null ? (item.Sucursales.Select(c => c.CodigoBanco).Cast<string>().SingleOrDefault() +  " - " + item.Sucursales.Select(c => c.Detalle).Cast<string>().SingleOrDefault()) : "Nada")
+                        </td>
+                        <td>
+                            @if (acciones.Contains(((int)Enums.Acciones.Consultar).ToString()))
+                            {
+                                @Html.ActionLink("Ver", "Ver", "SucursalCobertura", new { idLocalidad = item.IdLocalidad }, new { @class = "Lupa", title = "Ver Sucursal Cobertura" })
+                            }
+                            @if (acciones.Contains(((int)Enums.Acciones.Modificar).ToString()))
+                            {
+                                @Html.ActionLink("Modificar", "Modificar", "SucursalCobertura", new { idLocalidad = item.IdLocalidad }, new { @class = "Modificar", title = "Modificar Sucursal Cobertura" })
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
+else
+{
+    <table align="center" width="930px" cellpadding="0" cellspacing="0">
+        <tr>
+            <td width="930px">
+                @Html.Partial("_SinDatos", "SucursalesCobertura")
+            </td>
+        </tr>
+    </table>
+}
+

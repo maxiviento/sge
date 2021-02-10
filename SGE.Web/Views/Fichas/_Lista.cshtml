@@ -1,0 +1,124 @@
+﻿@model FichasVista
+@{
+    var acciones = ViewData["Acciones"] as IList<string>;
+    int nro_doc;
+ }
+
+@if (Model.Fichas != null && Model.Fichas.Count > 0)
+{ 
+    <div style="text-align: center;">
+        <table id="grilla" align="center" width="925px" cellpadding="0" cellspacing="0">
+            <thead>
+                <tr>
+                    <th style="height: 30px; width: 120px;">
+                        <div align="center">
+                            Apellido</div>
+                    </th>
+                    <th style="width: 120px;">
+                        <div align="center">
+                            Nombre</div>
+                    </th>
+                    <th style="width: 80px;">
+                        <div align="center">
+                            CUIL</div>
+                    </th>
+                    <th style="width: 80px;">
+                        <div align="center">
+                            Nro. Doc.</div>
+                    </th>
+                    <th style="width: 90px;">
+                        <div align="center">
+                            Tipo de Ficha</div>
+                    </th>
+                    <th style="width: 200px;">
+                        <div align="center">
+                            Estado</div>
+                    </th>
+                    <th style="width: 70px;">
+                        <div align="center">
+                            Acciones</div>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Fichas)
+                {
+                    <tr>
+                        <td style="height: 28px; width: 120px; text-align: left;">
+                            @item.Apellido.ToMaxLenght(30)
+                        </td>
+                        <td style="text-align: left; width: 120px;">
+                            @item.Nombre.ToMaxLenght(30)
+                        </td>
+                        <td style="text-align: right;">
+                            @item.Cuil.ToMaxLenght(30)
+                        </td>
+                        <td style="text-align: right; padding-right: 5px;">
+                            @{
+                                if (int.TryParse(item.NumeroDocumento, out nro_doc))
+                                {
+                                    @string.Format("{0:##,###,###}", Convert.ToInt32(nro_doc))
+                                }
+                                else
+                                {
+                                    @item.NumeroDocumento
+                                }
+                            }
+                        </td>
+                        <td style="text-align: left; width: 100px;">
+                            @item.NombreTipoFicha.ToMaxLenght(30)
+                        </td>
+                        <td style="text-align: left; width: 120px;">
+                            @item.NombreEstadoFicha.ToMaxLenght(60)
+                           
+                        </td>
+                        <td style="text-align: center; width: 60px;">
+                            @{                                
+                                if (acciones.Contains(((int)Enums.Acciones.Consultar).ToString()))
+                                {
+                                    @Html.ActionLink("Ver", "Ver", "Fichas", new { idFicha = item.IdFicha }, new { @class = "Lupa", title = "Ver Inscripción" })
+                                }
+                                if (acciones.Contains(((int)Enums.Acciones.Modificar).ToString()))
+                                {
+                                    @Html.ActionLink("Modificar", "Modificar", "Fichas", new { idFicha = item.IdFicha }, new { @class = "Modificar", title = "Modificar Inscripción" })
+                                }
+                                if (acciones.Contains(((int)Enums.Acciones.CambiarEstado).ToString()))
+                                {
+                                    if (item.IdEstadoFicha == (int)Enums.EstadoFicha.Apta)
+                                    {                                   
+                                        @Html.ActionLink("Cambiar Estado a Rechazada", "CambiarEstado", "Fichas", new { idFicha = item.IdFicha }, new { @class = "EstadoGenerico", title = "Cambiar Estado" })
+                                    }
+
+                                    if (item.IdEstadoFicha == (int)Enums.EstadoFicha.NoApta)
+                                    {                                   
+                                        @Html.ActionLink("Cambiar Estado a Aprobada", "CambiarEstado", "Fichas", new { idFicha = item.IdFicha }, new { @class = "EstadoGenerico", title = "Cambiar Estado" })
+                                    }
+
+                                    if (item.IdEstadoFicha != (int)Enums.EstadoFicha.NoApta && item.IdEstadoFicha != (int)Enums.EstadoFicha.Apta && item.IdEstadoFicha != (int)Enums.EstadoFicha.Beneficiario)
+                                    {                                   
+                                        @Html.ActionLink("Cambiar Estado a Aprobada", "CambiarEstado", "Fichas", new { idFicha = item.IdFicha }, new { @class = "EstadoGenerico", title = "Cambiar Estado" })
+                                    }
+                                    
+                                    if (item.IdEstadoFicha == (int)Enums.EstadoFicha.Basura)
+                                    {
+                                        @Html.ActionLink("Eliminar Inscripción", "Eliminar", "Fichas", new { idFicha = item.IdFicha }, new { @class = "Eliminar", title = "Eliminar Inscripción" })
+                                    }
+                                }
+                            }                            
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
+else
+{
+    <table id="grilla" align="center" width="930px" cellpadding="0" cellspacing="0">
+        <tr>
+            <td width="930px">
+                @Html.Partial("_SinDatos", "Fichas")
+            </td>
+        </tr>
+    </table>
+}

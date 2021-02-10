@@ -1,0 +1,27 @@
+﻿/* Styles for validation helpers
+-----------------------------------------------------------*/
+.field-validation-error {
+    color: #ff0000;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+.input-validation-error {
+    border: 1px solid #ff0000;
+    background-color: #ffeeee;
+}
+
+.validation-summary-errors {
+    font-weight: bold;
+    padding:10px 5px 10px 25px;
+    color: #ff0000;
+    float: left;
+    text-align: left;
+    background-color: white;
+}
+
+.validation-summary-valid {
+    display: none;
+}

@@ -1,0 +1,1251 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Model.Store" Alias="Self" Provider="Oracle.DataAccess.Client" ProviderManifestToken="10.2" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="ModelStoreContainer" />
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Model" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="GE" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="T_BENEFICIARIOS" EntityType="Model.T_BENEFICIARIOS" />
+          <EntitySet Name="T_CARRERAS" EntityType="Model.T_CARRERAS" />
+          <EntitySet Name="T_CUENTAS_BANCO" EntityType="Model.T_CUENTAS_BANCO" />
+          <EntitySet Name="T_DEPARTAMENTOS" EntityType="Model.T_DEPARTAMENTOS" />
+          <EntitySet Name="T_EMPRESAS" EntityType="Model.T_EMPRESAS" />
+          <EntitySet Name="T_ESCUELAS" EntityType="Model.T_ESCUELAS" />
+          <EntitySet Name="T_ESTADOS" EntityType="Model.T_ESTADOS" />
+          <EntitySet Name="T_ESTADOS_FICHA" EntityType="Model.T_ESTADOS_FICHA" />
+          <EntitySet Name="T_FICHA_PPP" EntityType="Model.T_FICHA_PPP" />
+          <EntitySet Name="T_FICHA_PPP_PROF" EntityType="Model.T_FICHA_PPP_PROF" />
+          <EntitySet Name="T_FICHA_TERCIARIO" EntityType="Model.T_FICHA_TERCIARIO" />
+          <EntitySet Name="T_FICHA_UNIVERSITARIO" EntityType="Model.T_FICHA_UNIVERSITARIO" />
+          <EntitySet Name="T_FICHA_VAT" EntityType="Model.T_FICHA_VAT" />
+          <EntitySet Name="T_FICHAS" EntityType="Model.T_FICHAS" />
+          <EntitySet Name="T_INSTITUCIONES" EntityType="Model.T_INSTITUCIONES" />
+          <EntitySet Name="T_LOCALIDADES" EntityType="Model.T_LOCALIDADES" />
+          <EntitySet Name="T_PROGRAMAS" EntityType="Model.T_PROGRAMAS" />
+          <EntitySet Name="T_SECTOR" EntityType="Model.T_SECTOR" />
+          <EntitySet Name="T_SECTOR_INSTITUCION" EntityType="Model.T_SECTOR_INSTITUCION" />
+          <EntitySet Name="T_TABLAS_BCO_CBA" EntityType="Model.T_TABLAS_BCO_CBA" />
+          <EntitySet Name="T_TIPOS_RECHAZO" EntityType="Model.T_TIPOS_RECHAZO" />
+          <EntitySet Name="T_TIPOS_TABLA_BCO_CBA" EntityType="Model.T_TIPOS_TABLA_BCO_CBA" />
+          <EntitySet Name="T_TITULOS" EntityType="Model.T_TITULOS" />
+          <EntitySet Name="T_UNIVERSIDAD" EntityType="Model.T_UNIVERSIDAD" />
+          <EntitySet Name="T_USUARIOS" EntityType="Model.T_USUARIOS" />
+          <EntitySet Name="T_USUARIOS_EMPRESA" EntityType="Model.T_USUARIOS_EMPRESA" />
+          <AssociationSet Name="T_BENEFICIARIOS_T_ESTADOS_FK1" Association="Model.T_BENEFICIARIOS_T_ESTADOS_FK1">
+            <End Role="T_ESTADOS" EntitySet="T_ESTADOS" />
+            <End Role="T_BENEFICIARIOS" EntitySet="T_BENEFICIARIOS" />
+          </AssociationSet>
+          <AssociationSet Name="T_BENEFICIARIOS_T_FICHAS_FK1" Association="Model.T_BENEFICIARIOS_T_FICHAS_FK1">
+            <End Role="T_FICHAS" EntitySet="T_FICHAS" />
+            <End Role="T_BENEFICIARIOS" EntitySet="T_BENEFICIARIOS" />
+          </AssociationSet>
+          <AssociationSet Name="T_BENEFICIARIOS_T_PROGRAM_FK1" Association="Model.T_BENEFICIARIOS_T_PROGRAM_FK1">
+            <End Role="T_PROGRAMAS" EntitySet="T_PROGRAMAS" />
+            <End Role="T_BENEFICIARIOS" EntitySet="T_BENEFICIARIOS" />
+          </AssociationSet>
+          <AssociationSet Name="T_BENEFICIARIOS_T_USUARIO_FK1" Association="Model.T_BENEFICIARIOS_T_USUARIO_FK1">
+            <End Role="T_USUARIOS" EntitySet="T_USUARIOS" />
+            <End Role="T_BENEFICIARIOS" EntitySet="T_BENEFICIARIOS" />
+          </AssociationSet>
+          <AssociationSet Name="T_BENEFICIARIOS_T_USUARIO_FK2" Association="Model.T_BENEFICIARIOS_T_USUARIO_FK2">
+            <End Role="T_USUARIOS" EntitySet="T_USUARIOS" />
+            <End Role="T_BENEFICIARIOS" EntitySet="T_BENEFICIARIOS" />
+          </AssociationSet>
+          <AssociationSet Name="T_CUENTAS_BANCO_T_BENEFIC_FK1" Association="Model.T_CUENTAS_BANCO_T_BENEFIC_FK1">
+            <End Role="T_BENEFICIARIOS" EntitySet="T_BENEFICIARIOS" />
+            <End Role="T_CUENTAS_BANCO" EntitySet="T_CUENTAS_BANCO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CARR_SECTINST" Association="Model.FK_CARR_SECTINST">
+            <End Role="T_SECTOR_INSTITUCION" EntitySet="T_SECTOR_INSTITUCION" />
+            <End Role="T_CARRERAS" EntitySet="T_CARRERAS" />
+          </AssociationSet>
+          <AssociationSet Name="FK3B0759198C5FAADB" Association="Model.FK3B0759198C5FAADB">
+            <End Role="T_CARRERAS" EntitySet="T_CARRERAS" />
+            <End Role="T_FICHA_TERCIARIO" EntitySet="T_FICHA_TERCIARIO" />
+          </AssociationSet>
+          <AssociationSet Name="FK49C88415B01B259" Association="Model.FK49C88415B01B259">
+            <End Role="T_CARRERAS" EntitySet="T_CARRERAS" />
+            <End Role="T_FICHA_UNIVERSITARIO" EntitySet="T_FICHA_UNIVERSITARIO" />
+          </AssociationSet>
+          <AssociationSet Name="T_CUENTAS_BANCO_MONEDA_FK" Association="Model.T_CUENTAS_BANCO_MONEDA_FK">
+            <End Role="T_TABLAS_BCO_CBA" EntitySet="T_TABLAS_BCO_CBA" />
+            <End Role="T_CUENTAS_BANCO" EntitySet="T_CUENTAS_BANCO" />
+          </AssociationSet>
+          <AssociationSet Name="T_CUENTAS_BANCO_SISTEMAFK1" Association="Model.T_CUENTAS_BANCO_SISTEMAFK1">
+            <End Role="T_TABLAS_BCO_CBA" EntitySet="T_TABLAS_BCO_CBA" />
+            <End Role="T_CUENTAS_BANCO" EntitySet="T_CUENTAS_BANCO" />
+          </AssociationSet>
+          <AssociationSet Name="T_CUENTAS_BANCO_SUCURSAL__FK1" Association="Model.T_CUENTAS_BANCO_SUCURSAL__FK1">
+            <End Role="T_TABLAS_BCO_CBA" EntitySet="T_TABLAS_BCO_CBA" />
+            <End Role="T_CUENTAS_BANCO" EntitySet="T_CUENTAS_BANCO" />
+          </AssociationSet>
+          <AssociationSet Name="FK36772A9EB81AF245" Association="Model.FK36772A9EB81AF245">
+            <End Role="T_DEPARTAMENTOS" EntitySet="T_DEPARTAMENTOS" />
+            <End Role="T_LOCALIDADES" EntitySet="T_LOCALIDADES" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EMP_LOC" Association="Model.FK_EMP_LOC">
+            <End Role="T_LOCALIDADES" EntitySet="T_LOCALIDADES" />
+            <End Role="T_EMPRESAS" EntitySet="T_EMPRESAS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EMP_USUEMP" Association="Model.FK_EMP_USUEMP">
+            <End Role="T_USUARIOS_EMPRESA" EntitySet="T_USUARIOS_EMPRESA" />
+            <End Role="T_EMPRESAS" EntitySet="T_EMPRESAS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FICPPP_EMP" Association="Model.FK_FICPPP_EMP">
+            <End Role="T_EMPRESAS" EntitySet="T_EMPRESAS" />
+            <End Role="T_FICHA_PPP" EntitySet="T_FICHA_PPP" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FICPPPPRO_EMP" Association="Model.FK_FICPPPPRO_EMP">
+            <End Role="T_EMPRESAS" EntitySet="T_EMPRESAS" />
+            <End Role="T_FICHA_PPP_PROF" EntitySet="T_FICHA_PPP_PROF" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FICPPPVAT_EMP" Association="Model.FK_FICPPPVAT_EMP">
+            <End Role="T_EMPRESAS" EntitySet="T_EMPRESAS" />
+            <End Role="T_FICHA_VAT" EntitySet="T_FICHA_VAT" />
+          </AssociationSet>
+          <AssociationSet Name="FK3B075919F0A403B9" Association="Model.FK3B075919F0A403B9">
+            <End Role="T_ESCUELAS" EntitySet="T_ESCUELAS" />
+            <End Role="T_FICHA_TERCIARIO" EntitySet="T_FICHA_TERCIARIO" />
+          </AssociationSet>
+          <AssociationSet Name="FK49C8841F0A403B9" Association="Model.FK49C8841F0A403B9">
+            <End Role="T_ESCUELAS" EntitySet="T_ESCUELAS" />
+            <End Role="T_FICHA_UNIVERSITARIO" EntitySet="T_FICHA_UNIVERSITARIO" />
+          </AssociationSet>
+          <AssociationSet Name="FK6393B2A21F587C01" Association="Model.FK6393B2A21F587C01">
+            <End Role="T_LOCALIDADES" EntitySet="T_LOCALIDADES" />
+            <End Role="T_ESCUELAS" EntitySet="T_ESCUELAS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FICHAS_EFICHA" Association="Model.FK_FICHAS_EFICHA">
+            <End Role="T_ESTADOS_FICHA" EntitySet="T_ESTADOS_FICHA" />
+            <End Role="T_FICHAS" EntitySet="T_FICHAS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FICPPP_FIC" Association="Model.FK_FICPPP_FIC">
+            <End Role="T_FICHAS" EntitySet="T_FICHAS" />
+            <End Role="T_FICHA_PPP" EntitySet="T_FICHA_PPP" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FICPPPPRO_FIC" Association="Model.FK_FICPPPPRO_FIC">
+            <End Role="T_FICHAS" EntitySet="T_FICHAS" />
+            <End Role="T_FICHA_PPP_PROF" EntitySet="T_FICHA_PPP_PROF" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FICPPPPRO_TIT" Association="Model.FK_FICPPPPRO_TIT">
+            <End Role="T_TITULOS" EntitySet="T_TITULOS" />
+            <End Role="T_FICHA_PPP_PROF" EntitySet="T_FICHA_PPP_PROF" />
+          </AssociationSet>
+          <AssociationSet Name="FK3B075919D986D191" Association="Model.FK3B075919D986D191">
+            <End Role="T_FICHAS" EntitySet="T_FICHAS" />
+            <End Role="T_FICHA_TERCIARIO" EntitySet="T_FICHA_TERCIARIO" />
+          </AssociationSet>
+          <AssociationSet Name="FK49C8841D986D191" Association="Model.FK49C8841D986D191">
+            <End Role="T_FICHAS" EntitySet="T_FICHAS" />
+            <End Role="T_FICHA_UNIVERSITARIO" EntitySet="T_FICHA_UNIVERSITARIO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FICPPPVAT_FIC" Association="Model.FK_FICPPPVAT_FIC">
+            <End Role="T_FICHAS" EntitySet="T_FICHAS" />
+            <End Role="T_FICHA_VAT" EntitySet="T_FICHA_VAT" />
+          </AssociationSet>
+          <AssociationSet Name="FKC78C95FD1F587C01" Association="Model.FKC78C95FD1F587C01">
+            <End Role="T_LOCALIDADES" EntitySet="T_LOCALIDADES" />
+            <End Role="T_FICHAS" EntitySet="T_FICHAS" />
+          </AssociationSet>
+          <AssociationSet Name="FK616B2BABAE23B8F5" Association="Model.FK616B2BABAE23B8F5">
+            <End Role="T_INSTITUCIONES" EntitySet="T_INSTITUCIONES" />
+            <End Role="T_SECTOR_INSTITUCION" EntitySet="T_SECTOR_INSTITUCION" />
+          </AssociationSet>
+          <AssociationSet Name="FK616B2BABB82DBD89" Association="Model.FK616B2BABB82DBD89">
+            <End Role="T_SECTOR" EntitySet="T_SECTOR" />
+            <End Role="T_SECTOR_INSTITUCION" EntitySet="T_SECTOR_INSTITUCION" />
+          </AssociationSet>
+          <AssociationSet Name="T_TABLAS_BCO_CBA_T_TIPOS__FK1" Association="Model.T_TABLAS_BCO_CBA_T_TIPOS__FK1">
+            <End Role="T_TIPOS_TABLA_BCO_CBA" EntitySet="T_TIPOS_TABLA_BCO_CBA" />
+            <End Role="T_TABLAS_BCO_CBA" EntitySet="T_TABLAS_BCO_CBA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TIT_UNI" Association="Model.FK_TIT_UNI">
+            <End Role="T_UNIVERSIDAD" EntitySet="T_UNIVERSIDAD" />
+            <End Role="T_TITULOS" EntitySet="T_TITULOS" />
+          </AssociationSet>
+          <AssociationSet Name="T_FICHAS_RECHAZO" Association="Model.T_FICHAS_RECHAZO">
+            <End Role="T_FICHAS" EntitySet="T_FICHAS" />
+            <End Role="T_TIPOS_RECHAZO" EntitySet="T_TIPOS_RECHAZO" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="T_BENEFICIARIOS">
+          <Key>
+            <PropertyRef Name="ID_BENEFICIARIO" />
+          </Key>
+          <Property Type="Int32" Name="ID_BENEFICIARIO" Nullable="false" />
+          <Property Type="Int32" Name="ID_FICHA" />
+          <Property Type="Int16" Name="ID_PROGRAMA" />
+          <Property Type="Int16" Name="ID_ESTADO" />
+          <Property Type="DateTime" Name="FEC_ALTA" />
+          <Property Type="DateTime" Name="FEC_MODIF" />
+          <Property Type="Int32" Name="ID_USUARIO_MODIF" />
+          <Property Type="Int32" Name="ID_USUARIO_ALTA" />
+          <Property Type="String" Name="RESIDENTE" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="NACIONALIDAD" />
+          <Property Type="String" Name="EMAIL" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="TIPO_PERSONA" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="COD_ACT_BANCARIO" />
+          <Property Type="Int32" Name="COD_NAT_JURIDICA" />
+          <Property Type="Int32" Name="CONDICION_IVA" />
+          <NavigationProperty Name="T_ESTADOS" Relationship="Model.T_BENEFICIARIOS_T_ESTADOS_FK1" FromRole="T_BENEFICIARIOS" ToRole="T_ESTADOS" />
+          <NavigationProperty Name="T_FICHAS" Relationship="Model.T_BENEFICIARIOS_T_FICHAS_FK1" FromRole="T_BENEFICIARIOS" ToRole="T_FICHAS" />
+          <NavigationProperty Name="T_PROGRAMAS" Relationship="Model.T_BENEFICIARIOS_T_PROGRAM_FK1" FromRole="T_BENEFICIARIOS" ToRole="T_PROGRAMAS" />
+          <NavigationProperty Name="T_USUARIOS" Relationship="Model.T_BENEFICIARIOS_T_USUARIO_FK1" FromRole="T_BENEFICIARIOS" ToRole="T_USUARIOS" />
+          <NavigationProperty Name="T_USUARIOS1" Relationship="Model.T_BENEFICIARIOS_T_USUARIO_FK2" FromRole="T_BENEFICIARIOS" ToRole="T_USUARIOS" />
+          <NavigationProperty Name="T_CUENTAS_BANCO" Relationship="Model.T_CUENTAS_BANCO_T_BENEFIC_FK1" FromRole="T_BENEFICIARIOS" ToRole="T_CUENTAS_BANCO" />
+        </EntityType>
+        <EntityType Name="T_CARRERAS">
+          <Key>
+            <PropertyRef Name="ID_CARRERA" />
+          </Key>
+          <Property Type="Int32" Name="ID_CARRERA" Nullable="false" />
+          <Property Type="String" Name="NIVEL" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="N_CARRERA" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="ID_INSTITUCION" />
+          <Property Type="Int32" Name="ID_SECTOR" />
+          <NavigationProperty Name="T_SECTOR_INSTITUCION" Relationship="Model.FK_CARR_SECTINST" FromRole="T_CARRERAS" ToRole="T_SECTOR_INSTITUCION" />
+          <NavigationProperty Name="T_FICHA_TERCIARIO" Relationship="Model.FK3B0759198C5FAADB" FromRole="T_CARRERAS" ToRole="T_FICHA_TERCIARIO" />
+          <NavigationProperty Name="T_FICHA_UNIVERSITARIO" Relationship="Model.FK49C88415B01B259" FromRole="T_CARRERAS" ToRole="T_FICHA_UNIVERSITARIO" />
+        </EntityType>
+        <EntityType Name="T_CUENTAS_BANCO">
+          <Key>
+            <PropertyRef Name="ID_CUENTA_BANCO" />
+          </Key>
+          <Property Type="Int32" Name="ID_CUENTA_BANCO" Nullable="false" />
+          <Property Type="Int32" Name="ID_BENEFICIARIO" Nullable="false" />
+          <Property Type="Int16" Name="ID_SISTEMA" />
+          <Property Type="Int32" Name="NRO_CTA" />
+          <Property Type="String" Name="CBU" MaxLength="22" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="USUARIO_BANCO" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Type="Int16" Name="ID_SUCURSAL" />
+          <Property Type="Int16" Name="ID_MONEDA" />
+          <NavigationProperty Name="T_BENEFICIARIOS" Relationship="Model.T_CUENTAS_BANCO_T_BENEFIC_FK1" FromRole="T_CUENTAS_BANCO" ToRole="T_BENEFICIARIOS" />
+          <NavigationProperty Name="T_TABLAS_BCO_CBA" Relationship="Model.T_CUENTAS_BANCO_MONEDA_FK" FromRole="T_CUENTAS_BANCO" ToRole="T_TABLAS_BCO_CBA" />
+          <NavigationProperty Name="T_TABLAS_BCO_CBA1" Relationship="Model.T_CUENTAS_BANCO_SISTEMAFK1" FromRole="T_CUENTAS_BANCO" ToRole="T_TABLAS_BCO_CBA" />
+          <NavigationProperty Name="T_TABLAS_BCO_CBA2" Relationship="Model.T_CUENTAS_BANCO_SUCURSAL__FK1" FromRole="T_CUENTAS_BANCO" ToRole="T_TABLAS_BCO_CBA" />
+        </EntityType>
+        <EntityType Name="T_DEPARTAMENTOS">
+          <Key>
+            <PropertyRef Name="ID_DEPARTAMENTO" />
+          </Key>
+          <Property Type="Int32" Name="ID_DEPARTAMENTO" Nullable="false" />
+          <Property Type="String" Name="N_DEPARTAMENTO" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="T_LOCALIDADES" Relationship="Model.FK36772A9EB81AF245" FromRole="T_DEPARTAMENTOS" ToRole="T_LOCALIDADES" />
+        </EntityType>
+        <EntityType Name="T_EMPRESAS">
+          <Key>
+            <PropertyRef Name="ID_EMPRESA" />
+          </Key>
+          <Property Type="Int32" Name="ID_EMPRESA" Nullable="false" />
+          <Property Type="String" Name="N_EMPRESA" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="CUIT" MaxLength="13" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="CODIGO_ACTIVIDAD" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="DOMICLIO_LABORAL_IDEM" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Type="Int16" Name="CANTIDAD_EMPLEADOS" />
+          <Property Type="String" Name="CALLE" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="NUMERO" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="PISO" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="DPTO" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="CODIGO_POSTAL" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="ID_LOCALIDAD" />
+          <Property Type="Int32" Name="ID_USUARIO" />
+          <NavigationProperty Name="T_LOCALIDADES" Relationship="Model.FK_EMP_LOC" FromRole="T_EMPRESAS" ToRole="T_LOCALIDADES" />
+          <NavigationProperty Name="T_USUARIOS_EMPRESA" Relationship="Model.FK_EMP_USUEMP" FromRole="T_EMPRESAS" ToRole="T_USUARIOS_EMPRESA" />
+          <NavigationProperty Name="T_FICHA_PPP" Relationship="Model.FK_FICPPP_EMP" FromRole="T_EMPRESAS" ToRole="T_FICHA_PPP" />
+          <NavigationProperty Name="T_FICHA_PPP_PROF" Relationship="Model.FK_FICPPPPRO_EMP" FromRole="T_EMPRESAS" ToRole="T_FICHA_PPP_PROF" />
+          <NavigationProperty Name="T_FICHA_VAT" Relationship="Model.FK_FICPPPVAT_EMP" FromRole="T_EMPRESAS" ToRole="T_FICHA_VAT" />
+        </EntityType>
+        <EntityType Name="T_ESCUELAS">
+          <Key>
+            <PropertyRef Name="ID_ESCUELA" />
+          </Key>
+          <Property Type="Int32" Name="ID_ESCUELA" Nullable="false" />
+          <Property Type="String" Name="N_ESCUELA" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="CUE" Nullable="false" MaxLength="7" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="ANEXO" Nullable="false" />
+          <Property Type="String" Name="BARRIO" MaxLength="65" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="ID_LOCALIDAD" />
+          <NavigationProperty Name="T_FICHA_TERCIARIO" Relationship="Model.FK3B075919F0A403B9" FromRole="T_ESCUELAS" ToRole="T_FICHA_TERCIARIO" />
+          <NavigationProperty Name="T_FICHA_UNIVERSITARIO" Relationship="Model.FK49C8841F0A403B9" FromRole="T_ESCUELAS" ToRole="T_FICHA_UNIVERSITARIO" />
+          <NavigationProperty Name="T_LOCALIDADES" Relationship="Model.FK6393B2A21F587C01" FromRole="T_ESCUELAS" ToRole="T_LOCALIDADES" />
+        </EntityType>
+        <EntityType Name="T_ESTADOS">
+          <Key>
+            <PropertyRef Name="ID_ESTADO" />
+          </Key>
+          <Property Type="Int16" Name="ID_ESTADO" Nullable="false" />
+          <Property Type="String" Name="N_ESTADO" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="T_BENEFICIARIOS" Relationship="Model.T_BENEFICIARIOS_T_ESTADOS_FK1" FromRole="T_ESTADOS" ToRole="T_BENEFICIARIOS" />
+        </EntityType>
+        <EntityType Name="T_ESTADOS_FICHA">
+          <Key>
+            <PropertyRef Name="ID_ESTADO_FICHA" />
+          </Key>
+          <Property Type="Int32" Name="ID_ESTADO_FICHA" Nullable="false" />
+          <Property Type="String" Name="N_ESTADO_FICHA" MaxLength="30" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="T_FICHAS" Relationship="Model.FK_FICHAS_EFICHA" FromRole="T_ESTADOS_FICHA" ToRole="T_FICHAS" />
+        </EntityType>
+        <EntityType Name="T_FICHA_PPP">
+          <Key>
+            <PropertyRef Name="ID_FICHA" />
+          </Key>
+          <Property Type="Int32" Name="ID_FICHA" Nullable="false" />
+          <Property Type="Int16" Name="ID_NIVEL_ESCOLARIDAD" />
+          <Property Type="String" Name="CURSANDO" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="FINALIZADO" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="ID_EMPRESA" />
+          <Property Type="Int32" Name="MODALIDAD" />
+          <Property Type="String" Name="TAREAS" MaxLength="400" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="DESEA_TERM_NIVEL" MaxLength="1" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="T_EMPRESAS" Relationship="Model.FK_FICPPP_EMP" FromRole="T_FICHA_PPP" ToRole="T_EMPRESAS" />
+          <NavigationProperty Name="T_FICHAS" Relationship="Model.FK_FICPPP_FIC" FromRole="T_FICHA_PPP" ToRole="T_FICHAS" />
+        </EntityType>
+        <EntityType Name="T_FICHA_PPP_PROF">
+          <Key>
+            <PropertyRef Name="ID_FICHA" />
+          </Key>
+          <Property Type="Int32" Name="ID_FICHA" Nullable="false" />
+          <Property Type="Decimal" Name="PROMEDIO" Precision="4" Scale="2" />
+          <Property Type="DateTime" Name="FECHA_EGRESO" />
+          <Property Type="Int16" Name="ID_TITULO" />
+          <Property Type="Int32" Name="ID_EMPRESA" />
+          <Property Type="Int32" Name="MODALIDAD" />
+          <Property Type="String" Name="TAREAS" MaxLength="400" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="T_EMPRESAS" Relationship="Model.FK_FICPPPPRO_EMP" FromRole="T_FICHA_PPP_PROF" ToRole="T_EMPRESAS" />
+          <NavigationProperty Name="T_FICHAS" Relationship="Model.FK_FICPPPPRO_FIC" FromRole="T_FICHA_PPP_PROF" ToRole="T_FICHAS" />
+          <NavigationProperty Name="T_TITULOS" Relationship="Model.FK_FICPPPPRO_TIT" FromRole="T_FICHA_PPP_PROF" ToRole="T_TITULOS" />
+        </EntityType>
+        <EntityType Name="T_FICHA_TERCIARIO">
+          <Key>
+            <PropertyRef Name="ID_FICHA" />
+          </Key>
+          <Property Type="Int32" Name="ID_FICHA" Nullable="false" />
+          <Property Type="Decimal" Name="PROMEDIO" Nullable="false" Precision="19" Scale="5" />
+          <Property Type="String" Name="OTRA_CARRERA" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="OTRA_INSTITUCION" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="ID_CARRERA" />
+          <Property Type="Int32" Name="ID_ESCUELA" />
+          <Property Type="String" Name="OTRO_SECTOR" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="T_CARRERAS" Relationship="Model.FK3B0759198C5FAADB" FromRole="T_FICHA_TERCIARIO" ToRole="T_CARRERAS" />
+          <NavigationProperty Name="T_ESCUELAS" Relationship="Model.FK3B075919F0A403B9" FromRole="T_FICHA_TERCIARIO" ToRole="T_ESCUELAS" />
+          <NavigationProperty Name="T_FICHAS" Relationship="Model.FK3B075919D986D191" FromRole="T_FICHA_TERCIARIO" ToRole="T_FICHAS" />
+        </EntityType>
+        <EntityType Name="T_FICHA_UNIVERSITARIO">
+          <Key>
+            <PropertyRef Name="ID_FICHA" />
+          </Key>
+          <Property Type="Int32" Name="ID_FICHA" Nullable="false" />
+          <Property Type="Decimal" Name="PROMEDIO" Precision="19" Scale="5" />
+          <Property Type="String" Name="OTRA_CARRERA" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="OTRA_INSTITUCION" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="ID_CARRERA" />
+          <Property Type="Int32" Name="ID_ESCUELA" />
+          <Property Type="String" Name="OTRO_SECTOR" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="T_CARRERAS" Relationship="Model.FK49C88415B01B259" FromRole="T_FICHA_UNIVERSITARIO" ToRole="T_CARRERAS" />
+          <NavigationProperty Name="T_ESCUELAS" Relationship="Model.FK49C8841F0A403B9" FromRole="T_FICHA_UNIVERSITARIO" ToRole="T_ESCUELAS" />
+          <NavigationProperty Name="T_FICHAS" Relationship="Model.FK49C8841D986D191" FromRole="T_FICHA_UNIVERSITARIO" ToRole="T_FICHAS" />
+        </EntityType>
+        <EntityType Name="T_FICHA_VAT">
+          <Key>
+            <PropertyRef Name="ID_FICHA" />
+          </Key>
+          <Property Type="Int32" Name="ID_FICHA" Nullable="false" />
+          <Property Type="Int16" Name="ID_NIVEL_ESCOLARIDAD" />
+          <Property Type="String" Name="CURSANDO" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="FINALIZADO" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="ID_EMPRESA" />
+          <Property Type="Int32" Name="MODALIDAD" />
+          <Property Type="String" Name="TAREAS" MaxLength="400" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="T_EMPRESAS" Relationship="Model.FK_FICPPPVAT_EMP" FromRole="T_FICHA_VAT" ToRole="T_EMPRESAS" />
+          <NavigationProperty Name="T_FICHAS" Relationship="Model.FK_FICPPPVAT_FIC" FromRole="T_FICHA_VAT" ToRole="T_FICHAS" />
+        </EntityType>
+        <EntityType Name="T_FICHAS">
+          <Key>
+            <PropertyRef Name="ID_FICHA" />
+          </Key>
+          <Property Type="Int32" Name="ID_FICHA" Nullable="false" />
+          <Property Type="String" Name="CUIL" Nullable="false" MaxLength="13" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="APELLIDO" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="NOMBRE" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="FER_NAC" Nullable="false" Precision="6" />
+          <Property Type="Int32" Name="TIPO_DOCUMENTO" Nullable="false" />
+          <Property Type="String" Name="NUMERO_DOCUMENTO" Nullable="false" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="CALLE" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="NUMERO" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="PISO" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="DPTO" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="MONOBLOCK" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="PARCELA" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="MANZANA" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ENTRECALLES" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="BARRIO" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="CODIGO_POSTAL" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="ID_LOCALIDAD" />
+          <Property Type="String" Name="TEL_FIJO" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="TEL_CELULAR" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="CONTACTO" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="MAIL" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="TIENE_HIJOS" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="Int32" Name="CANTIDAD_HIJOS" Nullable="false" />
+          <Property Type="String" Name="ES_DISCAPACITADO" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="TIENE_DEF_MOTORA" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="TIENE_DEF_MENTAL" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="TIENE_DEF_SENSORIAL" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="TIENE_DEF_PSICOLOGICA" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="DEFICIENCIA_OTRA" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="SEXO" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="TIPO_FICHA" Nullable="false" />
+          <Property Type="Int32" Name="ESTADO_CIVIL" Nullable="false" />
+          <Property Type="String" Name="CODIGO_SEGURIDAD" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="FEC_ALTA" Precision="6" />
+          <Property Type="String" Name="USUARIO_ALTA" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="FEC_MODIF" Precision="6" />
+          <Property Type="String" Name="USUARIO_MODIF" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ORIGEN_CARGA" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="NRO_TRAMITE" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="ID_ESTADO_FICHA" />
+          <NavigationProperty Name="T_BENEFICIARIOS" Relationship="Model.T_BENEFICIARIOS_T_FICHAS_FK1" FromRole="T_FICHAS" ToRole="T_BENEFICIARIOS" />
+          <NavigationProperty Name="T_ESTADOS_FICHA" Relationship="Model.FK_FICHAS_EFICHA" FromRole="T_FICHAS" ToRole="T_ESTADOS_FICHA" />
+          <NavigationProperty Name="T_FICHA_PPP" Relationship="Model.FK_FICPPP_FIC" FromRole="T_FICHAS" ToRole="T_FICHA_PPP" />
+          <NavigationProperty Name="T_FICHA_PPP_PROF" Relationship="Model.FK_FICPPPPRO_FIC" FromRole="T_FICHAS" ToRole="T_FICHA_PPP_PROF" />
+          <NavigationProperty Name="T_FICHA_TERCIARIO" Relationship="Model.FK3B075919D986D191" FromRole="T_FICHAS" ToRole="T_FICHA_TERCIARIO" />
+          <NavigationProperty Name="T_FICHA_UNIVERSITARIO" Relationship="Model.FK49C8841D986D191" FromRole="T_FICHAS" ToRole="T_FICHA_UNIVERSITARIO" />
+          <NavigationProperty Name="T_FICHA_VAT" Relationship="Model.FK_FICPPPVAT_FIC" FromRole="T_FICHAS" ToRole="T_FICHA_VAT" />
+          <NavigationProperty Name="T_LOCALIDADES" Relationship="Model.FKC78C95FD1F587C01" FromRole="T_FICHAS" ToRole="T_LOCALIDADES" />
+          <NavigationProperty Name="T_TIPOS_RECHAZO" Relationship="Model.T_FICHAS_RECHAZO" FromRole="T_FICHAS" ToRole="T_TIPOS_RECHAZO" />
+        </EntityType>
+        <EntityType Name="T_INSTITUCIONES">
+          <Key>
+            <PropertyRef Name="ID_INSTITUCION" />
+          </Key>
+          <Property Type="Int32" Name="ID_INSTITUCION" Nullable="false" />
+          <Property Type="String" Name="N_INSTITUCION" MaxLength="200" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="T_SECTOR_INSTITUCION" Relationship="Model.FK616B2BABAE23B8F5" FromRole="T_INSTITUCIONES" ToRole="T_SECTOR_INSTITUCION" />
+        </EntityType>
+        <EntityType Name="T_LOCALIDADES">
+          <Key>
+            <PropertyRef Name="ID_LOCALIDAD" />
+          </Key>
+          <Property Type="Int32" Name="ID_LOCALIDAD" Nullable="false" />
+          <Property Type="String" Name="N_LOCALIDAD" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="ID_DEPARTAMENTO" />
+          <NavigationProperty Name="T_DEPARTAMENTOS" Relationship="Model.FK36772A9EB81AF245" FromRole="T_LOCALIDADES" ToRole="T_DEPARTAMENTOS" />
+          <NavigationProperty Name="T_EMPRESAS" Relationship="Model.FK_EMP_LOC" FromRole="T_LOCALIDADES" ToRole="T_EMPRESAS" />
+          <NavigationProperty Name="T_ESCUELAS" Relationship="Model.FK6393B2A21F587C01" FromRole="T_LOCALIDADES" ToRole="T_ESCUELAS" />
+          <NavigationProperty Name="T_FICHAS" Relationship="Model.FKC78C95FD1F587C01" FromRole="T_LOCALIDADES" ToRole="T_FICHAS" />
+        </EntityType>
+        <EntityType Name="T_PROGRAMAS">
+          <Key>
+            <PropertyRef Name="ID_PROGRAMA" />
+          </Key>
+          <Property Type="Int16" Name="ID_PROGRAMA" Nullable="false" />
+          <Property Type="String" Name="N_PROGRAMA" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="MONTO_PROG" Precision="10" Scale="2" />
+          <Property Type="String" Name="CONVENIO_BCO_CBA" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="T_BENEFICIARIOS" Relationship="Model.T_BENEFICIARIOS_T_PROGRAM_FK1" FromRole="T_PROGRAMAS" ToRole="T_BENEFICIARIOS" />
+        </EntityType>
+        <EntityType Name="T_SECTOR">
+          <Key>
+            <PropertyRef Name="ID_SECTOR" />
+          </Key>
+          <Property Type="Int32" Name="ID_SECTOR" Nullable="false" />
+          <Property Type="String" Name="N_SECTOR" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="T_SECTOR_INSTITUCION" Relationship="Model.FK616B2BABB82DBD89" FromRole="T_SECTOR" ToRole="T_SECTOR_INSTITUCION" />
+        </EntityType>
+        <EntityType Name="T_SECTOR_INSTITUCION">
+          <Key>
+            <PropertyRef Name="ID_SECTOR" />
+            <PropertyRef Name="ID_INSTITUCION" />
+          </Key>
+          <Property Type="Int32" Name="ID_SECTOR" Nullable="false" />
+          <Property Type="Int32" Name="ID_INSTITUCION" Nullable="false" />
+          <NavigationProperty Name="T_CARRERAS" Relationship="Model.FK_CARR_SECTINST" FromRole="T_SECTOR_INSTITUCION" ToRole="T_CARRERAS" />
+          <NavigationProperty Name="T_INSTITUCIONES" Relationship="Model.FK616B2BABAE23B8F5" FromRole="T_SECTOR_INSTITUCION" ToRole="T_INSTITUCIONES" />
+          <NavigationProperty Name="T_SECTOR" Relationship="Model.FK616B2BABB82DBD89" FromRole="T_SECTOR_INSTITUCION" ToRole="T_SECTOR" />
+        </EntityType>
+        <EntityType Name="T_TABLAS_BCO_CBA">
+          <Key>
+            <PropertyRef Name="ID_TABLA_BCO_CBA" />
+          </Key>
+          <Property Type="Int16" Name="ID_TABLA_BCO_CBA" Nullable="false" />
+          <Property Type="String" Name="COD_BCO_CBA" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="DESCRIPCION" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Int16" Name="ID_TIPO_TABLA_BCO_CBA" />
+          <NavigationProperty Name="T_CUENTAS_BANCO" Relationship="Model.T_CUENTAS_BANCO_MONEDA_FK" FromRole="T_TABLAS_BCO_CBA" ToRole="T_CUENTAS_BANCO" />
+          <NavigationProperty Name="T_CUENTAS_BANCO1" Relationship="Model.T_CUENTAS_BANCO_SISTEMAFK1" FromRole="T_TABLAS_BCO_CBA" ToRole="T_CUENTAS_BANCO" />
+          <NavigationProperty Name="T_CUENTAS_BANCO2" Relationship="Model.T_CUENTAS_BANCO_SUCURSAL__FK1" FromRole="T_TABLAS_BCO_CBA" ToRole="T_CUENTAS_BANCO" />
+          <NavigationProperty Name="T_TIPOS_TABLA_BCO_CBA" Relationship="Model.T_TABLAS_BCO_CBA_T_TIPOS__FK1" FromRole="T_TABLAS_BCO_CBA" ToRole="T_TIPOS_TABLA_BCO_CBA" />
+        </EntityType>
+        <EntityType Name="T_TIPOS_RECHAZO">
+          <Key>
+            <PropertyRef Name="ID_TIPO_RECHAZO" />
+          </Key>
+          <Property Type="Int16" Name="ID_TIPO_RECHAZO" Nullable="false" />
+          <Property Type="String" Name="N_TIPO_RECHAZO" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="T_FICHAS" Relationship="Model.T_FICHAS_RECHAZO" FromRole="T_TIPOS_RECHAZO" ToRole="T_FICHAS" />
+        </EntityType>
+        <EntityType Name="T_TIPOS_TABLA_BCO_CBA">
+          <Key>
+            <PropertyRef Name="ID_TIPO_TABLA_BCO_CBA" />
+          </Key>
+          <Property Type="Int16" Name="ID_TIPO_TABLA_BCO_CBA" Nullable="false" />
+          <Property Type="String" Name="N_TIPO_TABLA_BCO_CBA" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="T_TABLAS_BCO_CBA" Relationship="Model.T_TABLAS_BCO_CBA_T_TIPOS__FK1" FromRole="T_TIPOS_TABLA_BCO_CBA" ToRole="T_TABLAS_BCO_CBA" />
+        </EntityType>
+        <EntityType Name="T_TITULOS">
+          <Key>
+            <PropertyRef Name="ID_TITULO" />
+          </Key>
+          <Property Type="Int16" Name="ID_TITULO" Nullable="false" />
+          <Property Type="String" Name="N_TITULO" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="Int16" Name="ID_UNIVERSIDAD" />
+          <NavigationProperty Name="T_FICHA_PPP_PROF" Relationship="Model.FK_FICPPPPRO_TIT" FromRole="T_TITULOS" ToRole="T_FICHA_PPP_PROF" />
+          <NavigationProperty Name="T_UNIVERSIDAD" Relationship="Model.FK_TIT_UNI" FromRole="T_TITULOS" ToRole="T_UNIVERSIDAD" />
+        </EntityType>
+        <EntityType Name="T_UNIVERSIDAD">
+          <Key>
+            <PropertyRef Name="ID_UNIVERSIDAD" />
+          </Key>
+          <Property Type="Int16" Name="ID_UNIVERSIDAD" Nullable="false" />
+          <Property Type="String" Name="N_UNIVERSIDAD" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="T_TITULOS" Relationship="Model.FK_TIT_UNI" FromRole="T_UNIVERSIDAD" ToRole="T_TITULOS" />
+        </EntityType>
+        <EntityType Name="T_USUARIOS">
+          <Key>
+            <PropertyRef Name="ID_USUARIO" />
+          </Key>
+          <Property Type="Int32" Name="ID_USUARIO" Nullable="false" />
+          <Property Type="String" Name="NOMBRE" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="APELLIDO" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="LOGIN" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="HASHED_PASS" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="Int16" Name="ID_ESTADO" Nullable="false" />
+          <NavigationProperty Name="T_BENEFICIARIOS" Relationship="Model.T_BENEFICIARIOS_T_USUARIO_FK1" FromRole="T_USUARIOS" ToRole="T_BENEFICIARIOS" />
+          <NavigationProperty Name="T_BENEFICIARIOS1" Relationship="Model.T_BENEFICIARIOS_T_USUARIO_FK2" FromRole="T_USUARIOS" ToRole="T_BENEFICIARIOS" />
+        </EntityType>
+        <EntityType Name="T_USUARIOS_EMPRESA">
+          <Key>
+            <PropertyRef Name="ID_USUARIO" />
+          </Key>
+          <Property Type="Int32" Name="ID_USUARIO" Nullable="false" />
+          <Property Type="String" Name="LOGIN" MaxLength="13" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="CUIL" MaxLength="13" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="HASHED_PASS" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="NOMBRE" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="APELLIDO" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="MAIL" MaxLength="75" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="TELEFONO" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="T_EMPRESAS" Relationship="Model.FK_EMP_USUEMP" FromRole="T_USUARIOS_EMPRESA" ToRole="T_EMPRESAS" />
+        </EntityType>
+        <Association Name="T_BENEFICIARIOS_T_ESTADOS_FK1">
+          <End Type="Model.T_ESTADOS" Role="T_ESTADOS" Multiplicity="0..1" />
+          <End Type="Model.T_BENEFICIARIOS" Role="T_BENEFICIARIOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_ESTADOS">
+              <PropertyRef Name="ID_ESTADO" />
+            </Principal>
+            <Dependent Role="T_BENEFICIARIOS">
+              <PropertyRef Name="ID_ESTADO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="T_BENEFICIARIOS_T_FICHAS_FK1">
+          <End Type="Model.T_FICHAS" Role="T_FICHAS" Multiplicity="0..1" />
+          <End Type="Model.T_BENEFICIARIOS" Role="T_BENEFICIARIOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_FICHAS">
+              <PropertyRef Name="ID_FICHA" />
+            </Principal>
+            <Dependent Role="T_BENEFICIARIOS">
+              <PropertyRef Name="ID_FICHA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="T_BENEFICIARIOS_T_PROGRAM_FK1">
+          <End Type="Model.T_PROGRAMAS" Role="T_PROGRAMAS" Multiplicity="0..1" />
+          <End Type="Model.T_BENEFICIARIOS" Role="T_BENEFICIARIOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_PROGRAMAS">
+              <PropertyRef Name="ID_PROGRAMA" />
+            </Principal>
+            <Dependent Role="T_BENEFICIARIOS">
+              <PropertyRef Name="ID_PROGRAMA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="T_BENEFICIARIOS_T_USUARIO_FK1">
+          <End Type="Model.T_USUARIOS" Role="T_USUARIOS" Multiplicity="0..1" />
+          <End Type="Model.T_BENEFICIARIOS" Role="T_BENEFICIARIOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_USUARIOS">
+              <PropertyRef Name="ID_USUARIO" />
+            </Principal>
+            <Dependent Role="T_BENEFICIARIOS">
+              <PropertyRef Name="ID_USUARIO_MODIF" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="T_BENEFICIARIOS_T_USUARIO_FK2">
+          <End Type="Model.T_USUARIOS" Role="T_USUARIOS" Multiplicity="0..1" />
+          <End Type="Model.T_BENEFICIARIOS" Role="T_BENEFICIARIOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_USUARIOS">
+              <PropertyRef Name="ID_USUARIO" />
+            </Principal>
+            <Dependent Role="T_BENEFICIARIOS">
+              <PropertyRef Name="ID_USUARIO_ALTA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="T_CUENTAS_BANCO_T_BENEFIC_FK1">
+          <End Type="Model.T_BENEFICIARIOS" Role="T_BENEFICIARIOS" Multiplicity="1" />
+          <End Type="Model.T_CUENTAS_BANCO" Role="T_CUENTAS_BANCO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_BENEFICIARIOS">
+              <PropertyRef Name="ID_BENEFICIARIO" />
+            </Principal>
+            <Dependent Role="T_CUENTAS_BANCO">
+              <PropertyRef Name="ID_BENEFICIARIO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CARR_SECTINST">
+          <End Type="Model.T_SECTOR_INSTITUCION" Role="T_SECTOR_INSTITUCION" Multiplicity="0..1" />
+          <End Type="Model.T_CARRERAS" Role="T_CARRERAS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_SECTOR_INSTITUCION">
+              <PropertyRef Name="ID_SECTOR" />
+              <PropertyRef Name="ID_INSTITUCION" />
+            </Principal>
+            <Dependent Role="T_CARRERAS">
+              <PropertyRef Name="ID_SECTOR" />
+              <PropertyRef Name="ID_INSTITUCION" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK3B0759198C5FAADB">
+          <End Type="Model.T_CARRERAS" Role="T_CARRERAS" Multiplicity="0..1" />
+          <End Type="Model.T_FICHA_TERCIARIO" Role="T_FICHA_TERCIARIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_CARRERAS">
+              <PropertyRef Name="ID_CARRERA" />
+            </Principal>
+            <Dependent Role="T_FICHA_TERCIARIO">
+              <PropertyRef Name="ID_CARRERA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK49C88415B01B259">
+          <End Type="Model.T_CARRERAS" Role="T_CARRERAS" Multiplicity="0..1" />
+          <End Type="Model.T_FICHA_UNIVERSITARIO" Role="T_FICHA_UNIVERSITARIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_CARRERAS">
+              <PropertyRef Name="ID_CARRERA" />
+            </Principal>
+            <Dependent Role="T_FICHA_UNIVERSITARIO">
+              <PropertyRef Name="ID_CARRERA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="T_CUENTAS_BANCO_MONEDA_FK">
+          <End Type="Model.T_TABLAS_BCO_CBA" Role="T_TABLAS_BCO_CBA" Multiplicity="0..1" />
+          <End Type="Model.T_CUENTAS_BANCO" Role="T_CUENTAS_BANCO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_TABLAS_BCO_CBA">
+              <PropertyRef Name="ID_TABLA_BCO_CBA" />
+            </Principal>
+            <Dependent Role="T_CUENTAS_BANCO">
+              <PropertyRef Name="ID_MONEDA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="T_CUENTAS_BANCO_SISTEMAFK1">
+          <End Type="Model.T_TABLAS_BCO_CBA" Role="T_TABLAS_BCO_CBA" Multiplicity="0..1" />
+          <End Type="Model.T_CUENTAS_BANCO" Role="T_CUENTAS_BANCO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_TABLAS_BCO_CBA">
+              <PropertyRef Name="ID_TABLA_BCO_CBA" />
+            </Principal>
+            <Dependent Role="T_CUENTAS_BANCO">
+              <PropertyRef Name="ID_SISTEMA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="T_CUENTAS_BANCO_SUCURSAL__FK1">
+          <End Type="Model.T_TABLAS_BCO_CBA" Role="T_TABLAS_BCO_CBA" Multiplicity="0..1" />
+          <End Type="Model.T_CUENTAS_BANCO" Role="T_CUENTAS_BANCO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_TABLAS_BCO_CBA">
+              <PropertyRef Name="ID_TABLA_BCO_CBA" />
+            </Principal>
+            <Dependent Role="T_CUENTAS_BANCO">
+              <PropertyRef Name="ID_SUCURSAL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK36772A9EB81AF245">
+          <End Type="Model.T_DEPARTAMENTOS" Role="T_DEPARTAMENTOS" Multiplicity="0..1" />
+          <End Type="Model.T_LOCALIDADES" Role="T_LOCALIDADES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_DEPARTAMENTOS">
+              <PropertyRef Name="ID_DEPARTAMENTO" />
+            </Principal>
+            <Dependent Role="T_LOCALIDADES">
+              <PropertyRef Name="ID_DEPARTAMENTO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EMP_LOC">
+          <End Type="Model.T_LOCALIDADES" Role="T_LOCALIDADES" Multiplicity="0..1" />
+          <End Type="Model.T_EMPRESAS" Role="T_EMPRESAS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_LOCALIDADES">
+              <PropertyRef Name="ID_LOCALIDAD" />
+            </Principal>
+            <Dependent Role="T_EMPRESAS">
+              <PropertyRef Name="ID_LOCALIDAD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EMP_USUEMP">
+          <End Type="Model.T_USUARIOS_EMPRESA" Role="T_USUARIOS_EMPRESA" Multiplicity="0..1" />
+          <End Type="Model.T_EMPRESAS" Role="T_EMPRESAS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_USUARIOS_EMPRESA">
+              <PropertyRef Name="ID_USUARIO" />
+            </Principal>
+            <Dependent Role="T_EMPRESAS">
+              <PropertyRef Name="ID_USUARIO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FICPPP_EMP">
+          <End Type="Model.T_EMPRESAS" Role="T_EMPRESAS" Multiplicity="0..1" />
+          <End Type="Model.T_FICHA_PPP" Role="T_FICHA_PPP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_EMPRESAS">
+              <PropertyRef Name="ID_EMPRESA" />
+            </Principal>
+            <Dependent Role="T_FICHA_PPP">
+              <PropertyRef Name="ID_EMPRESA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FICPPPPRO_EMP">
+          <End Type="Model.T_EMPRESAS" Role="T_EMPRESAS" Multiplicity="0..1" />
+          <End Type="Model.T_FICHA_PPP_PROF" Role="T_FICHA_PPP_PROF" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_EMPRESAS">
+              <PropertyRef Name="ID_EMPRESA" />
+            </Principal>
+            <Dependent Role="T_FICHA_PPP_PROF">
+              <PropertyRef Name="ID_EMPRESA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FICPPPVAT_EMP">
+          <End Type="Model.T_EMPRESAS" Role="T_EMPRESAS" Multiplicity="0..1" />
+          <End Type="Model.T_FICHA_VAT" Role="T_FICHA_VAT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_EMPRESAS">
+              <PropertyRef Name="ID_EMPRESA" />
+            </Principal>
+            <Dependent Role="T_FICHA_VAT">
+              <PropertyRef Name="ID_EMPRESA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK3B075919F0A403B9">
+          <End Type="Model.T_ESCUELAS" Role="T_ESCUELAS" Multiplicity="0..1" />
+          <End Type="Model.T_FICHA_TERCIARIO" Role="T_FICHA_TERCIARIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_ESCUELAS">
+              <PropertyRef Name="ID_ESCUELA" />
+            </Principal>
+            <Dependent Role="T_FICHA_TERCIARIO">
+              <PropertyRef Name="ID_ESCUELA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK49C8841F0A403B9">
+          <End Type="Model.T_ESCUELAS" Role="T_ESCUELAS" Multiplicity="0..1" />
+          <End Type="Model.T_FICHA_UNIVERSITARIO" Role="T_FICHA_UNIVERSITARIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_ESCUELAS">
+              <PropertyRef Name="ID_ESCUELA" />
+            </Principal>
+            <Dependent Role="T_FICHA_UNIVERSITARIO">
+              <PropertyRef Name="ID_ESCUELA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK6393B2A21F587C01">
+          <End Type="Model.T_LOCALIDADES" Role="T_LOCALIDADES" Multiplicity="0..1" />
+          <End Type="Model.T_ESCUELAS" Role="T_ESCUELAS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_LOCALIDADES">
+              <PropertyRef Name="ID_LOCALIDAD" />
+            </Principal>
+            <Dependent Role="T_ESCUELAS">
+              <PropertyRef Name="ID_LOCALIDAD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FICHAS_EFICHA">
+          <End Type="Model.T_ESTADOS_FICHA" Role="T_ESTADOS_FICHA" Multiplicity="0..1" />
+          <End Type="Model.T_FICHAS" Role="T_FICHAS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_ESTADOS_FICHA">
+              <PropertyRef Name="ID_ESTADO_FICHA" />
+            </Principal>
+            <Dependent Role="T_FICHAS">
+              <PropertyRef Name="ID_ESTADO_FICHA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FICPPP_FIC">
+          <End Type="Model.T_FICHAS" Role="T_FICHAS" Multiplicity="1" />
+          <End Type="Model.T_FICHA_PPP" Role="T_FICHA_PPP" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="T_FICHAS">
+              <PropertyRef Name="ID_FICHA" />
+            </Principal>
+            <Dependent Role="T_FICHA_PPP">
+              <PropertyRef Name="ID_FICHA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FICPPPPRO_FIC">
+          <End Type="Model.T_FICHAS" Role="T_FICHAS" Multiplicity="1" />
+          <End Type="Model.T_FICHA_PPP_PROF" Role="T_FICHA_PPP_PROF" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="T_FICHAS">
+              <PropertyRef Name="ID_FICHA" />
+            </Principal>
+            <Dependent Role="T_FICHA_PPP_PROF">
+              <PropertyRef Name="ID_FICHA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FICPPPPRO_TIT">
+          <End Type="Model.T_TITULOS" Role="T_TITULOS" Multiplicity="0..1" />
+          <End Type="Model.T_FICHA_PPP_PROF" Role="T_FICHA_PPP_PROF" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_TITULOS">
+              <PropertyRef Name="ID_TITULO" />
+            </Principal>
+            <Dependent Role="T_FICHA_PPP_PROF">
+              <PropertyRef Name="ID_TITULO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK3B075919D986D191">
+          <End Type="Model.T_FICHAS" Role="T_FICHAS" Multiplicity="1" />
+          <End Type="Model.T_FICHA_TERCIARIO" Role="T_FICHA_TERCIARIO" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="T_FICHAS">
+              <PropertyRef Name="ID_FICHA" />
+            </Principal>
+            <Dependent Role="T_FICHA_TERCIARIO">
+              <PropertyRef Name="ID_FICHA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK49C8841D986D191">
+          <End Type="Model.T_FICHAS" Role="T_FICHAS" Multiplicity="1" />
+          <End Type="Model.T_FICHA_UNIVERSITARIO" Role="T_FICHA_UNIVERSITARIO" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="T_FICHAS">
+              <PropertyRef Name="ID_FICHA" />
+            </Principal>
+            <Dependent Role="T_FICHA_UNIVERSITARIO">
+              <PropertyRef Name="ID_FICHA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FICPPPVAT_FIC">
+          <End Type="Model.T_FICHAS" Role="T_FICHAS" Multiplicity="1" />
+          <End Type="Model.T_FICHA_VAT" Role="T_FICHA_VAT" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="T_FICHAS">
+              <PropertyRef Name="ID_FICHA" />
+            </Principal>
+            <Dependent Role="T_FICHA_VAT">
+              <PropertyRef Name="ID_FICHA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKC78C95FD1F587C01">
+          <End Type="Model.T_LOCALIDADES" Role="T_LOCALIDADES" Multiplicity="0..1" />
+          <End Type="Model.T_FICHAS" Role="T_FICHAS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_LOCALIDADES">
+              <PropertyRef Name="ID_LOCALIDAD" />
+            </Principal>
+            <Dependent Role="T_FICHAS">
+              <PropertyRef Name="ID_LOCALIDAD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK616B2BABAE23B8F5">
+          <End Type="Model.T_INSTITUCIONES" Role="T_INSTITUCIONES" Multiplicity="1" />
+          <End Type="Model.T_SECTOR_INSTITUCION" Role="T_SECTOR_INSTITUCION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_INSTITUCIONES">
+              <PropertyRef Name="ID_INSTITUCION" />
+            </Principal>
+            <Dependent Role="T_SECTOR_INSTITUCION">
+              <PropertyRef Name="ID_INSTITUCION" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK616B2BABB82DBD89">
+          <End Type="Model.T_SECTOR" Role="T_SECTOR" Multiplicity="1" />
+          <End Type="Model.T_SECTOR_INSTITUCION" Role="T_SECTOR_INSTITUCION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_SECTOR">
+              <PropertyRef Name="ID_SECTOR" />
+            </Principal>
+            <Dependent Role="T_SECTOR_INSTITUCION">
+              <PropertyRef Name="ID_SECTOR" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="T_TABLAS_BCO_CBA_T_TIPOS__FK1">
+          <End Type="Model.T_TIPOS_TABLA_BCO_CBA" Role="T_TIPOS_TABLA_BCO_CBA" Multiplicity="0..1" />
+          <End Type="Model.T_TABLAS_BCO_CBA" Role="T_TABLAS_BCO_CBA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_TIPOS_TABLA_BCO_CBA">
+              <PropertyRef Name="ID_TIPO_TABLA_BCO_CBA" />
+            </Principal>
+            <Dependent Role="T_TABLAS_BCO_CBA">
+              <PropertyRef Name="ID_TIPO_TABLA_BCO_CBA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TIT_UNI">
+          <End Type="Model.T_UNIVERSIDAD" Role="T_UNIVERSIDAD" Multiplicity="0..1" />
+          <End Type="Model.T_TITULOS" Role="T_TITULOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_UNIVERSIDAD">
+              <PropertyRef Name="ID_UNIVERSIDAD" />
+            </Principal>
+            <Dependent Role="T_TITULOS">
+              <PropertyRef Name="ID_UNIVERSIDAD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="T_FICHAS_RECHAZO">
+          <End Type="Model.T_FICHAS" Role="T_FICHAS" Multiplicity="*" />
+          <End Type="Model.T_TIPOS_RECHAZO" Role="T_TIPOS_RECHAZO" Multiplicity="*" />
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="GE">
+          </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="DefaultDatabaseSchema" Value="gestion_empleos" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="Model1" ZoomLevel="78">
+        <EntityTypeShape EntityType="Model.T_BENEFICIARIOS" Width="1.5" PointX="7.5" PointY="8.25" Height="5.057109374999996" />
+        <EntityTypeShape EntityType="Model.T_CARRERAS" Width="1.5" PointX="5.25" PointY="36.75" Height="2.5571907552083246" />
+        <EntityTypeShape EntityType="Model.T_CUENTAS_BANCO" Width="1.5" PointX="9.75" PointY="7" Height="3.3263964843750102" />
+        <EntityTypeShape EntityType="Model.T_DEPARTAMENTOS" Width="1.5" PointX="0.75" PointY="15.875" Height="1.5956835937500102" />
+        <EntityTypeShape EntityType="Model.T_EMPRESAS" Width="1.5" PointX="8.25" PointY="14.5" Height="4.48020507812501" />
+        <EntityTypeShape EntityType="Model.T_ESCUELAS" Width="1.5" PointX="5.25" PointY="32" Height="2.7494921874999818" />
+        <EntityTypeShape EntityType="Model.T_ESTADOS" Width="1.5" PointX="5.25" PointY="1.625" Height="1.5956835937499818" />
+        <EntityTypeShape EntityType="Model.T_ESTADOS_FICHA" Width="1.5" PointX="3" PointY="12.875" Height="1.5956835937499818" />
+        <EntityTypeShape EntityType="Model.T_FICHA_PPP" Width="1.5" PointX="10.5" PointY="11.25" Height="2.9417936197916674" />
+        <EntityTypeShape EntityType="Model.T_FICHA_PPP_PROF" Width="1.5" PointX="13.5" PointY="15.25" Height="2.9417936197916674" />
+        <EntityTypeShape EntityType="Model.T_FICHA_TERCIARIO" Width="1.5" PointX="7.5" PointY="21.625" Height="2.9417936197916674" />
+        <EntityTypeShape EntityType="Model.T_FICHA_UNIVERSITARIO" Width="1.5" PointX="10.5" PointY="22.625" Height="2.9417936197916674" />
+        <EntityTypeShape EntityType="Model.T_FICHA_VAT" Width="1.5" PointX="10.5" PointY="15.375" Height="2.7494921874999818" />
+        <EntityTypeShape EntityType="Model.T_FICHAS" Width="1.5" PointX="5.25" PointY="11.375" Height="10.633850911458325" />
+        <EntityTypeShape EntityType="Model.T_INSTITUCIONES" Width="1.5" PointX="0.75" PointY="36.125" Height="1.5956835937499818" />
+        <EntityTypeShape EntityType="Model.T_LOCALIDADES" Width="1.5" PointX="3" PointY="15.5" Height="2.3648893229166674" />
+        <EntityTypeShape EntityType="Model.T_PROGRAMAS" Width="1.5" PointX="5.25" PointY="7.875" Height="1.980286458333353" />
+        <EntityTypeShape EntityType="Model.T_SECTOR" Width="1.5" PointX="0.75" PointY="38.375" Height="1.5956835937499818" />
+        <EntityTypeShape EntityType="Model.T_SECTOR_INSTITUCION" Width="1.5" PointX="3" PointY="37.125" Height="1.9802864583333246" />
+        <EntityTypeShape EntityType="Model.T_TABLAS_BCO_CBA" Width="1.5" PointX="7.5" PointY="28.5" Height="2.557190755208353" />
+        <EntityTypeShape EntityType="Model.T_TIPOS_RECHAZO" Width="1.5" PointX="7.5" PointY="25.75" Height="1.5956835937499818" />
+        <EntityTypeShape EntityType="Model.T_TIPOS_TABLA_BCO_CBA" Width="1.5" PointX="5.25" PointY="28.875" Height="1.5956835937499818" />
+        <EntityTypeShape EntityType="Model.T_TITULOS" Width="1.5" PointX="11.25" PointY="3.75" Height="1.9802864583333246" />
+        <EntityTypeShape EntityType="Model.T_UNIVERSIDAD" Width="1.5" PointX="9" PointY="3.875" Height="1.5956835937499818" />
+        <EntityTypeShape EntityType="Model.T_USUARIOS" Width="1.5" PointX="5.25" PointY="23" Height="2.5571907552083246" />
+        <EntityTypeShape EntityType="Model.T_USUARIOS_EMPRESA" Width="1.5" PointX="6" PointY="4.375" Height="2.7494921874999818" />
+        <AssociationConnector Association="Model.T_BENEFICIARIOS_T_ESTADOS_FK1" >
+          <ConnectorPoint PointX="6.75" PointY="2.4228417968749909" />
+          <ConnectorPoint PointX="8.25" PointY="2.4228417968749909" />
+          <ConnectorPoint PointX="8.25" PointY="8.25" />
+        </AssociationConnector>
+        <AssociationConnector Association="Model.T_BENEFICIARIOS_T_FICHAS_FK1" >
+          <ConnectorPoint PointX="6.75" PointY="12.341054687499998" />
+          <ConnectorPoint PointX="7.041666666666667" PointY="12.341054687499996" />
+          <ConnectorPoint PointX="7.302083333333333" PointY="12.341054687499998" />
+          <ConnectorPoint PointX="7.5" PointY="12.341054687499998" />
+        </AssociationConnector>
+        <AssociationConnector Association="Model.T_BENEFICIARIOS_T_PROGRAM_FK1" >
+          <ConnectorPoint PointX="6.75" PointY="9.0526432291666765" />
+          <ConnectorPoint PointX="7.5" PointY="9.0526432291666765" />
+        </AssociationConnector>
+        <AssociationConnector Association="Model.T_BENEFICIARIOS_T_USUARIO_FK1" >
+          <ConnectorPoint PointX="6.75" PointY="23.057691307692306" />
+          <ConnectorPoint PointX="7.0973244349011209" PointY="22.710366872791184" />
+          <ConnectorPoint PointX="7.2151755650988791" PointY="22.592515742593427" />
+          <ConnectorPoint PointX="7.21875" PointY="22.588941307692306" />
+          <ConnectorPoint PointX="7.21875" PointY="10.696848958333337" />
+          <ConnectorPoint PointX="7.5" PointY="10.696848958333337" />
+        </AssociationConnector>
+        <AssociationConnector Association="Model.T_BENEFICIARIOS_T_USUARIO_FK2" >
+          <ConnectorPoint PointX="6.72576923076923" PointY="23" />
+          <ConnectorPoint PointX="7.125" PointY="22.600769230769231" />
+          <ConnectorPoint PointX="7.125" PointY="10.696848958333337" />
+          <ConnectorPoint PointX="7.5" PointY="10.696848958333337" />
+        </AssociationConnector>
+        <AssociationConnector Association="Model.T_CUENTAS_BANCO_T_BENEFIC_FK1" >
+          <ConnectorPoint PointX="9" PointY="9.2881982421875051" />
+          <ConnectorPoint PointX="9.1666666666666661" PointY="9.2881982421875051" />
+          <ConnectorPoint PointX="9.3333333333333339" PointY="9.2881982421875051" />
+          <ConnectorPoint PointX="9.75" PointY="9.2881982421875051" />
+        </AssociationConnector>
+        <AssociationConnector Association="Model.FK_CARR_SECTINST" >
+          <ConnectorPoint PointX="4.5" PointY="38.115143229166662" />
+          <ConnectorPoint PointX="5.25" PointY="38.115143229166662" />
+        </AssociationConnector>
+        <AssociationConnector Association="Model.FK3B0759198C5FAADB" >
+          <ConnectorPoint PointX="6.7500000000000018" PointY="36.75" />
+          <ConnectorPoint PointX="7.125" PointY="36.375" />
+          <ConnectorPoint PointX="7.125" PointY="23.095896809895834" />
+          <ConnectorPoint PointX="7.291666666666667" PointY="23.095896809895834" />
+          <ConnectorPoint PointX="7.458333333333333" PointY="23.095896809895834" />
+          <ConnectorPoint PointX="7.5" PointY="23.095896809895834" />
+        </AssociationConnector>
+        <AssociationConnector Association="Model.FK49C88415B01B259" >
+          <ConnectorPoint PointX="6.75" PointY="38.059847877604156" />
+          <ConnectorPoint PointX="11.25" PointY="38.059847877604156" />
+          <ConnectorPoint PointX="11.25" PointY="25.566793619791667" />
+        </AssociationConnector>
+        <AssociationConnector Association="Model.T_CUENTAS_BANCO_MONEDA_FK" >
+          <ConnectorPoint PointX="9" PointY="29.778595377604177" />
+          <ConnectorPoint PointX="10.125" PointY="29.778595377604177" />
+          <ConnectorPoint PointX="10.125" PointY="10.32639648437501" />
+        </AssociationConnector>
+        <AssociationConnector Association="Model.T_CUENTAS_BANCO_SISTEMAFK1" >
+          <ConnectorPoint PointX="9" PointY="29.108045188802095" />
+          <ConnectorPoint PointX="9.9374975" PointY="29.108045188802095" />
+          <ConnectorPoint PointX="9.9374975" PointY="10.32639648437501" />
+        </AssociationConnector>
+        <AssociationConnector Association="Model.T_CUENTAS_BANCO_SUCURSAL__FK1" >
+          <ConnectorPoint PointX="9" PointY="30.449145566406258" />
+          <ConnectorPoint PointX="10.3125025" PointY="30.449145566406258" />
+          <ConnectorPoint PointX="10.3125025" PointY="10.32639648437501" />
+        </AssociationConnector>
+        <AssociationConnector Association="Model.FK36772A9EB81AF245" >
+          <ConnectorPoint PointX="2.25" PointY="16.672841796875005" />
+          <ConnectorPoint PointX="3" PointY="16.672841796875005" />
+        </AssociationConnector>
+        <AssociationConnector Association="Model.FK_EMP_LOC" >
+          <ConnectorPoint PointX="4.5" PointY="16.682444661458334" />
+          <ConnectorPoint PointX="5" PointY="16.682444661458334" />
+          <ConnectorPoint PointX="5" PointY="22.258850911458325" />
+          <ConnectorPoint PointX="5.916666666666667" PointY="22.258850911458325" />
+          <ConnectorPoint PointX="6.083333333333333" PointY="22.258850911458325" />
+          <ConnectorPoint PointX="6.9478215128205134" PointY="22.258850911458325" />
+          <ConnectorPoint PointX="7.208333333333333" PointY="22.258850911458325" />
+          <ConnectorPoint PointX="7.25" PointY="22.258850911458325" />
+          <ConnectorPoint PointX="7.25" PointY="19.23020507812501" />
+          <ConnectorPoint PointX="9" PointY="19.23020507812501" />
+          <ConnectorPoint PointX="9" PointY="18.98020507812501" />
+        </AssociationConnector>
+        <AssociationConnector Association="Model.FK_EMP_USUEMP" >
+          <ConnectorPoint PointX="7.5" PointY="6.2975883906249823" />
+          <ConnectorPoint PointX="8.1666666666666661" PointY="6.2975883906249814" />
+          <ConnectorPoint PointX="8.3333333333333339" PointY="6.2975883906249823" />
+          <ConnectorPoint PointX="9.25" PointY="6.2975883906249823" />
+          <ConnectorPoint PointX="9.25" PointY="14.125" />
+          <ConnectorPoint PointX="9" PointY="14.125" />
+          <ConnectorPoint PointX="9" PointY="14.5" />
+        </AssociationConnector>
+        <AssociationConnector Association="Model.FK_FICPPP_EMP" >
+          <ConnectorPoint PointX="9.5" PointY="14.5" />
+          <ConnectorPoint PointX="9.5" PointY="13.747304687499998" />
+          <ConnectorPoint PointX="9.8541641666666653" PointY="13.747304687499998" />
+          <ConnectorPoint PointX="10.020830833333333" PointY="13.747304687499998" />
+          <ConnectorPoint PointX="10.041666666666666" PointY="13.747304687499998" />
+          <ConnectorPoint PointX="10.208333333333334" PointY="13.747304687499998" />
+          <ConnectorPoint PointX="10.229169166666667" PointY="13.747304687499998" />
+          <ConnectorPoint PointX="10.395835833333335" PointY="13.747304687499998" />
+          <ConnectorPoint PointX="10.5" PointY="13.747304687499998" />
+        </AssociationConnector>
+        <AssociationConnector Association="Model.FK_FICPPPPRO_EMP" >
+          <ConnectorPoint PointX="9.75" PointY="15.28125" />
+          <ConnectorPoint PointX="9.8541641666666653" PointY="15.28125" />
+          <ConnectorPoint PointX="10.020830833333333" PointY="15.28125" />
+          <ConnectorPoint PointX="10.041666666666666" PointY="15.28125" />
+          <ConnectorPoint PointX="10.208333333333334" PointY="15.28125" />
+          <ConnectorPoint PointX="10.229169166666667" PointY="15.28125" />
+          <ConnectorPoint PointX="10.395835833333335" PointY="15.28125" />
+          <ConnectorPoint PointX="13.5" PointY="15.28125" />
+        </AssociationConnector>
+        <AssociationConnector Association="Model.FK_FICPPPVAT_EMP" >
+          <ConnectorPoint PointX="9.75" PointY="16.749746093749991" />
+          <ConnectorPoint PointX="9.8541641666666653" PointY="16.749746093749991" />
+          <ConnectorPoint PointX="10.020830833333333" PointY="16.749746093749991" />
+          <ConnectorPoint PointX="10.041666666666666" PointY="16.749746093749991" />
+          <ConnectorPoint PointX="10.208333333333334" PointY="16.749746093749991" />
+          <ConnectorPoint PointX="10.229169166666667" PointY="16.749746093749991" />
+          <ConnectorPoint PointX="10.395835833333335" PointY="16.749746093749991" />
+          <ConnectorPoint PointX="10.5" PointY="16.749746093749991" />
+        </AssociationConnector>
+        <AssociationConnector Association="Model.FK3B075919F0A403B9" >
+          <ConnectorPoint PointX="6.75" PointY="32.062306692307693" />
+          <ConnectorPoint PointX="7.0660744349011209" PointY="31.746232257406572" />
+          <ConnectorPoint PointX="7.1839255650988791" PointY="31.628381127208815" />
+          <ConnectorPoint PointX="7.3125" PointY="31.499806692307693" />
+          <ConnectorPoint PointX="7.3125" PointY="23.862597214843746" />
+          <ConnectorPoint PointX="7.5" PointY="23.862597214843746" />
+        </AssociationConnector>
+        <AssociationConnector Association="Model.FK49C8841F0A403B9" >
+          <ConnectorPoint PointX="6.75" PointY="33.437151939903828" />
+          <ConnectorPoint PointX="7.041666666666667" PointY="33.437151939903828" />
+          <ConnectorPoint PointX="7.208333333333333" PointY="33.437151939903828" />
+          <ConnectorPoint PointX="10.8437475" PointY="33.437151939903828" />
+          <ConnectorPoint PointX="10.8437475" PointY="25.566793619791667" />
+        </AssociationConnector>
+        <AssociationConnector Association="Model.FK6393B2A21F587C01" >
+          <ConnectorPoint PointX="3.75" PointY="17.864889322916667" />
+          <ConnectorPoint PointX="3.75" PointY="33.374746093749991" />
+          <ConnectorPoint PointX="5.25" PointY="33.374746093749991" />
+        </AssociationConnector>
+        <AssociationConnector Association="Model.FK_FICHAS_EFICHA" >
+          <ConnectorPoint PointX="4.5" PointY="13.672841796874991" />
+          <ConnectorPoint PointX="5.25" PointY="13.672841796874991" />
+        </AssociationConnector>
+        <AssociationConnector Association="Model.FK_FICPPP_FIC" >
+          <ConnectorPoint PointX="6.75" PointY="13.495957031249997" />
+          <ConnectorPoint PointX="7.041666666666667" PointY="13.495957031249995" />
+          <ConnectorPoint PointX="7.302083333333333" PointY="13.495957031249997" />
+          <ConnectorPoint PointX="9.1666666666666661" PointY="13.495957031249997" />
+          <ConnectorPoint PointX="9.3333333333333339" PointY="13.495957031249997" />
+          <ConnectorPoint PointX="9.8541641666666653" PointY="13.495957031249997" />
+          <ConnectorPoint PointX="10.020830833333333" PointY="13.495957031249997" />
+          <ConnectorPoint PointX="10.041666666666666" PointY="13.495957031249997" />
+          <ConnectorPoint PointX="10.208333333333334" PointY="13.495957031249997" />
+          <ConnectorPoint PointX="10.229169166666667" PointY="13.495957031249997" />
+          <ConnectorPoint PointX="10.395835833333335" PointY="13.495957031249997" />
+          <ConnectorPoint PointX="10.5" PointY="13.495957031249997" />
+        </AssociationConnector>
+        <AssociationConnector Association="Model.FK_FICPPPPRO_FIC" >
+          <ConnectorPoint PointX="6.75" PointY="20.396352539062505" />
+          <ConnectorPoint PointX="7.041666666666667" PointY="20.396352539062505" />
+          <ConnectorPoint PointX="7.333333333333333" PointY="20.396352539062505" />
+          <ConnectorPoint PointX="9.8541641666666653" PointY="20.396352539062505" />
+          <ConnectorPoint PointX="10.020830833333333" PointY="20.396352539062505" />
+          <ConnectorPoint PointX="10.041666666666666" PointY="20.396352539062505" />
+          <ConnectorPoint PointX="10.208333333333334" PointY="20.396352539062505" />
+          <ConnectorPoint PointX="10.229169166666667" PointY="20.396352539062505" />
+          <ConnectorPoint PointX="10.395835833333335" PointY="20.396352539062505" />
+          <ConnectorPoint PointX="14.25" PointY="20.396352539062505" />
+          <ConnectorPoint PointX="14.25" PointY="18.191793619791667" />
+        </AssociationConnector>
+        <AssociationConnector Association="Model.FK_FICPPPPRO_TIT" >
+          <ConnectorPoint PointX="12.40625" PointY="5.7302864583333246" />
+          <ConnectorPoint PointX="12.40625" PointY="15.265625" />
+          <ConnectorPoint PointX="13.5" PointY="15.265625" />
+        </AssociationConnector>
+        <AssociationConnector Association="Model.FK3B075919D986D191" >
+          <ConnectorPoint PointX="6.75" PointY="21.816925455729162" />
+          <ConnectorPoint PointX="7.041666666666667" PointY="21.816925455729162" />
+          <ConnectorPoint PointX="7.333333333333333" PointY="21.816925455729162" />
+          <ConnectorPoint PointX="7.5" PointY="21.816925455729162" />
+        </AssociationConnector>
+        <AssociationConnector Association="Model.FK49C8841D986D191" >
+          <ConnectorPoint PointX="6" PointY="22.008850911458325" />
+          <ConnectorPoint PointX="6" PointY="22.75" />
+          <ConnectorPoint PointX="6.8924358974358988" PointY="22.75" />
+          <ConnectorPoint PointX="7.2395833333333321" PointY="22.75" />
+          <ConnectorPoint PointX="7.375" PointY="22.75" />
+          <ConnectorPoint PointX="7.375" PointY="24.816793619791667" />
+          <ConnectorPoint PointX="9.8541641666666653" PointY="24.816793619791667" />
+          <ConnectorPoint PointX="10.020830833333333" PointY="24.816793619791667" />
+          <ConnectorPoint PointX="10.1875" PointY="24.816793619791667" />
+          <ConnectorPoint PointX="10.1875" PointY="24.095896809895834" />
+          <ConnectorPoint PointX="10.229169166666667" PointY="24.095896809895834" />
+          <ConnectorPoint PointX="10.395835833333335" PointY="24.095896809895834" />
+          <ConnectorPoint PointX="10.5" PointY="24.095896809895834" />
+        </AssociationConnector>
+        <AssociationConnector Association="Model.FK_FICPPPVAT_FIC" >
+          <ConnectorPoint PointX="6.75" PointY="19.782026308593821" />
+          <ConnectorPoint PointX="7.041666666666667" PointY="19.782026308593821" />
+          <ConnectorPoint PointX="7.333333333333333" PointY="19.782026308593821" />
+          <ConnectorPoint PointX="9.8541641666666653" PointY="19.782026308593821" />
+          <ConnectorPoint PointX="10.020830833333333" PointY="19.782026308593821" />
+          <ConnectorPoint PointX="10.041666666666666" PointY="19.782026308593821" />
+          <ConnectorPoint PointX="10.208333333333334" PointY="19.782026308593821" />
+          <ConnectorPoint PointX="10.229169166666667" PointY="19.782026308593821" />
+          <ConnectorPoint PointX="10.395835833333335" PointY="19.782026308593821" />
+          <ConnectorPoint PointX="11.25" PointY="19.782026308593821" />
+          <ConnectorPoint PointX="11.25" PointY="18.124492187499982" />
+        </AssociationConnector>
+        <AssociationConnector Association="Model.FKC78C95FD1F587C01" >
+          <ConnectorPoint PointX="4.5" PointY="16.028722330530485" />
+          <ConnectorPoint PointX="5.25" PointY="16.028722330530485" />
+        </AssociationConnector>
+        <AssociationConnector Association="Model.FK616B2BABAE23B8F5" >
+          <ConnectorPoint PointX="2.25" PointY="37.422841796874991" />
+          <ConnectorPoint PointX="3" PointY="37.422841796874991" />
+        </AssociationConnector>
+        <AssociationConnector Association="Model.FK616B2BABB82DBD89" >
+          <ConnectorPoint PointX="2.25" PointY="38.740143229166662" />
+          <ConnectorPoint PointX="3" PointY="38.740143229166662" />
+        </AssociationConnector>
+        <AssociationConnector Association="Model.T_TABLAS_BCO_CBA_T_TIPOS__FK1" >
+          <ConnectorPoint PointX="6.75" PointY="29.672841796874991" />
+          <ConnectorPoint PointX="7.041666666666667" PointY="29.672841796874991" />
+          <ConnectorPoint PointX="7.208333333333333" PointY="29.672841796874991" />
+          <ConnectorPoint PointX="7.229166666666667" PointY="29.672841796874991" />
+          <ConnectorPoint PointX="7.395833333333333" PointY="29.672841796874991" />
+          <ConnectorPoint PointX="7.5" PointY="29.672841796874991" />
+        </AssociationConnector>
+        <AssociationConnector Association="Model.FK_TIT_UNI" >
+          <ConnectorPoint PointX="10.5" PointY="4.6728417968749909" />
+          <ConnectorPoint PointX="11.25" PointY="4.6728417968749909" />
+        </AssociationConnector>
+        <AssociationConnector Association="Model.T_FICHAS_RECHAZO" >
+          <ConnectorPoint PointX="6.75" PointY="21.977696065304478" />
+          <ConnectorPoint PointX="7.15625" PointY="22.383946065304478" />
+          <ConnectorPoint PointX="7.15625" PointY="26.547841796874991" />
+          <ConnectorPoint PointX="7.229166666666667" PointY="26.547841796874991" />
+          <ConnectorPoint PointX="7.395833333333333" PointY="26.547841796874991" />
+          <ConnectorPoint PointX="7.5" PointY="26.547841796874991" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,246 @@
+﻿@{
+    var form = ViewData["Menu"] as IList<string>;
+}
+<ul class="sf-menu">
+    @{
+        if (form.Contains(((int)Enums.Formulario.AbmBeneficiario).ToString()) ||
+            form.Contains(((int)Enums.Formulario.AbmFicha).ToString()) ||
+            form.Contains(((int)Enums.Formulario.AbmEmpresas).ToString()))
+        {
+        <li class="current"><a href="#a">Gestión Inscriptos</a>
+            <ul>
+                @if (form.Contains(((int)Enums.Formulario.AbmFicha).ToString()))
+                {
+                    <li>@Html.ActionLink("Inscriptos", "Index", "Fichas", null, new { style = "width: 120px;" })</li>
+                }
+                <!-- 18/02/2013 - DI CAMPLI LEANDRO - ALTA MASIVA DE BENEFICIARIOS -->
+                @if (form.Contains(((int)Enums.Formulario.AltaMasivaBeneficiarios).ToString()))
+                {
+                    <li>@Html.ActionLink("Alta Masiva Beneficiarios", "ALtaMasivaBeneficiarios", "Fichas", null, new { style = "width: 120px;" })</li>
+                }
+                <!-- 14/05/2013 - DI CAMPLI LEANDRO - ASOCIAR ETAPA A FICHAS -->
+                @if (form.Contains(((int)Enums.Formulario.AsociarEtapa).ToString()))
+                {
+                    <li>@Html.ActionLink("Asociar Etapa a Fichas", "AsociarEtapa", "Etapa", null, new { style = "width: 120px;" })</li>
+                }
+                <!-- 06/03/2017 - DI CAMPLI LEANDRO - ASOCIAR ETAPA A FICHAS -->
+                @if (form.Contains(((int)Enums.Formulario.AsociarEtapa).ToString()))
+                {
+                    <li>@Html.ActionLink("Asociar Subprograma a Fichas", "AsociarSubprograma", "Subprogramas", null, new { style = "width: 120px;" })</li>
+                }
+                
+                <!-- 08/01/2014 - DI CAMPLI LEANDRO - GESTOR ESTADOS FICHAS -->
+                @if (form.Contains(((int)Enums.Formulario.GestorEstadosFichas).ToString()))
+                {
+                    <li>@Html.ActionLink("Gestor Estados Fichas", "GestorEstadosFichas", "Fichas", null, new { style = "width: 120px;" })</li>
+                }
+
+                @if (form.Contains(((int)Enums.Formulario.AbmBeneficiario).ToString()))
+                {
+                    <li>@Html.ActionLink("Beneficiarios", "Index", "Beneficiarios", null, new { style = "width: 120px;" })</li>    
+                }
+                @if (form.Contains(((int)Enums.Formulario.AbmEmpresas).ToString()))
+                {
+                    <li>@Html.ActionLink("Empresas", "Index", "Empresas", null, new { style = "width: 120px;" })</li>    
+                }
+                <li>@Html.ActionLink("Asistencias", "Cursos", "Cursos", null, new { style = "width: 120px;" })</li>
+                <!-- 02/01/2018 - DI CAMPLI LEANDRO - RE EMPADRONAR FICHAS -->
+                @if (form.Contains(((int)Enums.Formulario.ReEmpadronar).ToString()))
+                {
+                    <li>@Html.ActionLink("Re Empadronar Fichas", "ReEmpadronarFichas", "Fichas", null, new { style = "width: 120px;" })</li>
+                }
+                @if (form.Contains(((int)Enums.Formulario.Recupero).ToString()))
+                {
+                    <li><a href="#a">Recupero</a><ul>
+                    <li>@Html.ActionLink("Recupero Cupón", "Recupero", "Empresas", null, new { style = "width: 120px;" })</li>
+                    <li>@Html.ActionLink("Archivo Débito", "RecuperoDebito", "Empresas", null, new { style = "width: 120px;" })</li>
+                    </ul></li>  
+                } 
+            </ul>
+        </li>
+        }
+
+        if (form.Contains(((int)Enums.Formulario.Liquidaciones).ToString()) ||
+            form.Contains(((int)Enums.Formulario.AbmConceptos).ToString()))
+        {
+        <li class="current"><a href="#a">Gestión Liquidaciones</a>
+            <ul>
+                @if (form.Contains(((int)Enums.Formulario.Liquidaciones).ToString()))
+                {
+                    <li>@Html.ActionLink("Liquidaciones", "Index", "Liquidacion", null, new { style = "width: 135px;" })</li>
+                }
+                @if (form.Contains(((int)Enums.Formulario.AbmConceptos).ToString()))
+                {
+                    <li>@Html.ActionLink("Periodos", "Index", "Conceptos", null, new { style = "width: 135px;" })</li>
+                }
+            </ul>
+        </li>
+        }
+
+        if (form.Contains(((int)Enums.Formulario.RepDepLocProEst).ToString()) ||
+            form.Contains(((int)Enums.Formulario.RepArtHorariosEntPpp).ToString()) ||
+            form.Contains(((int)Enums.Formulario.RepArtHorariosEntReconversion).ToString()) ||
+            form.Contains(((int)Enums.Formulario.RepArtHorariosEntEfectores).ToString()))
+        {
+        <li class="current"><a href="#a">Reportes</a>
+            <ul>
+                @if (form.Contains(((int)Enums.Formulario.RepDepLocProEst).ToString()))
+                {
+                    <li>@Html.ActionLink("Dep. Loc. Prog. Est.", "IndexRDepLocProgEst", "Reportes", null, new { style = "width: 500px;" })</li>
+                }
+@*                 @if (form.Contains(((int)Enums.Formulario.RepArtHorariosEntPpp).ToString()))
+                {*@
+                     @*<li>@Html.ActionLink("Reporte de ART - Ppp", "ReporteArtPpp", "Beneficiarios", null, new { style = "width: 500px;" })</li>                    *@
+                     <li>@Html.ActionLink("Reportes de ART", "ReportesArt", "Reportes", null, new { style = "width: 500px;" })</li>                    
+               @* }*@
+@*                 @if (form.Contains(((int)Enums.Formulario.RepArtHorariosEntReconversion).ToString()))
+                 {
+                    <li>@Html.ActionLink("Reporte de ART - Reconversion Productiva", "ReporteArtReconversion", "Beneficiarios", null, new { style = "width: 500px;" })</li>
+                 }
+                 @if (form.Contains(((int)Enums.Formulario.RepArtHorariosEntEfectores).ToString()))
+                 {
+                    <li>@Html.ActionLink("Reporte de ART - Efectores Sociales", "ReporteArtEfectores", "Beneficiarios", null, new { style = "width: 500px;" })</li>
+                 }
+                 @if (form.Contains(((int)Enums.Formulario.RepArtHorariosEntVat).ToString()))
+                 {
+                    <li>@Html.ActionLink("Reporte de ART - Volver al Trabajo", "ReporteArtVat", "Beneficiarios", null, new { style = "width: 500px;" })</li>
+                 }
+                 @if (form.Contains(((int)Enums.Formulario.RepArtHorariosEntPppp).ToString()))
+                 {
+                    <li>@Html.ActionLink("Reporte de ART - Ppp Profesional", "ReporteArtPppp", "Beneficiarios", null, new { style = "width: 500px;" })</li>
+                 }*@
+                
+                 @if (form.Contains(((int)Enums.Formulario.RepArtHorariosEntPppp).ToString()))
+                 {
+                    <li>@Html.ActionLink("Reporte de Sector Institución Carrera", "ReporteSectorInstCarrera", "Carreras", null, new { style = "width: 500px;" })</li>
+                 }
+               <li>@Html.ActionLink("Reporte de asistencias", "AsistenciasRpt", "Reportes", null, new { style = "width: 500px;" })</li>
+               <li>@Html.ActionLink("Reporte beneficiario Horarios", "BeneficiarioHorario", "Reportes", null, new { style = "width: 500px;" })</li> 
+            </ul>
+        </li>
+        }
+
+        if (form.Contains(((int)Enums.Formulario.AbmCausaRechazo).ToString()) ||
+            form.Contains(((int)Enums.Formulario.AbmTipoRechazo).ToString()) ||
+            form.Contains(((int)Enums.Formulario.AbmInstituciones).ToString()) ||
+            form.Contains(((int)Enums.Formulario.AbmDepartamentos).ToString()) ||
+            form.Contains(((int)Enums.Formulario.AbmProgramas).ToString()) ||
+            form.Contains(((int)Enums.Formulario.AbmUniversidades).ToString()) ||
+            form.Contains(((int)Enums.Formulario.AbmLocalidades).ToString()) ||
+            form.Contains(((int)Enums.Formulario.AbmCarreras).ToString()) ||
+            form.Contains(((int)Enums.Formulario.AbmSedes).ToString()) ||
+            form.Contains(((int)Enums.Formulario.AbmSucursalesCobertura).ToString()) ||
+            form.Contains(((int)Enums.Formulario.AbmSubprogramas).ToString()) ||
+            form.Contains(((int)Enums.Formulario.AbmEtapas).ToString()))
+        {
+        <li class="current"><a href="#a">Configuración</a>
+            <ul>
+                @if (form.Contains(((int)Enums.Formulario.AbmCarreras).ToString()))
+                {
+                    <li>@Html.ActionLink("Carreras", "Index", "Carreras", null, new { style = "width:130px;" })</li>    
+                }
+                @if (form.Contains(((int)Enums.Formulario.AbmCausaRechazo).ToString()))
+                {
+                    <li>@Html.ActionLink("Causas Rechazos", "Index", "CausasRechazo", null, new { style = "width:130px;" })</li>    
+                }
+                @if (form.Contains(((int)Enums.Formulario.AbmDepartamentos).ToString()))
+                {
+                    <li>@Html.ActionLink("Departamentos", "Index", "Departamentos", null, new { style = "width:130px;" })</li>    
+                }
+                @if (form.Contains(((int)Enums.Formulario.AbmInstituciones).ToString()))
+                {
+                    <li>@Html.ActionLink("Instituciones", "Index", "Instituciones", null, new { style = "width:130px;" })</li>    
+                }
+                @if (form.Contains(((int)Enums.Formulario.AbmLocalidades).ToString()))
+                {
+                    <li>@Html.ActionLink("Localidades", "Index", "Localidades", null, new { style = "width:130px;" })</li>    
+                }
+                @if (form.Contains(((int)Enums.Formulario.AbmProgramas).ToString()))
+                {
+                    <li>@Html.ActionLink("Programas", "Index", "Programas", null, new { style = "width:130px;" })</li>    
+                }
+                @if (form.Contains(((int)Enums.Formulario.AbmProgramas).ToString()))
+                {
+                    <li>@Html.ActionLink("Subprogramas", "Index", "Subprogramas", null, new { style = "width:130px;" })</li>    
+                }
+                @if (form.Contains(((int)Enums.Formulario.AbmTipoRechazo).ToString()))
+                {
+                    <li>@Html.ActionLink("Tipos de Rechazo", "Index", "TiposRechazo", null, new { style = "width:130px;" })</li>    
+                }
+                @if (form.Contains(((int)Enums.Formulario.AbmUniversidades).ToString()))
+                {
+                    <li>@Html.ActionLink("Universidades", "Index", "Universidades", null, new { style = "width:130px;" })</li>    
+                }
+                @if (form.Contains(((int)Enums.Formulario.AbmSucursalesCobertura).ToString()))
+                {
+                    <li>@Html.ActionLink("Sucursales Cobertura", "Index", "SucursalCobertura", null, new { style = "width:130px;" })</li>    
+                }
+                
+                @*07/058/2013 - DI CAMPLI LEANDRO - SE AÑADE LA CONFIGURACIÓN DE LAS ETAPAS PARA ASIGNARLES A LAS FICHAS*@
+                 @if (form.Contains(((int)Enums.Formulario.AbmEtapas).ToString()))
+                 {
+                    <li>@Html.ActionLink("Etapas", "Index", "Etapa", null, new { style = "width:130px;" })</li>    
+                 }
+                @if (form.Contains(((int)Enums.Formulario.ABMPersonas).ToString()))
+                {
+                    <li>@Html.ActionLink("Personas", "Index", "Personas", null, new { style = "width:130px;" })</li>    
+                }
+                @if (form.Contains(((int)Enums.Formulario.ABMCursos).ToString()))
+                {
+                    <li>@Html.ActionLink("Cursos", "Index", "Cursos", null, new { style = "width:130px;" })</li>    
+                }
+                @if (form.Contains(((int)Enums.Formulario.ABMBarrios).ToString()))
+                {
+                    <li>@Html.ActionLink("Barrios", "Index", "Barrios", null, new { style = "width:130px;" })</li>    
+                }
+                @if (form.Contains(((int)Enums.Formulario.ABMEscuelas).ToString()))
+                {
+                    <li>@Html.ActionLink("Escuelas", "Index", "Escuelas", null, new { style = "width:130px;" })</li>    
+                }
+                @if (form.Contains(((int)Enums.Formulario.ABMOng).ToString()))
+                {
+                    <li>@Html.ActionLink("ONG", "Index", "Ong", null, new { style = "width:130px;" })</li>    
+                }
+
+            </ul>
+        </li>
+        }
+
+        if (form.Contains(((int)Enums.Formulario.CambiarComntraseña).ToString()) ||
+            form.Contains(((int)Enums.Formulario.AbmUsuario).ToString()) ||
+            form.Contains(((int)Enums.Formulario.AbmRoles).ToString()) ||
+            form.Contains(((int)Enums.Formulario.AsignarPermisos).ToString()) ||
+            form.Contains(((int)Enums.Formulario.InicializarTablas).ToString()) ||
+            form.Contains(((int)Enums.Formulario.ControlDatos).ToString()))
+        {
+        <li class="current"><a href="#a">Seguridad</a>
+            <ul>
+                @if (form.Contains(((int)Enums.Formulario.CambiarComntraseña).ToString()))
+                {
+                    <li>@Html.ActionLink("Cambiar Contraseña", "Modificar", "Password", null, new { style = "width:120px;" })</li>
+                }
+                @if (form.Contains(((int)Enums.Formulario.AbmUsuario).ToString()))
+                {
+                    <li>@Html.ActionLink("Usuarios", "Index", "Usuarios", null, new { style = "width:120px;" })</li>
+                }
+                @if (form.Contains(((int)Enums.Formulario.AbmRoles).ToString()))
+                {
+                    <li>@Html.ActionLink("Roles", "Index", "Roles", null, new { style = "width:120px;" })</li>
+                }
+                @if (form.Contains(((int)Enums.Formulario.AsignarPermisos).ToString()))
+                {
+                    <li>@Html.ActionLink("Asignar Permisos", "Index", "Permisos", null, new { style = "width:120px;" })</li>
+                }
+                @if (form.Contains(((int)Enums.Formulario.InicializarTablas).ToString()))
+                {
+                    <li>@Html.ActionLink("Inicializar Tablas", "Index", "InicializarTablas", null, new { style = "width:120px;" })</li>
+                }
+                @if (form.Contains(((int)Enums.Formulario.ControlDatos).ToString()))
+                {
+                    <li>@Html.ActionLink("Control de Datos", "Index", "ControlDatos", null, new { style = "width:120px;" })</li>
+                }
+            </ul>
+        </li>
+        }
+    }
+</ul>

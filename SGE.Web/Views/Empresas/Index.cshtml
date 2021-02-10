@@ -1,0 +1,65 @@
+﻿@model EmpresasVista
+@{
+    ViewBag.Title = "Empresas";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var acciones = ViewData["Acciones"] as IList<string>;   
+}
+@section Scripts{
+    @Content.Script("SGE.Empresas.js", Url)
+}
+<div class="box">
+    <h2>
+        Listado de Empresas</h2>
+    @using (Html.BeginForm("IndexPager", "Empresas", FormMethod.Post, new { Id = "FormIndexEmpresa" }))
+    {
+        <table align="center" style="width: 930px;">
+            <tr>
+                <td>
+                    <fieldset style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 925px;
+                        text-align: center;">
+                        <legend style="color: #FF9900"><b>Filtros</b></legend>
+                        <table style="width: 924px;">
+                            <tr>
+                                <td style="width: 20%; text-align: right;">
+                                    <b>Razón Social: </b>
+                                </td>
+                                <td style="width: 30%; text-align: left;">
+                                    @Html.TextBoxFor(c => c.DescripcionBusqueda, new { style = "width:80%" })
+                                </td>
+                                <td style="width: 10%; text-align: right;">
+                                    <b>CUIT: </b>
+                                </td>
+                                <td style="width: 40%; text-align: left;">
+                                    @Html.TextBoxFor(c => c.CuitBusqueda, new { style = "width:45%" })
+                                </td>
+                            </tr>
+                        </table>
+                        <div class="div-filtro">
+                            <div class="div-filtro-btn">
+                                <p>
+                                    <a class="btnIngresar" href="#" id="Buscar">Buscar</a>&nbsp;&nbsp;
+                                    @if (acciones.Contains(((int)Enums.Acciones.Agregar).ToString()) || acciones.Contains(((int)Enums.Acciones.Modificar).ToString()))
+                                    {
+                                        @Html.ActionLink("Agregar", "Agregar", "Empresas", null, new { Class = "btnIngresar" })
+                                    }
+                                </p>
+                            </div>
+                        </div>
+                    </fieldset>
+                </td>
+            </tr>
+        </table>        
+        <table>
+            <tr>
+                <td style="font-weight: bold">
+                    <div id="titulo">
+                    </div>
+                    <div id="DivSuperviciones">
+                        @Html.Partial("_Lista", Model)
+                    </div>
+                </td>
+            </tr>
+        </table>
+        @Html.Partial("_Pager", Model.Pager)
+    }
+</div>

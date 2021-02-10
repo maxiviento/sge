@@ -1,0 +1,295 @@
+﻿@model BeneficiariosVista
+@{
+    ViewBag.Title = "Beneficiarios";
+    ViewBag.SubMenuSelected = "Cuentas";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var acciones = ViewData["Acciones"] as IList<string>;
+    TempData["BeneficiariosVista"] = Model;
+    var verListaPpp = "N";
+}
+@section Scripts{
+    @Content.Script("SGE.Beneficiario.js", Url)
+}
+<div class="box">
+    <h2>
+        Gestión de Beneficiarios</h2>
+    @using (Html.BeginForm("IndexPager", "Beneficiarios", FormMethod.Post, new { Id = "FormIndexBeneficiarios" }))
+    {
+        <table align="center" style="width: 930px;">
+            <tr>
+                <td>
+                    <fieldset style="width: 925px;">
+                        <legend align="center"><b>Filtros</b></legend>
+                          <fieldset style="width: 910px; margin: 5px 5px 5px 5px;">
+                          <legend align="center"><b>Etapas</b></legend>
+                          <table style="width: 908px" align="center">
+                            <tr>
+                                <td style="width: 15%; text-align: right;">
+                                    <b>Ejercicio: </b>
+                                </td>
+                                <td style="width: 30%; text-align: left;">@Html.TextBoxFor(c => c.ejerc)
+                                </td>
+                                <td style="text-align: right;">
+                                    <b>Programas: </b>
+                                </td>
+                                <td style="text-align: left;">
+                                    @Html.EditorFor(c => c.EtapaProgramas)
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width: 15%; text-align: right;"></td>
+                                <td style="width: 30%; text-align: left;"><a class="btnIngresar" id="TraerEtapa" href="#">Traer Etapas</a> <a class="btnIngresar" id="QuitarEtapa" href="#">Quitar Filtro</a></td>
+                                @if (Model.BuscarPorEtapa == "S")
+                                {
+                                    if (Model.etapas.Combo.Count > 0)
+                                    {
+                                            <td style="text-align: right;"><b>Etapas:</b></td>
+                                            <td>@Html.EditorFor(c => c.etapas)</td>
+                                    }
+                                    else
+                                    {<td></td><td></td> }
+                                }
+                                else
+                                {<td></td><td></td> }
+                                                       
+                            </tr>
+                </table>
+                        </fieldset>
+
+                        <table style="width: 924px;">
+                            <tr>
+                                <td style="width: 15%; text-align: right;">
+                                    <b>Apellido: </b>
+                                </td>
+                                <td style="width: 30%; text-align: left;">@Html.TextBoxFor(c => c.ApellidoBusqueda)
+                                </td>
+                                <td style="width: 15%; text-align: right;">
+                                    <b>Nombre: </b>
+                                </td>
+                                <td style="width: 40%; text-align: left;">@Html.TextBoxFor(c => c.NombreBusqueda)
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: right;">
+                                    <b>CUIL: </b>
+                                </td>
+                                <td style="text-align: left;">@Html.TextBoxFor(c => c.CuilBusqueda, new { style = "text-align: right; width:90px;" })
+                                </td>
+                                <td style="text-align: right;">
+                                    <b>Nro. Doc.: </b>
+                                </td>
+                                <td style="text-align: left;">@Html.TextBoxFor(c => c.NumeroDocumentoBusqueda, new { style = "text-align: right;" })
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: right;">
+                                    <b>Nro Sticker: </b>
+                                </td>
+                                <td style="text-align: left;">@Html.TextBoxFor(c => c.nrotramite_busqueda)
+                                </td>
+                                <td style="text-align: right;">
+                                </td>
+                                <td style="text-align: left;">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: right;">
+                                    <b>Programas: </b>
+                                </td>
+                                <td style="text-align: left;">
+                                    @Html.EditorFor(c => c.Programas)
+                                </td>
+                                <td style="text-align: right;">
+                                    <b>Estados: </b>
+                                </td>
+                                <td style="text-align: left;">
+                                    @Html.EditorFor(c => c.EstadosBeneficiarios)
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: right;">
+                                    <div id="lblSubprogramas" style="text-align: right;"><b>Subprogramas:</b></div>
+                                </td>
+                                <td style="text-align: left;">
+                                    @Html.EditorFor(c => c.ComboSubprogramas)
+                                </td>
+                                <td style="text-align: right;">
+                                   <div id="lblTipoPpp" style="text-align: right;"><b>Tipo Ppp:</b></div>
+                                </td>
+                                <td style="text-align: left;">@Html.EditorFor(c => c.ComboTiposPpp)
+                                    
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: right;">
+                                    <b>Apoderado: </b>
+                                </td>
+                                <td style="text-align: left;">
+                                    @Html.RadioButtonFor(model => model.ConApoderado, "T", new { Checked = "", Class = "ConApoderado" })
+                                    Todos
+                                    @Html.RadioButtonFor(model => model.ConApoderado, "S", new { Class = "ConApoderado" })
+                                    Con
+                                    @Html.RadioButtonFor(model => model.ConApoderado, "N", new { Class = "ConApoderado" })
+                                    Sin
+                                </td>
+                                <td style="text-align: right;">
+                                    <b>Discapacitado: </b>
+                                </td>
+                                <td style="text-align: left;">
+                                    @Html.RadioButtonFor(model => model.ConDiscapacidad, "T", true)
+                                    Todos
+                                    @Html.RadioButtonFor(model => model.ConDiscapacidad, "S", false)
+                                    Si
+                                    @Html.RadioButtonFor(model => model.ConDiscapacidad, "N", false)
+                                    No
+                                </td>
+                            </tr>
+                            <tr id="trModalidad">
+                                <td style="text-align: right;">
+                                    <b>Modalidad: </b>
+                                </td>
+                                <td style="text-align: left;">
+                                    @Html.RadioButtonFor(model => model.ConModalidad, "T", true)
+                                    Todos
+                                    @Html.RadioButtonFor(model => model.ConModalidad, "E", false)
+                                    Entrenamiento
+                                    @Html.RadioButtonFor(model => model.ConModalidad, "C", false)
+                                    CTI
+                                </td>
+                                <td style="text-align: right;">
+                                    <b>Alta Temprana: </b>
+                                </td>
+                                <td style="text-align: left;">
+                                    @Html.RadioButtonFor(model => model.ConAltaTemprana, "T", true)
+                                    Todos
+                                    @Html.RadioButtonFor(model => model.ConAltaTemprana, "S", false)
+                                    Con
+                                    @Html.RadioButtonFor(model => model.ConAltaTemprana, "N", false)
+                                    Sin
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: right;">
+                                    <b>Cuenta Banco: </b>
+                                </td>
+                                <td style="text-align: left;">
+                                    @Html.RadioButtonFor(model => model.ConCuenta, "T", true)
+                                    Todos
+                                    @Html.RadioButtonFor(model => model.ConCuenta, "S", false)
+                                    Con Cuenta
+                                    @Html.RadioButtonFor(model => model.ConCuenta, "N", false)
+                                    Sin Cuenta
+                                </td>
+                                <td>
+                                </td>
+                                <td>
+                                </td>
+                                @* <td style="text-align: right;">
+                                    <b>Ape. y Nom. Apo.: </b>
+                                </td>
+                                <td style="text-align: left;">
+                                    @Html.TextBoxFor(c => c.ApellidoNombreApoderadoBusqueda, new { style = "width:250px;" })
+                                </td>*@
+                            </tr>
+                        </table>
+                        <div class="div-filtro">
+                            <div class="div-filtro-btn">
+                                <p>
+                                    <a class="btnIngresar" id="Buscar" href="#">Buscar</a>
+                                    @if (acciones.Contains(((int)Enums.Acciones.Importar).ToString()))
+                                    { 
+                                        @Html.ActionLink("Importar Cuentas", "Importar", "Beneficiarios", null, new { Class = "btnIngresar" })
+                                    }
+                                    @if (Model.ListaBeneficiarios.Count > 0 && Model.ConCuenta == "N" && Model.Programas.Selected != "0")
+                                    {
+                                        <a class="btnIngresar" href="#" id="GenerarFile">Generar Archivo</a>
+                                          
+                                    }
+                                    @Html.ActionLink("Archivos Generados", "ArchivosGenerados", "Beneficiarios", null, new { Class = "btnIngresar" })
+                                    @if (Model.ListaBeneficiarios.Count > 0 && (Model.Programas.Selected != "0" && Model.Programas.Selected != null) && acciones.Contains(((int)Enums.Acciones.Exportar).ToString()))
+                                    {
+                                        <a class="btnIngresar" href="#" id="ExportBeneficiario">Exportar a Excel</a>
+                                    }
+                                </p>
+                            </div>
+                        </div>
+                    </fieldset>
+                </td>
+            </tr>
+        </table>
+
+        
+        <table>
+            <tr>
+                <td style="font-weight: bold">
+                    <div id="titulo">
+                    </div>
+                    <div id="DivSuperviciones">
+                        @{if (Model.Programas.Selected == "3")
+                          {@Html.Partial("_ListaPpp", Model) }
+                          else
+                          {                            
+                          if (Model.programaSel == 3)
+                          {@Html.Partial("_ListaPpp", Model) }
+                          else
+                          {
+                              if (Model.ApellidoBusqueda != null || Model.NombreBusqueda != null || Model.NumeroDocumentoBusqueda != null || Model.CuilBusqueda != null || Model.nrotramite_busqueda != null)
+                              { 
+                                  if (Model.ListaBeneficiarios != null && Model.ListaBeneficiarios.Count > 0)
+                                  {
+                                      foreach (var item in Model.ListaBeneficiarios)
+                                      {
+                                          if (item.IdPrograma == 3)
+                                          {
+                                              verListaPpp = "S";
+                                          }
+                                      }
+                                  }
+                              }
+                              if (verListaPpp == "S")
+                              {
+                                  @Html.Partial("_ListaPpp", Model) 
+                              }
+                              else
+                              {  
+                                @Html.Partial("_Lista", Model)
+                              }
+                          }
+                          }
+                        }
+                    </div>
+                </td>
+            </tr>
+        </table>    
+        @Html.Partial("_Pager", Model.Pager) 
+        @Html.HiddenFor(c => c.FileDownload)
+        @Html.HiddenFor(c => c.FileNombre)
+        @Html.HiddenFor(c => c.ErrorDatos)
+        @Html.HiddenFor(c => c.filtroEjerc)
+        @Html.HiddenFor(c => c.programaSel)
+        @Html.HiddenFor(c => c.BuscarPorEtapa)
+        @Html.HiddenFor(c => c.idSubprograma)
+        @Html.HiddenFor(c => c.ProgPorRol)
+        @Html.HiddenFor(c => c.idFormulario)
+        
+    }
+
+</div>
+<div id="dialog" title="Mensaje">
+    <p>
+        Verifique de seleccionar un Plan para generar el Archivo de cuentas.</p>
+</div>
+<div id="dialogErrorDatos" title="Mensaje">
+    <p>
+        No se puede generar el archivo porque hay una discrepancia en los datos, verifique
+        en el módulo de seguridad, opción "Control de Datos" o comuníquese con un administrador
+        del sistema.</p>
+</div>
+<div id="procesando" title="Mensaje" class=".no-close">
+    <p>PROCESANDO ARCHIVO</p>
+</div>
+
+<div id="dialog_SelPrograma" title="Mensaje">
+    <p>
+        Seleccione un programa</p>
+</div>

@@ -1,0 +1,199 @@
+﻿@model FichaVista
+<tr>
+    <td align="right">
+        <b>Sector Productivo: </b>
+    </td>
+    <td align="left" valign="middle" colspan="3">
+        @Html.EditorFor(c => c.SectorProductivo)
+    </td>
+</tr>
+<tr>
+    <td align="right" valign="top">
+        <b>Institución: </b>
+    </td>
+    <td align="left" valign="middle" colspan="3">
+        @Html.EditorFor(c => c.Institucion)
+    </td>
+</tr>
+<tr>
+    <td align="right">
+        <b>Carrera: </b>
+    </td>
+    <td align="left" valign="middle" colspan="3">
+        @Html.EditorFor(c => c.Carrera)
+    </td>
+</tr>
+<tr>
+    <td align="right">
+        <b>Otra Carrera: </b>
+    </td>
+    <td align="left" valign="middle" colspan="3">
+        @if (Model.Accion == "Ver" || Model.Accion == "CambiarEstado")
+        {
+            @Html.TextBoxFor(c => c.OtraCarrera, new { disabled = "disabled", style = "width:350px;" })
+        }
+        else
+        {
+            @Html.TextBoxFor(c => c.OtraCarrera, new { style = "width:350px;" })
+        }
+    </td>
+</tr>
+<tr>
+    <td align="right">
+        <b>Otra Institución: </b>
+    </td>
+    <td align="left" valign="middle" colspan="3">
+        @if (Model.Accion == "Ver" || Model.Accion == "CambiarEstado")
+        {
+            @Html.TextBoxFor(c => c.OtraInstitucion, new { disabled = "disabled", style = "width:350px;" })
+        }
+        else
+        {
+            @Html.TextBoxFor(c => c.OtraInstitucion, new { style = "width:350px;" })
+        }
+    </td>
+    </tr>
+<tr>
+    <td align="right">
+        <b>Otro Sector: </b>
+    </td>
+    <td align="left" valign="middle" colspan="3">
+        @if (Model.Accion == "Ver" || Model.Accion == "CambiarEstado")
+        {
+            @Html.TextBoxFor(c => c.OtroSector, new { disabled = "disabled", style = "width:350px;" })
+        }
+        else
+        {
+            @Html.TextBoxFor(c => c.OtroSector, new { style = "width:350px;" })
+        }
+    </td>
+</tr>
+<tr>
+    <td colspan="4">
+        <p class="similLegend">
+            <b>Escuela donde realizó el secundario</b></p>
+    </td>
+</tr>
+<tr>
+    <td align="right">
+        <b>Departamento: </b>
+    </td>
+    <td align="left" valign="middle">
+        @Html.EditorFor(c => c.DepartamentosEscuela)
+    </td>
+    <td align="right">
+        <b>Localidad: </b>
+    </td>
+    <td align="left" valign="middle">
+        @Html.EditorFor(c => c.LocalidadesEscuela)
+    </td>
+</tr>
+<tr>
+    <td align="right">
+        <b>Escuela: </b>
+    </td>
+    <td align="left" valign="middle" colspan="3">
+        @Html.EditorFor(c => c.Escuelas)
+    </td>
+</tr>
+<tr>
+    <td align="right">
+        <b>Promedio: </b>
+    </td>
+    <td align="left" valign="middle">
+        @if (Model.Accion == "Ver" || Model.Accion == "CambiarEstado")
+        {
+            @Html.TextBoxFor(c => c.Promedio, new { disabled = "disabled", style = "width:50px; text-align: right;" })
+        }
+        else
+        {
+            @Html.TextBoxFor(c => c.Promedio, new { style = "width:50px; text-align: right;" })
+        }
+    </td>
+    <td align="right" colspan="2">
+        @if (Model.Accion != "Ver" && Model.Accion != "Agregar")
+        {
+            <input id="convertirunvterc" type="button" value="Convertir Ficha a @Model.ConvertirA" class="btnIngresar" />	 
+        }
+    </td>
+</tr>
+
+                            <tr>
+                                <td  colspan="4">
+                                <br />
+                                    <hr  style="height: 1px; background:black;"/>
+                                </td>
+                            </tr>
+                <tr>
+                <td align="center" colspan="4"><div id="SubProgVerOcultar" style="font-weight: bold;cursor: pointer;" class="similLegend" onclick="muestra_oculta('divSubP','SubProgVerOcultar','Datos del Subprograma')">Ver datos del Sub Programa</div></td>
+                </tr>
+                <tr>
+                    <td colspan="4">
+                        <div id="divSubP">
+                          <table align="left" style="width: 920px;" >
+                              @*<tr><td colspan="4" align="center"><b class="similLegend" >Datosde la ONG</b></td></tr>*@
+                              <tr>
+                                <td align="right">
+                                    <b>Nombre: </b>                   
+                                </td>
+                                <td align="left" valign="middle">
+                                    @if (Model.Accion == "Ver" || Model.Accion == "CambiarEstado")
+                                    {
+                                        @Html.TextBoxFor(model => model.Subprograma, new { disabled = "disabled", style = "width:200px; font-family: Arial, Helvetica, sans-serif; font-size: 12px;" })
+                                    }
+                                    else
+                                    {
+                                        @Html.TextBoxFor(model => model.Subprograma, new { style = "width:200px; font-family: Arial, Helvetica, sans-serif; font-size: 12px;", MaxLength = "100" }) 
+                                    }
+                                    @if ((Model.Accion != "Ver" && Model.Accion != "CambiarEstado"))
+                                    {
+                                        <a class="Lupa" title="Buscar Sub Programa" href="#" id="BuscarSubProg">Buscar</a>
+                                        <a class="Eliminar" title="Desvincular Sub Programa" id="DesvincularSubP">Desvincular Sub Programa</a>
+                                        
+                                    }
+                                </td>
+                                <td align="right">
+                                    <b>Monto: </b>                   
+                                </td>
+                                <td align="left" valign="middle">
+
+                                        @Html.TextBoxFor(model => model.monto, new { disabled = "disabled", style = "width:250px;" })
+                                   
+                                 </td>
+                            </tr>
+                            
+
+        </table>
+                        </div>
+                    
+                    </td>
+                </tr>
+
+<script>
+
+    function muestra_oculta(id, idd, title) {
+        if (document.getElementById) { //se obtiene el id
+            var el = document.getElementById(id); //se define la variable "el" igual a nuestro div
+            var a = document.getElementById(idd);
+            if (el.style.display == 'none') { a.innerHTML = title + ' - Ocultar'; } else { a.innerHTML = title + ' - Ver'; } //damos un atributo display:none que oculta el div
+            el.style.display = (el.style.display == 'none') ? 'block' : 'none'; //damos un atributo display:none que oculta el div
+        }
+    }
+    window.onload = function () {/*hace que se cargue la función lo que predetermina que div estará oculto hasta llamar a la función nuevamente*/
+        muestra_oculta('divSubP', 'SubProgVerOcultar', 'Datos del Sub Programa'); /* "contenido_a_mostrar" es el nombre de la etiqueta DIV que deseamos mostrar */
+
+    }
+</script>
+
+@Html.HiddenFor(c => c.IdFicha)
+@Html.HiddenFor(c => c.TipoFicha)
+@Html.HiddenFor(c => c.Institucion.Selected)
+@Html.HiddenFor(c => c.SectorProductivo.Selected)
+@Html.HiddenFor(c => c.DepartamentosEscuela.Selected)
+@Html.HiddenFor(c => c.IdLocalidadEscTerc)
+@Html.HiddenFor(c => c.IdInstitucionUniversitaria)
+@Html.HiddenFor(c => c.IdLocalidadEscUniv)
+@Html.HiddenFor(c => c.CambioTipo)
+@Html.HiddenFor(c => c.Accion)
+@Html.HiddenFor(c => c.IdSubprograma)
+

@@ -1,0 +1,62 @@
+﻿@model UsuarioPasswordVista
+@{
+    ViewBag.Title = "Usuario";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section Scripts{
+    @Content.Script("SGE.Usuarios.js", Url)
+}
+
+<div class="box">
+    <h2>Modificar Contraseña</h2>
+    @using (Html.BeginForm("Modificar", "Password", FormMethod.Post, new { Id = "FormularioPassword" }))
+    {
+        <table align="center" style="width: 950px;">
+            <tr>
+                <td>
+                    <table align="left" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 920px;">
+                        <tr>
+                            <td align="right">
+                                <b>@Html.LabelFor(model => model.OldPassword): </b>
+                            </td>
+                            <td align="left" valign="middle">
+                                @Html.PasswordFor(model => model.OldPassword, new { style = "width:180px;" })
+                            </td>
+                            <td align="right">
+                                <b>@Html.LabelFor(model => model.NewPassword): </b>
+                            </td>
+                            <td align="left" valign="middle">
+                                @Html.PasswordFor(model => model.NewPassword, new { style = "width:180px;" })
+                            </td>
+                            <td align="right">
+                                <b>@Html.LabelFor(model => model.NewPasswordConfirm): </b>
+                            </td>
+                            <td align="left" valign="middle">
+                                @Html.PasswordFor(model => model.NewPasswordConfirm, new { style = "width:180px;" })
+                            </td>
+                        </tr>
+                    </table>
+                    @Html.ValidationSummary(false)
+                </td>
+            </tr>
+        </table>
+        <br />
+        //@Html.HiddenFor(model => model.Login)
+        <table id="btnfin" align="center" width="100%">
+            <tr>
+                <td align="center" valign="middle">
+                    <a class="btnIngresar" id="btnMofificarPsw" >Modificar</a>
+                </td>   
+            </tr>
+        </table>
+        <table>
+            <tr>
+                <td>
+                     <div id="MensajeSuccess">
+                        @TempData["MensajeSuccess"]
+                    </div>
+                </td>
+            </tr>
+        </table>
+    }   
+</div>

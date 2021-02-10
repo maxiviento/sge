@@ -1,0 +1,411 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{78035A79-EBE1-4E95-98DF-6BE043078FEE}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SGE.Servicio</RootNamespace>
+    <AssemblyName>SGE.Servicio</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EfficientlyLazy.Crypto">
+      <HintPath>..\packages\EfficientlyLazy.Crypto.0.9.2\lib\net40\EfficientlyLazy.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="Excel, Version=2.0.1.0, Culture=neutral, PublicKeyToken=93517dbe6a4012fa, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Recursos\Excel.dll</HintPath>
+    </Reference>
+    <Reference Include="ExcelPackage, Version=1.0.0.1, Culture=neutral, PublicKeyToken=f8bb63aa9d6969e8, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Recursos\ExcelPackage.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=0.85.5.452, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Recursos\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.1.3.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Recursos\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="McjDevelopment.Mvc3ValidationGroups, Version=1.0.12082.0, Culture=neutral, PublicKeyToken=5022c2fe4750e9cc, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Recursos\McjDevelopment.Mvc3ValidationGroups.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI, Version=1.2.5.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Recursos\NPOI.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Comun\BaseServicio.cs" />
+    <Compile Include="Comun\CuentaImportar.cs" />
+    <Compile Include="Comun\Error.cs" />
+    <Compile Include="Comun\FakeView.cs" />
+    <Compile Include="Comun\htmlViewRenderer.cs" />
+    <Compile Include="Comun\IBaseServicio.cs" />
+    <Compile Include="Comun\ICuentaImportar.cs" />
+    <Compile Include="Comun\IError.cs" />
+    <Compile Include="Comun\StandardPdfRenderer.cs" />
+    <Compile Include="Comun\Validate.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ServicioInterfaces\IActorServicio.cs" />
+    <Compile Include="ServicioInterfaces\IApoderadoServicio.cs" />
+    <Compile Include="ServicioInterfaces\IBarrioServicio.cs" />
+    <Compile Include="ServicioInterfaces\ICarreraServicio.cs" />
+    <Compile Include="ServicioInterfaces\IControlDatosServicio.cs" />
+    <Compile Include="ServicioInterfaces\ICursoServicio.cs" />
+    <Compile Include="ServicioInterfaces\IEscuelaServicio.cs" />
+    <Compile Include="ServicioInterfaces\IFichaObservacionServicio.cs" />
+    <Compile Include="ServicioInterfaces\IFichaPPPServicio.cs" />
+    <Compile Include="ServicioInterfaces\IInicializarTablasServicio.cs" />
+    <Compile Include="ServicioInterfaces\ILocalidadServicio.cs" />
+    <Compile Include="ServicioInterfaces\IOngServicio.cs" />
+    <Compile Include="ServicioInterfaces\IPersonaServicio.cs" />
+    <Compile Include="ServicioInterfaces\IProyectoServicio.cs" />
+    <Compile Include="ServicioInterfaces\IReporteServicio.cs" />
+    <Compile Include="ServicioInterfaces\ISedeServicio.cs" />
+    <Compile Include="ServicioInterfaces\ISubprogramaServicio.cs" />
+    <Compile Include="ServicioInterfaces\ISucursalCoberturaServicio.cs" />
+    <Compile Include="ServicioInterfaces\ITituloServicio.cs" />
+    <Compile Include="ServicioInterfaces\IUniversidadServicio.cs" />
+    <Compile Include="ServicioInterfaces\IDepartamentoServicio.cs" />
+    <Compile Include="ServicioInterfaces\IEmpresaServicio.cs" />
+    <Compile Include="ServicioInterfaces\IInstitucionServicio.cs" />
+    <Compile Include="ServicioInterfaces\IProgramaServicio.cs" />
+    <Compile Include="ServicioInterfaces\ITipoRechazoServicio.cs" />
+    <Compile Include="ServicioInterfaces\IAutenticacionServicio.cs" />
+    <Compile Include="ServicioInterfaces\IBeneficiarioServicio.cs" />
+    <Compile Include="ServicioInterfaces\ICausaRechazoServicio.cs" />
+    <Compile Include="ServicioInterfaces\IConceptoServicio.cs" />
+    <Compile Include="ServicioInterfaces\IFichaServicio.cs" />
+    <Compile Include="ServicioInterfaces\ILiquidacionServicio.cs" />
+    <Compile Include="ServicioInterfaces\IPermisoServicio.cs" />
+    <Compile Include="ServicioInterfaces\IRolServicio.cs" />
+    <Compile Include="ServicioInterfaces\IUsuarioServicio.cs" />
+    <Compile Include="Servicio\ActorServicio.cs" />
+    <Compile Include="Servicio\BarrioServicio.cs" />
+    <Compile Include="Servicio\CursoServicio.cs" />
+    <Compile Include="Servicio\EscuelaServicio.cs" />
+    <Compile Include="Servicio\OngServicio.cs" />
+    <Compile Include="Servicio\PersonaServicio.cs" />
+    <Compile Include="Servicio\ProyectoServicio.cs" />
+    <Compile Include="VistaInterfaces\IAsistenciaRptVista.cs" />
+    <Compile Include="VistaInterfaces\IBarriosVista.cs" />
+    <Compile Include="VistaInterfaces\IBarrioVista.cs" />
+    <Compile Include="VistaInterfaces\ICursosVista.cs" />
+    <Compile Include="VistaInterfaces\IActorVista.cs" />
+    <Compile Include="VistaInterfaces\ICursoVista.cs" />
+    <Compile Include="VistaInterfaces\IEscuelasVista.cs" />
+    <Compile Include="VistaInterfaces\IEscuelaVista.cs" />
+    <Compile Include="VistaInterfaces\IFichasCursoVista.cs" />
+    <Compile Include="VistaInterfaces\IGrupoFamiliarVista.cs" />
+    <Compile Include="VistaInterfaces\IOngVista.cs" />
+    <Compile Include="VistaInterfaces\IOngsVista.cs" />
+    <Compile Include="VistaInterfaces\IPersonasVista.cs" />
+    <Compile Include="VistaInterfaces\IPersonaVista.cs" />
+    <Compile Include="VistaInterfaces\IProyectoVista.cs" />
+    <Compile Include="VistaInterfaces\IRecuperoDebitoVista.cs" />
+    <Compile Include="VistaInterfaces\IRecuperoVista.cs" />
+    <Compile Include="Vista\ActorVista.cs" />
+    <Compile Include="Vista\AsistenciaRptVista.cs" />
+    <Compile Include="Vista\BarrioVista.cs" />
+    <Compile Include="Vista\CursosVista.cs" />
+    <Compile Include="Vista\CursoVista.cs" />
+    <Compile Include="Vista\EscuelasVista.cs" />
+    <Compile Include="Vista\EscuelaVista.cs" />
+    <Compile Include="Vista\EtapasVista.cs" />
+    <Compile Include="Servicio\ApoderadoServicio.cs" />
+    <Compile Include="Servicio\AutenticacionServicio.cs" />
+    <Compile Include="Servicio\BeneficiarioServicio.cs" />
+    <Compile Include="Servicio\CausaRechazoServicio.cs" />
+    <Compile Include="Servicio\ConceptoServicio.cs" />
+    <Compile Include="Servicio\CarreraServicio.cs" />
+    <Compile Include="Servicio\ControlDatosServicio.cs" />
+    <Compile Include="Servicio\EtapaServicio.cs" />
+    <Compile Include="Servicio\FichaObservacionServicio.cs" />
+    <Compile Include="Servicio\InicializarTablasServicio.cs" />
+    <Compile Include="Servicio\LocalidadServicio.cs" />
+    <Compile Include="Servicio\ReporteServicio.cs" />
+    <Compile Include="Servicio\SedeServicio.cs" />
+    <Compile Include="Servicio\SubprogramaServicio.cs" />
+    <Compile Include="Servicio\SucursalCoberturaServicio.cs" />
+    <Compile Include="Servicio\TituloServicio.cs" />
+    <Compile Include="Servicio\UniversidadServicio.cs" />
+    <Compile Include="Servicio\DepartamentoServicio.cs" />
+    <Compile Include="Servicio\EmpresaServicio.cs" />
+    <Compile Include="Servicio\InstitucionServicio.cs" />
+    <Compile Include="Servicio\ProgramaServicio.cs" />
+    <Compile Include="Servicio\TipoRechazoServicio.cs" />
+    <Compile Include="Servicio\FichaServicio.cs" />
+    <Compile Include="Servicio\LiquidacionServicio.cs" />
+    <Compile Include="Servicio\PermisoServicio.cs" />
+    <Compile Include="Servicio\RolServicio.cs" />
+    <Compile Include="Servicio\UsuarioServicio.cs" />
+    <Compile Include="VistaInterfaces\IArchivosVista.cs" />
+    <Compile Include="VistaInterfaces\IControlDatosVista.cs" />
+    <Compile Include="VistaInterfaces\IFichaObservacionesVista.cs" />
+    <Compile Include="VistaInterfaces\IFichaObservacionVista.cs" />
+    <Compile Include="VistaInterfaces\IInicializarTablasVista.cs" />
+    <Compile Include="VistaInterfaces\IApoderadosVista.cs" />
+    <Compile Include="VistaInterfaces\IApoderadoVista.cs" />
+    <Compile Include="VistaInterfaces\ICarrerasVista.cs" />
+    <Compile Include="VistaInterfaces\ICarreraVista.cs" />
+    <Compile Include="VistaInterfaces\IFichaPPPVista.cs" />
+    <Compile Include="VistaInterfaces\IFichasPPPVista.cs" />
+    <Compile Include="VistaInterfaces\ILocalidadesVista.cs" />
+    <Compile Include="VistaInterfaces\ILocalidadVista.cs" />
+    <Compile Include="VistaInterfaces\IImportarCuentasVista.cs" />
+    <Compile Include="VistaInterfaces\IImportarLiquidacionVista.cs" />
+    <Compile Include="VistaInterfaces\IReporteBecasAcademicas.cs" />
+    <Compile Include="VistaInterfaces\IReporteDepLocProgEsta.cs" />
+    <Compile Include="VistaInterfaces\ISectoresVista.cs" />
+    <Compile Include="VistaInterfaces\ISectorVista.cs" />
+    <Compile Include="VistaInterfaces\ISedesVista.cs" />
+    <Compile Include="VistaInterfaces\ISedeVista.cs" />
+    <Compile Include="VistaInterfaces\ISubprogramasVista.cs" />
+    <Compile Include="VistaInterfaces\ISubprogramaVista.cs" />
+    <Compile Include="VistaInterfaces\ISucursalCoberturaVista.cs" />
+    <Compile Include="VistaInterfaces\ISucursalesCoberturaVista.cs" />
+    <Compile Include="VistaInterfaces\ITitulosVista.cs" />
+    <Compile Include="VistaInterfaces\ITituloVista.cs" />
+    <Compile Include="VistaInterfaces\IUniversidadesVista.cs" />
+    <Compile Include="VistaInterfaces\IUniversidadVista.cs" />
+    <Compile Include="VistaInterfaces\IAccionVista.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="VistaInterfaces\IBeneficiarioLiquidacion.cs" />
+    <Compile Include="VistaInterfaces\IBeneficiariosVista.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="VistaInterfaces\IBeneficiarioVista.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="VistaInterfaces\ICausasRechazoVista.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="VistaInterfaces\ICausaRechazoVista.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="VistaInterfaces\IConceptosVista.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="VistaInterfaces\IConceptoVista.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="VistaInterfaces\IDepartamentosVista.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="VistaInterfaces\IDepartamentoVista.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="VistaInterfaces\IEmpresasVista.cs" />
+    <Compile Include="VistaInterfaces\IEmpresaVista.cs" />
+    <Compile Include="VistaInterfaces\IFichasVista.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="VistaInterfaces\IFichaVista.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="VistaInterfaces\IFormularioVista.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="VistaInterfaces\IImportarExcelVista.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="VistaInterfaces\IInstitucionesVista.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="VistaInterfaces\IInstitucionVista.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="VistaInterfaces\ILiquidacionesVista.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="VistaInterfaces\ILiquidacionVista.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="VistaInterfaces\IPermisosVista.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="VistaInterfaces\IPermisoVista.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="VistaInterfaces\IProgramasVista.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="VistaInterfaces\IProgramaVista.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="VistaInterfaces\IRolesVista.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="VistaInterfaces\IRolVista.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="VistaInterfaces\ITiposRechazoVista.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="VistaInterfaces\ITipoRechazoVista.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="VistaInterfaces\IUsuarioLoginVista.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="VistaInterfaces\IUsuarioPasswordVista.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="VistaInterfaces\IUsuarioRolVista.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="VistaInterfaces\IUsuariosVista.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="VistaInterfaces\IUsuarioVista.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="VistaInterfaces\Shared\IComboBox.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Vista\AccionVista.cs" />
+    <Compile Include="Vista\ApoderadosVista.cs" />
+    <Compile Include="Vista\ApoderadoVista.cs" />
+    <Compile Include="Vista\ArchivosVista.cs" />
+    <Compile Include="Vista\BeneficiarioLiquidacion.cs" />
+    <Compile Include="Vista\CausasRechazoVista.cs" />
+    <Compile Include="Vista\CausaRechazoVista.cs" />
+    <Compile Include="Vista\ConceptosVista.cs" />
+    <Compile Include="Vista\ConceptoVista.cs" />
+    <Compile Include="Vista\CarrerasVista.cs" />
+    <Compile Include="Vista\CarreraVista.cs" />
+    <Compile Include="Vista\ControlDatosVista.cs" />
+    <Compile Include="Vista\EtapaVista.cs" />
+    <Compile Include="Vista\FichaNotificacionVista.cs" />
+    <Compile Include="Vista\FichaObservacionesVista.cs" />
+    <Compile Include="Vista\FichaObservacionVista.cs" />
+    <Compile Include="Vista\BarriosVista.cs" />
+    <Compile Include="Vista\FichasCursoVista.cs" />
+    <Compile Include="Vista\GrupoFamiliarVista.cs" />
+    <Compile Include="Vista\ImportarLiquidacionVista.cs" />
+    <Compile Include="Vista\InicializarTablasVista.cs" />
+    <Compile Include="Vista\FichaPPPVista.cs" />
+    <Compile Include="Vista\FichasPPPVista.cs" />
+    <Compile Include="Vista\ImportarCuentasVista.cs" />
+    <Compile Include="Vista\LocalidadesVista.cs" />
+    <Compile Include="Vista\LocalidadVista.cs" />
+    <Compile Include="Vista\OngsVista.cs" />
+    <Compile Include="Vista\OngVista.cs" />
+    <Compile Include="Vista\PersonasVista.cs" />
+    <Compile Include="Vista\PersonaVista.cs" />
+    <Compile Include="Vista\ProyectoVista.cs" />
+    <Compile Include="Vista\RecuperoDebitoVista.cs" />
+    <Compile Include="Vista\RecuperoVista.cs" />
+    <Compile Include="Vista\ReporteBecasAcademicas.cs" />
+    <Compile Include="Vista\ReporteDepLocProgEsta.cs" />
+    <Compile Include="Vista\SectoresVista.cs" />
+    <Compile Include="Vista\SectorVista.cs" />
+    <Compile Include="Vista\SedesVista.cs" />
+    <Compile Include="Vista\SedeVista.cs" />
+    <Compile Include="Vista\SubprogramasVista.cs" />
+    <Compile Include="Vista\SubprogramaVista.cs" />
+    <Compile Include="Vista\SucursalCoberturaVista.cs" />
+    <Compile Include="Vista\SucursalesCoberturaVista.cs" />
+    <Compile Include="Vista\TitulosVista.cs" />
+    <Compile Include="Vista\TituloVista.cs" />
+    <Compile Include="Vista\UniversidadesVista.cs" />
+    <Compile Include="Vista\UniversidadVista.cs" />
+    <Compile Include="Vista\DepartamentosVista.cs" />
+    <Compile Include="Vista\DepartamentoVista.cs" />
+    <Compile Include="Vista\EmpresasVista.cs" />
+    <Compile Include="Vista\EmpresaVista.cs" />
+    <Compile Include="Vista\InstitucionesVista.cs" />
+    <Compile Include="Vista\InstitucionVista.cs" />
+    <Compile Include="Vista\ProgramasVista.cs" />
+    <Compile Include="Vista\ProgramaVista.cs" />
+    <Compile Include="Vista\TiposRechazoVista.cs" />
+    <Compile Include="Vista\TipoRechazoVista.cs" />
+    <Compile Include="Vista\FormularioVista.cs" />
+    <Compile Include="Vista\PermisosVista.cs" />
+    <Compile Include="Vista\PermisoVista.cs" />
+    <Compile Include="Vista\RolesVista.cs" />
+    <Compile Include="Vista\RolVista.cs" />
+    <Compile Include="Vista\UsuarioLoginVista.cs" />
+    <Compile Include="Vista\BeneficiariosVista.cs" />
+    <Compile Include="Vista\BeneficiarioVista.cs" />
+    <Compile Include="Vista\FichasVista.cs" />
+    <Compile Include="Vista\FichaVista.cs" />
+    <Compile Include="Vista\ImportarExcelVista.cs" />
+    <Compile Include="Vista\LiquidacionesVista.cs" />
+    <Compile Include="Vista\LiquidacionVista.cs" />
+    <Compile Include="Vista\Shared\ComboBox.cs" />
+    <Compile Include="Vista\Shared\Pager.cs" />
+    <Compile Include="Vista\UsuarioPasswordVista.cs" />
+    <Compile Include="Vista\UsuarioRolVista.cs" />
+    <Compile Include="Vista\UsuariosVista.cs" />
+    <Compile Include="Vista\UsuarioVista.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Recursos\Excel.dll" />
+    <Content Include="Recursos\ExcelPackage.dll" />
+    <Content Include="Recursos\ICSharpCode.SharpZipLib.dll" />
+    <Content Include="Recursos\itextsharp.dll" />
+    <Content Include="Recursos\McjDevelopment.Mvc3ValidationGroups.dll" />
+    <Content Include="Recursos\NPOI.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SGE.Model\SGE.Model.csproj">
+      <Project>{11455803-8068-4E28-8845-99C9D962D838}</Project>
+      <Name>SGE.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SGE.Repositorio\SGE.Repositorio.csproj">
+      <Project>{6B3D369D-C2CF-4AF4-8D63-31E185F4FDCD}</Project>
+      <Name>SGE.Repositorio</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\DataSources\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

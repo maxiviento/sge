@@ -1,0 +1,83 @@
+﻿@model SucursalesCoberturaVista
+@{
+    ViewBag.Title = "Sucursales Cobertura";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var acciones = ViewData["Acciones"] as IList<string>;  
+}
+@section Scripts{
+    @Content.Script("SGE.SucursalCobertura.js", Url)
+}
+<div class="box">
+    <h2>
+        Listado de Sedes</h2>
+    @using (Html.BeginForm("IndexPager", "SucursalCobertura", FormMethod.Post, new { Id = "FormIndexSucursalCobertura" }))
+    {
+        <table align="center" style="width: 930px;">
+            <tr>
+                <td>
+                    <fieldset style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 925px;
+                        text-align: center;">
+                        <legend style="color: #FF9900"><b>Filtro</b></legend>
+                        <table style="width: 924px;">
+                            <tr>
+                                <td style="width: 10%; text-align: right;">
+                                    <b>Departamento: </b>
+                                </td>
+                                <td style="width: 35%; text-align: left;">
+                                    @Html.EditorFor(c => c.BusquedaDepartamentos)
+                                </td>
+                                <td style="width: 20%; text-align: right;">
+                                    <b>Localidad: </b>
+                                </td>
+                                <td style="width: 35%; text-align: left;">
+                                    @Html.EditorFor(c => c.BusquedaLocalidades)
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: right;">
+                                    <b>Sucursal: </b>
+                                </td>
+                                <td style="text-align: left;">
+                                    @Html.EditorFor(c => c.BusquedaSucursales)
+                                </td>
+                                <td style="text-align: right;">
+                                    <b>Sucursal Asignada: </b>
+                                </td>
+                                <td style="text-align: left;">
+                                    @Html.RadioButtonFor(model => model.Asignadas, "T", true)
+                                    Todas
+                                    @Html.RadioButtonFor(model => model.Asignadas, "C", false)
+                                    Con
+                                    @Html.RadioButtonFor(model => model.Asignadas, "S", false)
+                                    Sin
+                                </td>
+                            </tr>
+                        </table>
+                        <div class="div-filtro">
+                            <div class="div-filtro-btn">
+                                <p>
+                                    <a class="btnIngresar" href="#" id="Buscar">Buscar</a>
+                                </p>
+                            </div>
+                        </div>
+                    </fieldset>
+                </td>
+            </tr>
+        </table>
+        <table>
+            <tr>
+                <td style="font-weight: bold">
+                    <div id="titulo">
+                    </div>
+                    <div id="DivSuperviciones">
+                        @Html.Partial("_Lista", Model)
+                    </div>
+                </td>
+            </tr>
+        </table>
+        if (Model.Pager != null)
+        {
+            @Html.Partial("_Pager", Model.Pager)
+        }
+    }
+</div>

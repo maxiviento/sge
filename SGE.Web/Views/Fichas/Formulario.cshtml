@@ -1,0 +1,969 @@
+﻿@model FichaVista
+@{
+    ViewBag.Title = "Ficha";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    ViewData["DatosAnteriores"] = Model;
+    TempData["TempFichaModelo"] = Model;
+    
+ 
+}
+@section Scripts{
+    @Content.Script("SGE.Fichas.js", Url)
+}
+<div class="box">
+    <h2>
+        Formulario
+        @if (Model.IdEstadoFicha == (int)SGE.Model.Comun.Enums.EstadoFicha.RechazoFormal)
+        { <span>(Ficha Rechazada)</span> }
+    </h2>
+    @using (Html.BeginForm("ModificarFicha", "Fichas", FormMethod.Post, new { Id = "FormularioFichas" }))
+    { 
+       
+        <table align="center" style="width: 950px;">
+            <tr>
+                <td>
+                    @if (Model.Accion == "Agregar")
+                    {
+                        <fieldset style="width: 925px;">
+                            <legend align="center"><b>Tipo de Ficha</b></legend>
+                            <table align="left" style="width: 920px;">
+                                <tr>
+                                    <td align="right">
+                                        <b>Tipo Ficha: </b>
+                                    </td>
+                                    <td align="left" valign="middle">
+                                        @Html.EditorFor(c => c.ComboTipoFicha)
+                                    </td>
+                                    <td align="right">
+                                        <b>Estado: </b>
+                                    </td>
+                                    <td align="left" valign="middle">
+                                        @Html.EditorFor(c => c.ComboEstadoFicha)
+                                    </td>
+                                </tr>
+                            </table>
+                        </fieldset>
+                    }
+                </td>
+            </tr>
+            <tr>
+            <td>
+            
+            </td>
+            </tr>
+            <tr>
+                <td>
+                    <fieldset style="width: 925px;">
+                        <legend align="center"><b>DatoS del Trámite</b></legend>
+                        <table align="left" style="width: 920px;">
+                            <tr>
+                                <td align="right">
+                                    <b>Nro Sticker: </b>
+                                </td>
+                                <td align="left" valign="middle">
+                                    @if (Model.Accion == "Ver" || Model.Accion == "CambiarEstado")
+                                    {
+                                        @Html.TextBoxFor(c => c.NroTramite, new { disabled = "disabled", style = "width:180px; font-family: Arial, Helvetica, sans-serif; font-size: 12px;" })
+                                    }
+                                    else
+                                    {
+                                        @Html.TextBoxFor(c => c.NroTramite, new { style = "width:180px; font-family: Arial, Helvetica, sans-serif; font-size: 12px;", MaxLength = "100" })
+                                        
+                                    }
+                                </td>
+                                <td align="right">
+                                 <b>Etapa: </b>
+                                </td>
+                                <td align="left" valign="middle">
+                                @Html.TextBoxFor(c => c.NombreEtapa, new { disabled = "disabled", style = "width:350px; font-family: Arial, Helvetica, sans-serif; font-size: 12px;" })
+                                </td>
+                                <td align="right">
+
+                                </td>
+                                <td align="left" valign="middle">
+  
+                                </td>
+                            </tr>
+                            <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+      @if (Model.TipoFicha != 0)
+        {
+
+            if (Convert.ToInt32(Model.TipoFicha) == (int)Enums.TipoFicha.Ppp)
+            {
+
+            <tr>
+                <td align="right" valign="top">
+                    <span style='font-size:medium;'><b>Tipo PPP: </b></span>
+                </td>
+             <td align="left" valign="middle">
+                                @{
+                                    @*if ((Model.Accion == "Ver" || Model.Accion == "CambiarEstado"))
+                                    {
+                                    @Html.RadioButton("ppp_aprendiz", "S", (Model.FichaPpp.ppp_aprendiz == "S" ? true : false), new { disabled = "disabled" })<span><b>Si</b></span>
+                                    @Html.RadioButton("ppp_aprendiz", "N", (Model.FichaPpp.ppp_aprendiz == "N" ? true : false), new { disabled = "disabled" })<span><b>No</b></span>
+                                    
+
+                                    }
+                                    else
+                                    {
+                                    @Html.RadioButton("ppp_aprendiz", "S", (Model.FichaPpp.ppp_aprendiz == "S" ? true : false), new { Class = "ClassPppAprendiz" })<span><b>Si</b></span>
+                                    @Html.RadioButton("ppp_aprendiz", "N", (Model.FichaPpp.ppp_aprendiz == "N" ? true : false), new { Class = "ClassPppAprendiz" })<span><b>No</b></span>
+                                    }*@
+
+                                }
+                                @Html.EditorFor(c=> c.ComboTiposPpp)
+               </td>
+               <td></td>
+               <td></td>
+               <td></td>
+               <td></td>
+            </tr>
+
+            }
+        }                      
+                        </table>
+                    </fieldset>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <fieldset style="width: 925px;">
+                        <legend align="center"><b>Datos particulares del postulante</b></legend>
+                        <table align="left" style="width: 920px;">
+                            <tr>
+                                <td align="right">
+                                    <b>Apellido: </b>
+                                </td>
+                                <td align="left" valign="middle">
+                                    @if (Model.Accion == "Ver" || Model.Accion == "CambiarEstado")
+                                    {
+                                        @Html.TextBoxFor(c => c.Apellido, new { disabled = "disabled", style = "width:180px;" })
+                                    }
+                                    else
+                                    {
+                                        @Html.TextBoxFor(c => c.Apellido, new { style = "width:180px;", MaxLength = "100" })
+                                        //@Html.ValidationMessageFor(c => c.Apellido,"*");
+                                    }
+                                </td>
+                                <td align="right">
+                                    <b>Nombre: </b>
+                                </td>
+                                <td align="left" valign="middle">
+                                    @if (Model.Accion == "Ver" || Model.Accion == "CambiarEstado")
+                                    {
+                                        @Html.TextBoxFor(c => c.Nombre, new { disabled = "disabled", style = "width:180px;" })
+                                    }
+                                    else
+                                    {
+                                        @Html.TextBoxFor(c => c.Nombre, new { style = "width:180px;", MaxLength = "100" })
+                                        //@Html.ValidationMessageFor(c => c.Nombre, "*");
+                                    }
+                                </td>
+                                <td align="right">
+                                    <b>Fec. Nac.: </b>
+                                </td>
+                                <td align="left" valign="middle">
+                                    @if (Model.Accion == "Ver" || Model.Accion == "CambiarEstado")
+                                    {
+                                        @Html.TextBoxFor(c => c.FechaNacimineto, new { disabled = "disabled", style = "width:71px; text-align: right;", maxlength = 10 })
+                                    }
+                                    else
+                                    {
+                                        @Html.EditorFor(c => c.FechaNacimineto, new { style = "width:71px; text-align: right;" })
+                                    }
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right">
+                                    <b>Tipo Doc.: </b>
+                                </td>
+                                <td align="left" valign="middle">
+                                    @Html.EditorFor(c => c.TipoDocumentoCombo)
+                                </td>
+                                <td align="right">
+                                    <b>Nro. Doc.: </b>
+                                </td>
+                                <td align="left" valign="middle">
+                                    @if (Model.Accion == "Ver" || Model.Accion == "CambiarEstado")
+                                    {
+                                        @Html.TextBoxFor(c => c.NumeroDocumento, new { disabled = "disabled", style = "width:100px; text-align: right;" })
+                                    }
+                                    else
+                                    {
+                                        @Html.TextBoxFor(c => c.NumeroDocumento, new { style = "width:100px; text-align: right;", MaxLength = "8" })
+                                    }
+                                </td>
+                                <td align="right">
+                                    <b>CUIL: </b>
+                                </td>
+                                <td align="left" valign="middle">
+                                    @if (Model.Accion == "Ver" || Model.Accion == "CambiarEstado")
+                                    {
+                                        @Html.TextBoxFor(c => c.Cuil, new { disabled = "disabled", style = "width:100px; text-align: right;" })
+                                    }
+                                    else
+                                    {
+                                        @Html.TextBoxFor(c => c.Cuil, new { style = "width:100px; text-align: right;", MaxLength = "13" })
+                                    }
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right">
+                                    <b>Calle: </b>
+                                </td>
+                                <td align="left" valign="middle">
+                                    @if (Model.Accion == "Ver" || Model.Accion == "CambiarEstado")
+                                    {
+                                        @Html.TextBoxFor(c => c.Calle, new { disabled = "disabled", style = "width:200px" })
+                                    }
+                                    else
+                                    {
+                                        @Html.TextBoxFor(c => c.Calle, new { style = "width:200px", MaxLength = "100" })
+                                    }
+                                </td>
+                                <td align="right">
+                                    <b>Nro.: </b>
+                                </td>
+                                <td align="left" valign="middle">
+                                    @if (Model.Accion == "Ver" || Model.Accion == "CambiarEstado")
+                                    {
+                                        @Html.TextBoxFor(c => c.Numero, new { disabled = "disabled", style = "width:100px; text-align: right;" })
+                                    }
+                                    else
+                                    {
+                                        @Html.TextBoxFor(c => c.Numero, new { style = "width:100px; text-align: right;", MaxLength = "10" })
+                                    }
+                                </td>
+                                <td align="right">
+                                    <b>Piso: </b>
+                                </td>
+                                <td align="left" valign="middle">
+                                    @if (Model.Accion == "Ver" || Model.Accion == "CambiarEstado")
+                                    {
+                                        @Html.TextBoxFor(c => c.Piso, new { disabled = "disabled", style = "width:50px; text-align: right;" })
+                                    }
+                                    else
+                                    {
+                                        @Html.TextBoxFor(c => c.Piso, new { style = "width:50px; text-align: right;", MaxLength = "5" })
+                                    }
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right">
+                                    <b>Dpto.: </b>
+                                </td>
+                                <td align="left" valign="middle">
+                                    @if (Model.Accion == "Ver" || Model.Accion == "CambiarEstado")
+                                    {
+                                        @Html.TextBoxFor(c => c.Dpto, new { disabled = "disabled", style = "width:50px; " })
+                                    }
+                                    else
+                                    {
+                                        @Html.TextBoxFor(c => c.Dpto, new { style = "width:50px; ", MaxLength = "5" })
+                                        @Html.ValidationMessageFor(c => c.Dpto, "*")
+                                    }
+                                </td>
+                                <td align="right">
+                                    <b>Monoblock: </b>
+                                </td>
+                                <td align="left" valign="middle">
+                                    @if (Model.Accion == "Ver" || Model.Accion == "CambiarEstado")
+                                    {
+                                        @Html.TextBoxFor(c => c.Monoblock, new { disabled = "disabled", style = "width:30px; text-align: right;" })
+                                    }
+                                    else
+                                    {
+                                        @Html.TextBoxFor(c => c.Monoblock, new { style = "width:30px; text-align: right;", MaxLength = "3" })
+                                    }
+                                </td>
+                                <td align="right">
+                                    <b>Parcela: </b>
+                                </td>
+                                <td align="left" valign="middle">
+                                    @if (Model.Accion == "Ver" || Model.Accion == "CambiarEstado")
+                                    {
+                                        @Html.TextBoxFor(c => c.Parcela, new { disabled = "disabled", style = "width:30px; text-align: right;" })
+                                    }
+                                    else
+                                    {
+                                        @Html.TextBoxFor(c => c.Parcela, new { style = "width:30px; text-align: right;", MaxLength = "3" })
+                                    }
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right">
+                                    <b>Manzana: </b>
+                                </td>
+                                <td align="left" valign="middle">
+                                    @if (Model.Accion == "Ver" || Model.Accion == "CambiarEstado")
+                                    {
+                                        @Html.TextBoxFor(c => c.Manzana, new { disabled = "disabled", style = "width:70px" })
+                                    }
+                                    else
+                                    {
+                                        @Html.TextBoxFor(c => c.Manzana, new { style = "width:70px", MaxLength = "5" })
+                                    }
+                                </td>
+                                <td align="right">
+                                    <b>Entre calles: </b>
+                                </td>
+                                <td align="left" valign="middle">
+                                    @if (Model.Accion == "Ver" || Model.Accion == "CambiarEstado")
+                                    {
+                                        @Html.TextBoxFor(c => c.EntreCalles, new { disabled = "disabled", style = "width:250px;" })
+                                    }
+                                    else
+                                    {
+                                        @Html.TextBoxFor(c => c.EntreCalles, new { style = "width:250px;", MaxLength = "200" })
+                                    }
+                                </td>
+                                <td align="right">
+                                    <b>C.P.: </b>
+                                </td>
+                                <td align="left" valign="middle">
+                                    @if (Model.Accion == "Ver" || Model.Accion == "CambiarEstado")
+                                    {
+                                        @Html.TextBoxFor(c => c.CodigoPostal, new { disabled = "disabled", style = "width:100px;" })
+                                    }
+                                    else
+                                    { 
+                                        @Html.TextBoxFor(c => c.CodigoPostal, new { style = "width:50px; ", MaxLength = "10" })
+                                    }
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right">
+                                    <b>Departamento: </b>
+                                </td>
+                                <td align="left" valign="middle">
+                                    @Html.EditorFor(c => c.Departamentos)
+                                </td>
+                                <td align="right">
+                                    <b>Localidad: </b>
+                                </td>
+                                <td align="left" valign="middle">
+                                    @Html.EditorFor(c => c.Localidades)
+                                </td>
+                                <td></td><td></td>
+                            </tr>
+                            <tr>
+                                <td align="right">
+                                    <b>Barrio: </b>
+                                </td>
+                                <td align="left" valign="middle">
+                                    @Html.EditorFor(c => c.comboBarrios)
+                                </td>
+                                <td align="right">
+                                    <div id='lblBarrio'><b>Otro Barrio: </b></div>
+                                </td>
+                                <td align="left" valign="middle">
+                                    @if (Model.Accion == "Ver" || Model.Accion == "CambiarEstado")
+                                    {
+                                        @Html.TextBoxFor(c => c.Barrio, new { disabled = "disabled", style = "width:200px;" })
+                                    }
+                                    else
+                                    { 
+                                        @Html.TextBoxFor(c => c.Barrio, new { style = "width:200px;", MaxLength = "50" })
+                                    }
+                                </td>
+                                <td align="right">
+                                 
+                                </td>
+                                <td align="left" valign="middle">
+                                 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right">
+                                    <b>Tel. Fijo: </b>
+                                </td>
+                                <td align="left" valign="middle">
+                                    @if (Model.Accion == "Ver" || Model.Accion == "CambiarEstado")
+                                    {
+                                        @Html.TextBoxFor(c => c.TelefonoFijo, new { disabled = "disabled" })
+                                    }
+                                    else
+                                    {
+                                        @Html.TextBoxFor(c => c.TelefonoFijo)
+                                    }
+                                </td>
+                                <td align="right">
+                                    <b>Celular: </b>
+                                </td>
+                                <td align="left" valign="middle">
+                                    @if (Model.Accion == "Ver" || Model.Accion == "CambiarEstado")
+                                    {
+                                        @Html.TextBoxFor(c => c.TelefonoCelular, new { disabled = "disabled" })
+                                    }
+                                    else
+                                    {
+                                        @Html.TextBoxFor(c => c.TelefonoCelular)
+                                    }
+                                </td>
+                                <td align="right">
+                                    <b>Contacto: </b>
+                                </td>
+                                <td align="left" valign="middle">
+                                    @if (Model.Accion == "Ver" || Model.Accion == "CambiarEstado")
+                                    {
+                                        @Html.TextBoxFor(c => c.Contacto, new { disabled = "disabled", style = "width:200px;" })
+                                    }
+                                    else
+                                    {
+                                        @Html.TextBoxFor(c => c.Contacto, new { style = "width:200px;", MaxLength = "100" })
+                                    }
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right">
+                                    <b>Email: </b>
+                                </td>
+                                <td align="left" valign="middle" colspan="5">
+                                    @if (Model.Accion == "Ver" || Model.Accion == "CambiarEstado")
+                                    {
+                                        @Html.TextBoxFor(c => c.Mail, new { disabled = "disabled", style = "width:600px;" })
+                                    }
+                                    else
+                                    {
+                                        @Html.TextBoxFor(c => c.Mail, new { style = "width:600px;", MaxLength = "100" })
+                                    }
+                                </td>
+                            </tr>
+                        </table>
+                    </fieldset>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <fieldset style="width: 925px;">
+                        <legend align="center"><b>Datos generales del postulante</b></legend>
+                        <table align="left" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px;
+                            width: 920px;">
+                            <tr>
+                                <td align="right" valign="top">
+                                    <b>Declara tener discapacidad: </b>
+                                    <br />
+                                    <b>Presentó Certificado: </b>
+                                </td>
+                                <td align="left" valign="top" colspan="2">
+                                    @if (Model.Accion == "Ver" || Model.Accion == "CambiarEstado")
+                                    {
+                                        @Html.RadioButtonFor(c => c.EsDiscapacitado, true, new { @disabled = "disabled" }) <span>
+                                            Si</span>
+                                        @Html.RadioButtonFor(c => c.EsDiscapacitado, false, new { @disabled = "disabled" }) <span>
+                                            No</span>
+                                    }
+                                    else
+                                    {
+                                        @Html.RadioButtonFor(c => c.EsDiscapacitado, true) <span> Si</span>
+                                        @Html.RadioButtonFor(c => c.EsDiscapacitado, false) <span> No</span>
+                                    }
+                                    <br />
+                                    @{
+                                    if (Model.Accion == "Ver" || Model.Accion == "CambiarEstado")
+                                    {
+                                        @Html.CheckBoxFor(c => c.CertificadoDiscapacidad, new { disabled = "disabled" })
+                                    }
+                                    else
+                                    {
+                                        @Html.CheckBoxFor(c => c.CertificadoDiscapacidad)
+                                    }
+                                    }
+                                </td>
+                                <td align="right" valign="top">
+                                    <b>Tipo de deficiencia: </b>
+                                </td>
+                                <td align="left" valign="middle" colspan="2">
+                                    @{
+                                    if (Model.Accion == "Ver" || Model.Accion == "CambiarEstado")
+                                    {
+                                        @Html.CheckBoxFor(c => c.TieneDeficienciaMental, new { disabled = "disabled" })<span>
+                                            Tiene Deficiencia Mental</span><br />
+                                        @Html.CheckBoxFor(c => c.TieneDeficienciaMotora, new { disabled = "disabled" })<span>
+                                            Tiene Deficiencia Motora</span><br />
+                                        @Html.CheckBoxFor(c => c.TieneDeficienciaPsicologia, new { disabled = "disabled" })<span>
+                                            Tiene Deficiencia Psicológica</span><br />
+                                        @Html.CheckBoxFor(c => c.TieneDeficienciaSensorial, new { disabled = "disabled" })<span>
+                                            Tiene Deficiencia Sensorial</span><br />
+                                        <span>Otra: </span>@Html.TextBoxFor(c => c.DeficienciaOtra, new { disabled = "disabled", style = "width:400px;" })
+                                    }
+                                    else
+                                    {
+                                        @Html.CheckBoxFor(c => c.TieneDeficienciaMental)<span> Tiene Deficiencia Mental</span><br />
+                                        @Html.CheckBoxFor(c => c.TieneDeficienciaMotora)<span> Tiene Deficiencia Motora</span><br />
+                                        @Html.CheckBoxFor(c => c.TieneDeficienciaPsicologia)<span> Tiene Deficiencia Psicológica</span><br />
+                                        @Html.CheckBoxFor(c => c.TieneDeficienciaSensorial)<span> Tiene Deficiencia Sensorial</span><br />
+                                        <span>Otra: </span>@Html.TextBoxFor(c => c.DeficienciaOtra)
+                                    }
+                                    }
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right">
+                                    <b>Sexo: </b>
+                                </td>
+                                <td align="left" valign="middle" colspan="2">
+                                    @Html.EditorFor(c => c.Sexo)
+                                </td>
+                                <td align="right">
+                                    <b>Estado Civil: </b>
+                                </td>
+                                <td align="left" valign="middle" colspan="2">
+                                    @Html.EditorFor(c => c.EstadoCivil)
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right">
+                                    <b>Tiene hijos a cargo: </b>
+                                </td>
+                                <td align="left" valign="middle" colspan="2">
+                                    @{
+                               if (Model.Accion == "Ver" || Model.Accion == "CambiarEstado")
+                               {
+                                        @Html.RadioButtonFor(c => c.TieneHijos, true, new { @disabled = "disabled" }) <span>Si</span>
+                                        @Html.RadioButtonFor(c => c.TieneHijos, false, new { @disabled = "disabled" }) <span>No</span>
+                               }
+                               else
+                               {
+                                        @Html.RadioButtonFor(c => c.TieneHijos, true) <span>Si</span>
+                                        @Html.RadioButtonFor(c => c.TieneHijos, false) <span>No</span>
+                               }
+                                    }
+                                </td>
+                                <td align="right">
+                                    <b>Cantidad: </b>
+                                </td>
+                                <td align="left" valign="middle" colspan="2">
+                                    @if (Model.Accion == "Ver" || Model.Accion == "CambiarEstado")
+                                    {
+                                        @Html.TextBoxFor(c => c.CantidadHijos, new { disabled = "disabled", style = "width:80px; text-align: right;" })
+                                    }
+                                    else
+                                    {
+                                        @Html.TextBoxFor(c => c.CantidadHijos, new { style = "width:80px; text-align: right;" })
+                                    }
+                                </td>
+                            </tr>
+                                        @if (Model.TipoFicha != 0)
+                                        {
+                                            if (Model.Accion == "Agregar")
+                                            {
+                                                if (Convert.ToInt32(Model.ComboTipoFicha.Selected) == (int)Enums.TipoFicha.ConfiamosEnVos)
+                                                { 
+                            <tr>
+                            <td align="right">
+                                    <b>SENAF: </b>
+                                </td>
+                                <td align="left" valign="middle" colspan="2">
+                                @{
+                                    
+@*                                    @Html.RadioButton("SENAF", "S", (Model.FichaConfVos.SENAF == "S" ? true : false), new { Class = "ClassSENAF" })<span>Si</span>
+                                    @Html.RadioButton("SENAF", "N", (Model.FichaConfVos.SENAF == "N" ? true : false), new { Class = "ClassSENAF" })<span>No</span>*@
+                                    @Html.RadioButton("CHKSENAF", "S", (Model.SENAF == "S" ? true : false), new { Class = "ClassSENAF" })<span>Si</span>
+                                    @Html.RadioButton("CHKSENAF", "N", (Model.SENAF == "N" ? true : false), new { Class = "ClassSENAF" })<span>No</span>
+                                
+                                }
+                                </td>
+                            <td></td>
+                            <td></td>
+                            </tr>
+                                                }
+
+                                            }
+                                            else
+                                            {
+                            <tr>
+                            <td align="right">
+                                    <b>SENAF: </b>
+                                </td>
+                                <td align="left" valign="middle" colspan="2">
+                                @{
+                                                if ((Model.Accion == "Ver" || Model.Accion == "CambiarEstado"))
+                                                {
+                                    @Html.RadioButton("CHKSENAF", "S", (Model.SENAF == "S" ? true : false), new { disabled = "disabled" })<span>Si</span>
+                                    @Html.RadioButton("CHKSENAF", "N", (Model.SENAF == "N" ? true : false), new { disabled = "disabled" })<span>No</span>
+                                                }
+                                                else
+                                                {
+                                    @Html.RadioButton("CHKSENAF", "S", (Model.SENAF == "S" ? true : false), new { Class = "ClassSENAF" })<span>Si</span>
+                                    @Html.RadioButton("CHKSENAF", "N", (Model.SENAF == "N" ? true : false), new { Class = "ClassSENAF" })<span>No</span>
+                                                }
+                                }
+                                </td>
+                            <td></td>
+                            <td></td>
+                            </tr>
+                                            }
+                                        }
+                        </table>
+                    </fieldset>
+                </td>
+            </tr>
+
+            @if (Model.TipoFicha != 0)
+            {
+                <tr>
+                    <td>
+                        <fieldset style="width: 925px;">
+                            <legend align="center"><b>Datos específicos del programa ( @Model.NombreTipoFicha )</b></legend>
+                            <table align="left" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px;
+                                width: 920px;">
+                                @if (Model.Accion == "Agregar")
+                                {
+                                    switch (Convert.ToInt32(Model.ComboTipoFicha.Selected))
+                                    {
+                                        case (int)Enums.TipoFicha.Terciaria:
+                                        case (int)Enums.TipoFicha.Universitaria:
+                                    @Html.Partial("_ProgramaUnivTerc", Model)
+                               break;
+                                        case (int)Enums.TipoFicha.Ppp:
+                                    @Html.Partial("_ProgramaPPP", Model)
+                               break;
+                                        case (int)Enums.TipoFicha.Vat:
+                                    @Html.Partial("_ProgramaVAT", Model)
+                               break;
+                                        case (int)Enums.TipoFicha.PppProf:
+                                    @Html.Partial("_ProgramaPPPP", Model)
+                              
+                               break;
+                                        case (int)Enums.TipoFicha.ReconversionProductiva:
+                                            @Html.Partial("_ProgramaReconversion", Model)
+                              
+                                       break;
+                                        case (int)Enums.TipoFicha.EfectoresSociales:
+                                            @Html.Partial("_ProgramaEfectores", Model)
+                                       break;
+
+                                        case (int)Enums.TipoFicha.ConfiamosEnVos:
+                                            @Html.Partial("_ProgramaConfiamosEnVos", Model)
+                              
+                                       break;
+
+
+                                        default:
+                                       break;
+                                    }
+                                }
+                                else
+                                {
+                                    switch (Model.TipoFicha)
+                                    {
+                                        case (int)Enums.TipoFicha.Terciaria:
+                                        case (int)Enums.TipoFicha.Universitaria:
+                                    @Html.Partial("_ProgramaUnivTerc", Model)
+                               break;
+                                        case (int)Enums.TipoFicha.Ppp:
+                                    @Html.Partial("_ProgramaPPP", Model)
+                               break;
+                                        case (int)Enums.TipoFicha.Vat:
+                                    @Html.Partial("_ProgramaVAT", Model)
+                               break;
+                                        case (int)Enums.TipoFicha.PppProf:
+                                    @Html.Partial("_ProgramaPPPP", Model)
+                               
+                               break;
+                                        case (int)Enums.TipoFicha.ReconversionProductiva:
+                                            @Html.Partial("_ProgramaReconversion", Model)
+                              
+                                       break;
+                                        case (int)Enums.TipoFicha.EfectoresSociales:
+                                    @Html.Partial("_ProgramaEfectores", Model)
+                               
+                               break;
+                                        case (int)Enums.TipoFicha.ConfiamosEnVos:
+                                            @Html.Partial("_ProgramaConfiamosEnVos", Model)
+                              
+                                       break;
+                                        default:
+                                       break;
+                                    }
+                                }
+                            </table>
+                        </fieldset>
+                    </td>
+                </tr>
+            }
+            <tr>
+                <td>
+                    @if (Model.Accion.Equals("CambiarEstado"))
+                    { 
+                        <fieldset style="width: 925px;">
+                            <legend align="center"><b>Cambio de Estado</b></legend>
+                            <table style="width: 925px">
+                                <tr>
+                                    <td>
+                                        @Html.EditorFor(c => c.Estado)
+                                    </td>
+                                </tr>
+                            </table>
+                        </fieldset>
+                    }
+                    else
+                    {
+                        @Html.HiddenFor(c => c.Estado.Selected)
+                    }
+                </td>
+            </tr>
+            <tr id="trTipoRechazo" @if (Model.Accion.Equals("CambiarEstado") && !Model.Estado.Selected.Equals("4"))
+                                   { <text> style="display: none;" </text> } >
+                <td>
+                    @if (Model.Accion.Equals("CambiarEstado"))
+                    { 
+                        @Html.Partial("_TipoRechazo", Model)
+                    }
+                    else
+                    {
+                        if (Model.Estado.Selected.Equals("4"))
+                        { 
+                        @Html.Partial("_TipoRechazo", Model)
+                        }
+
+                        if (Model.Accion.Equals("Agregar"))
+                        {
+
+                            if (Model.ComboEstadoFicha.Selected.Equals("4"))
+                            { 
+                        @Html.Partial("_TipoRechazo", Model)
+                            }
+                        }
+                    }
+                </td>
+            </tr>
+        </table>
+        @Html.HiddenFor(c => c.IdFicha)
+        @Html.HiddenFor(c => c.TipoFicha)
+        @Html.HiddenFor(c => c.IdInstitucionTerciaria)
+        @Html.HiddenFor(c => c.IdLocalidadEscTerc)
+        @Html.HiddenFor(c => c.IdInstitucionUniversitaria)
+        @Html.HiddenFor(c => c.IdLocalidadEscUniv)
+        @Html.HiddenFor(c => c.CambioTipo)
+        @Html.HiddenFor(c => c.Accion)
+        @Html.HiddenFor(c => c.IdEmpresa) 
+        @Html.HiddenFor(c => c.ComboTipoFicha.Selected)
+        @Html.HiddenFor(c => c.Sexo.Selected)
+        @Html.HiddenFor(c => c.FechaNacimineto)
+        @Html.HiddenFor(c => c.NumeroDocumento)
+        @Html.HiddenFor(c => c.Mail)
+        @Html.HiddenFor(c => c.IdLlamada)
+        @Html.HiddenFor(c => c.LugarLlamada)
+        @Html.HiddenFor(c => c.IdSede)
+        @Html.HiddenFor(c => c.IdEmpresaInicial)
+        @Html.HiddenFor(c => c.strMessageUpdate)
+        @Html.HiddenFor(c => c.idEtapa)
+        @Html.HiddenFor(c => c.idBarrio)
+        @Html.HiddenFor(c => c.tipoPrograma)
+        @Html.HiddenFor(c => c.TipoProgramaAnt)
+        @Html.HiddenFor(c => c.SENAF)       
+        
+        <table id="btnfin" align="center" width="100%">
+            <tr>
+                <td align="center" valign="middle">
+                    @switch (Model.Accion)
+                    {
+                        case "Ver":
+                            <a class="btnIngresar" href="#" id="VerObservacion">Ver Observaciones</a>
+                            break;
+                        case "Modificar":
+                            if (Model.IdEstadoFicha == (int)SGE.Model.Comun.Enums.EstadoFicha.RechazoFormal)
+                            {
+                                <a class="btnIngresar" href="#" id="GuardarFichaRechazada">Guardar</a>  
+                            }
+                            else
+                            {
+                                <a class="btnIngresar" id="btnGuardarFicha" href="#">Guardar</a>
+@*                                if (Model.tipoPrograma == 3)
+                                {
+                                <a class="btnIngresar" id="btnReEmpadronar" href="#">Re empadronar</a>
+                                }*@
+                            }
+                            <span>&nbsp;&nbsp;</span><a class="btnIngresar" href="#" id="VerObservacion">Ver Observaciones</a>
+                            break;
+                        case "CambiarEstado":
+                            <a class="btnIngresar" id="cambiarEstado">Guardar</a>
+                            break;
+                        case "Agregar":
+                            if (Model.ComboTipoFicha.Selected != null && Model.ComboTipoFicha.Selected != "0")
+                            {  
+                                <a class="btnIngresar" href="#" id="Agregar">Guardar</a>   
+                            }
+                            break;
+                        default:
+                            break;
+                    }
+                    &nbsp;&nbsp;<a class="btnIngresar" href="#" id="Cancelar">Cancelar</a>
+                </td>
+            </tr>
+        </table>
+        <br />
+    }
+</div>
+<div id="dialog" title="Mensaje">
+    <p>
+        El cambio se realizó correctamente.</p>
+</div>
+<div id="dialog_convertir" title="Mensaje">
+    <p>
+        ¿Está seguro de realizar el cambio?</p>
+</div>
+<div id="dialog_cambio_estado" title="Mensaje">
+    <p>
+        ¿Está seguro de realizar el cambio de estado?</p>
+</div>
+<div id="dialogAgregarNuevaEmpresa" title="Mensaje">
+    <p>
+        La Empresa no existe. ¿Desea cargarla?</p>
+</div>
+<div id="dialogEmpresa" title="Empresa">
+    <table style="font-family: Arial, Helvetica, sans-serif; font-size: 12px;" align="left">
+        <tr>
+            <td align="right">
+                <b>CUIT: </b>
+            </td>
+            <td align="left" valign="middle">
+                @Html.TextBox("ABMEmpresaCuit", null, new { Class = "ABMEmpresa", style = "width:100px; text-align: right;", MaxLength = "13" })
+            </td>
+        </tr>
+        <tr>
+            <td align="right">
+                <b>Razón Social: </b>
+            </td>
+            <td align="left" valign="middle">
+                @Html.TextBox("ABMEmpresaRazonSocial", null, new { Class = "ABMEmpresa", style = "width:400px;" })
+            </td>
+            <td align="right">
+                <b>Localidad: </b>
+            </td>
+            <td align="left" valign="middle">
+                @Html.EditorFor(c => c.LocalidadesEmpresa)
+            </td>
+        </tr>
+        <tr>
+            <td align="right">
+                <b>Código de Actividad: </b>
+            </td>
+            <td align="left" valign="middle">
+                @Html.TextBox("ABMEmpresaCodigoActividad", null, new { Class = "ABMEmpresa", style = "width:80px;" })
+            </td>
+            <td align="right">
+                <b>Cantidad de Empleados: </b>
+            </td>
+            <td align="left" valign="middle">
+                @Html.TextBox("ABMEmpresaCantidadEmpleados", null, new { Class = "ABMEmpresa", style = "width:80px;", MaxLength = "5" })
+            </td>
+        </tr>
+        <tr>
+            <td align="right">
+                <b>Calle: </b>
+            </td>
+            <td align="left" valign="middle">
+                @Html.TextBox("ABMEmpresaCalle", null, new { Class = "ABMEmpresa", style = "width:300px;" })
+            </td>
+            <td align="right">
+                <b>Número: </b>
+            </td>
+            <td align="left" valign="middle">
+                @Html.TextBox("ABMEmpresaNumero", null, new { Class = "ABMEmpresa", style = "width:80px;" })
+            </td>
+        </tr>
+        <tr>
+            <td align="right">
+                <b>Piso: </b>
+            </td>
+            <td align="left" valign="middle">
+                @Html.TextBox("ABMEmpresaPiso", null, new { Class = "ABMEmpresa", style = "width:80px;" })
+            </td>
+            <td align="right">
+                <b>Dpto.: </b>
+            </td>
+            <td align="left" valign="middle">
+                @Html.TextBox("ABMEmpresaDpto", null, new { Class = "ABMEmpresa", style = "width:80px;" })
+            </td>
+        </tr>
+        <tr>
+            <td align="right">
+                <b>Código Postal: </b>
+            </td>
+            <td align="left" valign="middle">
+                @Html.TextBox("ABMEmpresaCodigoPostal", null, new { Class = "ABMEmpresa", style = "width:80px;" })
+            </td>
+            <td align="right">
+                <b>Domicilio Laboral Idem: </b>
+            </td>
+            <td align="left" valign="middle">
+                @Html.EditorFor(c => c.DomicilioLaboralIdem)
+            </td>
+        </tr>
+    </table>
+    @Html.Hidden("ABMEmpresaIdSeleccionado")
+    @Html.Hidden("ABMEmpresaNombreLocalidad")
+    @Html.Hidden("ABMEmpresaNombreDomicilioLaboral")
+    @Html.Hidden("ABMEmpresaAccion")
+    
+</div>
+<div id="dialogEmpresaExistente" title="Mensaje">
+    <p>
+        La Empresa ya existe, verifique los datos.</p>
+</div>
+<div id="dialogSedes" title="Sedes">
+    @Html.Partial("_ASSedes", Model)
+</div>
+<div id="dialogDesvincularSede" title="Mensaje">
+    <p>
+        ¿Está seguro de desvincular esta Sede?</p>
+</div>
+
+<div id="dialogFichaResultado" title="Mensaje">
+    <p>
+        @Model.strMessageUpdate</p>
+</div>
+
+<div id="dialogProyectos" title="Proyectos">
+    @Html.Partial("_BuscarProyecto", Model)
+</div>
+
+<div id="dialogDesvincularEmp" title="Mensaje">
+    <p>
+        ¿Está seguro de desvincular esta Empresa?</p>
+</div>
+
+<div id="dialogCursos" title="Cursos">
+    @Html.Partial("_BuscarCurso", Model)
+</div>
+
+<div id="dialogActores" title="Actores">
+    @Html.Partial("_BuscarActores", Model)
+</div>
+<div id="dialogONG" title="ONG">
+    @Html.Partial("_BuscarONG", Model)
+</div>
+<div id="dialogDesvincularOng" title="Mensaje">
+    <p>
+        ¿Está seguro de desvincular esta ONG?</p>
+</div>
+<div id="dialogDesvincularGestor" title="Mensaje">
+    <p>
+        ¿Está seguro de desvincular el Gestor?</p>
+</div>
+<div id="dialogDesvincularFacMon" title="Mensaje">
+    <p>
+        ¿Está seguro de desvincular el Facilitador/Monitor?</p>
+</div>
+<div id="dialogDesvincularCurso" title="Mensaje">
+    <p>
+        ¿Está seguro de desvincular el Curso?</p>
+</div>
+<div id="dialogDesvincularSubP" title="Mensaje">
+    <p>
+        ¿Está seguro de desvincular el Sub Programa?</p>
+</div>
+<div id="dialogSubProg" title="Sub Programas">
+    @Html.Partial("_BuscarSubPrograma", Model)
+</div>
+<div id="dialogDesvincularEsc" title="Mensaje">
+    <p>
+        ¿Está seguro de desvincular la escuela?</p>
+</div>
+<div id="dialogEscuela" title="Escuelas">
+    @Html.Partial("_BuscarEscuela", Model)
+</div>

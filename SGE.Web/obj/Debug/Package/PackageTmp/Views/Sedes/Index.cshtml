@@ -1,0 +1,60 @@
+﻿@model SedesVista
+           
+@{
+    ViewBag.Title = "Sedes";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section Scripts{
+    @Content.Script("SGE.Sede.js", Url)
+}
+<div class="box">
+    <h2>Listado de Sedes</h2>
+    @using (Html.BeginForm("IndexPager", "Sede", FormMethod.Post, new { Id = "FormIndexSede" }))
+    {
+        <table align="center" style="width: 930px;">
+            <tr>
+                <td>
+                    <fieldset style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 925px;
+                        text-align: center;">
+                        <legend style="color: #FF9900"><b>Datos de Sedes</b></legend>
+                        <table style="width: 924px;">
+                            <tr>
+                                <td style="width: 30%; text-align: right;">
+                                    <b>Descripción: </b>
+                                </td>
+                                <td style="width: 60%; text-align: left;">
+                                    @Html.TextBoxFor(c => c.BusquedaDescripcion, new { style = "width:30%" })
+                                </td>
+                                
+                            </tr>
+                        </table>
+                        <br />
+                        <div>
+                            <a class="btnIngresar" href="#" id="Buscar">Buscar</a>&nbsp;&nbsp;
+                        </div>
+                        <br />
+                    </fieldset>
+                </td>
+            </tr>
+        </table>
+        <table>
+            <tr>
+                <td>
+                     @Html.ActionLink("Agregar", "Agregar", "Sedes", null, new { Class = "btnIngresar" })
+                </td>
+            </tr>
+        </table>
+           <table>
+            <tr>
+                <td style="font-weight: bold">
+                    <div id="titulo">
+                    </div>
+                    <div id="DivSuperviciones">
+                        @Html.Partial("_Lista", Model)
+                    </div>
+                </td>
+            </tr>
+        </table>
+        @Html.Partial("_Pager", Model.Pager)
+    }
+</div>

@@ -1,0 +1,57 @@
+﻿@model OngsVista
+@if (Model.ongs != null && Model.ongs.Count > 0)
+{ 
+    <div style="text-align:center;">
+        <table id="grilla" align="center" width="925px" cellpadding="0" cellspacing="0">
+            <thead>
+                <tr>
+@*                    <th height="30px" width="300px">
+                        <div align="left">Id ONG</div>
+                    </th>*@
+                    <th width="200px">
+                        <div align="left">ONG</div>
+                    </th>
+                    <th width="200px">
+                        <div align="left">MAIL</div>
+                    </th>
+                    <th width="70px">
+                        <div align="left">Acciones</div>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.ongs)
+                {
+                    <tr>
+@*                        <td style="height: 28px; text-align: left;">
+                            @item.ID_ONG
+                        </td>*@
+                        <td style="text-align: left;">
+                             @item.N_NOMBRE
+                        </td>
+                        <td style="text-align: left;">
+                            @item.MAIL_ONG
+                        </td>
+                        
+                        <td>
+                            @Html.ActionLink("Ver", "Ver", "Ong", new { IdOng = item.ID_ONG }, new { @class = "Lupa", title = "Ver ONG" })
+                            @Html.ActionLink("Modificar", "Modificar", "Ong", new { IdOng = item.ID_ONG }, new { @class = "Modificar", title = "Modificar ONG" })
+                            @*@Html.ActionLink("Eliminar", "Eliminar", "Personas", new { IdCarrera = item.IdCarrera }, new { @class = "Eliminar", title = "Eliminar Carrera" })*@
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
+else
+{
+    <table align="center" width="930px" cellpadding="0" cellspacing="0">
+        <tr>
+            <td width="930px">
+                @Html.Partial("_SinDatos", "Escuelas")
+            </td>
+        </tr>
+    </table>
+}
+

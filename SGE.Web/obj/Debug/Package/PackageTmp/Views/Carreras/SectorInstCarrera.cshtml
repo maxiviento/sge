@@ -1,0 +1,80 @@
+﻿@model CarrerasVista
+@{
+    ViewBag.Title = "Reporte Sector - Institución - Carrera";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var acciones = ViewData["Acciones"] as IList<string>;  
+}
+
+@section Scripts{
+    @Content.Script("SGE.Carreras.js", Url)
+}
+
+
+<div class="box">
+    <h2>
+        Reporte Sector Institución Carrera</h2>
+    @using (Html.BeginForm("SectorInstCarrera", "Carreras", FormMethod.Post, new { Id = "FormSectorInstCarrera" }))
+    {
+        
+        <select id="idNivelCombo" onchange="$('#idNivel').val($('#idNivelCombo').val()); /*alert($('#idNivel').val());*/" >
+            @if(Model.idNivel==0){<option value='0' selected="selected">TODOS</option>} else{<option value='0'>TODOS</option>}            
+            @if(Model.idNivel==1){<option value='1' selected="selected">TERCIARIO</option>} else{<option value='1'>TERCIARIO</option>}
+            @if(Model.idNivel==2){<option value='2' selected="selected">UNIVERSITARIO</option>} else{<option value='2'>UNIVERSITARIO</option>}
+        </select>
+         <a class="btnIngresar" href="#" id="impSecInstCarr">Buscar</a>
+         
+        <p>
+            @*<a class="btnIngresar" href="#" id="impSecInstCarr">Buscar</a>*@
+            @Html.ActionLink("Imprimir", "PrintCarerras", "Carreras", new {idnivel = @Model.idNivel }, new { Class = "btnIngresar", target = "_blank" })
+                                                    
+        </p>
+        
+        @Html.Hidden("ContCarreras", Model.Carreras.Count, new { name = "ContCarreras" })
+        @Html.Hidden("pageTitle", "Reporte Sector Institución Carreras", new { name = "pageTitle" })
+        @Html.Hidden("viewName", "SectorInstCarrera", new { name = "viewName" })
+        
+        <table id="tblCarreras" align="center" style="width: 930px; border-spacing:0px; border: 1px solid; border-color: Black;">
+            <tr>
+                <th style="padding-right:8px;">Sector</th><th style="padding-right:8px;">Insitución</th><th style="padding-right:8px;">Carrera</th>
+            </tr>
+            @foreach (ICarrera carrera in Model.Carreras)
+            {  
+            <tr>
+
+                <td style="padding-right:8px; ; border: 1px solid; border-color: Black;">
+                    @carrera.NombreSector       
+                </td>
+                <td style="padding-right:8px; ; border: 1px solid; border-color: Black;">
+                    @carrera.NombreInstitucion                    
+                </td>
+                <td style="padding-right:8px; ; border: 1px solid; border-color: Black;">
+                    @carrera.NombreCarrera
+                </td>
+            
+             </tr>
+            }   
+        </table>
+        
+        <table align="center" width="925px" cellpadding="0" cellspacing="0"> 
+            <tr>
+                <td>                     
+                     <div id="Paginador"></div>
+               </td>
+           </tr>
+       </table>  
+
+@*        if (Model.Pager != null)
+        {
+        @Html.Partial("_Pager", Model.Pager)
+        }
+        
+*@
+        @*@Html.Hidden("idNivel", "0",new{name = "idNivel"})*@
+        
+        @Html.HiddenFor(c=>c.idNivel)
+  
+    }
+</div>
+
+
+

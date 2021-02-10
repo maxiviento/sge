@@ -1,0 +1,212 @@
+﻿@model FichasVista
+@{
+    ViewBag.Title = "Inscriptos";
+    ViewBag.SubMenuSelected = "Inscriptos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var acciones = ViewData["Acciones"] as IList<string>;
+    var verListaPpp = "N";
+}
+@section Scripts{
+    @Content.Script("SGE.Fichas.js", Url)
+}
+<div class="box">
+    <h2>
+        Listado de Inscriptos</h2>
+    @using (Html.BeginForm("IndexPager", "Fichas", FormMethod.Post, new { Id = "FormIndexFichas" }))
+    {
+        <table style="width: 930px; text-align: center; margin-left: auto; margin-right: auto;">
+            <tr>
+                <td>
+                    <fieldset style="width: 925px;">
+                        <legend align="center"><b>Filtros</b></legend>
+
+                          <fieldset style="width: 910px; margin: 5px 5px 5px 5px;">
+                          <legend align="center"><b>Etapas</b></legend>
+                          <table style="width: 908px" align="center">
+                            <tr>
+                                <td style="width: 15%; text-align: right;">
+                                    <b>Ejercicio: </b>
+                                </td>
+                                <td style="width: 30%; text-align: left;">@Html.TextBoxFor(c => c.ejerc)
+                                </td>
+                                <td style="text-align: right;">
+                                    <b>Programas: </b>
+                                </td>
+                                <td style="text-align: left;">
+                                    @Html.EditorFor(c => c.EtapaProgramas)
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width: 15%; text-align: right;"></td>
+                                <td style="width: 30%; text-align: left;"><a class="btnIngresar" id="TraerEtapa" href="#">Traer Etapas</a> <a class="btnIngresar" id="QuitarEtapa" href="#">Quitar Filtro</a></td>
+                                @if (Model.BuscarPorEtapa == "S")
+                                {
+                                    if (Model.etapas.Combo.Count > 0)
+                                    {
+                                        <td style="text-align: right;"><b>Etapas:</b></td>
+                                        <td style="width: 30%; text-align: left;">@Html.EditorFor(c => c.etapas)</td>
+                                    }
+                                    else
+                                    {<td></td><td></td> }
+                                }
+                                else
+                                {<td></td><td></td> }
+                                                       
+                            </tr>
+                </table>
+                        </fieldset>
+
+                        <table style="width: 924px;">
+                            <tr>
+                                <td style="width: 20%; text-align: right;">
+                                    <b>Apellido: </b>
+                                </td>
+                                <td style="width: 30%; text-align: left;">@Html.TextBoxFor(c => c.apellido_busqueda)
+                                </td>
+                                <td style="width: 15%; text-align: right;">
+                                    <b>Nombre: </b>
+                                </td>
+                                <td style="width: 35%; text-align: left;">@Html.TextBoxFor(c => c.nombre_busqueda)
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: right;">
+                                    <b>CUIL: </b>
+                                </td>
+                                <td style="text-align: left;">@Html.TextBoxFor(c => c.cuil_busqueda, new { style = "text-align: right;" })
+                                </td>
+                                <td style="text-align: right;">
+                                    <b>Nro. Doc.: </b>
+                                </td>
+                                <td style="text-align: left;">@Html.TextBoxFor(c => c.nro_doc_busqueda, new { style = "text-align: right;" })
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: right;">
+                                    <b>Nro Sticker: </b>
+                                </td>
+                                <td style="text-align: left;">@Html.TextBoxFor(c => c.nrotramite_busqueda)
+                                </td>
+                                <td style="text-align: right;">
+                                </td>
+                                <td style="text-align: left;">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: right;">
+                                    <b>Tipo Ficha: </b>
+                                </td>
+                                <td style="text-align: left;">@Html.EditorFor(c => c.ComboTipoFicha)
+                                </td>
+                                <td style="text-align: right;">
+                                    <b>Estado: </b>
+                                </td>
+                                <td style="text-align: left;">@Html.EditorFor(c => c.ComboEstadoFicha)
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: right;">
+                                    <div id="lblSubprogramas" style="text-align: right;"><b>Subprogramas:</b></div>
+                                </td>
+                                <td style="text-align: left;">@Html.EditorFor(c => c.ComboSubprogramas)
+                                </td>
+                                <td style="text-align: right;">
+                                   <div id="lblTipoPpp" style="text-align: right;"><b>Tipo Ppp:</b></div>
+                                </td>
+                                <td style="text-align: left;">@Html.EditorFor(c => c.ComboTiposPpp)
+                                    
+                                </td>
+                            </tr>
+                        </table>
+                        <div class="div-filtro">
+                            <div class="div-filtro-btn">
+                                <p>
+                                    <a class="btnIngresar" href="#" id="Buscar">Buscar</a>&nbsp;&nbsp;
+                                    @if (acciones.Contains(((int)Enums.Acciones.Agregar).ToString()) || acciones.Contains(((int)Enums.Acciones.Modificar).ToString()))
+                                    {   
+                                        @Html.ActionLink("Agregar", "Agregar", "Fichas", null, new { Class = "btnIngresar" })<span>&nbsp;&nbsp;</span>
+                                    }
+                                   
+                                    @if (acciones.Contains(((int)Enums.Acciones.Importar).ToString()))
+                                    {
+                                        <a class="btnIngresar" href="#" id="Importar">Importar</a>
+                                    }
+                                    
+                                    @if (Model.Fichas.Count > 0 && (Model.ComboTipoFicha.Selected != null && Model.ComboTipoFicha.Selected != "0") && acciones.Contains(((int)Enums.Acciones.Exportar).ToString()))
+                                    {
+                                        <a class="btnIngresar" href="#" id="ExportFichas">Exportar a Excel</a>
+                                    }                                    
+                                </p>
+                            </div>
+                        </div>
+                    </fieldset>
+                </td>
+            </tr>
+        </table>
+        <table>
+            <tr>
+                <td style="font-weight: bold">
+                    <div id="titulo">
+                    </div>
+                    <div id="DivSuperviciones">
+                    @{
+                        if (Model.ComboTipoFicha.Selected == "3")
+                        {@Html.Partial("_ListaPpp", Model) }
+                        else
+                        {
+                            if (Model.programaSel == 3)
+                            {@Html.Partial("_ListaPpp", Model) }
+                            else
+                            {
+                              if (Model.apellido_busqueda != null || Model.nombre_busqueda != null || Model.nro_doc_busqueda != null || Model.cuil_busqueda != null || Model.nrotramite_busqueda != null)
+                              {
+                                  if (Model.Fichas != null && Model.Fichas.Count > 0)
+                                  {
+                                      foreach (var item in Model.Fichas)
+                                      {
+                                          if (item.TipoFicha == 3)
+                                          {
+                                              verListaPpp = "S";
+                                          }
+                                      }
+                                  }
+                              }
+                              if (verListaPpp == "S")
+                              {
+                                  @Html.Partial("_ListaPpp", Model) 
+                              }
+                              else
+                              {  
+                                @Html.Partial("_Lista", Model)
+                              }
+                            }
+
+                        }
+                            
+                        
+                      }
+
+                    </div>
+                </td>
+            </tr>
+        </table>
+        @Html.HiddenFor(c => c.ProcesarExcel)
+        @Html.Partial("_Pager", Model.pager)
+        @Html.HiddenFor(c => c.filtroEjerc)
+        @Html.HiddenFor(c => c.programaSel)
+        @Html.HiddenFor(c => c.BuscarPorEtapa) 
+        @Html.HiddenFor(c => c.idSubprograma)
+        @Html.HiddenFor(c => c.ProgPorRol)
+        @Html.HiddenFor(c => c.idFormulario)
+    }
+</div>
+<div id="dialog" title="Mensaje">
+    <p>
+        La Importación se realizó correctamente.</p>
+</div>
+
+
+<div id="dialog_SelPrograma" title="Mensaje">
+    <p>
+        Seleccione un tipo de ficha</p>
+</div>

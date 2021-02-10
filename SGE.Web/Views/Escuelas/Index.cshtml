@@ -1,0 +1,68 @@
+﻿@model EscuelasVista
+@{
+    ViewBag.Title = "Escuelas";
+    ViewBag.SubMenuSelected = "Escuela";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var acciones = ViewData["Acciones"] as IList<string>;
+}
+@section Scripts{
+    @Content.Script("SGE.Escuelas.js", Url)
+}
+<div class="box">
+    <h2>
+        Listado de Escuela</h2>
+    @using (Html.BeginForm("IndexPager", "Escuela", FormMethod.Post, new { Id = "FormIndexEscuela" }))
+    {
+        <table style="width: 930px; text-align: center;">
+            <tr>
+                <td>
+                    <fieldset style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 925px;
+                        text-align: center;">
+                        <legend style="color: #FF9900"><b>Filtro</b></legend>
+                        <table style="width: 924px;">
+                            <tr>
+                                <td style="width: 25%; text-align: right;">
+                                    <b>Buscar por Nombre: </b>
+                                </td>
+                                <td style="width: 75%; text-align: left;">
+                                    @Html.TextBoxFor(c => c.BusquedaDescripcion, new { style = "width: 60%", MaxLength = "90" })
+                                </td>
+                            </tr>
+
+                        </table>
+                        <div class="div-filtro">
+                            <div class="div-filtro-btn">
+                                <p>
+                                    <a class="btnIngresar" href="#" id="Buscar">Buscar</a>&nbsp;&nbsp;
+                                    @{
+                                        if (acciones.Contains(((int)Acciones.Agregar).ToString()))
+                                        {
+                                            @Html.ActionLink("Agregar", "Agregar", "Escuelas", null, new { Class = "btnIngresar" })
+                                        }
+                                    }
+                                </p>
+                            </div>
+                        </div>
+                    </fieldset>
+                </td>
+            </tr>
+        </table>
+        <table>
+            <tr>
+                <td style="font-weight: bold">
+                    <div id="titulo">
+                    </div>
+                    <div id="DivSuperviciones">
+                        @Html.Partial("_Lista", Model)
+                    </div>
+                </td>
+            </tr>
+        </table>
+        @Html.Partial("_Pager", Model.Pager)
+        @Html.HiddenFor(c => c.BusquedaDescripcion)
+
+    }
+</div>
+
+
+

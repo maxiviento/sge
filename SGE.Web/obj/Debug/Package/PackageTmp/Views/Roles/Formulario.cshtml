@@ -1,0 +1,85 @@
+﻿@model RolVista
+@{
+    ViewBag.Title = "Rol";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section Scripts{
+    @Content.Script("SGE.Roles.js", Url)
+}
+<div class="box">
+    <h2>
+        Rol</h2>
+    @using (Html.BeginForm("ModificarRol", "Roles", FormMethod.Post, new { Id = "FormularioRoles" }))
+    {
+        <table align="center" style="width: 930px;">
+            <tr>
+                <td>
+                    <fieldset style="width: 925px;">
+                        <legend align="center"><b>@Model.Accion</b></legend>
+                        <table align="left" style="width: 920px;">
+                            <tr>
+                                <td style="width: 75px; text-align: right;">
+                                    <b>@Html.LabelFor(model => model.Nombre): </b>
+                                </td>
+                                <td style="width: 850px; text-align: left;">
+                                    @if (Model.Accion == "Ver" || Model.Accion == "Eliminar")
+                                    {
+                                        @Html.TextBoxFor(model => model.Nombre, new { disabled = "disabled", style = "width:400px;" })
+                                    }
+                                    else
+                                    {
+                                        @Html.TextBoxFor(model => model.Nombre, new { style = "width:400px;", MaxLength = "50" })
+                                    }
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                </td>
+                            </tr>
+                        </table>
+                        @Html.ValidationSummary(false)
+                    </fieldset>
+                    <table id="btnfin" align="center" width="100%">
+                        <tr>
+                            @switch (Model.Accion)
+                            {
+                                case "Ver":
+                                <td align="center" valign="middle">
+                                    @Html.ActionLink("Cancelar", "Index", "Roles", null, new { Class = "btnIngresar" })
+                                </td>
+                               break;
+                                case "Agregar":
+                                <td align="center" valign="middle">
+                                    <a class="btnIngresar" href="#" id="Agregar">Guardar</a>&nbsp;&nbsp;
+                                    @Html.ActionLink("Cancelar", "Index", "Roles", null, new { Class = "btnIngresar" })
+                                </td>
+                               break;
+                                case "Modificar":
+                                <td align="center" valign="middle">
+                                    <a class="btnIngresar" href="#" id="Modificar">Guardar</a>&nbsp;&nbsp;
+                                    @Html.ActionLink("Cancelar", "Index", "Roles", null, new { Class = "btnIngresar" })
+                                </td>
+                               break;
+                                case "Eliminar":
+                                <td align="center" valign="middle">
+                                    <a class="btnIngresar" href="#" id="Eliminar">Eliminar</a>&nbsp;&nbsp;
+                                    @Html.ActionLink("Cancelar", "Index", "Roles", null, new { Class = "btnIngresar" })
+                                </td>
+                               break;
+                                default:
+                                <td align="center" valign="middle">
+                                    @Html.ActionLink("Cancelar", "Index", "Roles", null, new { Class = "btnIngresar" })
+                                </td>
+                               break;
+                            }
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+        <br />
+        @Html.HiddenFor(model => model.Id)
+        @Html.HiddenFor(model => model.Accion)
+        @Html.HiddenFor(model => model.IdEstado)
+    }
+</div>

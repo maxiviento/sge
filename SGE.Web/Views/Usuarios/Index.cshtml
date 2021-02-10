@@ -1,0 +1,79 @@
+﻿@model UsuariosVista
+@{
+    ViewBag.Title = "Usuarios";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var acciones = ViewData["Acciones"] as IList<string>;
+}
+@section Scripts{
+    @Content.Script("SGE.Usuarios.js", Url)
+}
+<div class="box">
+    <h2>
+        Listado de Usuarios</h2>
+    @using (Html.BeginForm("IndexPager", "Usuarios", FormMethod.Post, new { Id = "FormIndexUsuarios" }))
+    {
+        <table style="width: 930px; text-align: center; margin-left: auto; margin-right: auto;">
+            <tr>
+                <td>
+                    <fieldset style="width: 925px;">
+                        <legend><b>Filtros</b></legend>
+                        <table width="100%">
+                            <tr>
+                                <td style="width: 15%; text-align: right;">
+                                    <b>Apellido: </b>
+                                </td>
+                                <td style="width: 35%; text-align: left;">
+                                    @Html.TextBoxFor(c => c.ApellidoBusqueda)
+                                </td>
+                                <td style="width: 15%; text-align: right;">
+                                    <b>Nombre: </b>
+                                </td>
+                                <td style="width: 35%; text-align: left;">
+                                    @Html.TextBoxFor(c => c.Nombre)
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width: 20%; text-align: right;">
+                                    <b>Login: </b>
+                                </td>
+                                <td style="width: 30%; text-align: left;">
+                                    @Html.TextBoxFor(c => c.LoginBusqueda)
+                                </td>
+                                <td style="width: 15%; text-align: right;">
+                                    <b></b>
+                                </td>
+                                <td style="width: 35%; text-align: left;">
+                                </td>
+                            </tr>
+                        </table>
+                        <div class="div-filtro">
+                            <div class="div-filtro-btn">
+                                <p>
+                                    <a class="btnIngresar" href="#" id="Buscar">Buscar</a>&nbsp;&nbsp
+                                    @{
+                                        if (acciones.Contains(((int)Enums.Acciones.Agregar).ToString()))
+                                        {
+                                            @Html.ActionLink("Agregar", "Agregar", "Usuarios", null, new { Class = "btnIngresar" })
+                                        }
+                                    }
+                                </p>
+                            </div>
+                        </div>
+                    </fieldset>
+                </td>
+            </tr>
+        </table>
+        <table>
+            <tr>
+                <td style="font-weight: bold">
+                    <div id="titulo">
+                    </div>
+                    <div id="DivSuperviciones">
+                        @Html.Partial("_Lista", Model)
+                    </div>
+                </td>
+            </tr>
+        </table>
+        @Html.Partial("_Pager", Model.Pager)
+    }
+</div>

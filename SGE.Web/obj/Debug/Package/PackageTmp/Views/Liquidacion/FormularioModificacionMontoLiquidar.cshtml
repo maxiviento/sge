@@ -1,0 +1,102 @@
+﻿@model LiquidacionVista
+@{
+    ViewBag.Title = "FormularioModificacionMontoLiquidar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    TempData["Vista"] = Model;
+}
+@section Scripts{
+    @Content.Script("SGE.Liquidacion.js", Url)
+}
+<div class="box">
+    <h2>
+        Liquidación</h2>
+    @using (Html.BeginForm("AgregarConcepto", "Liquidacion", FormMethod.Post, new { Id = "FormularioModificacionMontoLiquidar" }))
+    { 
+        <table  style="width: 950px;">
+            <tr>
+                <td>
+                    <fieldset style="width: 925px;">
+                        <legend align="center"><b>Datos particulares del Beneficiario</b></legend>
+                        <table align="left" style="width: 500px;">
+                            <tr>
+                                <td style="width: 150px;" align="right">
+                                    <b>Apellido Ben. : </b>
+                                </td>
+                                <td align="left">
+                                    <span>&nbsp;&nbsp;</span>@Model.SeleccionadoBeneficiario.Ficha.Apellido
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right">
+                                    <b>Nombre Ben. : </b>
+                                </td>
+                                <td align="left">
+                                    <span>&nbsp;&nbsp;</span>@Model.SeleccionadoBeneficiario.Ficha.Nombre
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right">
+                                    <b>Nro. Doc. Ben. : </b>
+                                </td>
+                                <td align="left">
+                                    <span>&nbsp;&nbsp;</span>@string.Format("{0:##,###,###}", Convert.ToInt32(Model.SeleccionadoBeneficiario.Ficha.NumeroDocumento))
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right">
+                                    <b>Apellido Apo. : </b>
+                                </td>
+                                <td align="left">
+                                    <span>&nbsp;&nbsp;</span>@Model.SeleccionadoBeneficiario.Apoderado.Apellido
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right">
+                                    <b>Nombre Apo. : </b>
+                                </td>
+                                <td align="left">
+                                    <span>&nbsp;&nbsp;</span>@Model.SeleccionadoBeneficiario.Apoderado.Nombre
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right">
+                                    <b>Nro. Doc. Apo. : </b>
+                                </td>
+                                <td align="left">
+                                    <span>&nbsp;&nbsp;</span>@string.Format("{0:##,###,###}", Convert.ToInt32((Model.SeleccionadoBeneficiario.Apoderado.NumeroDocumento == " " ? "" : Model.SeleccionadoBeneficiario.Apoderado.NumeroDocumento)))
+                                </td>
+                            </tr>                                                      
+                            <tr>
+                                <td align="right">
+                                    <b>Importe a Liquidar: </b>
+                                </td>
+                                <td align="left">
+                                       @Html.TextBoxFor(c => c.ImportePlanEfe, new { style = "width:55%", MaxLength = "5" })
+                                        
+                                   <a id="btnEditarImporte"
+                                        class="btnIngresar">Editar Importe</a>
+                                </td>
+                            </tr>     
+                                                     
+                        </table>
+                    </fieldset>
+                </td>
+            </tr>
+        </table>
+        <input  type ="hidden" id ="CountConceptos" value ='@Model.SeleccionadoBeneficiario.Conceptos.Count'/>
+        @Html.HiddenFor(c => c.FechaLiquidacion)
+        @Html.HiddenFor(c => c.NroResolucion)
+        @Html.HiddenFor(c => c.Observacion)
+        @Html.HiddenFor(c => c.SeleccionoConcepto) 
+        //     @Html.HiddenFor(c => c.SeleccionadoBeneficiario.MontoPrograma) 
+        @Html.ValidationSummary(false)
+        <table id="btnfin" align="center" width="100%">
+            <tr>
+                <td align="center" valign="middle">
+                    <a id="btnVolverFormBeneficiarioDesdeImporte" class="btnIngresar" href="#">Volver</a>
+                </td>
+            </tr>
+        </table>
+        <br />
+    }
+</div>

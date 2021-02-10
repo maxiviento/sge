@@ -1,0 +1,60 @@
+﻿@model BarriosVista
+@if (Model.barrios != null && Model.barrios.Count > 0)
+{ 
+    <div style="text-align:center;">
+        <table id="grilla" align="center" width="925px" cellpadding="0" cellspacing="0">
+            <thead>
+                <tr>
+                    <th height="250px" width="150px">
+                        <div align="left">Barrio</div>
+                    </th>
+                    <th width="250px">
+                        <div align="left">Localidad</div>
+                    </th>
+                    <th width="250px">
+                        <div align="left">Seccional</div>
+                    </th>
+
+                    <th width="70px">
+                        <div align="left">Acciones</div>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.barrios)
+                {
+                    <tr>
+                        <td style="height: 28px; text-align: left;">
+                            @item.N_BARRIO
+                        </td>
+                        <td style="text-align: left;">
+                            @item.N_LOCALIDAD
+                        </td>
+                        <td style="text-align: left;">
+                            @item.N_SECCIONAL
+                        </td>
+                       
+                        <td>
+                            @Html.ActionLink("Ver", "Ver", "Barrios", new { IdBarrio = item.ID_BARRIO }, new { @class = "Lupa", title = "Ver Barrio" })
+                            @Html.ActionLink("Modificar", "Modificar", "Barrios", new { IdBarrio = item.ID_BARRIO }, new { @class = "Modificar", title = "Modificar Barrio" })
+                            @*@Html.ActionLink("Eliminar", "Eliminar", "Personas", new { IdCarrera = item.IdCarrera }, new { @class = "Eliminar", title = "Eliminar Carrera" })*@
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
+else
+{
+    <table align="center" width="930px" cellpadding="0" cellspacing="0">
+        <tr>
+            <td width="930px">
+                @Html.Partial("_SinDatos", "Barrios")
+            </td>
+        </tr>
+    </table>
+}
+
+
+

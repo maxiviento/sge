@@ -1,0 +1,133 @@
+﻿@model BarrioVista
+@{
+    ViewBag.Title = "Barrio";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section Scripts{
+    @Content.Script("SGE.Barrios.js", Url)
+}
+<div class="box">
+    <h2>
+        Barrio</h2>
+    @using (Html.BeginForm("ModificarBarrio", "Barrios", FormMethod.Post, new { Id = "FormularioBarrio" }))
+    {
+        <table align="center" style="width: 930px; border: 1px">
+            <tr>
+                <td>
+                    <fieldset style="width: 925px;">
+                        <legend align="center"><b>@Model.Accion</b></legend>
+                        <table align="left" style="width: 920px;">
+                            <tr>
+                                <td align="right" valign="top">
+                                    <b>Barrio: </b>
+                                </td>
+                                <td align="left" valign="middle">
+                                    @if (Model.Accion == "Ver" || Model.Accion == "Eliminar")
+                                    {
+                                        @Html.TextBoxFor(model => model.N_BARRIO, new { disabled = "disabled", style = "width:300px;" })
+                                    }
+                                    else
+                                    {
+                                        @Html.TextBoxFor(model => model.N_BARRIO, new { style = "width:300px;", MaxLength = "100" })
+                                    }
+                                </td>
+                                <td align="right" valign="top">
+                                    <b>Localidad: </b>
+                                </td>
+                                <td align="left" valign="middle">
+                                    @if (Model.Accion == "Ver" || Model.Accion == "Eliminar")
+                                    {
+                                        @Html.EditorFor(model => model.Localidades, new { disabled = "disabled", style = "width:300px;" })
+                                    }
+                                    else
+                                    {
+                                        @Html.EditorFor(model => model.Localidades, new { style = "width:300px;", MaxLength = "100" })
+                                    }
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right" valign="top">
+                                    <b>Seccionales: </b>
+                                </td>
+                                <td align="left" valign="middle">
+                                    @if (Model.Accion == "Ver" || Model.Accion == "Eliminar")
+                                    {
+                                        @Html.EditorFor(model => model.Seccionales, new { disabled = "disabled", style = "width:300px;" })
+                                    }
+                                    else
+                                    {
+                                        @Html.EditorFor(model => model.Seccionales, new { style = "width:300px;", MaxLength = "100" })
+                                    }
+                                </td>
+                                <td align="right" valign="top">
+
+                                </td>
+                                <td align="left" valign="middle">
+
+                                </td>
+                            </tr>
+ 
+
+                        </table>
+                        
+                        @Html.ValidationSummary(false)
+                    </fieldset>
+                </td>
+            </tr>
+        </table>
+        <br />
+
+        
+        @Html.HiddenFor(model => model.Accion)
+        @Html.HiddenFor(model => model.ID_BARRIO)
+        @Html.HiddenFor(model => model.ID_LOCALIDAD)
+        @Html.HiddenFor(model => model.ID_SECCIONAL)
+
+
+   //@Html.HiddenFor(model => model.id)
+        <br />
+        <table id="btnfin" width="100%">
+            <tr>
+                <td align="center" valign="middle">
+                    @switch (Model.Accion)
+                    {
+                        case "Ver":
+                            break;
+                        case "Agregar":
+                        <a class="btnIngresar" href="#" id="Agregar">Guardar</a>
+                            break;
+                        case "Modificar":
+                        <a class="btnIngresar" href="#" id="Modificar">Guardar</a>
+                            break;
+                        @*case "Eliminar":
+                        <a class="btnIngresar" href="#" id="Eliminar">Eliminar</a>
+                            break;*@
+                    }
+                    &nbsp;&nbsp;@Html.ActionLink("Cancelar", "Index", "Barrios", null, new { Class = "btnIngresar" })
+                </td>
+            </tr>
+        </table>
+
+        <table>
+            <tr>
+                <td>
+                    <div id="MensajeError">
+                        @TempData["MensajeError"]
+                    </div>
+                </td>
+            </tr>
+        </table>
+    }
+</div>
+<div id="dialogConfirmarEliminar" title="Mensaje">
+    <p>¿Está seguro que desea eliminar este registro?</p>
+</div>
+<div id="dialog" title="Mensaje">
+    <p>Este Barrio no se puede eliminar porque está en uso.</p>
+</div>
+
+
+
+
+
+

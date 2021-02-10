@@ -1,0 +1,87 @@
+﻿@model EtapaVista
+@{
+    ViewBag.Title = "Etapas";
+    ViewBag.SubMenuSelected = "Etapas";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var acciones = ViewData["Acciones"] as IList<string>;
+    //TempData["BeneficiariosVista"] = Model;
+}
+@section Scripts{
+    @Content.Script("SGE.Etapas.js", Url)
+}
+
+<div class="box">
+<h2>Etapas</h2>
+
+@using (Html.BeginForm("Index", "Etapa", FormMethod.Post, new { Id = "FormIndexEtapa" }))
+    {
+        <table align="center" style="width: 930px;">
+            <tr>
+                <td>
+                    <fieldset style="width: 925px;">
+                        <legend align="center"><b>Filtros</b></legend>
+                        <table style="width: 924px;">
+                            <tr>
+                                <td style="width: 15%; text-align: right;">
+                                    <b>Ejercicio: </b>
+                                </td>
+                                <td style="width: 30%; text-align: left;">@Html.TextBoxFor(c => c.ejerc)
+                                </td>
+                                <td style="text-align: right;">
+                                    <b>Programas: </b>
+                                </td>
+                                <td style="text-align: left;">
+                                    @Html.EditorFor(c => c.Programas)
+                                </td>
+                            </tr>
+                        </table>
+                        
+                        <div class="div-filtro">
+                            <div class="div-filtro-btn">
+                                <p>
+                                    <a class="btnIngresar" id="Buscar" href="#">Buscar</a>
+                                                                        @{
+                                        if (acciones.Contains(((int)Acciones.Agregar).ToString()))
+                                        {
+                                            @Html.ActionLink("Agregar", "Agregar", "Etapa", null, new { Class = "btnIngresar" })
+                                        }
+                                    }
+                                </p>
+                            </div>
+                        </div>
+                    </fieldset>
+                </td>
+            </tr>
+        </table>
+        if (Model.listEtapas == null)
+        {
+            @Html.Hidden("ContEtapas", 0, new { name = "ContEtapas" })
+        }
+        else
+        {@Html.Hidden("ContEtapas", @Model.listEtapas.Count, new { name = "ContEtapas" }) } 
+       <table>
+            <tr>
+                <td style="font-weight: bold">
+                    <div id="titulo">
+                    </div>
+                    <div id="DivSuperviciones">
+                        @Html.Partial("_Lista", Model)
+                    </div>
+                </td>
+            </tr>
+        </table>
+ 
+
+    }
+</div>
+
+@*<div id="dialog" title="Mensaje">
+    <p>
+        Verifique de seleccionar un Plan para generar el Archivo de cuentas.</p>
+</div>
+<div id="dialogErrorDatos" title="Mensaje">
+    <p>
+        No se puede generar el archivo porque hay una discrepancia en los datos, verifique
+        en el módulo de seguridad, opción "Control de Datos" o comuníquese con un administrador
+        del sistema.</p>
+</div>*@

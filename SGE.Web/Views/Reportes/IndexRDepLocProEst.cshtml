@@ -1,0 +1,101 @@
+﻿@model ReporteDepLocProgEsta
+@{
+    ViewBag.Title = "Reporte Dep. Loc. Prog. Est.";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var acciones = ViewData["Acciones"] as IList<string>;  
+}
+@section Scripts{
+    @Content.Script("SGE.ReporteDepLocProEst.js", Url)
+}
+<div class="box">
+    <h2>
+        Reporte Departamento Localidad Programa Estado</h2>
+    @using (Html.BeginForm("IndexPager", "Fichas", FormMethod.Post, new { Id = "FormIndexRDepLocProEst" }))
+    {
+        <table align="center" style="width: 930px;">
+            <tr>
+                <td>
+                    <fieldset style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 925px;
+                        text-align: center;">
+                        <legend style="color: #FF9900"><b>Filtro</b></legend>
+                        <table style="width: 924px;">
+                            <tr>
+                                <td style="width: 10%; text-align: right;">
+                                    <b>Departamentos: </b>
+                                </td>
+                                <td style="width: 35%; text-align: left;">
+                                    @Html.EditorFor(c => c.BusquedaDepartamentos)
+                                </td>
+                                <td style="width: 20%; text-align: right;">
+                                    <b>Localidades: </b>
+                                </td>
+                                <td style="width: 35%; text-align: left;">
+                                    @Html.EditorFor(c => c.BusquedaLocalidades)
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: right;">
+                                    <b>Programas: </b>
+                                </td>
+                                <td style="text-align: left;">
+                                    @Html.EditorFor(c => c.BusquedaProgramas)
+                                </td>
+                                <td style="text-align: right;">
+                                    <b>Estados: </b>
+                                </td>
+                                <td style="text-align: left;">
+@*                                    <select id="Estados_Selected" name="Estados_Selected">
+                                        <option selected="selected" value="0">Todos</option>
+                                        <option value="3">Beneficiarios</option>
+                                    </select>*@
+                                            <select id="Estados_Selected" onchange="$('#Estado').val($('#Estados_Selected').val()); /*alert($('#idNivel').val());*/" >
+                                            @if(Model.Estado=="0"){<option value='0' selected="selected">Todos</option>} else{<option value='0'>Todos</option>}            
+                                            @if(Model.Estado == "3"){<option value='3' selected="selected">Beneficiarios</option>}else{<option value='3'>Beneficiarios</option>}
+            
+                                            </select>
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: right;"><b>Beneficiarios: </b></td>
+                                <td style="text-align: left;">@Html.EditorFor(c => c.EstadoBenef)</td>
+                                <td style="text-align: right;">
+                                   <div id="lblTipoPpp" style="text-align: right;"><b>Tipo Ppp:</b></div>
+                                </td>
+                                <td style="text-align: left;">@Html.EditorFor(c => c.ComboTiposPpp)
+                                    
+                                </td>
+                            </tr>
+
+                        </table>
+                        <div class="div-filtro">
+                            <div class="div-filtro-btn">
+                                <p>
+                                    <a class="btnIngresar" href="#" id="Buscar">Buscar</a> <a class="btnIngresar" href="#"
+                                        id="ExportBeneficiario">Exportar a Excel</a>
+                                </p>
+                            </div>
+                        </div>
+                    </fieldset>
+                </td>
+            </tr>
+        </table>
+        <table>
+            <tr>
+                <td style="font-weight: bold">
+                    <div id="titulo">
+                    </div>
+                    <div id="DivSuperviciones">
+                        @Html.Partial("_ListaRDepLocProEst", Model)
+                    </div>
+                </td>
+            </tr>
+        </table>
+        if (Model.Pager != null)
+        {
+        @Html.Partial("_Pager", Model.Pager)
+        }
+        
+        @Html.HiddenFor(c => c.Estado)
+    }
+</div>

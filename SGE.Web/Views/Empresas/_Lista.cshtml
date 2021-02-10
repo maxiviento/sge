@@ -1,0 +1,73 @@
+﻿@model EmpresasVista
+@{
+    var acciones = ViewData["Acciones"] as IList<string>;    
+}
+@if (Model.Empresas != null && Model.Empresas.Count > 0)
+{ 
+    <div style="text-align: center;">
+        <table id="grilla" align="center" width="925px" cellpadding="0" cellspacing="0">
+            <thead>
+                <tr>
+                    <th style="height: 30px; width: 500px;">
+                        <div align="center">
+                            Razón Social</div>
+                    </th>
+                    <th style="width: 90px;">
+                        <div align="center">
+                            CUIT</div>
+                    </th>
+                    <th style="width: 90px;">
+                        <div align="center">
+                            Acciones</div>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Empresas)
+                {
+                    <tr>
+                        <td style="height: 28px; width: 450px; text-align: left;">
+                            @item.NombreEmpresa.ToMaxLenght(95)
+                        </td>
+                        <td style="text-align: right;">
+                            @item.Cuit
+                        </td>
+                        <td style="text-align: center;">
+                            @{                                
+                                if (!ViewBag.Title.Contains("Desvincular Fichas"))
+                                {
+                                    if (acciones.Contains(((int)Enums.Acciones.Consultar).ToString()))
+                                    {
+                                            @Html.ActionLink("Ver", "Ver", "Empresas", new { idEmpresa = item.IdEmpresa }, new { @class = "Lupa", title = "Ver Empresa" })
+                                    }
+                                    if (acciones.Contains(((int)Enums.Acciones.Modificar).ToString()))
+                                    {
+                                            @Html.ActionLink("Modificar", "Modificar", "Empresas", new { idEmpresa = item.IdEmpresa }, new { @class = "Modificar", title = "Modificar Empresa" })
+                                    }
+                                    if (acciones.Contains(((int)Enums.Acciones.Eliminar).ToString()))
+                                    {
+                                            @Html.ActionLink("Eliminar", "Eliminar", "Empresas", new { idEmpresa = item.IdEmpresa }, new { @class = "Eliminar", title = "Eliminar Empresa" })
+                                    }
+                                }
+                                else
+                                {
+                                    @Html.ActionLink("Seleccionar", "SeleccionarDestino", "Empresas", new { idEmpresaDestino = item.IdEmpresa, idOrigen = Model.IdEmpresaOrigen }, new { @class = "Seleccionado", title = "Seleccionar Empresa" })
+                                }
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
+else
+{
+    <table align="center" width="930px" cellpadding="0" cellspacing="0">
+        <tr>
+            <td width="930px">
+                @Html.Partial("_SinDatos", "Empresas")
+            </td>
+        </tr>
+    </table>
+}

@@ -1,0 +1,108 @@
+﻿@model PermisoVista
+@{
+    ViewBag.Title = "Rol";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section Scripts{
+    @Content.Script("SGE.Permisos.js", Url)
+}
+<div class="box">
+    <h2>
+        Asignar Permisos</h2>
+    @using (Html.BeginForm("ModificarRol", "Roles", FormMethod.Post, new { Id = "FormularioPermisos" }))
+    {
+        <table align="center" style="width: 925px;">
+            <tr>
+                <td>
+                    <fieldset style="width: 925px;">
+                        <legend align="center"><b>@Model.Accion</b></legend>
+                        <table align="left" style="width: 920px;">
+                            <tr>
+                                <td align="left">
+                                    <b>@Html.LabelFor(model => model.Rol): </b>
+                                </td>
+                                <td align="left" valign="middle">
+                                    @Html.TextBoxFor(model => model.Rol, new { disabled = "disabled", style = "width:180px;" })
+                                </td>
+                            </tr>
+                        </table>
+                    </fieldset>
+                </td>
+            </tr>
+        </table>
+        <br />
+        @Html.HiddenFor(model => model.Id)
+        @Html.HiddenFor(model => model.Accion)
+        <div id="Panel">
+            <table id="grilla" align="center" width="900px" cellpadding="0" cellspacing="0">
+                <tr>
+                    <th style="display: none" align="center">
+                        @Html.LabelFor(model => Model.Formularios[0].Id)
+                    </th>
+                    <th style="width: 70%" align="center">
+                        <div align="center">@Html.LabelFor(model => Model.Formularios[0].Formulario)</div>
+                    </th>
+                    <th style="width: 30%" align="center">
+                        <div align="center">@Html.LabelFor(model => Model.Formularios[0].Acciones)</div>
+                    </th>
+                </tr>
+                @for (int i = 0; i < Model.Formularios.Count; i++)
+                { 
+                    <tr>
+                        <td align="left" style="display: none">
+                            @Html.HiddenFor(model => Model.Formularios[i].Id)
+                        </td>
+                        <td align="left" style="width: 70px;">
+                            @Html.DisplayFor(model => Model.Formularios[i].Formulario)
+                        </td>
+                        <td align="center" style="width: 30px; text-align: center;">
+                            <table id="tableAcciones" style="width: 100%">
+                                @for (int j = 0; j < Model.Formularios[i].Acciones.Count; j++)
+                                { 
+                                    <tr>
+                                        <td align="left" style="display: none">
+                                            @Html.HiddenFor(model => Model.Formularios[i].Acciones[j].Id)
+                                        </td>
+                                        <td align="left" style="width: 70%">
+                                            @Html.DisplayFor(model => Model.Formularios[i].Acciones[j].Accion)
+                                        </td>
+                                        <td align="center" style="width: 70%">
+                                            @if (Model.Accion == "Ver" || Model.Accion == "Eliminar")
+                                            {
+                                                @Html.CheckBoxFor(model => Model.Formularios[i].Acciones[j].Selected, new { disabled = "disabled" })
+                                            }
+                                            else
+                                            {
+                                                @Html.CheckBoxFor(model => Model.Formularios[i].Acciones[j].Selected)
+                                            }
+                                        </td>
+                                    </tr>
+                                }
+                            </table>
+                        </td>
+                    </tr>
+                }
+            </table>
+        </div>
+        @Html.ValidationSummary(false)
+        <br />
+        <table id="btnfin" align="center" width="100%">
+            <tr>
+                <td align="center" valign="middle">
+                    @switch (Model.Accion)
+                    {
+                        case "Ver":
+                            break;
+                        case "Modificar":
+                        <a class="btnIngresar" href="#" id="Modificar">Guardar</a>
+                            break;
+                        default:
+                            break;
+                    }
+                    &nbsp;&nbsp;@Html.ActionLink("Cancelar", "Index", "Permisos", null, new { Class = "btnIngresar" })
+                </td>
+            </tr>
+        </table>
+        <br />
+    }
+</div>

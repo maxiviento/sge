@@ -1,0 +1,50 @@
+﻿@model BeneficiarioLiquidacion
+@if (Model.Conceptos != null && Model.Conceptos.Count > 0)
+{ 
+    <div style="text-align: center;">
+        <table id="grilla" align="center" width="925px" cellpadding="0" cellspacing="0">
+            <thead>
+                <tr>
+                    <th height="30px" width="180px">
+                        <div align="center">
+                            Año</div>
+                    </th>
+                    <th height="30px" width="180px">
+                        <div align="center">
+                            Mes</div>
+                    </th>
+                    <th height="30px" width="180px">
+                        <div align="center">
+                            Acción</div>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Conceptos)
+                {
+                    <tr>
+                        <td align="left" height="28">
+                            @item.Año
+                        </td>
+                        <td align="left" width="50">
+                            @System.Globalization.CultureInfo.CurrentCulture.DateTimeFormat.MonthNames[@item.Mes - 1].ToUpper()
+                        </td>
+                        <td align="center" width="50">
+                            @Html.ActionLink("Quitar", "QuitarConceptoBeneficiario", "Liquidacion", new { IdBeneficiario = Model.IdBeneficiario, IdConcepto = item.Id_Concepto }, new { @class = "Eliminar", title = "Quitar Concepto" })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
+else
+{
+    <table id="grilla" align="center" width="930px" cellpadding="0" cellspacing="0">
+        <tr>
+            <td width="930px">
+                @Html.Partial("_SinDatos", "Liquidacion")
+            </td>
+        </tr>
+    </table>
+}

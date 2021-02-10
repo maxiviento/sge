@@ -1,0 +1,214 @@
+﻿@model GrupoFamiliarVista
+@{
+    ViewBag.Title = "Familia";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    int cantFami = 0;
+}
+@section Scripts{
+    @Content.Script("SGE.Personas.js", Url)
+}
+<div class="box">
+    <h2>
+        Grupo Familiar</h2>
+    @using (Html.BeginForm("ModificarFamilia", "Personas", FormMethod.Post, new { Id = "FormularioFamilia" }))
+    {
+        <table align="center" style="width: 930px; border: 1px">
+            <tr>
+                <td>
+                    <fieldset style="width: 925px;">
+                        <legend align="center"><b>@Model.Accion</b></legend>
+                        <table align="left" style="width: 920px;">
+                               <tr>
+                                <td align="right" valign="top">
+                                    <b>DNI: </b>
+                                </td>
+                                <td align="left" valign="middle">
+                                    @if (Model.Accion == "Ver" || Model.Accion == "Eliminar")
+                                    {
+                                        @Html.TextBoxFor(model => model.numero_documento, new { disabled = "disabled", style = "width:300px;" })
+                                    }
+                                    else
+                                    {
+                                        @Html.TextBoxFor(model => model.numero_documento, new { style = "width:300px;", MaxLength = "100" })
+                                    }
+                                    <a class="Check" title="Verificar Persona" href="#" id="VerificarPer">Verificar</a>
+                                    <a class="Guardar" title="Guardar Persona" href="#" id="GuardarPer">Guardar</a>
+                                </td>
+                                <td align="left" valign="top">
+
+                                </td>
+                                <td align="left" valign="middle">
+                                    @if (Model.Accion == "Ver" || Model.Accion == "Eliminar")
+                                    {
+
+                                    }
+                                    else
+                                    {
+
+                                    }
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right" valign="top">
+                                    <b>Apellido: </b>
+                                </td>
+                                <td align="left" valign="middle">
+                                    @if (Model.Accion == "Ver" || Model.Accion == "Eliminar")
+                                    {
+                                        @Html.TextBoxFor(model => model.Apellido, new { disabled = "disabled", style = "width:300px;" })
+                                    }
+                                    else
+                                    {
+                                        @Html.TextBoxFor(model => model.Apellido, new { style = "width:300px;", MaxLength = "100" })
+                                    }
+                                </td>
+                                <td align="right" valign="top">
+                                    <b>Nombre: </b>
+                                </td>
+                                <td align="left" valign="middle">
+                                    @if (Model.Accion == "Ver" || Model.Accion == "Eliminar")
+                                    {
+                                        @Html.TextBoxFor(model => model.Nombres, new { disabled = "disabled", style = "width:300px;" })
+                                    }
+                                    else
+                                    {
+                                        @Html.TextBoxFor(model => model.Nombres, new { style = "width:300px;", MaxLength = "100" })
+                                    }
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td align="right" valign="top">
+                                    <b>Vinculo: </b>
+                                </td>
+                                <td align="left" valign="middle" colspan="3">
+                                    @if (Model.Accion == "Ver" || Model.Accion == "Eliminar")
+                                    {
+                                        @Html.EditorFor(model => model.vinculos, new { disabled = "disabled", style = "width:300px;" })
+                                    }
+                                    else
+                                    {
+                                        @Html.EditorFor(model => model.vinculos, new { style = "width:300px;"})
+                                    }
+                                </td>
+                                
+                            </tr>
+                        </table>
+                        @Html.ValidationSummary(false)
+                    </fieldset>
+                </td>
+            </tr>
+            <tr><td><a class="btnIngresar" href="#" id="AddFamiliar">Agregar</a> <a class="btnIngresar" href="#" id="limpiarPer">Limpiar</a></td></tr>
+            
+        </table>
+        <br />
+        if (Model.Familiares != null && Model.Familiares.Count > 0)
+        { 
+    <div style="text-align:center;">
+        <table id="grilla" align="center" width="900px" cellpadding="0" cellspacing="0">
+            <thead>
+                <tr>
+                    <th height="80px" width="120px">
+                        <div align="center">Nro Documento</div>
+                    </th>
+                    <th height="200px" width="120px">
+                        <div align="center">Apellido</div>
+                    </th>
+                    <th width="250px">
+                        <div align="center">Nombres</div>
+                    </th>
+                    <th width="100px">
+                        <div align="center">Vinculo</div>
+                    </th>
+                    <th width="50px">
+                        <div align="center">Acciones</div>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Familiares)
+                {
+                    <tr>
+                        <td style="height: 28px; text-align: center;">
+                         @item.DNI
+                         @Html.Hidden("IDPersona_" + cantFami, item.ID_PERSONA)
+                        </td>
+                        <td style="text-align: center;">
+                            @item.APELLIDO
+                        </td>
+                        <td style="text-align: center;">
+                            @item.NOMBRE
+                        </td>
+                        <td style="text-align: center;">
+                            @item.N_VINCULO
+                        </td>
+                        <td style="text-align: center;">
+                           @Html.ActionLink("Eliminar", "DeleteRelFam", "Personas", new { idFicha = item.ID_FICHA, idPersona = item.ID_PERSONA }, new { @class = "Eliminar", title = "Eliminar Relación" })
+                        </td>
+                    </tr>
+                    cantFami++;
+                }
+            </tbody>
+        </table>
+    </div>
+        }
+        else
+        {
+    <table align="center" width="930px" cellpadding="0" cellspacing="0">
+        <tr>
+            <td width="930px">
+                @Html.Partial("_SinDatos", "Fichas")
+            </td>
+        </tr>
+    </table>
+        }
+        
+        <br /> 
+        @Html.HiddenFor(model => model.Accion)
+        @Html.HiddenFor(model => model.idPersona)
+        @Html.HiddenFor(model => model.idVinculo)
+        @Html.HiddenFor(model => model.idficha)
+        @Html.Hidden("cantFami", cantFami)
+   //@Html.HiddenFor(model => model.id)
+        <table id="btnfin" width="100%">
+            <tr>
+                <td align="center" valign="middle">
+                    @switch (Model.Accion)
+                    {
+                        case "Ver":
+                            break;
+                        case "Agregar":
+                        <a class="btnIngresar" href="#" id="Agregar">Guardar</a>
+                            break;
+                        case "Modificar":
+                        <a class="btnIngresar" href="#" id="Modificar">Guardar</a>
+                            break;
+                        @*case "Eliminar":
+                        <a class="btnIngresar" href="#" id="Eliminar">Eliminar</a>
+                            break;*@
+                    }
+                    &nbsp;&nbsp;@Html.ActionLink("Volver", "Modificar", "Fichas", new { idFicha = Model.idficha }, new { Class = "btnIngresar" })
+                </td>
+            </tr>
+        </table>
+
+        <table>
+            <tr>
+                <td>
+                    <div id="MensajeError">
+                        @TempData["MensajeError"]
+                    </div>
+                </td>
+            </tr>
+        </table>
+    }
+</div>
+<div id="dialogConfirmarEliminar" title="Mensaje">
+    <p>¿Está seguro que desea eliminar este registro?</p>
+</div>
+<div id="dialog" title="Mensaje">
+    <p>Esta Carrera no se puede eliminar porque está en uso.</p>
+</div>
+<div id="dialogFamiExiste" title="Mensaje">
+    <p>La persona ya se encuentra cargada en el grupo familiar.</p>
+</div>

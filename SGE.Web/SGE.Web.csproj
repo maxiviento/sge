@@ -1,0 +1,651 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{2782E067-33AF-4C78-9798-1D3CF3E5A094}</ProjectGuid>
+    <ProjectTypeGuids>{E53F8FEA-EAE0-44A6-8774-FFD645390401};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SGE.Web</RootNamespace>
+    <AssemblyName>SGE.Web</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>false</UseIISExpress>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <FilesToIncludeForPublish>OnlyFilesToRunTheApp</FilesToIncludeForPublish>
+    <ExcludeGeneratedDebugSymbol>false</ExcludeGeneratedDebugSymbol>
+    <ExcludeApp_Data>false</ExcludeApp_Data>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.4.1.10331.0\lib\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.1.3.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Recursos\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="McjDevelopment.Mvc3ValidationGroups">
+      <HintPath>..\packages\Mvc3ValidationGroups.1.0.12082.0\lib\net40\McjDevelopment.Mvc3ValidationGroups.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Oracle.DataAccess, Version=4.112.3.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=x86">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.WebPages, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.Helpers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controllers\ApoderadosController.cs" />
+    <Compile Include="Controllers\BarriosController.cs" />
+    <Compile Include="Controllers\BeneficiariosController.cs" />
+    <Compile Include="Controllers\CausasRechazoController.cs" />
+    <Compile Include="Controllers\ConceptosController.cs" />
+    <Compile Include="Controllers\CarrerasController.cs" />
+    <Compile Include="Controllers\ControlDatosController.cs" />
+    <Compile Include="Controllers\CookieController.cs" />
+    <Compile Include="Controllers\CursosController.cs" />
+    <Compile Include="Controllers\EscuelasController.cs" />
+    <Compile Include="Controllers\EtapaController.cs" />
+    <Compile Include="Controllers\FichaObservacionController.cs" />
+    <Compile Include="Controllers\InicializarTablasController.cs" />
+    <Compile Include="Controllers\LocalidadesController.cs" />
+    <Compile Include="Controllers\OngController.cs" />
+    <Compile Include="Controllers\PdfViewController.cs" />
+    <Compile Include="Controllers\PersonasController.cs" />
+    <Compile Include="Controllers\ReportesController.cs" />
+    <Compile Include="Controllers\SedesController.cs" />
+    <Compile Include="Controllers\SubprogramasController.cs" />
+    <Compile Include="Controllers\SucursalCoberturaController.cs" />
+    <Compile Include="Controllers\TitulosController.cs" />
+    <Compile Include="Controllers\UniversidadesController.cs" />
+    <Compile Include="Controllers\DepartamentosController.cs" />
+    <Compile Include="Controllers\EmpresasController.cs" />
+    <Compile Include="Controllers\FichasController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\InstitucionesController.cs" />
+    <Compile Include="Controllers\LiquidacionController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\PasswordController.cs" />
+    <Compile Include="Controllers\PermisosController.cs" />
+    <Compile Include="Controllers\ProgramasController.cs" />
+    <Compile Include="Controllers\RolesController.cs" />
+    <Compile Include="Controllers\Shared\BaseController.cs" />
+    <Compile Include="Controllers\TiposRechazoController.cs" />
+    <Compile Include="Controllers\UsuariosController.cs" />
+    <Compile Include="DSWebReport.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DSWebReport.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Infrastucture\Authentication.cs" />
+    <Compile Include="Infrastucture\Authentication\HttpContextService.cs" />
+    <Compile Include="Infrastucture\Authentication\IHttpContextService.cs" />
+    <Compile Include="Infrastucture\CustomAuthorizeAttribute.cs" />
+    <Compile Include="Infrastucture\CustomPrincipal.cs" />
+    <Compile Include="Infrastucture\LogAttribute.cs" />
+    <Compile Include="Infrastucture\MyHelpers.cs" />
+    <Compile Include="Models\Cliente2.cs" />
+    <Compile Include="Models\ClienteModel2.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Models\Reportes\Cliente.cs" />
+    <Compile Include="Models\Reportes\ClienteModel.cs" />
+    <Compile Include="Models\Reportes\FichaModel.cs" />
+    <Compile Include="Models\Reportes\Datasource\FichaReporte.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\Css\Login.css" />
+    <Content Include="Content\Css\MVCFramework.css" />
+    <Content Include="Content\Css\Pager.css" />
+    <Content Include="Content\Css\SGEMaster.css" />
+    <Content Include="Content\Css\superfish-navbar.css" />
+    <Content Include="Content\Css\superfish-vertical.css" />
+    <Content Include="Content\Css\superfish.css" />
+    <Content Include="Content\images\10_.png" />
+    <Content Include="Content\images\120_.png" />
+    <Content Include="Content\images\47_.png" />
+    <Content Include="Content\images\49_.png" />
+    <Content Include="Content\images\8_.png" />
+    <Content Include="Content\images\aprobada.gif" />
+    <Content Include="Content\images\arrows-ffffff.png" />
+    <Content Include="Content\images\Bg_encabezado.jpg" />
+    <Content Include="Content\images\Bg_pie.jpg" />
+    <Content Include="Content\images\chk.ico" />
+    <Content Include="Content\images\eliminar.gif" />
+    <Content Include="Content\images\EscudoCordoba.png" />
+    <Content Include="Content\images\guardar.ico" />
+    <Content Include="Content\images\icon_aplicacion.gif" />
+    <Content Include="Content\images\icon_derecha.gif" />
+    <Content Include="Content\images\icon_documento.gif" />
+    <Content Include="Content\images\icon_reporte.gif" />
+    <Content Include="Content\images\Logo Agencia.jpg" />
+    <Content Include="Content\images\Logout_button.png" />
+    <Content Include="Content\images\lupa.gif" />
+    <Content Include="Content\images\modificar.gif" />
+    <Content Include="Content\images\nuevo.gif" />
+    <Content Include="Content\images\pendiente.gif" />
+    <Content Include="Content\images\rechazada.gif" />
+    <Content Include="Content\images\seleccionar.jpg" />
+    <Content Include="Content\images\sello.png" />
+    <Content Include="Content\images\shadow.png" />
+    <Content Include="Content\images\VATES_SGE_CABEZAL_20120223.jpg" />
+    <Content Include="Content\redmond\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\redmond\images\ui-bg_flat_55_fbec88_40x100.png" />
+    <Content Include="Content\redmond\images\ui-bg_glass_75_d0e5f5_1x400.png" />
+    <Content Include="Content\redmond\images\ui-bg_glass_85_dfeffc_1x400.png" />
+    <Content Include="Content\redmond\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\redmond\images\ui-bg_gloss-wave_55_5c9ccc_500x100.png" />
+    <Content Include="Content\redmond\images\ui-bg_inset-hard_100_f5f8f9_1x100.png" />
+    <Content Include="Content\redmond\images\ui-bg_inset-hard_100_fcfdfd_1x100.png" />
+    <Content Include="Content\redmond\images\ui-icons_217bc0_256x240.png" />
+    <Content Include="Content\redmond\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\redmond\images\ui-icons_469bdd_256x240.png" />
+    <Content Include="Content\redmond\images\ui-icons_6da8d5_256x240.png" />
+    <Content Include="Content\redmond\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\redmond\images\ui-icons_d8e7f3_256x240.png" />
+    <Content Include="Content\redmond\images\ui-icons_f9bd01_256x240.png" />
+    <Content Include="Content\redmond\jquery-ui-1.8.18.custom.css" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\jquery.ui.accordion.css" />
+    <Content Include="Content\themes\base\jquery.ui.all.css" />
+    <Content Include="Content\themes\base\jquery.ui.autocomplete.css" />
+    <Content Include="Content\themes\base\jquery.ui.base.css" />
+    <Content Include="Content\themes\base\jquery.ui.button.css" />
+    <Content Include="Content\themes\base\jquery.ui.core.css" />
+    <Content Include="Content\themes\base\jquery.ui.datepicker.css" />
+    <Content Include="Content\themes\base\jquery.ui.dialog.css" />
+    <Content Include="Content\themes\base\jquery.ui.progressbar.css" />
+    <Content Include="Content\themes\base\jquery.ui.resizable.css" />
+    <Content Include="Content\themes\base\jquery.ui.selectable.css" />
+    <Content Include="Content\themes\base\jquery.ui.slider.css" />
+    <Content Include="Content\themes\base\jquery.ui.tabs.css" />
+    <Content Include="Content\themes\base\jquery.ui.theme.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="Recursos\itextsharp.dll" />
+    <Content Include="Recursos\McjDevelopment.Mvc3ValidationGroups.dll" />
+    <Content Include="Scripts\jquery-1.5.2-vsdoc.js" />
+    <Content Include="Scripts\jquery-1.5.2.js" />
+    <Content Include="Scripts\jquery-1.5.2.min.js" />
+    <Content Include="Scripts\jquery.ui.datepicker-es.js" />
+    <Content Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.validationgroups.js" />
+    <Content Include="Scripts\SGE.Asistencia.js" />
+    <Content Include="Scripts\SGE.Barrios.js" />
+    <Content Include="Scripts\SGE.BeneficiarioHorarios.js" />
+    <Content Include="Scripts\SGE.ControlDatos.js" />
+    <Content Include="Scripts\SGE.Cursos.js" />
+    <Content Include="Scripts\SGE.Escuelas.js" />
+    <Content Include="Scripts\SGE.Etapas.js" />
+    <Content Include="Scripts\SGE.FichaObservacion.js" />
+    <Content Include="Scripts\SGE.GestorEstados.js" />
+    <Content Include="Scripts\SGE.InicializarTablas.js" />
+    <Content Include="Scripts\SGE.Apoderado.js" />
+    <Content Include="Scripts\SGE.Carreras.js" />
+    <Content Include="Scripts\SGE.FichasPPP.js" />
+    <Content Include="Scripts\SGE.Localidades.js" />
+    <Content Include="Scripts\SGE.ONG.js" />
+    <Content Include="Scripts\SGE.Personas.js" />
+    <Content Include="Scripts\SGE.Recupero.js" />
+    <Content Include="Scripts\SGE.RecuperoDebito.js" />
+    <Content Include="Scripts\SGE.ReporteBecasAcademicas.js" />
+    <Content Include="Scripts\SGE.ReporteDepLocProEst.js" />
+    <Content Include="Scripts\SGE.ReportesArt.js" />
+    <Content Include="Scripts\SGE.Seccion.js" />
+    <Content Include="Scripts\SGE.Sede.js" />
+    <Content Include="Scripts\SGE.Subprogramas.js" />
+    <Content Include="Scripts\SGE.SucursalCobertura.js" />
+    <Content Include="Scripts\SGE.Timer.js" />
+    <Content Include="Scripts\SGE.Universidades.js" />
+    <Content Include="Scripts\hoverIntent.js" />
+    <Content Include="Scripts\jquery-ui-1.8.11.js" />
+    <Content Include="Scripts\jquery-ui-1.8.11.min.js" />
+    <Content Include="Scripts\jquery.bgiframe.min.js" />
+    <Content Include="Scripts\jquery.maskedinput-1.3.min.js" />
+    <Content Include="Scripts\jquery.pager.js" />
+    <Content Include="Scripts\SGE.CausasRechazo.js" />
+    <Content Include="Scripts\modernizr-1.7.js" />
+    <Content Include="Scripts\modernizr-1.7.min.js" />
+    <Content Include="Scripts\SGE.Beneficiario.js" />
+    <Content Include="Scripts\SGE.Conceptos.js" />
+    <Content Include="Scripts\SGE.Departamentos.js" />
+    <Content Include="Scripts\SGE.Empresas.js" />
+    <Content Include="Scripts\SGE.Fichas.js" />
+    <Content Include="Scripts\SGE.Instituciones.js" />
+    <Content Include="Scripts\SGE.Layout.js" />
+    <Content Include="Scripts\SGE.Liquidacion.js" />
+    <Content Include="Scripts\SGE.Permisos.js" />
+    <Content Include="Scripts\SGE.Programas.js" />
+    <Content Include="Scripts\SGE.Roles.js" />
+    <Content Include="Scripts\SGE.SetFront.js" />
+    <Content Include="Scripts\SGE.TiposRechazo.js" />
+    <Content Include="Scripts\SGE.Usuarios.js" />
+    <Content Include="Scripts\smartpaginator.js" />
+    <Content Include="Scripts\superfish.js" />
+    <Content Include="Scripts\supersubs.js" />
+    <Content Include="Scripts\Validate_Decimal.js" />
+    <Content Include="Views\Shared\EditorTemplates\ComboBox.ascx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\MicrosoftAjax.js" />
+    <Content Include="Scripts\MicrosoftAjax.debug.js" />
+    <Content Include="Scripts\MicrosoftMvcAjax.js" />
+    <Content Include="Scripts\MicrosoftMvcAjax.debug.js" />
+    <Content Include="Scripts\MicrosoftMvcValidation.js" />
+    <Content Include="Scripts\MicrosoftMvcValidation.debug.js" />
+    <Content Include="Views\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="App_Start\" />
+    <Folder Include="obj\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Code\Content.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Fichas\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Fichas\_Lista.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SGE.Model\SGE.Model.csproj">
+      <Project>{11455803-8068-4E28-8845-99C9D962D838}</Project>
+      <Name>SGE.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SGE.Servicio\SGE.Servicio.csproj">
+      <Project>{78035A79-EBE1-4E95-98DF-6BE043078FEE}</Project>
+      <Name>SGE.Servicio</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\_SinDatos.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Fichas\Formulario.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\EditorTemplates\DateTime.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\_Pager.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Fichas\_ProgramaPPP.cshtml" />
+    <Content Include="Views\Fichas\_ProgramaUnivTerc.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Beneficiarios\Cuentas.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Beneficiarios\_Lista.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Fichas\ImportarExcel.cshtml" />
+    <Content Include="Archivos\Exportados\TemplateExportar.xls" />
+    <Content Include="Archivos\Exportados\TemplateBeneficiariosPPP.xls" />
+    <Content Include="Archivos\Exportados\TemplateBeneficiarioTerciarios.xls" />
+    <Content Include="Archivos\Exportados\TemplateBeneficiarioUniversitarios.xls" />
+    <Content Include="Archivos\Exportados\TemplateLiquidacion.xls" />
+    <Content Include="Views\Usuarios\Index.cshtml" />
+    <Content Include="Views\Usuarios\_Lista.cshtml" />
+    <Content Include="Views\Usuarios\Formulario.cshtml" />
+    <Content Include="Views\Shared\_Menu.cshtml" />
+    <Content Include="Views\Login\Login.cshtml" />
+    <Content Include="Views\Shared\_LogOn.cshtml" />
+    <Content Include="Views\Password\Modificar.cshtml" />
+    <Content Include="Views\CausasRechazo\_Lista.cshtml" />
+    <Content Include="Views\Shared\_LayoutLogin.cshtml" />
+    <Content Include="Views\Beneficiarios\Formulario.cshtml" />
+    <Content Include="Views\Conceptos\_Lista.cshtml" />
+    <Content Include="Views\Conceptos\Formulario.cshtml" />
+    <Content Include="Views\Conceptos\Index.cshtml" />
+    <Content Include="Views\CausasRechazo\Formulario.cshtml" />
+    <Content Include="Views\CausasRechazo\Index.cshtml">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Views\Permisos\Formulario.cshtml" />
+    <Content Include="Views\Permisos\Index.cshtml" />
+    <Content Include="Views\Permisos\_Lista.cshtml" />
+    <Content Include="Views\Roles\Formulario.cshtml" />
+    <Content Include="Views\Roles\Index.cshtml" />
+    <Content Include="Views\Roles\_Lista.cshtml" />
+    <Content Include="Views\TiposRechazo\Formulario.cshtml" />
+    <Content Include="Views\TiposRechazo\Index.cshtml" />
+    <Content Include="Views\TiposRechazo\_Lista.cshtml" />
+    <Content Include="Views\Fichas\_TipoRechazo.cshtml" />
+    <Content Include="Views\Programas\Formulario.cshtml" />
+    <Content Include="Views\Programas\Index.cshtml" />
+    <Content Include="Views\Programas\_Lista.cshtml" />
+    <Content Include="Views\Instituciones\Formulario.cshtml" />
+    <Content Include="Views\Instituciones\_Lista.cshtml" />
+    <Content Include="Views\Instituciones\Index.cshtml" />
+    <Content Include="Views\Departamentos\_Lista.cshtml" />
+    <Content Include="Views\Departamentos\Formulario.cshtml" />
+    <Content Include="Views\Departamentos\Index.cshtml" />
+    <Content Include="Views\Empresas\Index.cshtml" />
+    <Content Include="Views\Empresas\_Lista.cshtml" />
+    <Content Include="Views\Empresas\Formulario.cshtml" />
+    <Content Include="Views\Universidades\Index.cshtml" />
+    <Content Include="Views\Universidades\_Lista.cshtml" />
+    <Content Include="Views\Universidades\Formulario.cshtml" />
+    <Content Include="Views\Localidades\Index.cshtml" />
+    <Content Include="Views\Localidades\_Lista.cshtml" />
+    <Content Include="Views\Localidades\Formulario.cshtml" />
+    <Content Include="Views\Empresas\DesvinculacionFichas.cshtml" />
+    <Content Include="Views\Sedes\Index.cshtml" />
+    <Content Include="Views\Sedes\Formulario.cshtml" />
+    <Content Include="Views\Sedes\_Lista.cshtml" />
+    <Content Include="Views\Carreras\_Lista.cshtml" />
+    <Content Include="Views\Carreras\Index.cshtml" />
+    <Content Include="Views\Carreras\Formulario.cshtml" />
+    <Content Include="Views\Empresas\_ListaFichasPPP.cshtml" />
+    <Content Include="Views\Empresas\ConfirmacionTraspasoFichas.cshtml" />
+    <Content Include="Views\Empresas\_ListaSedes.cshtml" />
+    <Content Include="Views\Empresas\_UsuarioEmpresa.cshtml" />
+    <Content Include="Views\Apoderados\Formulario.cshtml" />
+    <Content Include="Views\Beneficiarios\_ListaApoderados.cshtml" />
+    <Content Include="Views\Liquidacion\_Lista.cshtml" />
+    <Content Include="Views\Liquidacion\_ListaBeneficiarioConceptos.cshtml" />
+    <Content Include="Views\Liquidacion\_ListaBeneficiarios.cshtml" />
+    <Content Include="Views\Liquidacion\Exportar.cshtml" />
+    <Content Include="Views\Liquidacion\Formulario.cshtml" />
+    <Content Include="Views\Liquidacion\FormularioBeneficiarios.cshtml" />
+    <Content Include="Views\Liquidacion\FormularioConceptosBeneficiario.cshtml" />
+    <Content Include="Views\Beneficiarios\Importar.cshtml" />
+    <Content Include="Views\Liquidacion\Index.cshtml" />
+    <Content Include="Views\Liquidacion\Ver.cshtml" />
+    <Content Include="Views\InicializarTablas\Index.cshtml" />
+    <Content Include="Views\InicializarTablas\_Lista.cshtml" />
+    <Content Include="Views\Fichas\_FormularioEmpresa.cshtml" />
+    <Content Include="Views\SucursalCobertura\Formulario.cshtml" />
+    <Content Include="Views\SucursalCobertura\Index.cshtml" />
+    <Content Include="Views\SucursalCobertura\_Lista.cshtml" />
+    <Content Include="Views\Beneficiarios\ArchivosGenerados.cshtml" />
+    <Content Include="Views\Beneficiarios\_ListaArchivos.cshtml" />
+    <Content Include="Views\Beneficiarios\ResultadoImportacion.cshtml" />
+    <Content Include="Views\Fichas\Test.cshtml" />
+    <Content Include="Views\ControlDatos\Index.cshtml" />
+    <Content Include="Views\ControlDatos\_Lista.cshtml" />
+    <Content Include="Views\Liquidacion\ImportarLiquidacion.cshtml" />
+    <Content Include="Views\Liquidacion\ResultadoImportacion.cshtml" />
+    <Content Include="Views\Liquidacion\ImportarBeneficiarioRepago.cshtml" />
+    <Content Include="Views\Beneficiarios\_ListaConceptos.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Fichas\_ProgramaVAT.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Fichas\_ProgramaPPPP.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Archivos\Exportados\TemplateBeneficiariosPPPP.xls" />
+    <Content Include="Archivos\Exportados\TemplateBeneficiariosVAT.xls" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Fichas\_ASSedes.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\FichaObservacion\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\FichaObservacion\Formulario.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\FichaObservacion\_Lista.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Fichas\_HorariosEmpresa.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Reportes\IndexRDepLocProEst.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Reportes\_ListaRDepLocProEst.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Archivos\Exportados\TemplateBeneficiarios.xls" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Archivos\Importados\TemplateArtHorarios.xls" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Archivos\Exportados\TemplateArtHorarios.xls" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Fichas\_ProgramaReconversion.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Subprogramas\_Lista.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Subprogramas\Formulario.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Subprogramas\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Archivos\Exportados\TemplateBeneficiariosReconversion.xls" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Fichas\_ProgramaEfectores.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Archivos\Exportados\TemplateBeneficiariosEfectoresSociales.xls" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Archivos\Exportados\TemplateBeneficiariosBecas.xls" />
+    <Content Include="Archivos\Exportados\TemplateBeneficiariosDetalle.xls" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Archivos\Exportados\TemplateDepLocProgEst_Cantidad.xls" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Liquidacion\FormularioModificacionMontoLiquidar.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Fichas\ALtaMasivaBeneficiarios.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Archivos\Exportados\TemplateFichasEmpresa.xls" />
+    <Content Include="Archivos\Exportados\TemplateBeneficiariosConfVos.xls" />
+    <Content Include="Archivos\Exportados\TemplateControlDatos.xls" />
+    <Content Include="Archivos\Exportados\TemplateAsistencias.xls" />
+    <Content Include="Archivos\Exportados\TemplateBeneficiarioHorarios.xls" />
+    <Content Include="Archivos\Exportados\TemplateEmpadronados.xls" />
+    <Content Include="Archivos\Exportados\TemplateRecuperoCupon.xls" />
+    <None Include="DSWebReport.xsc">
+      <DependentUpon>DSWebReport.xsd</DependentUpon>
+    </None>
+    <None Include="DSWebReport.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSWebReport.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DSWebReport.xss">
+      <DependentUpon>DSWebReport.xsd</DependentUpon>
+    </None>
+    <Content Include="Views\Instituciones\_ASector.cshtml" />
+    <Content Include="Views\Carreras\SectorInstCarrera.cshtml" />
+    <Content Include="Views\Carreras\ImpCarreras.cshtml" />
+    <Content Include="Views\Etapa\Etapas.cshtml" />
+    <Content Include="Views\Etapa\_Lista.cshtml" />
+    <Content Include="Views\Etapa\Formulario.cshtml" />
+    <Content Include="Views\Fichas\AsociarEtapa.cshtml" />
+    <Content Include="Views\Etapa\AsociarEtapa.cshtml" />
+    <Content Include="Views\Reportes\ReportesArt.cshtml" />
+    <Content Include="Views\Fichas\GestorEstadosFichas.cshtml" />
+    <Content Include="Views\Fichas\_ProgramaConfiamosEnVos.cshtml" />
+    <Content Include="Views\Fichas\_BuscarProyecto.cshtml" />
+    <Content Include="Views\Fichas\_BuscarCurso.cshtml" />
+    <Content Include="Views\Fichas\_BuscarActores.cshtml" />
+    <Content Include="Views\Personas\Index.cshtml" />
+    <Content Include="Views\Personas\_Lista.cshtml" />
+    <Content Include="Views\Personas\Formulario.cshtml" />
+    <Content Include="Views\Personas\FormularioActor.cshtml" />
+    <Content Include="Views\Cursos\Index.cshtml" />
+    <Content Include="Views\Cursos\_Lista.cshtml" />
+    <Content Include="Views\Cursos\Formulario.cshtml" />
+    <Content Include="Views\Cursos\_BuscarActores.cshtml" />
+    <Content Include="Views\Cursos\_BuscarONG.cshtml" />
+    <Content Include="Views\Barrios\Index.cshtml" />
+    <Content Include="Views\Barrios\_Lista.cshtml" />
+    <Content Include="Views\Barrios\Formulario.cshtml" />
+    <Content Include="Views\Cursos\_BuscarEscuela.cshtml" />
+    <Content Include="Views\Escuelas\Index.cshtml" />
+    <Content Include="Views\Escuelas\_Lista.cshtml" />
+    <Content Include="Views\Escuelas\Formulario.cshtml" />
+    <Content Include="Views\Escuelas\_BuscarActores.cshtml" />
+    <Content Include="Views\Fichas\_BuscarONG.cshtml" />
+    <Content Include="Views\Cursos\Cursos.cshtml" />
+    <Content Include="Views\Cursos\_ListaCursos.cshtml" />
+    <Content Include="Views\Cursos\AsistenciaPeriodo.cshtml" />
+    <Content Include="Views\Cursos\_ListaPeriodos.cshtml" />
+    <Content Include="Views\Cursos\_AgregarAsistencias.cshtml" />
+    <Content Include="Views\Cursos\CargarAsistencias.cshtml" />
+    <Content Include="Views\Cursos\FormularioAsistencias.cshtml" />
+    <Content Include="Views\Cursos\VerAsistencias.cshtml" />
+    <Content Include="Views\Cursos\VerInscriptos.cshtml" />
+    <Content Include="Views\Fichas\_Asistencias.cshtml" />
+    <Content Include="Views\Ong\Index.cshtml" />
+    <Content Include="Views\Ong\_Lista.cshtml" />
+    <Content Include="Views\Ong\Formulario.cshtml" />
+    <Content Include="Views\Ong\_BuscarActores.cshtml" />
+    <Content Include="Views\Reportes\AsistenciasRpt.cshtml" />
+    <Content Include="Views\Reportes\_AsistenciasRpt.cshtml" />
+    <Content Include="Views\Reportes\_BuscarEscuela.cshtml" />
+    <Content Include="Views\Reportes\_BuscarCurso.cshtml" />
+    <Content Include="Views\Fichas\_BuscarSubPrograma.cshtml" />
+    <Content Include="Views\Fichas\_BuscarEscuela.cshtml" />
+    <Content Include="Views\Personas\Familia.cshtml" />
+    <Content Include="Views\Subprogramas\_BuscarPrograma.cshtml" />
+    <Content Include="Views\Fichas\_GrupoFamiliar.cshtml" />
+    <Content Include="Views\Reportes\RptBeneficiarioHorarios.cshtml" />
+    <Content Include="Views\Subprogramas\AsociarSubprograma.cshtml" />
+    <Content Include="Views\Subprogramas\_BuscarSubPrograma.cshtml" />
+    <Content Include="Views\Fichas\ReEmpadronarFichas.cshtml" />
+    <Content Include="Views\Fichas\_ListaPpp.cshtml" />
+    <Content Include="Views\Beneficiarios\_ListaPpp.cshtml" />
+    <Content Include="Views\Empresas\Recupero.cshtml" />
+    <Content Include="Views\Empresas\RecuperoDebito.cshtml" />
+    <Content Include="Views\Empresas\ProcesarRecuperoDeb.cshtml" />
+    <Content Include="Views\Empresas\_CuentaBancaria.cshtml" />
+    <Content Include="Views\Fichas\_Ppp.cshtml" />
+    <Content Include="Views\Fichas\_ProgramaClip.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Models\Reportes\Report1.rdlc" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>15375</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:8082</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

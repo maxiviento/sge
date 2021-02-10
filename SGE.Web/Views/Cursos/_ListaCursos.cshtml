@@ -1,0 +1,78 @@
+﻿@model CursosVista
+@if (Model.cursos != null && Model.cursos.Count > 0)
+{ 
+    <div style="text-align:center;">
+        <table id="grilla" align="center" width="925px" cellpadding="0" cellspacing="0">
+            <thead>
+                <tr>
+                    <th height="30px" width="150px">
+                        <div align="left">Nro Curso</div>
+                    </th>
+                    <th width="250px">
+                        <div align="left">Nombre</div>
+                    </th>
+                    <th width="150px">
+                        <div align="left">Expediente</div>
+                    </th>
+                    <th width="100px">
+                        <div align="left">Fec Inicio</div>
+                    </th>
+                    <th width="100px">
+                        <div align="left">Fec Fin</div>
+                    </th>
+                    <th width="70px">
+                        <div align="left">Acciones</div>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.cursos)
+                {
+                    <tr>
+                        <td style="height: 28px; text-align: left;">
+                            @item.NRO_COND_CURSO
+                        </td>
+                        <td style="text-align: left;">
+                            @item.N_CURSO.ToMaxLenght(100)
+                        </td>
+                        <td style="text-align: left;">
+                            @item.EXPEDIENTE_LEG.ToMaxLenght(100)
+                        </td>
+                        <td style="text-align: left;">
+                        @if (item.F_INICIO != null)
+                        {
+                            @item.F_INICIO.Value.ToShortDateString()
+                        }
+                        else
+                        {@item.F_INICIO }
+                        </td>
+                        <td style="text-align: left;">
+                                                    @if (item.F_FIN != null)
+                                                    {
+                            @item.F_FIN.Value.ToShortDateString()
+                                                    }
+                                                    else
+                                                    {@item.F_FIN }
+                        </td>
+                        <td>
+                            @Html.ActionLink("Alumnos", "VerInscriptos", "Cursos", new { IdCurso = item.ID_CURSO }, new { @class = "Lupa", title = "Ver Alumnos" })
+                            @Html.ActionLink("Asistencias", "Asistencias", "Cursos", new { IdCurso = item.ID_CURSO }, new { @class = "Modificar", title = "Asistencias Curso" })
+                            @*@Html.ActionLink("Eliminar", "Eliminar", "Personas", new { IdCarrera = item.IdCarrera }, new { @class = "Eliminar", title = "Eliminar Carrera" })*@
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
+else
+{
+    <table align="center" width="930px" cellpadding="0" cellspacing="0">
+        <tr>
+            <td width="930px">
+                @Html.Partial("_SinDatos", "Cursos")
+            </td>
+        </tr>
+    </table>
+}
+

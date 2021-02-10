@@ -1,0 +1,49 @@
+﻿@model CarrerasVista
+@if (Model.Carreras != null && Model.Carreras.Count > 0)
+{ 
+    <div style="text-align:center;">
+        <table id="grilla" align="center" width="925px" cellpadding="0" cellspacing="0">
+            <thead>
+                <tr>
+                    <th height="30px" width="450px">
+                        <div align="center">Carrera</div>
+                    </th>
+                    <th width="400px">
+                        <div align="center">Institución</div>
+                    </th>
+                    <th width="70px">
+                        <div align="center">Acciones</div>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Carreras)
+                {
+                    <tr>
+                        <td style="height: 28px; text-align: left;">
+                            @item.NombreCarrera.ToMaxLenght(100)
+                        </td>
+                        <td style="text-align: left;">
+                            @item.NombreInstitucion.ToMaxLenght(100)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Ver", "Ver", "Carreras", new { IdCarrera= item.IdCarrera }, new { @class = "Lupa", title = "Ver Carrera" })
+                            @Html.ActionLink("Modificar", "Modificar", "Carreras", new { IdCarrera = item.IdCarrera }, new { @class = "Modificar", title = "Modificar Carrera" })
+                            @Html.ActionLink("Eliminar", "Eliminar", "Carreras", new { IdCarrera = item.IdCarrera }, new { @class = "Eliminar", title = "Eliminar Carrera" })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
+else
+{
+    <table align="center" width="930px" cellpadding="0" cellspacing="0">
+        <tr>
+            <td width="930px">
+                @Html.Partial("_SinDatos", "Carreras")
+            </td>
+        </tr>
+    </table>
+}

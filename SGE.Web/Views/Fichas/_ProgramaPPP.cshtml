@@ -1,0 +1,12 @@
+﻿@model FichaVista
+
+    @{
+        if (Model.tipoPrograma == 6)
+        {
+            @Html.Partial("_ProgramaClip", Model)
+        }
+        else
+        { 
+            @Html.Partial("_Ppp", Model)
+        }
+        }

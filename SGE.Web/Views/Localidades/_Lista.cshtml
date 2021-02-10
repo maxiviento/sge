@@ -1,0 +1,60 @@
+﻿@model LocalidadesVista
+@{
+    var acciones = ViewData["Acciones"] as IList<string>;    
+}
+@if (Model.Localidades != null && Model.Localidades.Count > 0)
+{ 
+    <div style="text-align: center;">
+        <table id="grilla" align="center" width="925px" cellpadding="0" cellspacing="0">
+            <thead>
+                <tr>
+                    <th height="30px" width="425px">
+                        <div align="center">
+                            Nombre</div>
+                    </th>
+                    <th width="400px">
+                        <div align="center">
+                            Departamento</div>
+                    </th>
+                    <th width="100px">
+                        <div align="center">
+                            Acciones</div>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Localidades)
+                {
+                    <tr>
+                        <td height="30" style="text-align: left;">
+                            @item.NombreLocalidad.ToMaxLenght(100)
+                        </td>
+                        <td style="text-align: left;">
+                            @item.NombreDepartamento.ToMaxLenght(100)
+                        </td>
+                        <td width="15%">
+                         @if (acciones.Contains(((int)Enums.Acciones.Consultar).ToString()))
+                         { 
+                            @Html.ActionLink("Ver", "Ver", "Localidades", new { IdLocalidad = item.IdLocalidad }, new { @class = "Lupa", title = "Ver Localidad" })
+                         }
+                         @if (acciones.Contains(((int)Enums.Acciones.Modificar).ToString()))
+                         { 
+                            @Html.ActionLink("Modificar", "Modificar", "Localidades", new { IdLocalidad = item.IdLocalidad }, new { @class = "Modificar", title = "Modificar Localidad" })
+                         }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
+else
+{
+    <table align="center" width="930px" cellpadding="0" cellspacing="0">
+        <tr>
+            <td width="930px">
+                @Html.Partial("_SinDatos", "Localidades")
+            </td>
+        </tr>
+    </table>
+}

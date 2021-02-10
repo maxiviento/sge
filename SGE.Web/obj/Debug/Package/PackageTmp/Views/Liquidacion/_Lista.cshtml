@@ -1,0 +1,119 @@
+﻿@model LiquidacionesVista
+@{
+    var acciones = ViewData["Acciones"] as IList<string>;    
+}
+@if (Model.Liquidaciones != null && Model.Liquidaciones.Count > 0)
+{ 
+    <div style="text-align: center;">
+        <table id="grilla" align="center" width="925px" cellpadding="0" cellspacing="0">
+            <thead>
+                <tr>
+                    <th height="30px" width="80px">
+                        <div align="center">
+                            Fecha Liq.</div>
+                    </th>
+                    <th height="30px" width="220px">
+                        <div align="center">
+                            Programa</div>
+                    </th>
+                    <th height="30px" width="100px">
+                        <div align="center">
+                            Resolución</div>
+                    </th>
+                    <th height="30px" width="100px">
+                        <div align="center">
+                            Cant. Benef.</div>
+                    </th>
+                    <th height="30px" width="100px">
+                        <div align="center">
+                            Estado</div>
+                    </th>
+                    <th height="30px" width="210px">
+                        <div align="center">
+                            Usuario</div>
+                    </th>
+                    <th height="30px" width="90px">
+                        <div align="center">
+                            Acción</div>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Liquidaciones)
+                {
+                    <tr>
+                        <td align="right" height="28px">
+                            @item.FechaLiquidacion.ToShortDateString()<span>&nbsp;&nbsp;</span>
+                        </td>
+                        <td align="left">
+                            @item.Programa
+                        </td>
+                        <td align="right">
+                            @item.NroResolucion
+                        </td>
+                        <td align="right">
+                            @item.CantBenef<span>&nbsp;&nbsp;</span>
+                        </td>
+                        <td align="left">
+                            @item.NombreEstado.ToMaxLenght(15)
+                        </td>
+                        <td align="left">
+                            @item.Usuario.ToMaxLenght(45)
+                        </td>
+                        <td align="center">
+                            @if (acciones.Contains(((int)Enums.Acciones.Consultar).ToString()))
+                            {   
+                                @Html.ActionLink("Ver", "Ver", "Liquidacion", new { idLiquidacion = item.IdLiquidacion }, new { @class = "Lupa", title = "Ver Liquidación" })
+                            }
+                            @if (acciones.Contains(((int)Enums.Acciones.CambiarEstado).ToString()) || acciones.Contains(((int)Enums.Acciones.Modificar).ToString()))
+                            {
+                                if (item.Generado == false && item.IdEstadoLiquidacion != (int)Enums.EstadoLiquidacion.Cancelado)
+                                {
+                                @Html.ActionLink("Modificar", "Modificar", "Liquidacion", new { idLiquidacion = item.IdLiquidacion }, new { @class = "Modificar", title = "Modificar Liquidación" })
+                                }
+                                if (item.IdEstadoLiquidacion != (int)Enums.EstadoLiquidacion.Cancelado)
+                                {
+                                    if (item.IdEstadoLiquidacion == (int)Enums.EstadoLiquidacion.Pendiente)
+                                    {
+                                        @Html.ActionLink("CambiarEstado", "CambiarEstado", "Liquidacion", new { idLiquidacion = item.IdLiquidacion }, new { @class = "EstadoPendiente", title = "Cambiar Estado Liquidación" })
+                                    }
+                                    else
+                                    {
+                                        if (item.IdEstadoLiquidacion == (int)Enums.EstadoLiquidacion.Liquidado)
+                                        { 
+                                //@Html.ActionLink("CambiarEstado", "CambiarEstado", "Liquidacion", new { idLiquidacion = item.IdLiquidacion }, new { @class = "EstadoAprobada", title = "Cambiar Estado Liquidación" }) 
+                                        }
+                                        else
+                                        { 
+                                             @Html.ActionLink("CambiarEstado", "CambiarEstado", "Liquidacion", new { idLiquidacion = item.IdLiquidacion }, new { @class = "EstadoRechazada", title = "Cambiar Estado Liquidación" }) 
+                                        }
+                                    }
+
+                                    if (item.IdEstadoLiquidacion == (int)Enums.EstadoLiquidacion.Pendiente)
+                                    {
+                                        @Html.ActionLink("ImportarLiquidacion", "ImportarLiquidacion", "Liquidacion", new { idLiquidacion = item.IdLiquidacion }, new { @class = "Descarga", title = "Importar Liquidación" })
+                                    }
+                                }
+                            }
+                            @if (acciones.Contains(((int)Enums.Acciones.Consultar).ToString()) && (item.IdEstadoLiquidacion == (int)Enums.EstadoLiquidacion.Pendiente || item.IdEstadoLiquidacion == (int)Enums.EstadoLiquidacion.Liquidado))
+                            {      
+                                 @Html.ActionLink("Reporte", "ReporteAnexo1", "Liquidacion", new {  fechaLiquidacion= item.FechaLiquidacion, idLiquidacion = item.IdLiquidacion, modelo= Model, idPrograma = item.IdPrograma }, new { @class = "Reporte", title = "Reporte Anexo I" })                          
+                                @* @Html.ActionLink("Reporte", "ReporteAnexo1", "Liquidacion", new { idLiquidacion = item.IdLiquidacion, fechaLiquidacion= item.FechaLiquidacion, idPrograma=item.IdPrograma }, new { @class = "Reporte", title = "Reporte Liquidación" })*@
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
+else
+{
+    <table id="grilla" align="center" width="930px" cellpadding="0" cellspacing="0">
+        <tr>
+            <td width="930px">
+                @Html.Partial("_SinDatos", "Liquidación")
+            </td>
+        </tr>
+    </table>
+}

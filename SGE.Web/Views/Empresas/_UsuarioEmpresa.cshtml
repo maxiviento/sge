@@ -1,0 +1,130 @@
+﻿@model EmpresaVista
+<table>
+    <tr>
+        <td align="right">
+            <b>Apellido Usuario: </b>
+        </td>
+        <td align="left" valign="middle">
+            @if (Model.Accion == "Ver" || Model.Accion == "Eliminar")
+            {
+                @Html.TextBoxFor(model => model.ApellidoUsuario, new { disabled = "disabled", style = "width:300px;" })
+            }
+            else
+            {
+                @Html.TextBoxFor(model => model.ApellidoUsuario, new { style = "width:300px;", MaxLength = "150" })
+            }
+        </td>
+        <td align="right">
+            <b>Nombre Usuario: </b>
+        </td>
+        <td align="left" valign="middle">
+            @if (Model.Accion == "Ver" || Model.Accion == "Eliminar")
+            {
+                @Html.TextBoxFor(model => model.NombreUsuario, new { disabled = "disabled", style = "width:300px;" })
+            }
+            else
+            {
+                @Html.TextBoxFor(model => model.NombreUsuario, new { style = "width:300px;", MaxLength = "150" })
+            }
+        </td>
+    </tr>
+    <tr>
+        <td align="right">
+            <b>Teléfono: </b>
+        </td>
+        <td align="left" valign="middle">
+            @if (Model.Accion == "Ver" || Model.Accion == "Eliminar")
+            {
+                @Html.TextBoxFor(model => model.Telefono, new { disabled = "disabled", style = "width:200px;" })
+            }
+            else
+            {
+                @Html.TextBoxFor(model => model.Telefono, new { style = "width:200px;", MaxLength = "50" })
+            }
+        </td>
+        <td align="right">
+            <b>Email: </b>
+        </td>
+        <td align="left" valign="middle">
+            @if (Model.Accion == "Ver" || Model.Accion == "Eliminar")
+            {
+                @Html.TextBoxFor(model => model.Mail, new { disabled = "disabled", style = "width:200px;" })
+            }
+            else
+            {
+                @Html.TextBoxFor(model => model.Mail, new { style = "width:200px;", MaxLength = "75" })
+                @Html.ValidationMessageFor(c => c.Mail)
+            }
+        </td>
+    </tr>
+    <tr>
+        <td align="right">
+            <b>CUIL: </b>
+        </td>
+        <td align="left" valign="middle">
+            @if (Model.Accion == "Ver" || Model.Accion == "Eliminar")
+            {
+                @Html.TextBoxFor(model => model.Cuil, new { disabled = "disabled", style = "width:200px;" })
+            }
+            else
+            {
+                @Html.EditorFor(model => model.Cuil, new { style = "width:200px;", MaxLength = "13" })
+            }
+        </td>
+    </tr>
+   
+     <tr>
+                <td align="right">
+                <b>Login:</b>
+                </td>
+            <td align="left" valign="middle">
+                    
+                    @Html.TextBoxFor(model => model.LoginUsuario, new { disabled = "disabled", style = "width:300px;" })
+                        
+            </td>
+            <td align="left" valign="middle">
+                    @if (Model.IdUsuario != null)
+                    {
+                        if (Model.LoginUsuario == null || Model.LoginUsuario == "")
+                        {
+                        <b style="font-style:italic">(No posee Login)</b>
+                        }
+                        else
+                        {
+                               if (Model.Accion == "Modificar")
+                                {
+                                <a class="btnIngresar" href="#" id="BlanquearClave" style="color: #fff;" >Blanquear Clave</a>
+                                }
+     
+                        }
+                    }
+            </td>
+            <td>
+            @if (Model.Accion == "Modificar")
+                {
+                    <b> Nueva clave: MMYYYY(MesAño)</b>
+                }</td>
+        </tr>
+</table>
+@Html.HiddenFor(model => model.IdUsuario)
+@if (Model.Accion == "Agregar" || Model.Accion == "Modificar")
+{
+    <table>
+        <tr>
+            <td>
+                @if (Model.IdUsuario == null)
+                { 
+                    <a class="btnIngresar" href="#" data-val-valgroup-name="AgregarUsuario" id="AgregarUsuario">
+                        Asignar</a>                                        
+                }
+                else
+                {
+                    <a class="btnIngresar" href="#" data-val-valgroup-name="AgregarUsuario" id="ModificarUsuario">
+                        Guardar</a>
+                    
+
+                }
+            </td>
+        </tr>
+    </table>
+}

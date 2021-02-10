@@ -1,0 +1,92 @@
+﻿@model LiquidacionVista
+@{
+    ViewBag.Title = "Liquidación";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    TempData["ListaBeneficiarios"] = Model.ListaBeneficiario;
+    TempData["ListaConceptos"] = Model.Conceptos;
+    TempData["Vista"] = Model;
+}
+@section Scripts{
+    @Content.Script("SGE.Liquidacion.js", Url)
+}
+<div class="box">
+    <h2>
+        Liquidación</h2>
+    @using (Html.BeginForm("BuscarBeneficiario", "Liquidacion", FormMethod.Post, new { Id = "FormularioLiquidacion" }))
+    { 
+        <table align="center" style="width: 950px;">
+            <tr>
+                <td>
+                    <fieldset style="width: 925px;">
+                        <legend align="center"><b>Datos particulares de la Liquidación</b></legend>
+                        <table align="left" style="width: 500px;"  border="1">
+                            <tr>
+                                <td align="right">
+                                    <b>Programa: </b>
+                                </td>
+                                <td align="left">
+                                    @Html.EditorFor(c => c.Programas)
+                                </td>
+                                <td align="right">
+                                    <b>Periodo: </b>
+                                </td>
+                                <td align="left">
+                                    @Html.EditorFor(c => c.Conceptos)
+                                </td>
+                                <td align="right">
+                                    <b>Convenio: </b>
+                                </td>
+                                <td align="left">
+                                    @Html.EditorFor(c => c.Convenios)
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right">
+                                    <b>Resolución: </b>
+                                </td>
+                                <td align="left">
+                                    @Html.TextBoxFor(c => c.NroResolucion, new { MaxLength  = "10"})
+                                </td>
+                                <td align="right">
+                                    <b>Fecha de Pago: </b>
+                                </td>
+                                <td align="left">
+                                    @Html.EditorFor(c => c.FechaLiquidacion)
+                                </td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td valign="top" align="right">
+                                    <b>Observación: </b>
+                                </td>
+                                <td colspan="5" align="left">
+                                    @Html.TextAreaFor(c => c.Observacion, new { style = "width:650px; height: 50px;", MaxLength = "1000" })
+                                </td>
+                            </tr>
+                        </table>
+                    </fieldset>
+                </td>
+            </tr>
+        </table>
+        @Html.ValidationSummary(false)
+        <table id="btnfin" align="center" width="100%">
+            <tr>
+                <td align="center" valign="middle">
+                    @if (Model.Accion != "Repago")
+                    { 
+                    <a id="btnCargarConceptosFormulario" class="btnIngresar" >
+                        Siguiente</a><b>&nbsp; &nbsp;</b>
+                    }
+                    else
+                    {
+                    <a id="btnCargarConceptosFormularioRepago" class="btnIngresar" >
+                        Siguiente</a><b>&nbsp; &nbsp;</b>
+                    }
+                    @Html.ActionLink("Cancelar", "Index", "Liquidacion", null, new { Class = "btnIngresar" })
+                </td>
+            </tr>
+        </table>
+        <br />
+    }
+</div>

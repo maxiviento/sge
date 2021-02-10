@@ -1,0 +1,186 @@
+﻿@model EmpresaVista
+@{
+    int nro_doc;
+    int fila = 0;
+}
+<table align="center">
+    <tr>
+        <td style="text-align: right;">
+            <b>Nro. Documento: </b>
+        </td>
+        <td style="text-align: right;">
+            @Html.TextBoxFor(c => c.BusquedaFicha, new { style = "width:90px; text-align: right;", MaxLength = "10" })
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2" style="text-align: center">
+            <a class="btnIngresar" data-val-valgroup-name="BusquedaFicha" href="#" id="BuscarFicha">
+                Buscar</a>
+        </td>
+    </tr>
+</table>
+<br />
+@if (Model.ListadoFichasPpp != null && Model.ListadoFichasPpp.Count > 0)
+{                         
+    <div>
+        <table style="width: 800px;" id="grilla">
+            <thead>
+                <tr>
+                    <th style="height: 30px; width: 50px;">
+                        <div align="center">
+                            Fila</div>
+                    </th>
+                    <th style="width: 120px;">
+                        <div align="center">
+                            Apellido</div>
+                    </th>
+                    <th style="width: 120px;">
+                        <div align="center">
+                            Nombre</div>
+                    </th>
+@*                    <th style="width: 80px;">
+                        <div align="center">
+                            CUIL</div>
+                    </th>*@
+                    <th style="width: 80px;">
+                        <div align="center">
+                            Nro. Doc.</div>
+                    </th>
+                    <th style="width: 80px;">
+                        <div align="center">
+                            Estado</div>
+                    </th>
+                    <th style="width: 80px;">
+                        <div align="center">
+                            Condición</div>
+                    </th>
+                    <th style="width: 80px;">
+                        <div align="center">
+                            Programa</div>
+                    </th>
+                    <th style="width: 80px;">
+                        <div align="center">
+                            Etapa</div>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.ListadoFichasPpp)
+                {
+                    fila++;
+                    if (@item.NumeroDocumento == Model.FichaEncontrada.Substring(0).Replace(".", ""))
+                    {   
+                        <tr style="background-color: #4FA9FF;">
+                            <td style="height: 28px; width: 50px; text-align: right;">
+                                @fila<span>&nbsp;&nbsp;</span>
+                            </td>
+                            <td style="height: 28px; width: 120px; text-align: left;">
+                                @item.Apellido.ToMaxLenght(30)
+                            </td>
+                            <td style="text-align: left; width: 120px;">
+                                @item.Nombre.ToMaxLenght(30)
+                            </td>
+@*                            <td style="text-align: center; width: 80px;">
+                                @item.Cuil.ToMaxLenght(30)
+                            </td>*@
+                            <td style="text-align: center; width: 100px;">
+                                @{
+                            if (int.TryParse(item.NumeroDocumento, out nro_doc))
+                            {
+                                    @string.Format("{0:##,###,###}", Convert.ToInt32(nro_doc))
+                            }
+                            else
+                            {
+                                    @item.NumeroDocumento
+                            }
+                                }
+                            </td>
+                            <td style="text-align: left; width: 120px;">
+                                @item.NombreEstadoFicha.ToMaxLenght(30)
+                            </td>
+                            <td style="text-align: center; width: 120px;">
+                                @item.BeneficiarioFicha.NombreEstado ?? ""
+                            </td>
+
+                            <td style="text-align: center; width: 120px;">
+                                @(item.NombreTipoFicha)
+                            </td>
+                            
+                            <td style="text-align: center; width: 120px;">
+                                @(item.NombreEtapa)
+                            </td>
+
+                        </tr>
+                    }
+                    else
+                    { 
+                    <tr>
+                        <td style="height: 28px; width: 50px; text-align: right; margin-right: 3px;">
+                            @fila<span>&nbsp;&nbsp;</span>
+                        </td>
+                        <td style="width: 120px; text-align: left;">
+                            @item.Apellido.ToMaxLenght(30)
+                        </td>
+                        <td style="text-align: left; width: 120px;">
+                            @item.Nombre.ToMaxLenght(30)
+                        </td>
+@*                        <td style="text-align: center; width: 80px;">
+                            @item.Cuil.ToMaxLenght(30)
+                        </td>*@
+                        <td style="text-align: center; width: 100px;">
+                            @{
+                                if (int.TryParse(item.NumeroDocumento, out nro_doc))
+                                {
+                                    @string.Format("{0:##,###,###}", Convert.ToInt32(nro_doc))
+                                }
+                                else
+                                {
+                                    @item.NumeroDocumento
+                                }
+                            }
+                        </td>
+                        <td style="text-align: left; width: 120px;">
+                            @item.NombreEstadoFicha.ToMaxLenght(30)
+                        </td>
+
+                        <td style="text-align: center; width: 120px;">
+                                @item.BeneficiarioFicha.NombreEstado
+                        </td>
+
+                        <td style="text-align: center; width: 120px;">
+                                @(item.NombreTipoFicha)
+                        </td>
+                        <td style="text-align: center; width: 120px;">
+                                @(item.NombreEtapa)
+                        </td>
+
+                    </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+    <br />                               
+    <table>
+        <tr>
+            <td>
+                @if (Model.Accion == "Agregar" || Model.Accion == "Modificar")
+                {
+                    @Html.ActionLink("Desvincular Fichas", "DesvincularFichas", "Empresas", new { idEmpresa = Model.Id }, new { @class = "btnIngresar" })
+                }
+                @*@Html.ActionLink("Exportar Fichas 2", "ExportarFichasEmpresa", "Empresas", new { @class = "btnIngresar" })*@
+                <a id="btnExportarFichasEmp" data-val-valgroup-name="AgregarUsuario" class="btnIngresar" href="#">Exportar Fichas</a>
+            </td>
+        </tr>
+    </table>                               
+}
+else
+{
+    <table>
+        <tr>
+            <td>
+                @Html.Partial("_SinDatos", "FichaPPP")
+            </td>
+        </tr>
+    </table>
+}

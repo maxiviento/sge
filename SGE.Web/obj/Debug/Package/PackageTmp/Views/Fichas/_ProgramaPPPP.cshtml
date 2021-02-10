@@ -1,0 +1,497 @@
+﻿@model FichaVista
+<tr>
+    <td>
+        <table style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 900px;"
+            align="center">
+            <tr>
+                <td align="center" valign="top">
+                    <b>Universidad: </b>
+                </td>
+                <td align="left" valign="middle" colspan="3">
+                    @Html.EditorFor(c => c.ComboUniversidad)
+                </td>
+            </tr>
+            <tr>
+                <td align="center" valign="top">
+                    <b>Título: </b>
+                </td>
+                <td align="left" valign="middle" colspan="3">
+                    @Html.EditorFor(c => c.ComboTitulos)
+                </td>
+            </tr>
+            <tr>
+                <td align="center" valign="top">
+                    <b>Fecha Egreso: </b>
+                </td>
+                <td align="left" valign="middle" colspan="3">
+                    @if (Model.Accion == "Ver" || Model.Accion == "CambiarEstado")
+                    {
+                        @Html.TextBoxFor(c => c.FichaPppp.FechaEgreso, new { disabled = "disabled", style = "width:71px; text-align: right;", maxlength = 10 })
+                    }
+                    else
+                    {
+                        @Html.EditorFor(c => c.FichaPppp.FechaEgreso, new { style = "width:71px; text-align: right;" })
+                    }
+                </td>
+            </tr>
+            <tr>
+                <td align="center">
+                    <b>Promedio: </b>
+                </td>
+                <td align="left" valign="middle" colspan="3">
+                    @if (Model.Accion == "Ver" || Model.Accion == "CambiarEstado")
+                    {
+                        @Html.TextBoxFor(c => c.FichaPppp.Promedio, new { disabled = "disabled", style = "width:50px; text-align: right;", maxlength = 4 })
+                    }
+                    else
+                    {
+                        @Html.TextBoxFor(c => c.FichaPppp.Promedio, new { style = "width:50px; text-align: right;", maxlength = 4 })
+                    }
+                </td>
+            </tr>
+        </table>
+    </td>
+</tr>
+<tr>
+    <td>
+        <table style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 900px;"
+            align="left">
+            <tr>
+                <td colspan="4">
+                    <p class="similLegend">
+                        <b>Datos de la Empresa</b></p>
+                </td>
+            </tr>
+            <tr>
+                <td align="right">
+                    <b>CUIT: </b>
+                </td>
+                <td align="left" valign="middle">
+                    @Html.TextBoxFor(c => c.FichaPppp.CuitEmpresa, new { style = "width:100px; text-align: right;", MaxLength = "13" })
+                    @if ((Model.Accion != "Ver" && Model.Accion != "CambiarEstado"))
+                    {
+                        <a class="Lupa" title="Buscar Empresa" href="#" id="ValidarCuitPppp">Verificar existencia</a>
+                    }
+                </td>
+            </tr>
+            <tr>
+                <td align="right">
+                    <b>Razón Social: </b>
+                </td>
+                <td align="left" valign="middle">
+                    @Html.TextBoxFor(c => c.FichaPppp.DescripcionEmpresa, new { disabled = "disabled", style = "width:400px;" })
+                </td>
+                <td align="right">
+                    <b>Localidad: </b>
+                </td>
+                <td align="left" valign="middle">
+                    @Html.TextBoxFor(model => model.FichaPppp.Empresa.NombreLocalidad, new { disabled = "disabled", style = "width:180px;" })
+                </td>
+            </tr>
+            <tr>
+                <td align="right">
+                    <b>Código de Actividad: </b>
+                </td>
+                <td align="left" valign="middle">
+                    @Html.TextBoxFor(c => c.FichaPppp.Empresa.CodigoActividad, new { disabled = "disabled", style = "width:80px;" })
+                </td>
+
+            </tr>
+
+                <tr>
+                <td align="right">
+                    <b>Cantidad de Empleados: </b>
+                </td>
+                <td align="left" valign="middle">
+                    @Html.TextBoxFor(model => model.FichaPppp.Empresa.CantidadEmpleados, new { disabled = "disabled", style = "width:80px;", MaxLength = "5" })
+                </td>
+
+                <td align="right">
+                    <b>Beneficiarios Activos: </b>
+                </td>
+                <td align="left" valign="middle">
+                    @Html.TextBoxFor(model => model.benefActivosEmp, new { disabled = "disabled", style = "width:80px;", MaxLength = "5" })
+                </td>
+
+            </tr>
+
+            <tr>
+                <td align="right">
+                    <b>Calle: </b>
+                </td>
+                <td align="left" valign="middle">
+                    @Html.TextBoxFor(model => model.FichaPppp.Empresa.Calle, new { disabled = "disabled", style = "width:300px;" })
+                </td>
+                <td align="right">
+                    <b>Número: </b>
+                </td>
+                <td align="left" valign="middle">
+                    @Html.TextBoxFor(model => model.FichaPppp.Empresa.Numero, new { disabled = "disabled", style = "width:80px;" })
+                </td>
+            </tr>
+            <tr>
+                <td align="right">
+                    <b>Piso: </b>
+                </td>
+                <td align="left" valign="middle">
+                    @Html.TextBoxFor(model => model.FichaPppp.Empresa.Piso, new { disabled = "disabled", style = "width:80px;" })
+                </td>
+                <td align="right">
+                    <b>Dpto.: </b>
+                </td>
+                <td align="left" valign="middle">
+                    @Html.TextBoxFor(model => model.FichaPppp.Empresa.Dpto, new { disabled = "disabled", style = "width:80px;" })
+                </td>
+            </tr>
+            <tr>
+                <td align="right">
+                    <b>Código Postal: </b>
+                </td>
+                <td align="left" valign="middle">
+                    @Html.TextBoxFor(model => model.FichaPppp.Empresa.CodigoPostal, new { disabled = "disabled", style = "width:80px;" })
+                </td>
+                <td align="right">
+                    <b>Domicilio Laboral Idem: </b>
+                </td>
+                <td align="left" valign="middle">
+                    @Html.TextBoxFor(model => model.FichaPppp.Empresa.DomicilioLaboralIdem, new { disabled = "disabled", style = "width:180px;" })
+                </td>
+            </tr>
+            <tr>
+                <td align="right" valign="top">
+                    <b>Modalidad: </b>
+                </td>
+                <td align="left" valign="middle">
+                    @Html.RadioButton("Modalidad", 1, (Model.FichaPppp.Modalidad == 1 ? true : false), new { Class = "ClassModalidad" })<span><b>Entrenamiento</b></span>
+                    @Html.RadioButton("Modalidad", 2, (Model.FichaPppp.Modalidad == 2 ? true : false), new { Class = "ClassModalidad" })<span><b>CTI</b></span>
+                </td>
+                <td align="right" valign="top">
+                    <b>Alta Temprana: </b>
+                </td>
+                <td align="left" valign="middle">
+                    @Html.RadioButton("AltaTemprana", "S", (Model.FichaPppp.AltaTemprana == "S" ? true : false), new { Class = "ClassAltaTemprana" })<span><b>Si</b></span>
+                    @Html.RadioButton("AltaTemprana", "N", (Model.FichaPppp.AltaTemprana == "N" ? true : false), new { Class = "ClassAltaTemprana" })<span><b>No</b></span>
+                </td>
+            </tr>
+            <tr>
+                <td align="right" valign="top">
+                    <b>Mod. Cont. AFIP: </b>
+                </td>
+                <td align="left" valign="middle">
+                    @Html.EditorFor(c => c.ComboModalidadAfip, new { Class = "ClassAltaTemprana" })
+                </td>
+                <td align="right" valign="top">
+                    <b>A.T. Fec. Ini./Cese: </b>
+                </td>
+                <td align="left" valign="middle">
+                    @if ((Model.Accion == "Ver" || Model.Accion == "CambiarEstado"))
+                    {
+                        @Html.TextBoxFor(c => c.FichaPppp.FechaInicioActividad, new { Class = "ClassAltaTemprana", maxlength = 10 })  
+                        <b>a</b>
+                        @Html.TextBoxFor(c => c.FichaPppp.FechaFinActividad, new { Class = "ClassAltaTemprana", maxlength = 10 })  
+                    }
+                    else
+                    {
+                        @Html.EditorFor(c => c.FichaPppp.FechaInicioActividad, new { Class = "ClassAltaTemprana" })
+                        <b>&nbsp;a&nbsp;</b>
+                        @Html.EditorFor(c => c.FichaPppp.FechaFinActividad, new { Class = "ClassAltaTemprana" })
+                    }
+                </td>
+            </tr>
+            <tr>
+                <td align="right" valign="top">
+                    <b>Tareas: </b>
+                </td>
+                <td align="left" valign="middle" colspan="3">
+                    @Html.TextAreaFor(model => model.FichaPppp.Tareas, new { style = "width:100%;height: 90px;" })
+                </td>
+            </tr>
+            <tr>
+                <td colspan="4">
+                    <p class="similLegend">
+                        <b>Usuario de la Empresa</b></p>
+                </td>
+            </tr>
+            <tr>
+                <td align="right" valign="top">
+                    <b>Apellido: </b>
+                </td>
+                <td align="left" valign="middle">
+                    @{
+                        if ((Model.Accion == "Ver" || Model.Accion == "CambiarEstado"))
+                        {
+                        @Html.TextBoxFor(c => c.FichaPppp.Empresa.Usuario.ApellidoUsuario, new { disabled = "disabled", style = "width:200px;" })
+                        }
+                        else
+                        {
+                        @Html.TextBoxFor(c => c.FichaPppp.Empresa.Usuario.ApellidoUsuario, new { disabled = "disabled", style = "width:200px;" })
+                        }  
+                    }
+                </td>
+                <td align="right" valign="top">
+                    <b>Nombre: </b>
+                </td>
+                <td align="left" valign="middle">
+                    @{
+                        if ((Model.Accion == "Ver" || Model.Accion == "CambiarEstado"))
+                        {
+                        @Html.TextBoxFor(c => c.FichaPppp.Empresa.Usuario.NombreUsuario, new { disabled = "disabled", style = "width:200px;" })
+                        }
+                        else
+                        {
+                        @Html.TextBoxFor(c => c.FichaPppp.Empresa.Usuario.NombreUsuario, new { disabled = "disabled", style = "width:200px;" })
+                        }  
+                    }
+                </td>
+            </tr>
+            <tr>
+                <td align="right" valign="top">
+                    <b>CUIL: </b>
+                </td>
+                <td align="left" valign="middle">
+                    @{
+                        if ((Model.Accion == "Ver" || Model.Accion == "CambiarEstado"))
+                        {
+                        @Html.TextBoxFor(c => c.FichaPppp.Empresa.Usuario.Cuil, new { disabled = "disabled", style = "width:100px;" })
+                        }
+                        else
+                        {
+                        @Html.TextBoxFor(c => c.FichaPppp.Empresa.Usuario.Cuil, new { disabled = "disabled", style = "width:100px;" })
+                        }  
+                    }
+                </td>
+                <td align="right" valign="top">
+                    <b>Teléfono: </b>
+                </td>
+                <td align="left" valign="middle">
+                    @{
+                        if ((Model.Accion == "Ver" || Model.Accion == "CambiarEstado"))
+                        {
+                        @Html.TextBoxFor(c => c.FichaPppp.Empresa.Usuario.Telefono, new { disabled = "disabled", style = "width:100px;" })
+                        }
+                        else
+                        {
+                        @Html.TextBoxFor(c => c.FichaPppp.Empresa.Usuario.Telefono, new { disabled = "disabled", style = "width:100px;" })
+                        }  
+                    }
+                </td>
+            </tr>
+            <tr>
+                <td align="right" valign="top">
+                    <b>Email: </b>
+                </td>
+                <td align="left" valign="middle">
+                    @{
+                        if ((Model.Accion == "Ver" || Model.Accion == "CambiarEstado"))
+                        {
+                        @Html.TextBoxFor(c => c.FichaPppp.Empresa.Usuario.Mail, new { disabled = "disabled", style = "width:200px;" })
+                        }
+                        else
+                        {
+                        @Html.TextBoxFor(c => c.FichaPppp.Empresa.Usuario.Mail, new { disabled = "disabled", style = "width:200px;" })
+                        }  
+                    }
+                </td>
+                <td align="right" valign="top">
+                    <b>Login: </b>
+                </td>
+                <td align="left" valign="middle">
+                    @{
+                        if ((Model.Accion == "Ver" || Model.Accion == "CambiarEstado"))
+                        {
+                        @Html.TextBoxFor(c => c.FichaPppp.Empresa.Usuario.LoginUsuario, new { disabled = "disabled", style = "width:100px;" })
+                        }
+                        else
+                        {
+                        @Html.TextBoxFor(c => c.FichaPppp.Empresa.Usuario.LoginUsuario, new { disabled = "disabled", style = "width:100px;" })
+                        }  
+                    }
+                </td>
+            </tr>
+            <tr>
+                <td colspan="4">
+                    <p class="similLegend">
+                        <b>Sede</b></p>
+                </td>
+            </tr>
+            <tr>
+                <td align="right" valign="top">
+                    <b>Nombre de la Sede: </b>
+                </td>
+                <td align="left" valign="middle" colspan="7">
+                    @{
+                        if ((Model.Accion == "Ver" || Model.Accion == "CambiarEstado"))
+                        {
+                        @Html.TextBoxFor(c => c.FichaPppp.Sede.NombreSede, new { disabled = "disabled", style = "width:400px;" })
+                        }
+                        else
+                        {
+                        @Html.TextBoxFor(c => c.FichaPppp.Sede.NombreSede, new { disabled = "disabled", style = "width:400px;" })
+                        }  
+                    }
+                    @if ((Model.Accion != "Ver" && Model.Accion != "CambiarEstado") && Model.IdEmpresa != null)
+                    {
+                        <a class="Lupa" title="Buscar Sedes" id="TraerSedes">Verificar existencia</a>
+                        <a class="Eliminar" title="Desvincular Sedes" id="DesvincularSedes">Desvincular Sede</a>
+                        
+                    }
+                </td>
+            </tr>
+            <tr>
+                <td align="right" valign="top">
+                    <b>Apellido del Contacto: </b>
+                </td>
+                <td align="left" valign="middle">
+                    @{
+                        if ((Model.Accion == "Ver" || Model.Accion == "CambiarEstado"))
+                        {
+                        @Html.TextBoxFor(c => c.FichaPppp.Sede.ApellidoContacto, new { disabled = "disabled", style = "width:150px;" })
+                        }
+                        else
+                        {
+                        @Html.TextBoxFor(c => c.FichaPppp.Sede.ApellidoContacto, new { disabled = "disabled", style = "width:150px;" })
+                        }  
+                    }
+                </td>
+                <td align="right" valign="top">
+                    <b>Nombre del Contacto: </b>
+                </td>
+                <td align="left" valign="middle" colspan="5">
+                    @{
+                        if ((Model.Accion == "Ver" || Model.Accion == "CambiarEstado"))
+                        {
+                        @Html.TextBoxFor(c => c.FichaPppp.Sede.NombreContacto, new { disabled = "disabled", style = "width:90px;" })
+                        }
+                        else
+                        {
+                        @Html.TextBoxFor(c => c.FichaPppp.Sede.NombreContacto, new { disabled = "disabled", style = "width:90px;" })
+                        }  
+                    }
+                </td>
+            </tr>
+            <tr>
+                <td align="right" valign="top">
+                    <b>Teléfono: </b>
+                </td>
+                <td align="left" valign="middle">
+                    @{
+                        if ((Model.Accion == "Ver" || Model.Accion == "CambiarEstado"))
+                        {
+                        @Html.TextBoxFor(c => c.FichaPppp.Sede.Telefono, new { disabled = "disabled", style = "width:90px;" })
+                        }
+                        else
+                        {
+                        @Html.TextBoxFor(c => c.FichaPppp.Sede.Telefono, new { disabled = "disabled", style = "width:90px;" })
+                        }  
+                    }
+                </td>
+                <td align="right" valign="top">
+                    <b>Localidad: </b>
+                </td>
+                <td align="left" valign="middle" colspan="5">
+                    @{
+                        if ((Model.Accion == "Ver" || Model.Accion == "CambiarEstado"))
+                        {
+                        @Html.TextBoxFor(c => c.FichaPppp.Sede.NombreLocalidad, new { disabled = "disabled", style = "width:120px;" })
+                        }
+                        else
+                        {
+                        @Html.TextBoxFor(c => c.FichaPppp.Sede.NombreLocalidad, new { disabled = "disabled", style = "width:120px;" })
+                        }  
+                    }
+                </td>
+            </tr>
+            <tr>
+                <td align="right" valign="top">
+                    <b>Calle: </b>
+                </td>
+                <td align="left" valign="middle">
+                    @{
+                        if ((Model.Accion == "Ver" || Model.Accion == "CambiarEstado"))
+                        {
+                        @Html.TextBoxFor(c => c.FichaPppp.Sede.Calle, new { disabled = "disabled", style = "width:250px;" })
+                        }
+                        else
+                        {
+                        @Html.TextBoxFor(c => c.FichaPppp.Sede.Calle, new { disabled = "disabled", style = "width:250px;" })
+                        }  
+                    }
+                </td>
+                <td align="right" valign="top">
+                    <b>Nro.: </b>
+                </td>
+                <td align="left" valign="middle">
+                    @{
+                        if ((Model.Accion == "Ver" || Model.Accion == "CambiarEstado"))
+                        {
+                        @Html.TextBoxFor(c => c.FichaPppp.Sede.Numero, new { disabled = "disabled", style = "width:90px;" })
+                        }
+                        else
+                        {
+                        @Html.TextBoxFor(c => c.FichaPppp.Sede.Numero, new { disabled = "disabled", style = "width:90px;" })
+                        }  
+                    }
+                </td>
+            </tr>
+            <tr>
+                <td align="right" valign="top">
+                    <b>Piso: </b>
+                </td>
+                <td align="left" valign="middle">
+                    @{
+                        if ((Model.Accion == "Ver" || Model.Accion == "CambiarEstado"))
+                        {
+                        @Html.TextBoxFor(c => c.FichaPppp.Sede.Piso, new { disabled = "disabled", style = "width:50px;" })
+                        }
+                        else
+                        {
+                        @Html.TextBoxFor(c => c.FichaPppp.Sede.Piso, new { disabled = "disabled", style = "width:50px;" })
+                        }  
+                    }
+                </td>
+                <td align="right" valign="top">
+                    <b>Dpto.: </b>
+                </td>
+                <td align="left" valign="middle">
+                    @{
+                        if ((Model.Accion == "Ver" || Model.Accion == "CambiarEstado"))
+                        {
+                        @Html.TextBoxFor(c => c.FichaPppp.Sede.Dpto, new { disabled = "disabled", style = "width:50px;" })
+                        }
+                        else
+                        {
+                        @Html.TextBoxFor(c => c.FichaPppp.Sede.Dpto, new { disabled = "disabled", style = "width:50px;" })
+                        }  
+                    }
+                </td>
+            </tr>
+        </table>
+    </td>
+</tr>
+@if (Model.Accion != "Agregar"  && Model.IdEmpresa != null)
+{
+    <tr>
+        <td>
+            <table style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 900px;"
+                align="left">
+                <tr>
+                    <td>
+                        <p class="similLegend">
+                            <b>Horarios</b></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.Partial("_HorariosEmpresa", Model)
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+}
+@Html.HiddenFor(c => c.FichaPppp.IdTitulo)
+@Html.HiddenFor(c => c.FichaPppp.Modalidad)
+@Html.HiddenFor(c => c.FichaPppp.AltaTemprana)
+@Html.HiddenFor(c => c.FichaPppp.FechaNotificacion)
+@Html.HiddenFor(c => c.FichaPppp.Notificado)
+@Html.HiddenFor(c => c.IdEmpresa)

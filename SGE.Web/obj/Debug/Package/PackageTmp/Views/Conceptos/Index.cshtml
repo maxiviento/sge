@@ -1,0 +1,65 @@
+﻿@model ConceptosVista
+@{
+    ViewBag.Title = "Liquidación - Conceptos";
+    ViewBag.SubMenuSelected = "Conceptos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var acciones = ViewData["Acciones"] as IList<string>;
+}
+@section Scripts{
+    @Content.Script("SGE.Conceptos.js", Url)
+}
+<div class="box">
+    <h2>
+        Listado de Periodos</h2>
+    @using (Html.BeginForm("IndexPager", "Conceptos", FormMethod.Post, new { Id = "FormConceptos" }))
+    {
+        <table style="width: 930px; text-align: center; margin-left: auto; margin-right: auto;">
+            <tr>
+                <td>
+                    <fieldset style="width: 925px;">
+                        <legend><b>Filtros</b></legend>
+                        <table width="100%">
+                            <tr>
+                                <td style="width: 100px;">
+                                    <b>Año: </b>@Html.TextBoxFor(c => c.AñoBusqueda, new { style = "width:40px; text-align: right;", MaxLength = "4" })
+                                </td>
+                                <td style="width: 100px;">
+                                    <b>Mes: </b>@Html.TextBoxFor(c => c.MesBusqueda, new { style = "width:40px; text-align: right;", MaxLength = "2" })
+                                </td>
+                                <td>
+                                    <b>Observación: </b>@Html.TextBoxFor(c => c.ObservacionBusqueda, new { style = "width:600px;", MaxLength = "100" })
+                                </td>
+                            </tr>
+                        </table>
+                        <div class="div-filtro">
+                            <div class="div-filtro-btn">
+                                <p>
+                                    <a class="btnIngresar" id="btnBuscar" href="#">Buscar</a>&nbsp;&nbsp;
+                                    @{
+                                    if (acciones.Contains(((int)Enums.Acciones.Agregar).ToString()))
+                                    {
+                                        @Html.ActionLink("Agregar", "Formulario", "Conceptos", null, new { Class = "btnIngresar" })
+                                    }
+                                    }
+                                </p>
+                            </div>
+                        </div>
+                    </fieldset>
+                </td>
+            </tr>
+        </table>
+        <table>
+            <tr>
+                <td style="font-weight: bold">
+                    <div id="titulo">
+                    </div>
+                    <div id="DivSuperviciones">
+                        @Html.Partial("_Lista", Model)
+                    </div>
+                </td>
+            </tr>
+        </table>
+        @Html.Partial("_Pager", Model.Pager) 
+    }
+    <br />
+</div>

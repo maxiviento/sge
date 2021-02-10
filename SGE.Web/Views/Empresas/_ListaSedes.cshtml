@@ -1,0 +1,70 @@
+﻿@model EmpresaVista
+<table align="center">
+    <tr>
+        <td style="text-align: right;">
+            <b>Nombre de Sede: </b>
+        </td>
+        <td style="text-align: left;">
+            @Html.TextBoxFor(c => c.BusquedaSede, new { style = "width:400px" })
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2" style="text-align: center">
+            <a class="btnIngresar" href="#" data-val-valgroup-name="BusquedaSede" id="BuscarSede">
+                Buscar</a>&nbsp;&nbsp;
+            @if (Model.Accion == "Agregar" || Model.Accion == "Modificar")
+            {
+                @Html.ActionLink("Agregar Sede", "Agregar", "Sedes", new { idEmpresa = Model.Id }, new { Class = "btnIngresar" })
+            }
+        </td>
+    </tr>
+</table>
+<br />
+@if (Model.Sedes != null && Model.Sedes.Count > 0)
+{ 
+    <table id="grilla" align="center" width="800px" cellpadding="0" cellspacing="0">
+        <thead>
+            <tr>
+                <th style="height: 30px; width: 400px;">
+                    <div align="center">
+                        Nombre de Sede</div>
+                </th>
+                <th style="height: 30px; width: 125px;">
+                    @if (Model.Accion == "Agregar" || Model.Accion == "Modificar")
+                    {
+                        <div align="center">
+                            Acciones</div>
+                    }
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Sedes)
+            {
+                <tr>
+                    <td style="height: 30px; width: 400px;">
+                        @item.NombreSede.ToString().ToMaxLenght(150)
+                    </td>
+                    <td align="center">
+                        @if (Model.Accion == "Agregar" || Model.Accion == "Modificar")
+                        {
+                            @Html.ActionLink("Ver", "Ver", "Sedes", new { idSede = item.IdSede }, new { @class = "Lupa", title = "Ver Sede" })
+                            @Html.ActionLink("Modificar", "Modificar", "Sedes", new { idSede = item.IdSede }, new { @class = "Modificar", title = "Modificar Sede" })
+                            @Html.ActionLink("Eliminar", "Eliminar", "Sedes", new { idSede = item.IdSede }, new { @class = "Eliminar", title = "Eliminar Sede" })
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{ 
+    <table>
+        <tr>
+            <td>
+                @Html.Partial("_SinDatos", "Sedes")
+            </td>
+        </tr>
+    </table>
+}

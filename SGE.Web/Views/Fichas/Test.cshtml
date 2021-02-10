@@ -1,0 +1,25 @@
+﻿@model FichasVista
+@{
+    ViewBag.Title = "Certificado";
+    Layout = null;
+}
+<?xml version="1.0" encoding="UTF-8" ?>
+<itext creationdate="2/4/2003 5:49:07 PM" producer="iTextSharpXML">
+ 
+<paragraph leading="18.0" font="unknown" size="16.0" align="center">
+	   GOBIERNO DE LA PROVINCIA DE CORDOBA        
+	</paragraph>  
+    
+     @foreach (var item in Model.Fichas)
+     {
+     <paragraph leading="18.0" font="unknown" size="16.0" align="center">
+	   @item.Apellido        
+	</paragraph>
+     }
+
+     <paragraph leading="18.0" font="unknown" size="16.0" align="Default">
+	    <chunk>________________________________________________________</chunk>
+	</paragraph>
+      <newline />	
+	
+</itext>

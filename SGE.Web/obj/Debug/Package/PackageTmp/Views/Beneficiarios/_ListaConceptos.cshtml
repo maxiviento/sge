@@ -1,0 +1,92 @@
+﻿@model BeneficiarioVista
+@if (Model.ListaConceptosPago != null && Model.ListaConceptosPago.Count > 0)
+{
+    <div style="text-align: center;">
+        <table id="grilla" align="center" width="925px" cellpadding="0" cellspacing="0">
+            <thead>
+                <tr>
+                    <th height="30px" width="20px">
+                        <div align="center">
+                            Año</div>
+                    </th>
+                    <th width="50px">
+                        <div align="center">
+                            Mes</div>
+                    </th>
+                    <th width="40px">
+                        <div align="center">
+                            Fec. Liq.</div>
+                    </th>
+                    <th width="50px">
+                        <div align="center">
+                            Nro. Resolución</div>
+                    </th>
+                    <th width="50px">
+                        <div align="center">
+                            Cuenta</div>
+                    </th>
+                    <th width="100px">
+                        <div align="center">
+                            Sucursal</div>
+                    </th>
+                    <th width="20px">
+                        <div align="center">
+                            Apoderado</div>
+                    </th>
+                     <th width="90px">
+                        <div align="center">
+                            Monto</div>
+                    </th>
+                    <th width="90px">
+                        <div align="center">
+                            Estado</div>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.ListaConceptosPago)
+                {
+                    <tr>
+                        <td style="height: 28px; width: 20px; text-align: right;">
+                            @item.Año
+                        </td>
+                        <td style="width: 40px; text-align: left;">
+                            @CultureInfo.CurrentCulture.DateTimeFormat.MonthNames[item.Mes - 1].ToUpper()
+                        </td>
+                        <td style="width: 50px; text-align: right;">
+                            @item.FechaLiquidacion.ToShortDateString()<span>&nbsp;&nbsp;</span>
+                        </td>
+                        <td style="width: 50px; text-align: right;">
+                            @item.NroResolucion
+                        </td>
+                        <td style="width: 50px; text-align: right;">
+                            @item.NroCuenta<span>&nbsp;&nbsp;</span>
+                        </td>
+                        <td style="width: 100px; text-align: center;">
+                            [@item.Sucursal]
+                        </td>
+                        <td style="width: 20px;">
+                            @(item.SePagoaApoderado == "S" ? "Si" : "No")
+                        </td>
+                         <td style="width: 50px; text-align: center;">
+                            @item.MontoPagado
+                        </td>
+                        <td style="width: 50px; text-align: left;">
+                            @item.Estado
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>  
+}
+else
+{
+    <table align="center" width="930px" cellpadding="0" cellspacing="0">
+        <tr>
+            <td width="930px">
+                @Html.Partial("_SinDatos", "Períodos Pagos")
+            </td>
+        </tr>
+    </table>
+}

@@ -1,0 +1,666 @@
+﻿@model FichaVista
+<tr>
+    <td>
+        <table style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 900px;"
+            align="left">
+            <tr>
+                <td align="center" colspan="6">
+                    <table align="center" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px;
+                        width: 400px;">
+                        <tr>
+                            <td colspan="2">
+                                <p class="similLegend">
+                                    <b>Nivel de Escolaridad</b></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left" valign="middle">
+                                @{
+                                    if ((Model.Accion == "Ver" || Model.Accion == "CambiarEstado"))
+                                    {
+                                    @Html.RadioButton("NivelEscolaridad", 1, (Model.FichaReconversion.IdNivelEscolaridad == 1 ? true : false), new { disabled = "disabled" })<span><b>Ninguno</b></span><br />
+                                    @Html.RadioButton("NivelEscolaridad", 2, (Model.FichaReconversion.IdNivelEscolaridad == 2 ? true : false), new { disabled = "disabled" })<span><b>Primario
+                                        (ó EGB)</b></span><br />
+                                    @Html.RadioButton("NivelEscolaridad", 3, (Model.FichaReconversion.IdNivelEscolaridad == 3 ? true : false), new { disabled = "disabled" })<span><b>Ciclo
+                                        Básico (CBU)</b></span><br />
+                                    }
+                                    else
+                                    {
+                                    @Html.RadioButton("NivelEscolaridad", 1, (Model.FichaReconversion.IdNivelEscolaridad == 1 ? true : false), new { Class = "ClassNivelEscolaridad" })<span><b>Ninguno</b></span><br />
+                                    @Html.RadioButton("NivelEscolaridad", 2, (Model.FichaReconversion.IdNivelEscolaridad == 2 ? true : false), new { Class = "ClassNivelEscolaridad" })<span><b>Primario
+                                        (ó EGB)</b></span><br />
+                                    @Html.RadioButton("NivelEscolaridad", 3, (Model.FichaReconversion.IdNivelEscolaridad == 3 ? true : false), new { Class = "ClassNivelEscolaridad" })<span><b>Ciclo
+                                        Básico (CBU)</b></span><br />
+                                    }
+                                }
+                            </td>
+                            <td align="left" valign="middle">
+                                @{
+                                    if ((Model.Accion == "Ver" || Model.Accion == "CambiarEstado"))
+                                    {
+                                    @Html.RadioButton("NivelEscolaridad", 4, (Model.FichaReconversion.IdNivelEscolaridad == 4 ? true : false), new { disabled = "disabled" })<span><b>Secundaria</b></span><br />
+                                    @Html.RadioButton("NivelEscolaridad", 5, (Model.FichaReconversion.IdNivelEscolaridad == 5 ? true : false), new { disabled = "disabled" })<span><b>Terciaria</b></span><br />
+                                    @Html.RadioButton("NivelEscolaridad", 6, (Model.FichaReconversion.IdNivelEscolaridad == 6 ? true : false), new { disabled = "disabled" })<span><b>Universitaria</b></span><br />
+                                    }
+                                    else
+                                    {
+                                    @Html.RadioButton("NivelEscolaridad", 4, (Model.FichaReconversion.IdNivelEscolaridad == 4 ? true : false), new { Class = "ClassNivelEscolaridad" })<span><b>Secundaria</b></span><br />
+                                    @Html.RadioButton("NivelEscolaridad", 5, (Model.FichaReconversion.IdNivelEscolaridad == 5 ? true : false), new { Class = "ClassNivelEscolaridad" })<span><b>Terciaria</b></span><br />
+                                    @Html.RadioButton("NivelEscolaridad", 6, (Model.FichaReconversion.IdNivelEscolaridad == 6 ? true : false), new { Class = "ClassNivelEscolaridad" })<span><b>Universitaria</b></span><br />
+                                    }
+                                }
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <br />
+                </td>
+            </tr>
+            <tr>
+                <td align="right" valign="top">
+                    <b>Cursa el Nivel: </b>
+                </td>
+                <td align="left" valign="middle">
+                    @{
+                        if ((Model.Accion == "Ver" || Model.Accion == "CambiarEstado"))
+                        {
+                        @Html.RadioButton("Cursando", 1, (Model.FichaReconversion.Cursando == true ? true : false), new { disabled = "disabled" })<span>
+                            Si</span>
+                        @Html.RadioButton("Cursando", 2, (Model.FichaReconversion.Cursando == false ? true : false), new { disabled = "disabled" })<span>
+                            No</span>                       
+                        }
+                        else
+                        {
+                        @Html.RadioButtonFor(c => c.FichaReconversion.Cursando, true) <span> Si</span>
+                        @Html.RadioButtonFor(c => c.FichaReconversion.Cursando, false) <span> No</span>
+                        }
+                    }
+                </td>
+                <td align="right" valign="top">
+                    <b>¿Terminó el Nivel?: </b>
+                </td>
+                <td align="left" valign="middle">
+                    @{
+                        if ((Model.Accion == "Ver" || Model.Accion == "CambiarEstado"))
+                        {
+                        @Html.RadioButton("Finalizado", 1, (Model.FichaReconversion.Finalizado == true ? true : false), new { disabled = "disabled" })<span>
+                            Si</span>
+                        @Html.RadioButton("Finalizado", 2, (Model.FichaReconversion.Finalizado == false ? true : false), new { disabled = "disabled" })<span>
+                            No</span>
+                        }
+                        else
+                        {                        
+                        @Html.RadioButtonFor(c => c.FichaReconversion.Finalizado, true) <span> Si</span>
+                        @Html.RadioButtonFor(c => c.FichaReconversion.Finalizado, false) <span> No</span>
+                        }
+                    }
+                </td>
+                <td align="right" valign="top">
+                    <b>¿Quiere finalizar el Nivel?: </b>
+                </td>
+                <td align="left" valign="middle">
+                    @{
+                        if ((Model.Accion == "Ver" || Model.Accion == "CambiarEstado"))
+                        {
+                        @Html.RadioButton("Desea_Term_Nivel", 1, (Model.FichaReconversion.DeseaTermNivel == true ? true : false), new { disabled = "disabled" })<span>
+                            Si</span>
+                        @Html.RadioButton("Desea_Term_Nivel", 2, (Model.FichaReconversion.DeseaTermNivel == false ? true : false), new { disabled = "disabled" })<span>
+                            No</span>
+                        }
+                        else
+                        {                        
+                        @Html.RadioButtonFor(c => c.FichaReconversion.DeseaTermNivel, true) <span> Si</span>
+                        @Html.RadioButtonFor(c => c.FichaReconversion.DeseaTermNivel, false) <span> No</span>                          
+                        }
+                    }
+                </td>
+            </tr>
+        </table>
+    </td>
+</tr>
+<tr>
+    <td>
+       <table style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 900px;"
+            align="left">
+            <tr>
+                <td colspan="4">
+                    <p class="similLegend">
+                        <b>Datos de la Empresa</b></p>
+                </td>
+            </tr>
+            <tr>
+                <td align="right">
+                    <b>CUIT: </b>
+                </td>
+                <td align="left" valign="middle">
+                    @Html.TextBoxFor(c => c.FichaReconversion.CuitEmpresa, new { style = "width:100px; text-align: right;", MaxLength = "13" })
+                 
+                    @if ((Model.Accion != "Ver" && Model.Accion != "CambiarEstado"))
+                    {
+                        <a class="Lupa" title="Buscar Empresa" href="#" id="ValidarCuitReconversion">Verificar existencia</a>
+                    }
+                </td>
+            </tr>
+            <tr>
+                <td align="right">
+                    <b>Razón Social: </b>
+                </td>
+                <td align="left" valign="middle">
+                    @Html.TextBoxFor(c => c.FichaReconversion.DescripcionEmpresa, new { disabled = "disabled", style = "width:400px;" })
+                </td>
+                <td align="right">
+                    <b>Localidad: </b>
+                </td>
+                <td align="left" valign="middle">
+                    @Html.TextBoxFor(model => model.FichaReconversion.Empresa.NombreLocalidad, new { disabled = "disabled", style = "width:180px;" })
+                </td>
+            </tr>
+            <tr>
+                <td align="right">
+                    <b>Código de Actividad: </b>
+                </td>
+                <td align="left" valign="middle">
+                    @Html.TextBoxFor(c => c.FichaReconversion.Empresa.CodigoActividad, new { disabled = "disabled", style = "width:80px;" })
+                </td>
+            </tr>
+            <tr>    
+                <td align="right">
+                    <b>Cantidad de Empleados: </b>
+                </td>
+                <td align="left" valign="middle">
+                    @Html.TextBoxFor(model => model.FichaReconversion.Empresa.CantidadEmpleados, new { disabled = "disabled", style = "width:80px;", MaxLength = "5" })
+                </td>
+                <td align="right">
+                    <b>Cantidad de Beneficiarios: </b>
+                </td>
+                <td align="left" valign="middle">
+                    @Html.TextBoxFor(model => model.benefActivosEmp, new { disabled = "disabled", style = "width:80px;", MaxLength = "5" })
+                </td>
+            </tr>
+            <tr>
+                <td align="right">
+                    <b>Calle: </b>
+                </td>
+                <td align="left" valign="middle">
+                    @Html.TextBoxFor(model => model.FichaReconversion.Empresa.Calle, new { disabled = "disabled", style = "width:300px;" })
+                </td>
+                <td align="right">
+                    <b>Número: </b>
+                </td>
+                <td align="left" valign="middle">
+                    @Html.TextBoxFor(model => model.FichaReconversion.Empresa.Numero, new { disabled = "disabled", style = "width:80px;" })
+                </td>
+            </tr>
+            <tr>
+                <td align="right">
+                    <b>Piso: </b>
+                </td>
+                <td align="left" valign="middle">
+                    @Html.TextBoxFor(model => model.FichaReconversion.Empresa.Piso, new { disabled = "disabled", style = "width:80px;" })
+                </td>
+                <td align="right">
+                    <b>Dpto.: </b>
+                </td>
+                <td align="left" valign="middle">
+                    @Html.TextBoxFor(model => model.FichaReconversion.Empresa.Dpto, new { disabled = "disabled", style = "width:80px;" })
+                </td>
+            </tr>
+            <tr>
+                <td align="right">
+                    <b>Código Postal: </b>
+                </td>
+                <td align="left" valign="middle">
+                    @Html.TextBoxFor(model => model.FichaReconversion.Empresa.CodigoPostal, new { disabled = "disabled", style = "width:80px;" })
+                </td>
+                <td align="right">
+                    <b>Domicilio Laboral Idem: </b>
+                </td>
+                <td align="left" valign="middle">
+                    @Html.TextBoxFor(model => model.FichaReconversion.Empresa.DomicilioLaboralIdem, new { disabled = "disabled", style = "width:180px;" })
+                </td>
+            </tr>
+            <tr>
+                <td align="right" valign="top">
+                    <b>Modalidad: </b>
+                </td>
+                <td align="left" valign="middle">
+                    @Html.RadioButton("Modalidad", 1, (Model.FichaReconversion.Modalidad == 1 ? true : false), new { Class = "ClassModalidad" })<span><b>Entrenamiento</b></span>
+                    @Html.RadioButton("Modalidad", 2, (Model.FichaReconversion.Modalidad == 2 ? true : false), new { Class = "ClassModalidad" })<span><b>CTI</b></span>
+                </td>
+                <td align="right" valign="top">
+                    <b>Alta Temprana: </b>
+                </td>
+                <td align="left" valign="middle">
+                    @Html.RadioButton("AltaTemprana", "S", (Model.FichaReconversion.AltaTemprana == "S" ? true : false), new { Class = "ClassAltaTemprana" })<span><b>Si</b></span>
+                    @Html.RadioButton("AltaTemprana", "N", (Model.FichaReconversion.AltaTemprana == "N" ? true : false), new { Class = "ClassAltaTemprana" })<span><b>No</b></span>
+                </td>
+            </tr>
+            <tr>
+                <td align="right" valign="top">
+                    <b>Mod. Cont. AFIP: </b>
+                </td>
+                <td align="left" valign="middle">
+                    @Html.EditorFor(c => c.ComboModalidadAfip)
+                </td>
+                <td align="right" valign="top">
+                    <b>A.T. Fec. Ini./Cese: </b>
+                </td>
+                <td align="left" valign="middle">
+                    @if ((Model.Accion == "Ver" || Model.Accion == "CambiarEstado"))
+                    {
+                        @Html.TextBoxFor(c => c.FichaReconversion.FechaInicioActividad, new { disabled = "disabled", style = "width:71px; text-align: right;", maxlength = 10 })  
+                        <b>&nbsp;a&nbsp;</b>
+                        @Html.TextBoxFor(c => c.FichaReconversion.FechaFinActividad, new { disabled = "disabled", style = "width:71px; text-align: right;", maxlength = 10 })  
+                    }
+                    else
+                    {
+                        @Html.EditorFor(c => c.FichaReconversion.FechaInicioActividad)
+                        <b>a</b>
+                        @Html.EditorFor(c => c.FichaReconversion.FechaFinActividad)
+                    }
+                </td>
+            </tr>      
+            
+            <tr>
+                <td colspan="4">
+                    <p class="similLegend">
+                        <b>Sede</b></p>
+                </td>
+            </tr>
+          
+                <tr>
+                    <td align="right" valign="top">
+                        <b>Nombre de la Sede: </b>
+                    </td>
+                    <td align="left" valign="middle" colspan="7">
+                        @{
+                            if ((Model.Accion == "Ver" || Model.Accion == "CambiarEstado"))
+                            {
+                            @Html.TextBoxFor(c => c.FichaReconversion.Sede.NombreSede, new { disabled = "disabled", style = "width:400px;" })
+                            }
+                            else
+                            {
+                            @Html.TextBoxFor(c => c.FichaReconversion.Sede.NombreSede, new { disabled = "disabled", style = "width:400px;" })
+                            }  
+                        }
+                        @if ((Model.Accion != "Ver" && Model.Accion != "CambiarEstado") && Model.IdEmpresa != null)
+                        {
+                            <a class="Lupa" title="Buscar Sedes" id="TraerSedes">Verificar existencia</a>
+                            <a class="Eliminar" title="Desvincular Sedes" id="DesvincularSedes">Desvincular Sede</a>
+                        }
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right" valign="top">
+                        <b>Apellido del Contacto: </b>
+                    </td>
+                    <td align="left" valign="middle">
+                        @{
+                            if ((Model.Accion == "Ver" || Model.Accion == "CambiarEstado"))
+                            {
+                            @Html.TextBoxFor(c => c.FichaReconversion.Sede.ApellidoContacto, new { disabled = "disabled", style = "width:150px;" })
+                            }
+                            else
+                            {
+                            @Html.TextBoxFor(c => c.FichaReconversion.Sede.ApellidoContacto, new { disabled = "disabled", style = "width:150px;" })
+                            }  
+                        }
+                    </td>
+                    <td align="right" valign="top">
+                        <b>Nombre del Contacto: </b>
+                    </td>
+                    <td align="left" valign="middle" colspan="5">
+                        @{
+                            if ((Model.Accion == "Ver" || Model.Accion == "CambiarEstado"))
+                            {
+                            @Html.TextBoxFor(c => c.FichaReconversion.Sede.NombreContacto, new { disabled = "disabled", style = "width:90px;" })
+                            }
+                            else
+                            {
+                            @Html.TextBoxFor(c => c.FichaReconversion.Sede.NombreContacto, new { disabled = "disabled", style = "width:90px;" })
+                            }  
+                        }
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right" valign="top">
+                        <b>Teléfono: </b>
+                    </td>
+                    <td align="left" valign="middle">
+                        @{
+                            if ((Model.Accion == "Ver" || Model.Accion == "CambiarEstado"))
+                            {
+                            @Html.TextBoxFor(c => c.FichaReconversion.Sede.Telefono, new { disabled = "disabled", style = "width:90px;" })
+                            }
+                            else
+                            {
+                            @Html.TextBoxFor(c => c.FichaReconversion.Sede.Telefono, new { disabled = "disabled", style = "width:90px;" })
+                            }  
+                        }
+                    </td>
+                    <td align="right" valign="top">
+                        <b>Localidad: </b>
+                    </td>
+                    <td align="left" valign="middle" colspan="5">
+                        @{
+                            if ((Model.Accion == "Ver" || Model.Accion == "CambiarEstado"))
+                            {
+                            @Html.TextBoxFor(c => c.FichaReconversion.Sede.NombreLocalidad, new { disabled = "disabled", style = "width:120px;" })
+                            }
+                            else
+                            {
+                            @Html.TextBoxFor(c => c.FichaReconversion.Sede.NombreLocalidad, new { disabled = "disabled", style = "width:120px;" })
+                            }  
+                        }
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right" valign="top">
+                        <b>Calle: </b>
+                    </td>
+                    <td align="left" valign="middle">
+                        @{
+                            if ((Model.Accion == "Ver" || Model.Accion == "CambiarEstado"))
+                            {
+                            @Html.TextBoxFor(c => c.FichaReconversion.Sede.Calle, new { disabled = "disabled", style = "width:250px;" })
+                            }
+                            else
+                            {
+                            @Html.TextBoxFor(c => c.FichaReconversion.Sede.Calle, new { disabled = "disabled", style = "width:250px;" })
+                            }  
+                        }
+                    </td>
+                    <td align="right" valign="top">
+                        <b>Nro.: </b>
+                    </td>
+                    <td align="left" valign="middle">
+                        @{
+                            if ((Model.Accion == "Ver" || Model.Accion == "CambiarEstado"))
+                            {
+                            @Html.TextBoxFor(c => c.FichaReconversion.Sede.Numero, new { disabled = "disabled", style = "width:90px;" })
+                            }
+                            else
+                            {
+                            @Html.TextBoxFor(c => c.FichaReconversion.Sede.Numero, new { disabled = "disabled", style = "width:90px;" })
+                            }  
+                        }
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right" valign="top">
+                        <b>Piso: </b>
+                    </td>
+                    <td align="left" valign="middle">
+                        @{
+                            if ((Model.Accion == "Ver" || Model.Accion == "CambiarEstado"))
+                            {
+                            @Html.TextBoxFor(c => c.FichaReconversion.Sede.Piso, new { disabled = "disabled", style = "width:50px;" })
+                            }
+                            else
+                            {
+                            @Html.TextBoxFor(c => c.FichaReconversion.Sede.Piso, new { disabled = "disabled", style = "width:50px;" })
+                            }  
+                        }
+                    </td>
+                    <td align="right" valign="top">
+                        <b>Dpto.: </b>
+                    </td>
+                    <td align="left" valign="middle">
+                        @{
+                            if ((Model.Accion == "Ver" || Model.Accion == "CambiarEstado"))
+                            {
+                            @Html.TextBoxFor(c => c.FichaReconversion.Sede.Dpto, new { disabled = "disabled", style = "width:50px;" })
+                            }
+                            else
+                            {
+                            @Html.TextBoxFor(c => c.FichaReconversion.Sede.Dpto, new { disabled = "disabled", style = "width:50px;" })
+                            }  
+                        }
+                    </td>
+                </tr>     
+                                         
+        </table>        
+    </td>
+</tr>
+
+<tr>
+    <td>
+       <table style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 900px;"
+            align="left">
+            @{
+                if (Model.Accion != "Agregar" && Model.IdEmpresa != null)
+                {
+                    <tr>
+                        <td colspan="4">
+                    <p class="similLegend">
+                        <b>Datos del Proyecto</b></p>
+                        <table align="left" style="width: 920px;">
+                            <tr>
+                                <td align="right">
+                                    <b>Proyecto: </b>                   
+                                </td>
+                                <td align="left" valign="middle">
+                                    @if (Model.Accion == "Ver" || Model.Accion == "CambiarEstado")
+                                    {
+                                        @Html.TextBoxFor(model => model.FichaReconversion.Proyecto.NombreProyecto, new { disabled = "disabled", style = "width:200px;" })
+                                    }
+                                    else
+                                    {
+                                        @Html.TextBoxFor(model => model.FichaReconversion.Proyecto.NombreProyecto, new { style = "width:200px;", MaxLength = "100" }) 
+                                    }
+                                    @if ((Model.Accion != "Ver" && Model.Accion != "CambiarEstado"))
+                                    {
+                                        <a class="Lupa" title="Buscar Proyecto" href="#" id="ValidarProyecto_Reco">Buscar</a>
+                                        @*<a class="Eliminar" title="Desvincular Sedes" id="DesvincularSedes">Desvincular Sede</a>*@
+                                    }
+                                </td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td align="right">
+                                    <b>Subprograma : </b>
+                                </td>
+                                <td align="left" valign="middle" colspan="3">
+                                   @Html.EditorFor(c => c.Subprogramas)
+                                </td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td align="right">
+                                    <b>Apellido Tutor: </b>
+                                </td>
+                                <td align="left" valign="middle">
+                                    @if (Model.Accion == "Ver" || Model.Accion == "CambiarEstado")
+                                    {
+                                        @Html.TextBoxFor(model => model.FichaReconversion.ApellidoTutor, new { disabled = "disabled", style = "width:200px;" })
+                                    }
+                                    else
+                                    {
+                                        @Html.TextBoxFor(model => model.FichaReconversion.ApellidoTutor, new { style = "width:200px;", MaxLength = "100" })
+                                    }
+                                </td>
+                                <td align="right">
+                                    <b>Nombre Tutor: </b>
+                                </td>
+                                <td align="left" valign="middle">
+                                    @if (Model.Accion == "Ver" || Model.Accion == "CambiarEstado")
+                                    {
+                                        @Html.TextBoxFor(model => model.FichaReconversion.NombreTutor, new { disabled = "disabled", style = "width:200px;" })
+                                    }
+                                    else
+                                    {
+                                        @Html.TextBoxFor(model => model.FichaReconversion.NombreTutor, new { style = "width:200px;", MaxLength = "100" })
+                                    }
+                                </td>
+                                <td align="right">
+                                    <b>Nro. Doc.: </b>
+                                </td>
+                                <td align="left" valign="middle">
+                                   @if (Model.Accion == "Ver" || Model.Accion == "CambiarEstado")
+                                   {
+                                        @Html.TextBoxFor(model => model.FichaReconversion.NroDocumentoTutor, new { disabled = "disabled", style = "width:100px; text-align: right;" })
+                                   }
+                                   else
+                                   {
+                                        @Html.TextBoxFor(model => model.FichaReconversion.NroDocumentoTutor, new { style = "width:100px; text-align: right;", MaxLength = "8" })
+                                   }
+                                </td>
+                            </tr>
+                            <tr>
+                                 <td align="right">
+                                    <b>Teléfono: </b>
+                                </td>
+                                <td align="left" valign="middle">
+                                    @if (Model.Accion == "Ver" || Model.Accion == "CambiarEstado")
+                                    {
+                                        @Html.TextBoxFor(c => c.FichaReconversion.TelefonoTutor, new { disabled = "disabled", style = "width:200px;" })
+                                    }
+                                    else
+                                    {
+                                        @Html.TextBoxFor(c => c.FichaReconversion.TelefonoTutor, new { style = "width:200px;", MaxLength = "50" })
+                                    }
+                                </td>
+                                <td align="right">
+                                    <b>Email: </b>
+                                </td>
+                                <td align="left" valign="middle">
+                                    @if (Model.Accion == "Ver" || Model.Accion == "CambiarEstado")
+                                    {
+                                        @Html.TextBoxFor(model => model.FichaReconversion.EmailTutor, new { disabled = "disabled", style = "width:250px;" })
+                                    }
+                                    else
+                                    {
+                                        @Html.TextBoxFor(model => model.FichaReconversion.EmailTutor, new { style = "width:250px;", MaxLength = "100" })
+                                        @Html.ValidationMessageFor(c => c.Mail)
+                                    }
+                                </td>
+                            </tr>
+                            <tr>                               
+                                <td align="right">
+                                    <b>Cant. Benef a capacitar: </b>
+                                </td>
+                                <td align="left" valign="middle">
+                                    @if (Model.Accion == "Ver" || Model.Accion == "CambiarEstado")
+                                    {
+                                        @Html.TextBoxFor(c => c.FichaReconversion.Proyecto.CantidadAcapacitar, new { disabled = "disabled", style = "width:60px; text-align: right;" })
+                                    }
+                                    else
+                                    {
+                                        @Html.TextBoxFor(c => c.FichaReconversion.Proyecto.CantidadAcapacitar, new { style = "width:60px; text-align: right;", MaxLength = "4" })
+                                    }
+                                </td>
+                                <td align="right">
+                                    <b>Fec. Inicio: </b>
+                                </td>
+                                <td align="left" valign="middle">
+                                   @if (Model.Accion == "Ver" || Model.Accion == "CambiarEstado")
+                                   {
+                                        @Html.TextBoxFor(c => c.FichaReconversion.Proyecto.FechaInicioProyecto, new { disabled = "disabled", style = "width:71px; text-align: right;", maxlength = 10 })
+                                   }
+                                   else
+                                   {
+                                        @Html.EditorFor(c => c.FichaReconversion.Proyecto.FechaInicioProyecto, new { style = "width:71px; text-align: right;" })
+                                   }
+                                </td>
+                                <td align="right">
+                                    <b>Fec. Finalización: </b>
+                                </td>
+                                <td align="left" valign="middle">
+                                   @if (Model.Accion == "Ver" || Model.Accion == "CambiarEstado")
+                                   {
+                                        @Html.TextBoxFor(c => c.FichaReconversion.Proyecto.FechaFinProyecto, new { disabled = "disabled", style = "width:71px; text-align: right;", maxlength = 10 })
+                                   }
+                                   else
+                                   {
+                                        @Html.EditorFor(c => c.FichaReconversion.Proyecto.FechaFinProyecto, new { style = "width:71px; text-align: right;" })
+                                   }
+                                </td>
+                                
+                            </tr>
+                            <tr>
+                                <td align="right">
+                                    <b>Duración en meses: </b>
+                                </td>
+                                <td align="left" valign="middle">
+                                    @if (Model.Accion == "Ver" || Model.Accion == "CambiarEstado")
+                                    {
+                                        @Html.TextBoxFor(c => c.FichaReconversion.Proyecto.MesesDuracionProyecto, new { disabled = "disabled", style = "width:60px; text-align: right;" })
+                                    }
+                                    else
+                                    {
+                                        @Html.TextBoxFor(c => c.FichaReconversion.Proyecto.MesesDuracionProyecto, new { style = "width:60px; text-align: right;", MaxLength = "3" })
+                                    }
+                                </td>
+                                <td align="right">
+                                    <b>Puesto: </b>
+                                </td>
+                                <td align="left" valign="middle">
+                                    @if (Model.Accion == "Ver" || Model.Accion == "CambiarEstado")
+                                    {
+                                        @Html.TextBoxFor(model => model.FichaReconversion.PuestoTutor, new { disabled = "disabled", style = "width:200px;" })
+                                    }
+                                    else
+                                    {
+                                        @Html.TextBoxFor(model => model.FichaReconversion.PuestoTutor, new { style = "width:200px;", MaxLength = "100" })
+                                        @Html.ValidationMessageFor(c => c.Mail)
+                                    }
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right" valign="top">
+                                    <b>Aportes de la empresa: </b>
+                                </td>
+                                <td align="left" valign="middle" colspan="3">
+                                 @if (Model.Accion == "Ver" || Model.Accion == "CambiarEstado")
+                                 {
+                                      @Html.TextAreaFor(model => model.FichaReconversion.AportesDeLaEmpresa, new { disabled = "disabled", style = "width:100%;height: 90px;" })
+                                 }
+                                 else
+                                 {
+                                    @Html.TextAreaFor(model => model.FichaReconversion.AportesDeLaEmpresa, new { style = "width:100%;height: 90px;" })
+                                 }
+                                </td>
+                            </tr>
+                        </table>
+                </td>
+                    </tr>
+                }
+              }
+        </table>
+    </td>
+</tr>
+
+
+@Html.HiddenFor(c => c.FichaReconversion.Modalidad)
+@Html.HiddenFor(c => c.FichaReconversion.AltaTemprana)
+@Html.HiddenFor(c => c.FichaReconversion.Proyecto.IdProyecto)
+@Html.HiddenFor(c => c.FichaReconversion.Sede.IdSede)
+@Html.HiddenFor(c => c.IdEmpresa)
+@Html.HiddenFor(c => c.FichaReconversion.IdNivelEscolaridad)
+
+@if (Model.Accion != "Agregar" && Model.IdEmpresa != null)
+{
+    <tr>
+        <td>
+            <table style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 900px;"
+                align="left">
+                <tr>
+                    <td>
+                        <p class="similLegend">
+                            <b>Horarios de Entrenamiento</b></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.Partial("_HorariosEmpresa", Model)
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+}

@@ -1,0 +1,88 @@
+﻿@model ImportarCuentasVista
+@{
+    ViewBag.Title = "Beneficiarios";
+    ViewBag.SubMenuSelected = "Importar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section Scripts{
+    @Content.Script("SGE.Beneficiario.js", Url)
+}
+<div class="box">
+    <h2>
+        Beneficiarios - Importar Cuentas</h2>
+    @using (Html.BeginForm("ImportarCuentas", "Beneficiarios", FormMethod.Post, new { id = "FormImportar", enctype = "multipart/form-data" }))
+    {
+        <table align="center" style="width: 950px;">
+            <tr>
+                <td>
+                    <fieldset style="width: 925px;">
+                        <legend align="center"><b>Importar Cuentas</b></legend>
+                        <table align="center" style="width: 920px;">
+                            <tr>
+                                <td>
+                                    <input type="file" id="archivo" name="archivo" size="20" onchange="check_extension(this.value,'btnsubir');" />
+                                    <a id="btnsubir" class="btnIngresar" href="#" style="display: none;">Subir</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <br />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <table>
+                                        <tr>
+                                            <td>
+                                                <b style="text-decoration: underline">Importante</b>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                Verifique dejar solo estas columnas del Excel, para que el proceso sea mas performante.
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <ul>
+                                                    <li><b>SUCU_Q66</b></li>
+                                                    <li><b>NDOC_Q66</b></li>
+                                                    <li><b>NUCU_Q66</b></li>
+                                                    <li><b>APEL_Q66</b></li>
+                                                    <li><b>SGAP_Q66</b></li>
+                                                    <li><b>PRNO_Q66</b></li>
+                                                    <li><b>SGNO_Q66</b></li>
+                                                    <li><b>NCBU_Q66</b></li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <br />
+                                    @Html.LabelForModel(Model.Mensaje)
+                                </td>
+                            </tr>
+                        </table>
+                        <br />
+                        <div>
+                            @if (Model.Importado)
+                            {
+                                <a class="btnIngresar" id="btnProcesarCuentas">Procesar</a>
+                            }
+                            @Html.ActionLink("Cancelar", "Index", "Beneficiarios", null, new { Class = "btnIngresar" })</div>
+                        <br />
+                    </fieldset>
+                </td>
+            </tr>
+        </table>
+        @Html.HiddenFor(c => c.Archivo)
+        @Html.HiddenFor(c => c.Proceso)
+    }
+</div>
+<div id="dialog" title="Mensaje">
+    <p>
+        La importación se realizó correctamente.</p>
+</div>

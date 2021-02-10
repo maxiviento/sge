@@ -1,0 +1,682 @@
+﻿*
+{
+    padding-bottom: 0px;
+    margin: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-top: 0px;
+}
+
+BODY
+{
+    line-height: 17px;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #d0d0d0;
+    color: #333;
+    font-size: 12px;
+}
+
+textarea
+{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+}
+
+table
+{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+A
+{
+    color: #004990;
+    text-decoration: none;
+    outline: none;
+}
+
+A:hover
+{
+    color: #111;
+    text-decoration: underline;
+}
+
+#Espace
+{
+    position: relative;
+}
+
+#wrap
+{
+    margin: 0px auto;
+    width: 1000px;
+    background: #fff;
+}
+
+#header
+{
+    width: 100%;
+    background-image: url(../images/VATES_SGE_CABEZAL_20120223.jpg);
+    height: 130px;
+    position: relative;
+    z-index: 10;
+}
+
+#header H1
+{
+    padding-bottom: 0px;
+    padding-left: 20px;
+    padding-right: 0px;
+    letter-spacing: -1px;
+    color: #aaa;
+    font-size: 28px;
+    padding-top: 23px;
+}
+
+#header H1 A
+{
+    letter-spacing: -2px;
+    color: #aaa;
+    font-weight: 100;
+    text-decoration: none;
+}
+
+#header H1 A:hover
+{
+    color: #111;
+}
+
+#header H2
+{
+    padding-bottom: 0px;
+    padding-left: 20px;
+    padding-right: 0px;
+    letter-spacing: -1px;
+    color: #111;
+    font-size: 19px;
+    font-weight: 100;
+    padding-top: 5px;
+}
+
+#content
+{
+    padding-bottom: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+    min-height: 430px;
+    height: auto !important;
+    padding-top: 0px;
+    clear: both;
+}
+
+#menu
+{
+    position: relative;
+    z-index: 10;
+}
+
+.div-home
+{
+}
+
+.div-filtro
+{
+    position: relative;
+    height: 27px;
+}
+
+.div-filtro-btn
+{
+    position: relative;
+    text-align: center;
+    height: 25px;
+    margin: 0 auto;
+    clear: left;
+}
+
+.right
+{
+    text-align: justify;
+    width: auto;
+}
+
+.right H2
+{
+    padding-bottom: 7px;
+    padding-left: 0px;
+    padding-right: 0px;
+    font-size: 18px;
+    font-weight: 100;
+    padding-top: 15px;
+}
+
+.right H2 A
+{
+    color: #004990;
+    text-decoration: none;
+}
+
+.right H2 A:hover
+{
+    color: #111;
+}
+
+.left
+{
+    margin-top: 10px;
+    width: 200px;
+    background: #004990;
+    float: left;
+}
+
+.left H2
+{
+    line-height: 28px;
+    margin: 10px 0px 0px;
+    padding-left: 10px;
+    background: #788bbd;
+    height: 28px;
+    color: #fff;
+    font-size: 13px;
+}
+
+.left UL
+{
+    padding-bottom: 15px;
+    list-style-type: square;
+    padding-left: 20px;
+    padding-right: 0px;
+    color: #788bbd;
+    padding-top: 10px;
+}
+
+.left UL LI A
+{
+    color: #fff;
+    font-size: 13px;
+    font-weight: 100;
+    text-decoration: none;
+}
+
+.left UL LI A.selected
+{
+    font-weight: 600;
+    text-decoration: underline;
+}
+
+.left UL LI A:hover
+{
+    color: #fff;
+    font-weight: 600;
+}
+
+#footer
+{
+    text-align: center;
+    background: #657983;
+    height: 25px;
+    color: #fff;
+    font-size: 11px;
+    padding-top: 10px;
+    padding-left: 80px;
+}
+
+#footer A
+{
+    color: #fff;
+}
+
+/* Box */
+.box
+{
+    border: 2px solid #6787AD;
+    margin: 10px;
+    padding: 0px;
+    width: 932px;
+}
+
+.box h2
+{
+    background: #6787AD;
+    color: white;
+    padding: 7px;
+}
+
+.box h2 p
+{
+    background: #6787AD;
+    color: white;
+    height: 9px;
+}
+
+.box p
+{
+    color: #333;
+    padding: 5px;
+}
+
+a.btnIngresar
+{
+    text-decoration: none;
+    background: #3e83c9;
+    padding: 2px 2px;
+    border: 1px outset #CCC;
+    color: #fff;
+    font-size: 12px;
+    font-family: arial, sans-serif;
+    font-weight: bold;
+    cursor: pointer;
+    padding-top: 1px;
+}
+
+a.btnIngresar:hover
+{
+    background: #bcd4ec;
+    color: #000;
+}
+
+a.btnIngresar:active
+{
+    border: 1px inset #000;
+}
+
+input.btnIngresar
+{
+    text-decoration: none;
+    background: #3e83c9;
+    padding: 2px 2px;
+    border: 1px outset #CCC;
+    color: #fff;
+    font-size: 12px;
+    font-family: arial, sans-serif;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+input.btnIngresar:hover
+{
+    background: #bcd4ec;
+    color: #000;
+}
+
+th
+{
+    background: #3e83c9;
+    color: #fff;
+    font-weight: bold;
+    text-align: left;
+}
+
+.TablaPersonal tr:hover td
+{
+    background: #bcd4ec;
+}
+
+.TablaPersonal th
+{
+    background: #3e83c9;
+    color: #fff;
+    font-weight: bold;
+    text-align: left;
+}
+
+.TablaPersonal td
+{
+    border-bottom: #ccc 1px solid;
+}
+
+legend
+{
+    color: #FF9900;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 12px;
+}
+
+fieldset div
+{
+    text-align: center;
+}
+
+/* Para Logout*/
+#LogOutImage
+{
+    border: 0px;
+    width: 28px;
+    padding-top: 2px;
+    padding-left: 10px;
+    vertical-align: -40%;
+}
+
+#LogOut
+{
+    color: #004990;
+    font-size: 14px;
+    font-weight: 100;
+    padding-top: -10px;
+    font-weight: 600;
+    min-width: 145px;
+}
+
+#out
+{
+    float: right;
+    position: absolute;
+    left: 915px;
+    top: 105px;
+    height: 30px;
+    margin: 2px 0px 0px 0px;
+    min-width: 242px;
+    padding-right: 10px;
+}
+
+table #btnfin
+{
+    padding-bottom: 0px;
+    padding-left: 2px;
+    padding-right: 5px;
+    height: 20px;
+    padding-top: 15px;
+    width: 722px;
+}
+
+#pager
+{
+    padding: 8px 5px 5px 5px;
+}
+
+.pager
+{
+    width: 695px;
+    height: 30px;
+    padding: 0;
+    margin: 0;
+    padding-top: 10px;
+    padding-left: 10px; /*border-radius: 8px; 	-moz-border-radius: 8px;*/
+}
+
+.pager div.short
+{
+    float: right;
+    margin: 0;
+    padding: 0;
+    margin-right: 10px;
+    width: 74px;
+}
+
+.pager div.short input
+{
+    width: 28px;
+    height: 18px;
+    border: none;
+    margin-left: 8px;
+    float: left;
+}
+
+.pager ul
+{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    float: left;
+    margin-right: 4px;
+}
+
+.pager ul li
+{
+    display: inline;
+    margin-left: 2px;
+}
+
+.pager ul li a
+{
+    text-decoration: none;
+    display: inline-table;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+}
+
+.pager span
+{
+    margin-left: 4px;
+    color: White;
+    float: left;
+}
+
+.pager .btn
+{
+    display: block;
+    width: 40px;
+    text-align: center;
+    float: left;
+    padding: 0;
+    margin: 0;
+    margin-left: 4px;
+    cursor: pointer;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
+
+.pager .disabled
+{
+    color: #A0A0A0 !important;
+    text-shadow: 1px 1px 1px #FFFFFF;
+}
+
+/*green*/
+.green
+{
+    background-color: #3E83C9;
+}
+
+.green.normal
+{
+    background-color: #3E83C9;
+    color: White;
+    border: solid 1px #F7F7FF;
+}
+
+.green.active
+{
+    background-color: #4FA9FF;
+    color: White;
+    border: solid 1px #4FA9FF;
+}
+
+.pager.green .btn
+{
+    background-color: #3E83C9;
+    color: White;
+    border: solid 1px #3E83C9;
+}
+
+#grilla
+{
+    table-layout: fixed;
+}
+
+#grilla td
+{
+    border-bottom: #ccc 1px solid;
+    padding-right: 3px;
+    overflow: hidden;
+}
+
+#grilla tr:hover
+{
+    background: #bcd4ec;
+}
+
+#tabs
+{
+    background: #bcd4ec;
+    width: 700px;
+}
+
+.Lupa
+{
+    background: url(../images/lupa.gif) no-repeat center left;
+    display: inline-block;
+    text-indent: -999999px; /* hides the link text */
+    width: 20px;
+    cursor: pointer;
+}
+
+.Reporte
+{
+    background: url(../images/icon_reporte.gif) no-repeat center left;
+    display: inline-block;
+    text-indent: -999999px; /* hides the link text */
+    width: 20px;
+    cursor: pointer;
+}
+
+.Agregar
+{
+    background: url(../images/nuevo.gif) no-repeat top left;
+    display: inline-block;
+    text-indent: -999999px; /* hides the link text */
+    width: 20px;
+    cursor: pointer;
+}
+
+.Modificar
+{
+    background: url(../images/modificar.gif) no-repeat top left;
+    display: inline-block;
+    text-indent: -999999px; /* hides the link text */
+    width: 20px;
+}
+
+.Eliminar
+{
+    background: url(../images/eliminar.gif) no-repeat top left;
+    display: inline-block;
+    text-indent: -999999px; /* hides the link text */
+    width: 20px;
+    cursor: pointer;
+}
+
+.Check
+{
+    background: url(../images/chk.ico) no-repeat top left;
+    display: inline-block;
+    text-indent: -999999px; /* hides the link text */
+    width: 20px;
+}
+
+.Guardar
+{
+    background: url(../images/guardar.ico) no-repeat top left;
+    display: inline-block;
+    text-indent: -999999px; /* hides the link text */
+    width: 20px;
+}
+
+.EstadoAprobada
+{
+    background: url(../images/aprobada.gif) no-repeat top left;
+    display: inline-block;
+    text-indent: -999999px; /* hides the link text */
+    width: 20px;
+}
+
+.EstadoRechazada
+{
+    background: url(../images/rechazada.gif) no-repeat top left;
+    display: inline-block;
+    text-indent: -999999px; /* hides the link text */
+    width: 20px;
+}
+
+.EstadoPendiente
+{
+    background: url(../images/pendiente.gif) no-repeat top left;
+    display: inline-block;
+    text-indent: -999999px; /* hides the link text */
+    width: 20px;
+}
+
+.EstadoGenerico
+{
+    background: url(../images/icon_aplicacion.gif) no-repeat top left;
+    display: inline-block;
+    text-indent: -999999px; /* hides the link text */
+    width: 20px;
+}
+
+.Descarga
+{
+    background: url(../images/icon_documento.gif) no-repeat top left;
+    display: inline-block;
+    text-indent: -999999px; /* hides the link text */
+    width: 20px;
+}
+
+.Seleccionado
+{
+    background: url(../images/icon_derecha.gif) no-repeat top left;
+    display: inline-block;
+    text-indent: -999999px; /* hides the link text */
+    width: 20px;
+}
+
+.similLegend
+{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    text-align: center;
+    color: #FF9900 !important;
+}
+
+#MensajeSuccess
+{
+    margin-top: 10px;
+    font-weight: bold;
+    color: #6787AD;
+}
+
+/*#MensajeError
+{
+    margin-top: 10px;
+    font-weight: bold;
+    color: Red;
+}*/
+
+.CortarPalabras
+{
+    white-space: pre; /* CSS 2.0 */
+    white-space: pre-wrap; /* CSS 2.1 */
+    white-space: pre-line; /* CSS 3.0 */
+    white-space: -pre-wrap; /* Opera 4-6 */
+    white-space: -o-pre-wrap; /* Opera 7 */
+    white-space: -moz-pre-wrap; /* Mozilla */
+    white-space: -hp-pre-wrap; /* HP Printers */
+    word-wrap: break-word; /* IE 5+ */
+}
+
+#Panel
+{
+    overflow: auto;
+    width: 925px;
+    height: 300px;
+    margin-bottom: 10px;
+}
+
+.Accion
+{
+    margin-bottom: 2px;
+}
+
+
+/* 12/04/2013 - QUITA LA X A LA BARRA DE TITULO*/
+.no-close .ui-dialog-titlebar-close {display: none }

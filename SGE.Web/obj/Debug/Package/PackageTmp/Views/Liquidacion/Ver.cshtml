@@ -1,0 +1,86 @@
+﻿@model LiquidacionVista
+@{
+    ViewBag.Title = "Ver";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    
+}
+<div class="box">
+    <h2>
+        Cambiar Monto Liquidación</h2>
+    <table align="center" style="width: 700px;">
+        <tr>
+            <td style="font-weight: bold">
+                <div id="titulo">
+                </div>
+                @using (Html.BeginForm("Cambiar_Monto", "Liquidacion", FormMethod.Post, new { Id = "FormularioLiquidacion" }))
+                { 
+                    @Html.ValidationSummary(true)
+                    <br />
+                    <table align="center" id="mytable" style="font-family: Arial, Helvetica, sans-serif;
+                        font-size: 12px; width: 700px;">
+                        <tr>
+                            <td>
+                                <fieldset style="width: 700px;">
+                                    <legend><b>Datos de la Liquidación</b></legend>
+                                    <table align="center" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px;
+                                        width: 700px;">
+                                        <tr>
+                                            <td align="left">
+                                                <b>Apellido: </b>
+                                            </td>
+                                            <td align="left" valign="middle">
+                                                @Html.TextBoxFor(c => c.Apellido, new { style = "width:400px;", MaxLength = "64", disabled = "disabled" })
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align="left">
+                                                <b>Nombre: </b>
+                                            </td>
+                                            <td align="left" valign="middle">
+                                                @Html.TextBoxFor(c => c.Nombre, new { style = "width:400px;", MaxLength = "64", disabled = "disabled" })
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align="left">
+                                                <b>Nro. Doc.: </b>
+                                            </td>
+                                            <td align="left" valign="middle">
+                                                @Html.TextBoxFor(c => c.Numero_Documento, new { style = "width:100px;", MaxLength = "64", disabled = "disabled" })
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align="left">
+                                                <b>CBU: </b>
+                                            </td>
+                                            <td align="left" valign="middle">
+                                                @Html.TextBoxFor(c => c.Cbu, new { style = "width:150px;", MaxLength = "64", disabled = "disabled" })
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align="left">
+                                                <b>Monto: </b>
+                                            </td>
+                                            <td align="left" valign="middle">
+                                                <b>$</b>@Html.TextBoxFor(c => c.Importe, new { style = "width:90px;", MaxLength = "8" })
+                                                @Html.ValidationMessageFor(c => c.Importe, "*")
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </fieldset>
+                            </td>
+                        </tr>
+                    </table>
+                    @Html.HiddenFor(c => c.Id_Liquidacion)
+                    <table id="btnfin" align="left" width="700px">
+                        <tr>
+                            <td align="left" valign="middle">
+                                <input type="submit" value="Guardar" class="btnIngresar" />&nbsp;&nbsp;
+                                @Html.ActionLink("Cancelar", "Exportar", "Liquidacion", null, new { Class = "btnIngresar" })
+                            </td>
+                        </tr>
+                    </table>      
+                }
+            </td>
+        </tr>
+    </table>
+</div>

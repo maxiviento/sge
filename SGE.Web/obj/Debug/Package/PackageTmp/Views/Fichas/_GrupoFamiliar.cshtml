@@ -1,0 +1,55 @@
+﻿@model FichaVista
+
+@if (Model.familiares != null && Model.familiares.Count > 0)
+{ 
+    <div style="text-align:center;">
+        <table id="grilla" align="center" width="900px" cellpadding="0" cellspacing="0">
+            <thead>
+                <tr>
+                    <th height="80px" width="120px">
+                        <div align="center">Nro Documento</div>
+                    </th>
+                    <th height="200px" width="120px">
+                        <div align="center">Apellido</div>
+                    </th>
+                    <th width="250px">
+                        <div align="center">Nombres</div>
+                    </th>
+                    <th width="100px">
+                        <div align="center">Vinculo</div>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.familiares)
+                {
+                    <tr>
+                        <td style="height: 28px; text-align: center;">
+                         @item.DNI
+                        </td>
+                        <td style="text-align: center;">
+                            @item.APELLIDO
+                        </td>
+                        <td style="text-align: center;">
+                            @item.NOMBRE
+                        </td>
+                        <td style="text-align: center;">
+                            @item.N_VINCULO
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
+else
+{
+    <table align="center" width="930px" cellpadding="0" cellspacing="0">
+        <tr>
+            <td width="930px">
+                @Html.Partial("_SinDatos", "Fichas")
+            </td>
+        </tr>
+    </table>
+}
+

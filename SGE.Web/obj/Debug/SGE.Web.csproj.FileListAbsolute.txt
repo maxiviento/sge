@@ -1,0 +1,142 @@
+D:\SGE\trunk\06-Implementacion\Src\SGE.Web\bin\SGE.Web.dll
+D:\SGE\trunk\06-Implementacion\Src\SGE.Web\bin\SGE.Web.pdb
+D:\SGE\trunk\06-Implementacion\Src\SGE.Web\bin\EntityFramework.dll
+D:\SGE\trunk\06-Implementacion\Src\SGE.Web\bin\itextsharp.dll
+D:\SGE\trunk\06-Implementacion\Src\SGE.Web\bin\McjDevelopment.Mvc3ValidationGroups.dll
+D:\SGE\trunk\06-Implementacion\Src\SGE.Web\bin\SGE.Model.dll
+D:\SGE\trunk\06-Implementacion\Src\SGE.Web\bin\SGE.Servicio.dll
+D:\SGE\trunk\06-Implementacion\Src\SGE.Web\bin\SGE.Repositorio.dll
+D:\SGE\trunk\06-Implementacion\Src\SGE.Web\bin\EfficientlyLazy.Crypto.dll
+D:\SGE\trunk\06-Implementacion\Src\SGE.Web\bin\NPOI.dll
+D:\SGE\trunk\06-Implementacion\Src\SGE.Web\bin\Excel.dll
+D:\SGE\trunk\06-Implementacion\Src\SGE.Web\bin\ICSharpCode.SharpZipLib.dll
+D:\SGE\trunk\06-Implementacion\Src\SGE.Web\bin\SGE.Model.pdb
+D:\SGE\trunk\06-Implementacion\Src\SGE.Web\bin\SGE.Servicio.pdb
+D:\SGE\trunk\06-Implementacion\Src\SGE.Web\bin\EntityFramework.xml
+D:\SGE\trunk\06-Implementacion\Src\SGE.Web\bin\SGE.Repositorio.pdb
+D:\SGE\trunk\06-Implementacion\Src\SGE.Web\bin\EfficientlyLazy.Crypto.xml
+D:\SGE\trunk\06-Implementacion\Src\SGE.Web\obj\Debug\ResolveAssemblyReference.cache
+D:\SGE\trunk\06-Implementacion\Src\SGE.Web\obj\Debug\SGE.Web.dll
+D:\SGE\trunk\06-Implementacion\Src\SGE.Web\obj\Debug\SGE.Web.pdb
+E:\Proyecto\SGE_Codigo_Fuente\Src\SGE.Web\bin\SGE.Web.dll
+E:\Proyecto\SGE_Codigo_Fuente\Src\SGE.Web\bin\SGE.Web.pdb
+E:\Proyecto\SGE_Codigo_Fuente\Src\SGE.Web\bin\EntityFramework.dll
+E:\Proyecto\SGE_Codigo_Fuente\Src\SGE.Web\bin\itextsharp.dll
+E:\Proyecto\SGE_Codigo_Fuente\Src\SGE.Web\bin\McjDevelopment.Mvc3ValidationGroups.dll
+E:\Proyecto\SGE_Codigo_Fuente\Src\SGE.Web\bin\SGE.Model.dll
+E:\Proyecto\SGE_Codigo_Fuente\Src\SGE.Web\bin\SGE.Servicio.dll
+E:\Proyecto\SGE_Codigo_Fuente\Src\SGE.Web\bin\SGE.Repositorio.dll
+E:\Proyecto\SGE_Codigo_Fuente\Src\SGE.Web\bin\EfficientlyLazy.Crypto.dll
+E:\Proyecto\SGE_Codigo_Fuente\Src\SGE.Web\bin\NPOI.dll
+E:\Proyecto\SGE_Codigo_Fuente\Src\SGE.Web\bin\Excel.dll
+E:\Proyecto\SGE_Codigo_Fuente\Src\SGE.Web\bin\ICSharpCode.SharpZipLib.dll
+E:\Proyecto\SGE_Codigo_Fuente\Src\SGE.Web\bin\SGE.Model.pdb
+E:\Proyecto\SGE_Codigo_Fuente\Src\SGE.Web\bin\SGE.Servicio.pdb
+E:\Proyecto\SGE_Codigo_Fuente\Src\SGE.Web\bin\EntityFramework.xml
+E:\Proyecto\SGE_Codigo_Fuente\Src\SGE.Web\bin\SGE.Repositorio.pdb
+E:\Proyecto\SGE_Codigo_Fuente\Src\SGE.Web\bin\EfficientlyLazy.Crypto.xml
+E:\Proyecto\SGE_Codigo_Fuente\Src\SGE.Web\obj\Debug\ResolveAssemblyReference.cache
+E:\Proyecto\SGE_Codigo_Fuente\Src\SGE.Web\obj\Debug\SGE.Web.dll
+E:\Proyecto\SGE_Codigo_Fuente\Src\SGE.Web\obj\Debug\SGE.Web.pdb
+D:\Oracle - SGE\Soft\SGE_Codigo_Fuente\Src\SGE.Web\bin\SGE.Web.dll
+D:\Oracle - SGE\Soft\SGE_Codigo_Fuente\Src\SGE.Web\bin\SGE.Web.pdb
+D:\Oracle - SGE\Soft\SGE_Codigo_Fuente\Src\SGE.Web\bin\EntityFramework.dll
+D:\Oracle - SGE\Soft\SGE_Codigo_Fuente\Src\SGE.Web\bin\itextsharp.dll
+D:\Oracle - SGE\Soft\SGE_Codigo_Fuente\Src\SGE.Web\bin\McjDevelopment.Mvc3ValidationGroups.dll
+D:\Oracle - SGE\Soft\SGE_Codigo_Fuente\Src\SGE.Web\bin\SGE.Model.dll
+D:\Oracle - SGE\Soft\SGE_Codigo_Fuente\Src\SGE.Web\bin\SGE.Servicio.dll
+D:\Oracle - SGE\Soft\SGE_Codigo_Fuente\Src\SGE.Web\bin\SGE.Repositorio.dll
+D:\Oracle - SGE\Soft\SGE_Codigo_Fuente\Src\SGE.Web\bin\EfficientlyLazy.Crypto.dll
+D:\Oracle - SGE\Soft\SGE_Codigo_Fuente\Src\SGE.Web\bin\NPOI.dll
+D:\Oracle - SGE\Soft\SGE_Codigo_Fuente\Src\SGE.Web\bin\Excel.dll
+D:\Oracle - SGE\Soft\SGE_Codigo_Fuente\Src\SGE.Web\bin\ICSharpCode.SharpZipLib.dll
+D:\Oracle - SGE\Soft\SGE_Codigo_Fuente\Src\SGE.Web\bin\SGE.Model.pdb
+D:\Oracle - SGE\Soft\SGE_Codigo_Fuente\Src\SGE.Web\bin\SGE.Servicio.pdb
+D:\Oracle - SGE\Soft\SGE_Codigo_Fuente\Src\SGE.Web\bin\EntityFramework.xml
+D:\Oracle - SGE\Soft\SGE_Codigo_Fuente\Src\SGE.Web\bin\SGE.Repositorio.pdb
+D:\Oracle - SGE\Soft\SGE_Codigo_Fuente\Src\SGE.Web\bin\EfficientlyLazy.Crypto.xml
+D:\Oracle - SGE\Soft\SGE_Codigo_Fuente\Src\SGE.Web\obj\Debug\ResolveAssemblyReference.cache
+D:\Oracle - SGE\Soft\SGE_Codigo_Fuente\Src\SGE.Web\obj\Debug\SGE.Web.dll
+D:\Oracle - SGE\Soft\SGE_Codigo_Fuente\Src\SGE.Web\obj\Debug\SGE.Web.pdb
+D:\Oracle - SGE\SGE_Codigo_Fuente\Src\SGE.Web\bin\SGE.Web.dll
+D:\Oracle - SGE\SGE_Codigo_Fuente\Src\SGE.Web\bin\SGE.Web.pdb
+D:\Oracle - SGE\SGE_Codigo_Fuente\Src\SGE.Web\bin\EntityFramework.dll
+D:\Oracle - SGE\SGE_Codigo_Fuente\Src\SGE.Web\bin\itextsharp.dll
+D:\Oracle - SGE\SGE_Codigo_Fuente\Src\SGE.Web\bin\McjDevelopment.Mvc3ValidationGroups.dll
+D:\Oracle - SGE\SGE_Codigo_Fuente\Src\SGE.Web\bin\SGE.Model.dll
+D:\Oracle - SGE\SGE_Codigo_Fuente\Src\SGE.Web\bin\SGE.Servicio.dll
+D:\Oracle - SGE\SGE_Codigo_Fuente\Src\SGE.Web\bin\SGE.Repositorio.dll
+D:\Oracle - SGE\SGE_Codigo_Fuente\Src\SGE.Web\bin\NPOI.dll
+D:\Oracle - SGE\SGE_Codigo_Fuente\Src\SGE.Web\bin\Excel.dll
+D:\Oracle - SGE\SGE_Codigo_Fuente\Src\SGE.Web\bin\EfficientlyLazy.Crypto.dll
+D:\Oracle - SGE\SGE_Codigo_Fuente\Src\SGE.Web\bin\ICSharpCode.SharpZipLib.dll
+D:\Oracle - SGE\SGE_Codigo_Fuente\Src\SGE.Web\bin\SGE.Model.pdb
+D:\Oracle - SGE\SGE_Codigo_Fuente\Src\SGE.Web\bin\SGE.Servicio.pdb
+D:\Oracle - SGE\SGE_Codigo_Fuente\Src\SGE.Web\bin\EntityFramework.xml
+D:\Oracle - SGE\SGE_Codigo_Fuente\Src\SGE.Web\bin\SGE.Repositorio.pdb
+D:\Oracle - SGE\SGE_Codigo_Fuente\Src\SGE.Web\bin\EfficientlyLazy.Crypto.xml
+D:\Oracle - SGE\SGE_Codigo_Fuente\Src\SGE.Web\obj\Debug\ResolveAssemblyReference.cache
+D:\Oracle - SGE\SGE_Codigo_Fuente\Src\SGE.Web\obj\Debug\RdlCompile.cache
+D:\Oracle - SGE\SGE_Codigo_Fuente\Src\SGE.Web\obj\Debug\RdlCompile.compiled
+D:\Oracle - SGE\SGE_Codigo_Fuente\Src\SGE.Web\obj\Debug\SGE.Web.dll
+D:\Oracle - SGE\SGE_Codigo_Fuente\Src\SGE.Web\obj\Debug\SGE.Web.pdb
+D:\SGE\trunk\SGE_Codigo_Fuente\Src\SGE.Web\bin\SGE.Web.dll
+D:\SGE\trunk\SGE_Codigo_Fuente\Src\SGE.Web\bin\SGE.Web.pdb
+D:\SGE\trunk\SGE_Codigo_Fuente\Src\SGE.Web\bin\itextsharp.dll
+D:\SGE\trunk\SGE_Codigo_Fuente\Src\SGE.Web\bin\McjDevelopment.Mvc3ValidationGroups.dll
+D:\SGE\trunk\SGE_Codigo_Fuente\Src\SGE.Web\bin\SGE.Model.dll
+D:\SGE\trunk\SGE_Codigo_Fuente\Src\SGE.Web\bin\SGE.Servicio.dll
+D:\SGE\trunk\SGE_Codigo_Fuente\Src\SGE.Web\bin\SGE.Repositorio.dll
+D:\SGE\trunk\SGE_Codigo_Fuente\Src\SGE.Web\bin\Excel.dll
+D:\SGE\trunk\SGE_Codigo_Fuente\Src\SGE.Web\bin\NPOI.dll
+D:\SGE\trunk\SGE_Codigo_Fuente\Src\SGE.Web\bin\EfficientlyLazy.Crypto.dll
+D:\SGE\trunk\SGE_Codigo_Fuente\Src\SGE.Web\bin\ICSharpCode.SharpZipLib.dll
+D:\SGE\trunk\SGE_Codigo_Fuente\Src\SGE.Web\bin\SGE.Model.pdb
+D:\SGE\trunk\SGE_Codigo_Fuente\Src\SGE.Web\bin\SGE.Servicio.pdb
+D:\SGE\trunk\SGE_Codigo_Fuente\Src\SGE.Web\bin\SGE.Repositorio.pdb
+D:\SGE\trunk\SGE_Codigo_Fuente\Src\SGE.Web\obj\Debug\ResolveAssemblyReference.cache
+D:\SGE\trunk\SGE_Codigo_Fuente\Src\SGE.Web\obj\Debug\RdlCompile.cache
+D:\SGE\trunk\SGE_Codigo_Fuente\Src\SGE.Web\obj\Debug\RdlCompile.compiled
+D:\SGE\trunk\SGE_Codigo_Fuente\Src\SGE.Web\obj\Debug\SGE.Web.dll
+D:\SGE\trunk\SGE_Codigo_Fuente\Src\SGE.Web\obj\Debug\SGE.Web.pdb
+Z:\AgenciaEmpleos\SGE\trunk\SGE_Codigo_Fuente\Src\SGE.Web\bin\SGE.Web.dll
+Z:\AgenciaEmpleos\SGE\trunk\SGE_Codigo_Fuente\Src\SGE.Web\bin\SGE.Web.pdb
+Z:\AgenciaEmpleos\SGE\trunk\SGE_Codigo_Fuente\Src\SGE.Web\bin\itextsharp.dll
+Z:\AgenciaEmpleos\SGE\trunk\SGE_Codigo_Fuente\Src\SGE.Web\bin\McjDevelopment.Mvc3ValidationGroups.dll
+Z:\AgenciaEmpleos\SGE\trunk\SGE_Codigo_Fuente\Src\SGE.Web\bin\SGE.Model.dll
+Z:\AgenciaEmpleos\SGE\trunk\SGE_Codigo_Fuente\Src\SGE.Web\bin\SGE.Servicio.dll
+Z:\AgenciaEmpleos\SGE\trunk\SGE_Codigo_Fuente\Src\SGE.Web\bin\SGE.Repositorio.dll
+Z:\AgenciaEmpleos\SGE\trunk\SGE_Codigo_Fuente\Src\SGE.Web\bin\Excel.dll
+Z:\AgenciaEmpleos\SGE\trunk\SGE_Codigo_Fuente\Src\SGE.Web\bin\NPOI.dll
+Z:\AgenciaEmpleos\SGE\trunk\SGE_Codigo_Fuente\Src\SGE.Web\bin\EfficientlyLazy.Crypto.dll
+Z:\AgenciaEmpleos\SGE\trunk\SGE_Codigo_Fuente\Src\SGE.Web\bin\ICSharpCode.SharpZipLib.dll
+Z:\AgenciaEmpleos\SGE\trunk\SGE_Codigo_Fuente\Src\SGE.Web\bin\SGE.Model.pdb
+Z:\AgenciaEmpleos\SGE\trunk\SGE_Codigo_Fuente\Src\SGE.Web\bin\SGE.Servicio.pdb
+Z:\AgenciaEmpleos\SGE\trunk\SGE_Codigo_Fuente\Src\SGE.Web\bin\SGE.Repositorio.pdb
+Z:\AgenciaEmpleos\SGE\trunk\SGE_Codigo_Fuente\Src\SGE.Web\obj\Debug\ResolveAssemblyReference.cache
+Z:\AgenciaEmpleos\SGE\trunk\SGE_Codigo_Fuente\Src\SGE.Web\obj\Debug\RdlCompile.cache
+Z:\AgenciaEmpleos\SGE\trunk\SGE_Codigo_Fuente\Src\SGE.Web\obj\Debug\RdlCompile.compiled
+Z:\AgenciaEmpleos\SGE\trunk\SGE_Codigo_Fuente\Src\SGE.Web\obj\Debug\SGE.Web.dll
+Z:\AgenciaEmpleos\SGE\trunk\SGE_Codigo_Fuente\Src\SGE.Web\obj\Debug\SGE.Web.pdb
+E:\SGE\trunk\SGE_Codigo_Fuente\Src\SGE.Web\obj\Debug\ResolveAssemblyReference.cache
+E:\SGE\trunk\SGE_Codigo_Fuente\Src\SGE.Web\obj\Debug\RdlCompile.cache
+E:\SGE\trunk\SGE_Codigo_Fuente\Src\SGE.Web\obj\Debug\RdlCompile.compiled
+E:\SGE\trunk\SGE_Codigo_Fuente\Src\SGE.Web\bin\SGE.Web.dll
+E:\SGE\trunk\SGE_Codigo_Fuente\Src\SGE.Web\bin\SGE.Web.pdb
+E:\SGE\trunk\SGE_Codigo_Fuente\Src\SGE.Web\bin\EntityFramework.dll
+E:\SGE\trunk\SGE_Codigo_Fuente\Src\SGE.Web\bin\itextsharp.dll
+E:\SGE\trunk\SGE_Codigo_Fuente\Src\SGE.Web\bin\McjDevelopment.Mvc3ValidationGroups.dll
+E:\SGE\trunk\SGE_Codigo_Fuente\Src\SGE.Web\bin\Oracle.DataAccess.dll
+E:\SGE\trunk\SGE_Codigo_Fuente\Src\SGE.Web\bin\SGE.Model.dll
+E:\SGE\trunk\SGE_Codigo_Fuente\Src\SGE.Web\bin\SGE.Servicio.dll
+E:\SGE\trunk\SGE_Codigo_Fuente\Src\SGE.Web\bin\SGE.Repositorio.dll
+E:\SGE\trunk\SGE_Codigo_Fuente\Src\SGE.Web\bin\Excel.dll
+E:\SGE\trunk\SGE_Codigo_Fuente\Src\SGE.Web\bin\NPOI.dll
+E:\SGE\trunk\SGE_Codigo_Fuente\Src\SGE.Web\bin\EfficientlyLazy.Crypto.dll
+E:\SGE\trunk\SGE_Codigo_Fuente\Src\SGE.Web\bin\ICSharpCode.SharpZipLib.dll
+E:\SGE\trunk\SGE_Codigo_Fuente\Src\SGE.Web\bin\SGE.Model.pdb
+E:\SGE\trunk\SGE_Codigo_Fuente\Src\SGE.Web\bin\SGE.Servicio.pdb
+E:\SGE\trunk\SGE_Codigo_Fuente\Src\SGE.Web\bin\EntityFramework.xml
+E:\SGE\trunk\SGE_Codigo_Fuente\Src\SGE.Web\bin\SGE.Repositorio.pdb
+E:\SGE\trunk\SGE_Codigo_Fuente\Src\SGE.Web\obj\Debug\SGE.Web.dll
+E:\SGE\trunk\SGE_Codigo_Fuente\Src\SGE.Web\obj\Debug\SGE.Web.pdb

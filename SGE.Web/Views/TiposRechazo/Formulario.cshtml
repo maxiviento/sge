@@ -1,0 +1,101 @@
+﻿@model TipoRechazoVista
+@{
+    ViewBag.Title = "Tipo de Rechazo";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section Scripts{
+    @Content.Script("SGE.TiposRechazo.js", Url)
+}
+<div class="box">
+    <h2>
+        Tipo de Rechazo</h2>
+    @using (Html.BeginForm("ModificarTipoRechazo", "TiposRechazo", FormMethod.Post, new { Id = "FormularioTipoRechazo" }))
+    {
+        <table align="center" style="width: 930px;">
+            <tr>
+                <td>
+                    <fieldset style="width: 925px;">
+                        <legend align="center"><b>@Model.Accion</b></legend>
+                        <table align="left" style="width: 920px;">
+                            <tr>
+                                <td align="right" valign="top">
+                                    <b>ID: </b>
+                                </td>
+                                <td align="left" valign="middle">
+                                    @if (Model.Accion == "Ver" || Model.Accion == "Eliminar")
+                                    {
+                                        @Html.TextBoxFor(model => model.Id, new { disabled = "disabled", style = "width:100px;" })
+                                    }
+                                    else
+                                    {
+                                        @Html.TextBoxFor(model => model.Id, new { style = "width:100px;", MaxLength = "10" })
+                                    }
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right" valign="top">
+                                    <b>Descripción: </b>
+                                </td>
+                                <td align="left" valign="middle">
+                                    @if (Model.Accion == "Ver" || Model.Accion == "Eliminar")
+                                    {
+                                        @Html.TextAreaFor(model => model.Descripcion, new { disabled = "disabled", style = "width:500px;" })
+                                    }
+                                    else
+                                    {
+                                        @Html.TextBoxFor(model => model.Descripcion, new { style = "width:500px;", MaxLength = "250" })
+                                    }
+                                </td>
+                            </tr>
+                        </table>
+                        @Html.ValidationSummary(false)
+                    </fieldset>
+                </td>
+            </tr>
+        </table>
+        @Html.HiddenFor(model => model.Id)
+        @Html.HiddenFor(model => model.IdOld)
+        @Html.HiddenFor(model => model.Accion)
+        @Html.HiddenFor(model => model.Descripcion)
+        <table id="btnfin" width="100%">
+            <tr>
+                <td align="center" valign="middle">
+                    @switch (Model.Accion)
+                    {
+                        case "Ver":
+                            break;
+                        case "Agregar":
+                        <a class="btnIngresar" href="#" id="Agregar">Guardar</a>
+                            break;
+                        case "Modificar":
+                        <a class="btnIngresar" href="#" id="Modificar">Guardar</a>
+                            break;
+                        case "Eliminar":
+                        <a id="Eliminar" class="btnIngresar" href="#">Eliminar</a>
+                            break;
+                        default:
+                            break;
+                    }
+                    &nbsp;&nbsp;@Html.ActionLink("Cancelar", "Index", "TiposRechazo", null, new { Class = "btnIngresar" })
+                </td>
+            </tr>
+        </table>
+        <table>
+            <tr>
+                <td>
+                    <div id="MensajeError">
+                        @TempData["MensajeError"]
+                    </div>
+                </td>
+            </tr>
+        </table>
+    }
+</div>
+<div id="dialogConfirmarEliminar" title="Mensaje">
+    <p>
+        ¿Está seguro que desea eliminar este registro?</p>
+</div>
+<div id="dialog" title="Mensaje">
+    <p>
+        Este Tipo de Rechazo no se puede eliminar porque está en uso.</p>
+</div>

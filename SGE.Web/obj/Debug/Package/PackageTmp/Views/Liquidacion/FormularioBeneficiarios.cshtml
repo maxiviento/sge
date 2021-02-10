@@ -1,0 +1,174 @@
+﻿@model LiquidacionVista
+@{
+    ViewBag.Title = "Liquidación";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    TempData["ListaBeneficiarios"] = Model.ListaBeneficiario;
+    TempData["ListaConceptos"] = Model.Conceptos;
+    TempData["Vista"] = Model;
+}
+@section Scripts{
+    @Content.Script("SGE.Liquidacion.js", Url)
+}
+<div class="box">
+    <h2>
+        Liquidación</h2>
+    @using (Html.BeginForm("GuardaLiquidacion", "Liquidacion", FormMethod.Post, new { Id = "FormularioLiquidacion" }))
+    { 
+        <table align="center" style="width: 950px;">
+            <tr>
+                <td>
+                    <fieldset style="width: 925px;">
+                        <legend align="center"><b>Datos particulares de la Liquidación</b></legend>
+                        <table align="left" style="width: 500px;">
+                            <tr>
+                                <td align="right">
+                                    <b>Programa: </b>
+                                </td>
+                                <td align="left">
+                                    @Html.EditorFor(c => c.Programas)
+                                </td>
+                                <td align="right">
+                                    <b>Periodo: </b>
+                                </td>
+                                <td align="left">
+                                    @Html.EditorFor(c => c.Conceptos)
+                                </td>
+                                <td align="right">
+                                    <b>Convenios: </b>
+                                </td>
+                                <td align="left">
+                                    @Html.EditorFor(c => c.Convenios)
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right">
+                                    <b>Resolución: </b>
+                                </td>
+                                <td align="left">
+                                    @if (Model.Accion != "Modificar")
+                                    {
+                                        @Html.TextBoxFor(c => c.NroResolucion, new { disabled = "disabled", MaxLength = "10" })
+                                    }
+                                    else
+                                    { 
+                                        @Html.TextBoxFor(c => c.NroResolucion, new { MaxLength = "10" })
+                                    }
+                                </td>
+                                <td align="right">
+                                    <b>Fecha de Pago: </b>
+                                </td>
+                                <td align="left">
+                                    @if (Model.Accion != "Modificar")
+                                    {
+                                        @Html.TextBoxFor(c => c.FechaLiquidacion, new { disabled = "disabled", style = "width:71px; text-align: right;" })
+                                    }
+                                    else
+                                    { 
+                                        @Html.EditorFor(c => c.FechaLiquidacion)
+                                    }
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right" valign="top">
+                                    <b>Observación: </b>
+                                </td>
+                                <td colspan="3" align="left">
+                                    @if (Model.Accion != "Modificar")
+                                    {
+                                        @Html.TextAreaFor(c => c.Observacion, new { disabled = "disabled", style = "width:700px; height: 50px;", MaxLength = "1000" })
+                                    }
+                                    else
+                                    { 
+                                        @Html.TextAreaFor(c => c.Observacion, new { style = "width:700px; height: 50px;", MaxLength = "1000" })
+                                    }
+                                </td>
+                            </tr>
+                        </table>
+                    </fieldset>
+                    @if (Model.Accion == "CambiarEstado")
+                    {
+                        <fieldset style="width: 925px;">
+                            <legend align="center"><b>Estados posibles de Liquidación</b></legend>
+                            <table align="center">
+                                <tr>
+                                    <td>
+                                        <b>Estados: </b>:
+                                    </td>
+                                    <td>
+                                        @Html.EditorFor(c => c.EstadosLiquidacion)
+                                    </td>
+                                </tr>
+                            </table>
+                            <br />
+                        </fieldset>
+                    }
+                    <fieldset style="width: 925px;">
+                        <legend align="center"><b>Nómina de Beneficiarios</b></legend>
+                        <table align="center">
+                            <tr>
+                                <td>
+                                    <fieldset style="width: 450px;">
+                                        <legend align="center"><b>Búsqueda de Beneficiario</b></legend>
+                                        <table align="left" style="width: 450px;">
+                                            <tr>
+                                                <td align="right">
+                                                    <b>Nro. Doc.: </b>
+                                                </td>
+                                                <td align="left">
+                                                    @Html.TextBoxFor(c => c.NumeroDocumento)
+                                                </td>
+                                                <td align="left">
+                                                    <a id="btnBuscarBeneficiario" class="btnIngresar" href="#">Buscar</a>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </fieldset>
+                                </td>
+                            </tr>
+                        </table>
+                        <br />
+                        @Html.Partial("_ListaBeneficiarios", Model)
+                    </fieldset>
+                </td>
+            </tr>
+        </table>
+
+        @Html.ValidationSummary(false)
+        @Html.HiddenFor(c => c.IdLiquidacion)
+        @Html.HiddenFor(c => c.Accion)
+        <table id="btnfin" align="center" width="100%">
+            <tr>
+                <td align="center" valign="middle">
+                    @if (Model.GenerarFile == "N")
+                    {
+                        if (Model.Accion != "CambiarEstado")
+                        {
+                            if (Model.ListaBeneficiario.Count > 0 && Model.Accion != "Ver")
+                            { 
+                        <a id="btnGuardar" class="btnIngresar" href="#">Guardar</a> 
+                            }
+                        }
+                        else
+                        { 
+                        <a id="btnGuardarEstado" class="btnIngresar">Guardar</a>
+                        }
+                    }
+                    else
+                    { 
+                        @Html.ActionLink("Generar Archivo", "GenerarArchivo", "Liquidacion", null, new { Class = "btnIngresar" })
+                    }
+                    @Html.ActionLink("Cancelar", "Index", "Liquidacion", null, new { Class = "btnIngresar" })
+                    @if (Model.ListaBeneficiario.Count > 0 && Model.Accion != "Alta")
+                    {
+                        <a id="btnExportarLiquidacion" class="btnIngresar" href="#">Exportar</a>
+                    }
+                </td>
+            </tr>
+        </table>
+        <br />
+    }
+</div>
+<div id="dialogCambioEstado" title="Mensaje">
+    <p>
+        ¿Está seguro de realizar este cambio?</p>
+</div>

@@ -1,0 +1,70 @@
+﻿@model EmpresaVista
+<table align="center">
+    <tr>
+        <td style="text-align: right;">
+            <b>CBU: </b>
+        </td>
+        <td style="text-align: left;">
+          @if (Model.Accion == "Ver" || Model.Accion == "Eliminar")
+          {
+            @Html.TextBoxFor(c => c.CBU, new { Class = "ClassCBU", disabled = "disabled", style = "width:300px" })
+          }
+          else
+          { 
+            @Html.TextBoxFor(c => c.CBU, new { Class = "ClassCBU", style = "width:300px" })
+          }
+        </td>
+        <td style="text-align: right;">
+            <b>CUENTA: </b>
+        </td>
+        <td style="text-align: left;">
+          @if (Model.Accion == "Ver" || Model.Accion == "Eliminar")
+          {
+            @Html.TextBoxFor(c => c.CUENTA, new { disabled = "disabled", style = "width:300px" })
+          }
+          else
+          { 
+            @Html.TextBoxFor(c => c.CUENTA, new { @readonly = "true", style = "width:300px" })
+          }
+           
+        </td>
+    </tr>
+    <tr><td colspan='4'><br /></td></tr>
+    <tr>
+                                    @if (Model.Accion == "Ver" || Model.Accion == "Eliminar")
+                                    {
+                                    <td colspan='2'>@Html.RadioButton("TIPOCUENTA", 145, (Model.TIPOCUENTA == 145 ? true : false), new { Class = "ClassTipoCuenta", disabled = "disabled" })<span><b>CUENTA CORRIENTE</b></span></td>
+                                    <td colspan='2'>@Html.RadioButton("TIPOCUENTA", 146, (Model.TIPOCUENTA == 146 ? true : false), new { Class = "ClassTipoCuenta", disabled = "disabled" })<span><b>CAJA DE AHORRO</b></span></td>
+                                        
+                                    }
+                                    else
+                                    {
+                                     <td colspan='2'>@Html.RadioButton("TIPOCUENTA", 145, (Model.TIPOCUENTA == 145 ? true : false), new { Class = "ClassTipoCuenta" })<span><b>CUENTA CORRIENTE</b></span></td>
+                                     <td colspan='2'>@Html.RadioButton("TIPOCUENTA", 146, (Model.TIPOCUENTA == 146 ? true : false), new { Class = "ClassTipoCuenta" })<span><b>CAJA DE AHORRO</b></span></td>
+
+                                    }
+    
+    </tr>
+        <tr>
+                                <td></td><td></td>
+                                <td></td><td></td>
+   </tr>
+    <tr>
+                                <td align="right">
+                                    <b>Fecha de Adhesión: </b>
+                                </td>
+                                <td align="left" valign="middle">
+                                    @if (Model.Accion == "Ver" || Model.Accion == "Eliminar" || Model.Accion == "CambiarEstado")
+                                    {
+                                        @Html.TextBoxFor(c => c.FEC_ADHESION, new { disabled = "disabled", style = "width:71px; text-align: right;", maxlength = 10 })
+                                    }
+                                    else
+                                    {
+                                        @Html.EditorFor(c => c.FEC_ADHESION, new { style = "width:71px; text-align: right;" })
+                                    }
+                                </td>
+                                <td></td><td></td>
+   </tr>
+
+</table>
+<br />

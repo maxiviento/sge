@@ -1,0 +1,72 @@
+﻿@model ProgramasVista
+@{
+    var acciones = ViewData["Acciones"] as IList<string>;    
+}
+
+@if (Model.Programas != null && Model.Programas.Count > 0)
+{ 
+    <div style="text-align:center;">
+        <table id="grilla" align="center" width="925px" cellpadding="0" cellspacing="0">
+            <thead>
+                <tr>
+                    <th height="30" width="60px">
+                        <div align="center">ID</div>
+                    </th>                   
+                    <th height="30" width="400px">
+                        <div align="center">Descripción</div>
+                    </th>
+                    <th height="30" width="60px">
+                        <div align="center">Convenio</div>
+                    </th>
+                    <th height="30" width="60px" align="center">
+                        <div align="center">Monto</div>
+                    </th>
+                    <th height="30" width="90px">
+                        <div align="center">Acciones</div>
+                    </th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Programas)
+                {
+                    <tr>
+                        <td height="28px" align="center">
+                            @item.IdPrograma.ToString().ToMaxLenght(100)
+                        </td>
+                       
+                        <td align="left" style="padding-left:3%">
+                            @item.NombrePrograma.ToMaxLenght(100)
+                        </td>
+                        <td align="right" style="padding-left:3%">
+                            @item.ConvenioBcoCba.ToMaxLenght(100)
+                        </td>
+                        <td align="right" style="padding-left:3%">
+                            $&nbsp;@item.MontoPrograma
+                        </td>
+                        <td>
+                            @if (acciones.Contains(((int)Enums.Acciones.Consultar).ToString()))
+                            { 
+                                @Html.ActionLink("Ver", "Ver", "Programas", new { IdPrograma = item.IdPrograma }, new { @class = "Lupa", title = "Ver Programa" })
+                            }
+                            @if (acciones.Contains(((int)Enums.Acciones.Modificar).ToString()))
+                            { 
+                                @Html.ActionLink("Modificar", "Modificar", "Programas", new { IdPrograma = item.IdPrograma }, new { @class = "Modificar", title = "Modificar Programa" })
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
+else
+{
+    <table align="center" width="930px" cellpadding="0" cellspacing="0">
+        <tr>
+            <td width="930px">
+                @Html.Partial("_SinDatos", "Programas")
+            </td>
+        </tr>
+    </table>
+}

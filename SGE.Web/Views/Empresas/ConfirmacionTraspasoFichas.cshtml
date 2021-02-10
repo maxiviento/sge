@@ -1,0 +1,120 @@
+﻿@model IList<EmpresaVista>
+@{
+    ViewBag.Title = "Confirmar Traspaso de Fichas";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    TempData["model"] = Model;
+    TempData["EmpresaIdOrigen"] = (int)TempData["EmpresaIdOrigen"];
+    TempData["EmpresaIdDestino"] = (int)TempData["EmpresaIdDestino"];
+    TempData["IdOrigen"] = (int)TempData["IdOrigen"];
+}
+@section Scripts{
+    @Content.Script("SGE.Empresas.js", Url)
+}
+<div class="box">
+    <h2>
+        Confirmación Traspaso de Fichas</h2>
+    @using (Html.BeginForm("ConfirmarTraspaso", "Empresas", FormMethod.Post, new { Id = "FormConfirmTraspaso" }))
+    {
+        foreach (var item in Model)
+        {
+        <br />
+        <table align="center" style="width: 930px;">
+            <tr>
+                <td>
+                    <fieldset style="width: 925px;">
+                        <legend align="center"><b>Datos particulares de la Empresa @item.Legenda</b></legend>
+                        <table>
+                            <tr>
+                                <td align="right">
+                                    <b>Razón Social: </b>
+                                </td>
+                                <td align="left" valign="middle">
+                                    @item.Descripcion
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right">
+                                    <b>CUIT: </b>
+                                </td>
+                                <td align="left" valign="middle">
+                                    @item.Cuit
+                                </td>
+                                <td align="right">
+                                    <b>Localidad: </b>
+                                </td>
+                                <td align="left" valign="middle">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right">
+                                    <b>Código de Actividad: </b>
+                                </td>
+                                <td align="left" valign="middle">
+                                    @item.CodigoActividad
+                                </td>
+                                <td align="right">
+                                    <b>Cantidad de Empleados: </b>
+                                </td>
+                                <td align="left" valign="middle">
+                                    @item.CantidadEmpleados
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right">
+                                    <b>Calle: </b>
+                                </td>
+                                <td align="left" valign="middle">
+                                    @item.Calle
+                                </td>
+                                <td align="right">
+                                    <b>Número: </b>
+                                </td>
+                                <td align="left" valign="middle">
+                                    @item.Numero
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right">
+                                    <b>Piso: </b>
+                                </td>
+                                <td align="left" valign="middle">
+                                    @item.Piso
+                                </td>
+                                <td align="right">
+                                    <b>Dpto.: </b>
+                                </td>
+                                <td align="left" valign="middle">
+                                    @item.Dpto
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right">
+                                    <b>Código Postal: </b>
+                                </td>
+                                <td align="left" valign="middle">
+                                    @item.CodigoPostal
+                                </td>
+                            </tr>
+                        </table>
+                    </fieldset>
+                </td>
+            </tr>
+        </table>
+        }
+        @Html.ValidationSummary(false)
+        <br />
+        <table id="btnfin" width="100%">
+            <tr>
+                <td align="center" valign="middle">
+                    <a class="btnIngresar" href="#" id="Confirmar">Confirmar Traspaso</a> @Html.ActionLink("Cancelar", "DesvincularFichas", "Empresas", new { idEmpresa = (int)TempData["IdOrigen"] }, new { @class = "btnIngresar" })
+                </td>
+            </tr>
+            <tr>
+            </tr>
+        </table>
+    }
+</div>
+<div id="dialogConfirmarDesvinculacion" title="Mensaje">
+    <p>
+        Está seguro que desea desvincular las ficha a la empresa?</p>
+</div>

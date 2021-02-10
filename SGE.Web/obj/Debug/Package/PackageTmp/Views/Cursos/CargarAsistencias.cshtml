@@ -1,0 +1,118 @@
+﻿@model List<IFichasCurso>
+@{
+    ViewBag.Title = "Cargar asistencia";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var qsPeriodo = "";
+    var qsIdCurso = 0;
+    if (!Request.QueryString["idCurso"].IsEmpty())
+    {
+        qsIdCurso = Convert.ToInt32( Request.QueryString["idCurso"]);
+    }
+    else { qsIdCurso = 0; }
+    if (!Request.QueryString["mesPeriodo"].IsEmpty())
+    {
+        qsPeriodo = Request.QueryString["mesPeriodo"];
+    }
+    else { qsPeriodo = "0"; }
+
+    var PERIODO = Model != null && Model.Count > 0 ? Model[0].MES : qsPeriodo;
+    var IDCURSO = Model != null && Model.Count > 0 ? Model[0].id_curso : qsIdCurso;
+}
+@section Scripts{
+    @Content.Script("SGE.Cursos.js", Url)
+}
+@{Int32 contador = 0;}
+@using (Html.BeginForm("CargarAsistencias", "Cursos", FormMethod.Post, new { Id = "FormCargarAsis" }))
+{
+    if (Model != null && Model.Count > 0)
+    { 
+    <div style="text-align:center;">
+        <table id="grillaFichas" align="center" width="925px" cellpadding="0" cellspacing="0">
+            <thead>
+                <tr>
+                   <th height="30px" width="150px">
+                        <div align="left">Ficha</div>
+                    </th>
+                    <th height="30px" width="150px">
+                        <div align="left">Apellido</div>
+                    </th>
+                    <th width="250px">
+                        <div align="left">Nombre</div>
+                    </th>
+                    <th width="150px">
+                        <div align="left">Documento</div>
+                    </th>
+                    <th width="100px">
+                        <div align="left">Porc Asistencia</div>
+                    </th>
+                    <th width="100px">
+                        <div align="center">Registrar</div>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+
+
+                @foreach (var item in Model)
+                {
+                    contador++;
+                    <tr>
+                        <td style="height: 28px; text-align: left;">
+                            @*@Html.TextBoxFor(m => m[contador - 1].IdFicha, new { disabled = "disabled", style = "width:100px; text-align: left;" })*@
+                            @item.IdFicha
+                            @Html.HiddenFor(m => m[contador - 1].IdFicha, new { id = "[" + (contador - 1) + "].IdFicha" })
+                            @Html.HiddenFor(m => m[contador - 1].id_curso, new { id = "[" + (contador - 1) + "].id_curso" })
+                            @Html.HiddenFor(m => m[contador - 1].MES, new { id = "[" + (contador - 1) + "].MES" })
+                        </td>
+                        <td style="text-align: left;">
+                           @item.Apellido
+                            @Html.HiddenFor(m => m[contador - 1].Apellido, new { id = "[" + (contador - 1) + "].Apellido" })
+                        </td>
+                        <td style="text-align: left;">
+                          @item.Nombre
+                            @Html.HiddenFor(m => m[contador - 1].Nombre, new { id = "[" + (contador - 1) + "].Nombre" })
+                        </td>
+                        <td style="text-align: left;">
+
+                            @item.NumeroDocumento
+                            @Html.HiddenFor(m => m[contador - 1].NumeroDocumento, new { id = "[" + (contador - 1) + "].NumeroDocumento" })
+
+                        </td>
+                        <td style="text-align: left;">
+                            @*@Html.TextBox("TxtPorcAsistencia" + item.IdFicha, item.PORC_ASISTENCIA, new { style = "width:80px;", MaxLength = "3" })*@
+                            @Html.TextBoxFor(m => m[contador - 1].PORC_ASISTENCIA, new { style = "width: 80px; text-align: left;", @class = "validar" })
+                            
+                        </td>
+
+                        <td style="text-align: center;">
+                            
+                            @Html.CheckBoxFor(m => m[contador - 1].registrar, new { id = "[" + (contador - 1) + "].registrar", onchange = "javascript:return ChangeRegistrar(" + (contador - 1) + ", this)" })
+                            @*@Html.CheckBoxFor(m => m[contador - 1].registrar, new { id = "[" + (contador - 1) + "].registrar" })*@
+                            @Html.Hidden("chk" + (contador - 1), "N", new { id = "chk" + (contador - 1) })
+                        </td>
+
+                    </tr>
+                    
+
+                }
+                  
+
+            </tbody>
+        </table>
+    </div>
+      
+    
+    }
+        <br />
+        <table id="btnfin" width="100%">
+            <tr>
+                <td align="center" valign="middle">
+                  @Html.ActionLink("Volver", "ModificarAsistencias", "Cursos", new { IdCurso = IDCURSO, mesPeriodo = PERIODO }, new { @class = "btnIngresar" })
+                  &nbsp; &nbsp;<a class="btnIngresar" href="#" id="AddAsistencia">Guardar asistencias</a>
+
+                </td>
+            </tr>
+        </table>
+
+        @Html.Hidden("totalFichas",contador)
+}

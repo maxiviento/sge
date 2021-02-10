@@ -1,0 +1,11 @@
+﻿@{
+    if (Request.IsAuthenticated)
+    {
+        var nombreCompleto = ViewData["NombreCompleto"] as string;
+        <label>Bienvenido:</label> 
+        <b>@nombreCompleto</b>
+        <b>@Html.ActionLink("Cerrar Sesión", "LogOff", "Login", null, null)</b>
+    }
+}
+
+

@@ -1,0 +1,9 @@
+﻿@using System.Web.Mvc;
+@helper Script(string name, UrlHelper url)
+    {<script src="@url.Content(String.Format("~/Scripts/{0}", name))" type="text/javascript"></script>}
+@helper Stylesheet(string name, UrlHelper url)
+    {<link href="@url.Content(String.Format("~/Content/{0}", name))" rel="stylesheet" type="text/css" />}
+@helper ImageSite(string name, UrlHelper url)
+    {@url.Content(String.Format("~/Content/images/{0}", name))}
+@helper Flash(string name, UrlHelper url)
+    {@url.Content(String.Format("~/Content/flash/{0}", name))}

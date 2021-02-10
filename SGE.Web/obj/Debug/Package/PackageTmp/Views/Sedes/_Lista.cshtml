@@ -1,0 +1,45 @@
+﻿@model SedesVista
+           
+@if (Model.Sedes != null && Model.Sedes.Count > 0)
+{ 
+    <div style="text-align: center;">
+        <table id="grilla" align="center" width="925px" cellpadding="0" cellspacing="0">
+            <thead>
+                <tr>
+                    <th height="30" width="400">
+                        <div align="center">Descripción</div>
+                    </th>
+                    <th height="30px" width="125">
+                        <div align="center">Acciones</div>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Sedes)
+                {
+                    <tr>
+                        <td align="left" width="100">
+                            @item.NombreSede.ToString().ToMaxLenght(150)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Ver", "Ver", "Sedes", new { idSede = item.IdSede }, new { @class = "Lupa", title = "Ver Sede" })
+                            @Html.ActionLink("Modificar", "Modificar", "Sedes", new { idSede = item.IdSede }, new { @class = "Modificar", title = "Modificar Sede" })
+                            @Html.ActionLink("Eliminar", "Eliminar", "Sedes", new { idSede = item.IdSede }, new { @class = "Eliminar", title = "Eliminar Sede" })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
+else
+{
+    <table align="center" width="930px" cellpadding="0" cellspacing="0">
+        <tr>
+            <td width="930px">
+                @Html.Partial("_SinDatos", "Sede")
+            </td>
+        </tr>
+    </table>
+}
+

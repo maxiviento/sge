@@ -1,0 +1,65 @@
+﻿@model FichaVista
+<table>
+    <tr>
+        <td align="right" valign="top">
+            <b>Nombre del Curso: </b>
+        </td>
+        <td align="left" valign="middle" colspan="7">
+            @Html.TextBox("ABMN_CURSO", null, new { Class = "ABMSede", style = "width:547px;" })
+        </td>
+
+    </tr>
+    <tr>
+        <td align="right" valign="top">
+            <b>Duración(hs): </b>
+        </td>
+        <td align="left" valign="middle">
+            @Html.TextBox("ABMDURACION", null, new { Class = "ABMSede validar", style = "width:120px;" })
+        </td>
+        <td align="right" valign="top">
+            <b>Duración(Ms): </b>
+        </td>
+        <td align="left" valign="middle" colspan="5">
+            @Html.TextBox("ABMMESES", null, new { Class = "ABMSede validar", style = "width:120px;" })
+        </td>
+    </tr>
+    <tr>
+        <td align="right" valign="top">
+            <b>Inicio: </b>
+        </td>
+        <td align="left" valign="middle">
+            @Html.TextBox("ABMCURSOF_INICIO", null, new { Class = "ABMSede", style = "width:120px;" })
+        </td>
+        <td align="right" valign="top">
+            <b>Fin: </b>
+        </td>
+        <td align="left" valign="middle" colspan="5">
+            @Html.TextBox("ABMCURSOF_FIN", null, new { Class = "ABMSede", style = "width:120px;" })
+        </td>
+    </tr>
+    <tr>
+
+        <td align="right" valign="top">
+            <b>Escuela: </b>
+        </td>
+        <td align="left" valign="middle" colspan="7">
+            @Html.TextBox("ABMNEscuelaCurso", null, new { Class = "ABMSede", style = "width:350px;" })
+            @Html.Hidden("ABMIDNEscuelaCurso")
+            <a class="Lupa" title="Buscar Escuela Curso" href="#" id="addEscuelaCurso">Buscar</a>
+        </td>
+    </tr>
+
+    <tr>
+        <td colspan="4">
+            <br />
+        </td>
+    </tr>
+    <tr>
+        <td align="center" valign="top" colspan="4">
+            <a class="btnIngresar"  id="AgregarCur">Agregar Curso</a>
+        </td>
+    </tr>
+</table>
+            <br />
+<table id="grillaCurso" align="center" width="650px" cellpadding="0" cellspacing="0">
+</table>

@@ -1,0 +1,140 @@
+﻿@model RecuperoDebitoVista
+
+@{
+    ViewBag.Title = "Recupero";
+    ViewBag.SubMenuSelected = "Recupero";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var acciones = ViewData["Acciones"] as IList<string>;
+    TempData["RecuperoDebitoVista"] = Model;
+    TempData["ListaDebito"] = Model.Registros;
+
+    int nro_doc;
+}
+@section Scripts{
+    @Content.Script("SGE.RecuperoDebito.js", Url)
+}
+
+<div class="box">
+<h2>Recupero</h2>
+<br />
+
+@using (@Html.BeginForm("GenerarDebito", "Empresas", FormMethod.Post, new { Id = "FormRecuperoDebito", enctype = "multipart/form-data" }))
+{ 
+    
+    <br />
+                                    @Html.LabelForModel(Model.Mensaje)
+        <br />
+         <table align="center" style="width: 950px;">
+            <tr>
+                <td>
+                    <fieldset style="width: 925px;">
+                        <legend> Seleccione el estado deseado para la/s ficha/s</legend>
+                        <table  style="width: 924px;">
+                            <tr>
+                                <td style="text-align: right; width:25%;">Periodo:</td>
+                                <td style="text-align: left; width:25%;">@Html.EditorFor(c => c.Conceptos)</td>
+                                <td style="text-align: right; width:25%;">Fecha Débito:</td>
+                                <td style="text-align: left; width:25%;">@Html.EditorFor(c => c.fechaDebito)</td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: right;" colspan='2'>
+                                <a id="btnGenerarRecupero" class="btnIngresar" href="#">Generar Recupero</a>
+                                </td>
+                                <td style="text-align: left;" colspan='2'>
+                                <a id="btnBuscarRecupero" class="btnIngresar" href="#">Buscar Recuperos</a>
+                                
+                                </td>
+                            </tr>
+                        </table>
+                    </fieldset>
+                </td>
+            </tr>
+        </table>
+        @Html.HiddenFor(c => c.ArchivoUrl)
+        @Html.HiddenFor(c => c.ArchivoNombre)
+        @*@Html.HiddenFor(c => c.idEstadoFicha)*@
+        @Html.Hidden("ContRegistros", Model.Registros.Count, new { name = "ContRegistros" })
+        @Html.HiddenFor(c => c.idliquidacion)
+        
+
+        
+
+   if (Model.Registros != null && Model.Registros.Count > 0)
+   { 
+      @* <a id="btnGenerarArchivo" class="btnIngresar" href="#">Generar Archivo</a>*@
+    <div style="text-align: center;">
+        <table id="tblCupones" align="center" width="925px" cellpadding="0" cellspacing="0">
+            <thead>
+                <tr>
+                    <th style="height: 30px; width: 120px;">
+                    <div align="center">
+                            FECHA PROCESO</div>
+                    </th>
+                    <th style="width: 120px;">
+                        <div align="center">
+                            ARCHIVO</div>
+                    </th>
+                    <th style="width: 120px;">
+                        <div align="center">
+                            PROCESADO</div>
+                    </th>
+                    <th style="width: 100px;">
+                        <div align="center">
+                            ACCIONES</div>
+                    </th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Registros)
+                {
+                    <tr>
+                        <td style="height: 28px; width: 120px; text-align: center;">
+                            @item.FEC_PROCESO.Value
+                        </td>
+                        <td style="text-align: center; width: 100px;">
+                            @item.N_ARCHIVO
+                        </td>
+                        <td style="text-align: center; width: 100px;">
+                            @item.PROCESADO
+                        </td>
+                        <td style="text-align: center; width: 120px;">
+                        @*<a id="btnGenerarArchivo" class="btnIngresar lupa" href="#">Generar Archivo</a>*@
+                            @Html.ActionLink("Descargar Archivo", "GenerarArchivo", "Empresas", new { idRecupero = item.ID_RECUPERO_DEB, nomfile = item.N_ARCHIVO, idConcepto = item.ID_CONCEPTO }, new { @class = "Lupa", title = "Generar Archivo" })
+                             @if (@item.PROCESADO != "")
+                                {
+                                @Html.ActionLink("Procesar Devolución", "ProcesarRecuperoDeb", "Empresas", new { idRecupero = item.ID_RECUPERO_DEB, nomfile = item.N_ARCHIVO, idConcepto = item.ID_CONCEPTO }, new { @class = "Modificar", title = "Procesar Devolución" })
+                                }
+                        </td>
+
+                    </tr>
+                }
+            </tbody>
+
+        </table>
+        <table align="center" width="925px" cellpadding="0" cellspacing="0"> 
+            <tr>
+                <td>                     
+                     <div id="Paginador"></div>
+               </td>
+           </tr>
+       </table>                 
+    </div>
+   }
+   else
+   {
+    <table id="grilla" align="center" width="930px" cellpadding="0" cellspacing="0">
+        <tr>
+            <td width="930px">
+                @Html.Partial("_SinDatos", "EMPRESAS")
+            </td>
+        </tr>
+    </table>
+   }
+
+
+}
+
+</div>
+
+

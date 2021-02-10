@@ -1,0 +1,59 @@
+﻿@model FichaVista
+@{
+               
+    DateTimeFormatInfo formatoFec = CultureInfo.CurrentCulture.DateTimeFormat;             
+               
+}
+@if (Model.asistencias != null && Model.asistencias.Count > 0)
+{ 
+    <div style="text-align:center;">
+        <table id="grilla" align="center" width="900px" cellpadding="0" cellspacing="0">
+            <thead>
+                <tr>
+                    <th height="30px" width="120px">
+                        <div align="center">Periodo</div>
+                    </th>
+                    <th height="30px" width="120px">
+                        <div align="center">Porcentaje de Asistencia</div>
+                    </th>
+                    <th width="100px">
+                        <div align="center">Fecha de creación</div>
+                    </th>
+                    <th width="100px">
+                        <div align="center">Fecha actualización</div>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.asistencias)
+                {
+                    <tr>
+                        <td style="height: 28px; text-align: center;">
+                         @formatoFec.GetMonthName(Convert.ToInt32(@item.MES)).ToUpper()
+                        </td>
+                        <td style="text-align: center;">
+                            @item.PORC_ASISTENCIA
+                        </td>
+                        <td style="text-align: center;">
+                            @item.FEC_SIST
+                        </td>
+                        <td style="text-align: center;">
+                            @item.FEC_MODIF
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
+else
+{
+    <table align="center" width="930px" cellpadding="0" cellspacing="0">
+        <tr>
+            <td width="930px">
+                @Html.Partial("_SinDatos", "Cursos")
+            </td>
+        </tr>
+    </table>
+}
+

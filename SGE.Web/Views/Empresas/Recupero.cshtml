@@ -1,0 +1,187 @@
+﻿@model RecuperoVista
+
+@{
+    ViewBag.Title = "Recupero";
+    ViewBag.SubMenuSelected = "Recupero";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var acciones = ViewData["Acciones"] as IList<string>;
+    TempData["RecuperoVista"] = Model;
+    TempData["ListaCupones"] = Model.Registros;
+
+    int nro_doc;
+}
+@section Scripts{
+    @Content.Script("SGE.Recupero.js", Url)
+}
+
+<div class="box">
+<h2>Recupero</h2>
+<br />
+
+@using (@Html.BeginForm("GenerarRecupero", "Empresas", FormMethod.Post, new { Id = "FormRecupero", enctype = "multipart/form-data" }))
+{ 
+    
+    <br />
+                                    @Html.LabelForModel(Model.Mensaje)
+        <br />
+         <table align="center" style="width: 950px;">
+            <tr>
+                <td>
+                    <fieldset style="width: 925px;">
+                    @if (Model.cantProcesados == 0)
+                    {
+                        if (Model.ProcesarArchivo == false)
+                        {<legend><b>Cargar archivo</b></legend>}
+                        else
+                        {<legend><b>Procesar Archivo</b></legend>}
+                    }
+                    else
+                    {<legend><b>Cantidad de Fichas Procesadas: @Model.cantProcesados de @Model.Registros.Count</b></legend> }
+                        <table align="center" style="width: 915px;">
+                         @if (Model.ProcesarArchivo == false)
+                         { 
+                            <tr>
+                                <td>
+                                    <input type="file" id="archivoRecupero" name="archivoRecupero" size="20"  @*onchange="check_extension(this.value,'btnsubir');"*@ />
+                                    <a id="btnsubirArchivoRecupero" class="btnIngresar" href="#" style="display: none;">Subir</a>
+                                </td>
+                            </tr>}
+                                 
+                            <tr>
+                                <td>
+                                    <br />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <table>
+                                        <tr>
+                                            <td>
+                                            
+                                                <b style="text-decoration: underline">Importante</b>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                Notas.
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+
+                        </table>
+                        <br />
+                        <div>
+                            @if (Model.Registros.Count > 0 && Model.cantProcesados == 0)
+                            {
+                                
+                                <a class="btnIngresar" id="RegistrarRecupero">Recuperos</a>
+                            }
+                            else
+                            {
+                                if (Model.ProcesarArchivo == true && Model.cantProcesados == 0)
+                                {   
+                                    @Html.ActionLink("Procesar Archivo", "ProcesarArchivo", "Empresas", new { ArchivoNombre = Model.ArchivoNombre }, new { Class = "btnIngresar" })
+                                
+                                }
+
+                            }
+                             @if (Model.Registros.Count > 0)
+                             {
+                               <a id="btnExportarCupones" class="btnIngresar" href="#">Exportar</a>
+                             }
+                            @Html.ActionLink("Cancelar", "Recupero", "Empresas", null, new { Class = "btnIngresar" })</div>
+                        <br />
+                    </fieldset>
+                </td>
+            </tr>
+        </table>
+        @Html.HiddenFor(c => c.ArchivoUrl)
+        @Html.HiddenFor(c => c.ArchivoNombre)
+        @*@Html.HiddenFor(c => c.idEstadoFicha)*@
+        @Html.Hidden("ContRegistros", Model.Registros.Count, new { name = "ContRegistros" })
+        
+
+        
+
+   if (Model.Registros != null && Model.Registros.Count > 0)
+   { 
+    <div style="text-align: center;">
+        <table id="tblCupones" align="center" width="925px" cellpadding="0" cellspacing="0">
+            <thead>
+                <tr>
+                    <th style="height: 30px; width: 120px;">
+                        <div align="center">
+                            REGISTRO</div>
+                    </th>
+                    <th style="width: 120px;">
+                        <div align="center">
+                            IMPORTE</div>
+                    </th>
+                    <th style="width: 100px;">
+                        <div align="center">
+                            FEC PROCESO</div>
+                    </th>
+                    <th style="width: 100px;">
+                        <div align="center">
+                            ID EMPRESA</div>
+                    </th>
+                    <th style="width: 120px;">
+                        <div align="center">
+                            Estado</div>
+                    </th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Registros)
+                {
+                    <tr>
+                        <td style="height: 28px; width: 120px; text-align: center;">
+                            @item.N_REGISTRO
+                        </td>
+                        <td style="text-align: center; width: 120px;">
+                            @item.IMPORTE
+                        </td>
+                        <td style="text-align: center; width: 100px;">
+                            @item.FEC_PROCESO
+                        </td>
+                        <td style="text-align: center; width: 100px;">
+                            @item.ID_EMPRESA
+                        </td>
+                        <td style="text-align: center; width: 120px;">
+                            @item.ESTADO.ToMaxLenght(30)
+                        </td>
+
+                    </tr>
+                }
+            </tbody>
+
+        </table>
+        <table align="center" width="925px" cellpadding="0" cellspacing="0"> 
+            <tr>
+                <td>                     
+                     <div id="Paginador"></div>
+               </td>
+           </tr>
+       </table>                 
+    </div>
+   }
+   else
+   {
+    <table id="grilla" align="center" width="930px" cellpadding="0" cellspacing="0">
+        <tr>
+            <td width="930px">
+                @Html.Partial("_SinDatos", "EMPRESAS")
+            </td>
+        </tr>
+    </table>
+   }
+
+
+}
+
+</div>
+
+

@@ -1,0 +1,645 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="GE.Store" Alias="Self" Provider="Oracle.DataAccess.Client" ProviderManifestToken="10.2" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="GEStoreContainer">
+          <EntitySet Name="T_BENEFICIARIOS" EntityType="GE.Store.T_BENEFICIARIOS" store:Type="Tables" Schema="GESTION_EMPLEOS" />
+          <EntitySet Name="T_CUENTAS_BANCO" EntityType="GE.Store.T_CUENTAS_BANCO" store:Type="Tables" Schema="GESTION_EMPLEOS" />
+          <EntitySet Name="T_ESTADOS" EntityType="GE.Store.T_ESTADOS" store:Type="Tables" Schema="GESTION_EMPLEOS" />
+          <EntitySet Name="T_FICHAS" EntityType="GE.Store.T_FICHAS" store:Type="Tables" Schema="GESTION_EMPLEOS" />
+          <EntitySet Name="T_TABLAS_BCO_CBA" EntityType="GE.Store.T_TABLAS_BCO_CBA" store:Type="Tables" Schema="GESTION_EMPLEOS" />
+          <EntitySet Name="T_TIPOS_TABLA_BCO_CBA" EntityType="GE.Store.T_TIPOS_TABLA_BCO_CBA" store:Type="Tables" Schema="GESTION_EMPLEOS" />
+          <AssociationSet Name="T_BENEFICIARIOS_T_ESTADOS_FK1" Association="GE.Store.T_BENEFICIARIOS_T_ESTADOS_FK1">
+            <End Role="T_ESTADOS" EntitySet="T_ESTADOS" />
+            <End Role="T_BENEFICIARIOS" EntitySet="T_BENEFICIARIOS" />
+          </AssociationSet>
+          <AssociationSet Name="T_BENEFICIARIOS_T_FICHAS_FK1" Association="GE.Store.T_BENEFICIARIOS_T_FICHAS_FK1">
+            <End Role="T_FICHAS" EntitySet="T_FICHAS" />
+            <End Role="T_BENEFICIARIOS" EntitySet="T_BENEFICIARIOS" />
+          </AssociationSet>
+          <AssociationSet Name="T_CUENTAS_BANCO_MONEDA_FK" Association="GE.Store.T_CUENTAS_BANCO_MONEDA_FK">
+            <End Role="T_TABLAS_BCO_CBA" EntitySet="T_TABLAS_BCO_CBA" />
+            <End Role="T_CUENTAS_BANCO" EntitySet="T_CUENTAS_BANCO" />
+          </AssociationSet>
+          <AssociationSet Name="T_CUENTAS_BANCO_SISTEMAFK1" Association="GE.Store.T_CUENTAS_BANCO_SISTEMAFK1">
+            <End Role="T_TABLAS_BCO_CBA" EntitySet="T_TABLAS_BCO_CBA" />
+            <End Role="T_CUENTAS_BANCO" EntitySet="T_CUENTAS_BANCO" />
+          </AssociationSet>
+          <AssociationSet Name="T_CUENTAS_BANCO_SUCURSAL__FK1" Association="GE.Store.T_CUENTAS_BANCO_SUCURSAL__FK1">
+            <End Role="T_TABLAS_BCO_CBA" EntitySet="T_TABLAS_BCO_CBA" />
+            <End Role="T_CUENTAS_BANCO" EntitySet="T_CUENTAS_BANCO" />
+          </AssociationSet>
+          <AssociationSet Name="T_CUENTAS_BANCO_T_BENEFIC_FK1" Association="GE.Store.T_CUENTAS_BANCO_T_BENEFIC_FK1">
+            <End Role="T_BENEFICIARIOS" EntitySet="T_BENEFICIARIOS" />
+            <End Role="T_CUENTAS_BANCO" EntitySet="T_CUENTAS_BANCO" />
+          </AssociationSet>
+          <AssociationSet Name="T_TABLAS_BCO_CBA_T_TIPOS__FK1" Association="GE.Store.T_TABLAS_BCO_CBA_T_TIPOS__FK1">
+            <End Role="T_TIPOS_TABLA_BCO_CBA" EntitySet="T_TIPOS_TABLA_BCO_CBA" />
+            <End Role="T_TABLAS_BCO_CBA" EntitySet="T_TABLAS_BCO_CBA" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="T_BENEFICIARIOS">
+          <Key>
+            <PropertyRef Name="ID_BENEFICIARIO" />
+          </Key>
+          <Property Name="ID_BENEFICIARIO" Type="number" Nullable="false" Precision="10" />
+          <Property Name="ID_FICHA" Type="number" Precision="10" />
+          <Property Name="ID_PROGRAMA" Type="number" Precision="2" />
+          <Property Name="ID_ESTADO" Type="number" Precision="2" />
+          <Property Name="FEC_ALTA" Type="date" />
+          <Property Name="FEC_MODIF" Type="date" />
+          <Property Name="ID_USUARIO_MODIF" Type="number" Precision="10" />
+          <Property Name="ID_USUARIO_ALTA" Type="number" Precision="10" />
+          <Property Name="RESIDENTE" Type="varchar2" MaxLength="1" />
+          <Property Name="NACIONALIDAD" Type="number" Precision="10" />
+          <Property Name="EMAIL" Type="varchar2" MaxLength="150" />
+          <Property Name="TIPO_PERSONA" Type="varchar2" MaxLength="1" />
+          <Property Name="COD_ACT_BANCARIO" Type="number" Precision="10" />
+          <Property Name="COD_NAT_JURIDICA" Type="number" Precision="10" />
+          <Property Name="CONDICION_IVA" Type="number" Precision="10" />
+        </EntityType>
+        <EntityType Name="T_CUENTAS_BANCO">
+          <Key>
+            <PropertyRef Name="ID_CUENTA_BANCO" />
+          </Key>
+          <Property Name="ID_CUENTA_BANCO" Type="number" Nullable="false" Precision="10" />
+          <Property Name="ID_BENEFICIARIO" Type="number" Nullable="false" Precision="10" />
+          <Property Name="ID_SISTEMA" Type="number" Precision="5" />
+          <Property Name="NRO_CTA" Type="number" Precision="9" />
+          <Property Name="CBU" Type="varchar2" MaxLength="22" />
+          <Property Name="USUARIO_BANCO" Type="varchar2" MaxLength="64" />
+          <Property Name="ID_SUCURSAL" Type="number" Precision="5" />
+          <Property Name="ID_MONEDA" Type="number" Precision="5" />
+        </EntityType>
+        <EntityType Name="T_ESTADOS">
+          <Key>
+            <PropertyRef Name="ID_ESTADO" />
+          </Key>
+          <Property Name="ID_ESTADO" Type="number" Nullable="false" Precision="2" />
+          <Property Name="N_ESTADO" Type="varchar2" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="T_FICHAS">
+          <Key>
+            <PropertyRef Name="ID_FICHA" />
+          </Key>
+          <Property Name="ID_FICHA" Type="number" Nullable="false" Precision="10" />
+          <Property Name="CUIL" Type="varchar2" Nullable="false" MaxLength="13" />
+          <Property Name="APELLIDO" Type="varchar2" Nullable="false" MaxLength="100" />
+          <Property Name="NOMBRE" Type="varchar2" Nullable="false" MaxLength="100" />
+          <Property Name="FER_NAC" Type="timestamp" Nullable="false" />
+          <Property Name="TIPO_DOCUMENTO" Type="number" Nullable="false" Precision="10" />
+          <Property Name="NUMERO_DOCUMENTO" Type="varchar2" Nullable="false" MaxLength="8" />
+          <Property Name="CALLE" Type="varchar2" MaxLength="100" />
+          <Property Name="NUMERO" Type="varchar2" MaxLength="10" />
+          <Property Name="PISO" Type="varchar2" MaxLength="5" />
+          <Property Name="DPTO" Type="varchar2" MaxLength="5" />
+          <Property Name="MONOBLOCK" Type="varchar2" MaxLength="3" />
+          <Property Name="PARCELA" Type="varchar2" MaxLength="3" />
+          <Property Name="MANZANA" Type="varchar2" MaxLength="5" />
+          <Property Name="ENTRECALLES" Type="varchar2" MaxLength="200" />
+          <Property Name="BARRIO" Type="varchar2" Nullable="false" MaxLength="50" />
+          <Property Name="CODIGO_POSTAL" Type="varchar2" Nullable="false" MaxLength="10" />
+          <Property Name="ID_LOCALIDAD" Type="number" Precision="10" />
+          <Property Name="TEL_FIJO" Type="varchar2" MaxLength="50" />
+          <Property Name="TEL_CELULAR" Type="varchar2" MaxLength="50" />
+          <Property Name="CONTACTO" Type="varchar2" MaxLength="100" />
+          <Property Name="MAIL" Type="varchar2" Nullable="false" MaxLength="100" />
+          <Property Name="TIENE_HIJOS" Type="char" Nullable="false" MaxLength="1" />
+          <Property Name="CANTIDAD_HIJOS" Type="number" Nullable="false" Precision="10" />
+          <Property Name="ES_DISCAPACITADO" Type="char" Nullable="false" MaxLength="1" />
+          <Property Name="TIENE_DEF_MOTORA" Type="char" Nullable="false" MaxLength="1" />
+          <Property Name="TIENE_DEF_MENTAL" Type="char" Nullable="false" MaxLength="1" />
+          <Property Name="TIENE_DEF_SENSORIAL" Type="char" Nullable="false" MaxLength="1" />
+          <Property Name="TIENE_DEF_PSICOLOGICA" Type="char" Nullable="false" MaxLength="1" />
+          <Property Name="DEFICIENCIA_OTRA" Type="varchar2" MaxLength="50" />
+          <Property Name="SEXO" Type="varchar2" Nullable="false" MaxLength="5" />
+          <Property Name="TIPO_FICHA" Type="number" Nullable="false" Precision="10" />
+          <Property Name="ESTADO_CIVIL" Type="number" Nullable="false" Precision="10" />
+          <Property Name="CODIGO_SEGURIDAD" Type="varchar2" Nullable="false" MaxLength="20" />
+          <Property Name="FEC_ALTA" Type="timestamp" />
+          <Property Name="USUARIO_ALTA" Type="varchar2" MaxLength="50" />
+          <Property Name="FEC_MODIF" Type="timestamp" />
+          <Property Name="USUARIO_MODIF" Type="varchar2" MaxLength="50" />
+          <Property Name="ORIGEN_CARGA" Type="varchar2" MaxLength="1" />
+          <Property Name="NRO_TRAMITE" Type="varchar2" MaxLength="32" />
+          <Property Name="ID_ESTADO_FICHA" Type="number" Precision="10" />
+        </EntityType>
+        <EntityType Name="T_TABLAS_BCO_CBA">
+          <Key>
+            <PropertyRef Name="ID_TABLA_BCO_CBA" />
+          </Key>
+          <Property Name="ID_TABLA_BCO_CBA" Type="number" Nullable="false" Precision="5" />
+          <Property Name="COD_BCO_CBA" Type="varchar2" MaxLength="20" />
+          <Property Name="DESCRIPCION" Type="varchar2" MaxLength="50" />
+          <Property Name="ID_TIPO_TABLA_BCO_CBA" Type="number" Precision="2" />
+        </EntityType>
+        <EntityType Name="T_TIPOS_TABLA_BCO_CBA">
+          <Key>
+            <PropertyRef Name="ID_TIPO_TABLA_BCO_CBA" />
+          </Key>
+          <Property Name="ID_TIPO_TABLA_BCO_CBA" Type="number" Nullable="false" Precision="2" />
+          <Property Name="N_TIPO_TABLA_BCO_CBA" Type="varchar2" Nullable="false" MaxLength="20" />
+        </EntityType>
+        <Association Name="T_BENEFICIARIOS_T_ESTADOS_FK1">
+          <End Role="T_ESTADOS" Type="GE.Store.T_ESTADOS" Multiplicity="0..1" />
+          <End Role="T_BENEFICIARIOS" Type="GE.Store.T_BENEFICIARIOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_ESTADOS">
+              <PropertyRef Name="ID_ESTADO" />
+            </Principal>
+            <Dependent Role="T_BENEFICIARIOS">
+              <PropertyRef Name="ID_ESTADO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="T_BENEFICIARIOS_T_FICHAS_FK1">
+          <End Role="T_FICHAS" Type="GE.Store.T_FICHAS" Multiplicity="0..1" />
+          <End Role="T_BENEFICIARIOS" Type="GE.Store.T_BENEFICIARIOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_FICHAS">
+              <PropertyRef Name="ID_FICHA" />
+            </Principal>
+            <Dependent Role="T_BENEFICIARIOS">
+              <PropertyRef Name="ID_FICHA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="T_CUENTAS_BANCO_MONEDA_FK">
+          <End Role="T_TABLAS_BCO_CBA" Type="GE.Store.T_TABLAS_BCO_CBA" Multiplicity="0..1" />
+          <End Role="T_CUENTAS_BANCO" Type="GE.Store.T_CUENTAS_BANCO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_TABLAS_BCO_CBA">
+              <PropertyRef Name="ID_TABLA_BCO_CBA" />
+            </Principal>
+            <Dependent Role="T_CUENTAS_BANCO">
+              <PropertyRef Name="ID_MONEDA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="T_CUENTAS_BANCO_SISTEMAFK1">
+          <End Role="T_TABLAS_BCO_CBA" Type="GE.Store.T_TABLAS_BCO_CBA" Multiplicity="0..1" />
+          <End Role="T_CUENTAS_BANCO" Type="GE.Store.T_CUENTAS_BANCO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_TABLAS_BCO_CBA">
+              <PropertyRef Name="ID_TABLA_BCO_CBA" />
+            </Principal>
+            <Dependent Role="T_CUENTAS_BANCO">
+              <PropertyRef Name="ID_SISTEMA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="T_CUENTAS_BANCO_SUCURSAL__FK1">
+          <End Role="T_TABLAS_BCO_CBA" Type="GE.Store.T_TABLAS_BCO_CBA" Multiplicity="0..1" />
+          <End Role="T_CUENTAS_BANCO" Type="GE.Store.T_CUENTAS_BANCO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_TABLAS_BCO_CBA">
+              <PropertyRef Name="ID_TABLA_BCO_CBA" />
+            </Principal>
+            <Dependent Role="T_CUENTAS_BANCO">
+              <PropertyRef Name="ID_SUCURSAL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="T_CUENTAS_BANCO_T_BENEFIC_FK1">
+          <End Role="T_BENEFICIARIOS" Type="GE.Store.T_BENEFICIARIOS" Multiplicity="1" />
+          <End Role="T_CUENTAS_BANCO" Type="GE.Store.T_CUENTAS_BANCO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_BENEFICIARIOS">
+              <PropertyRef Name="ID_BENEFICIARIO" />
+            </Principal>
+            <Dependent Role="T_CUENTAS_BANCO">
+              <PropertyRef Name="ID_BENEFICIARIO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="T_TABLAS_BCO_CBA_T_TIPOS__FK1">
+          <End Role="T_TIPOS_TABLA_BCO_CBA" Type="GE.Store.T_TIPOS_TABLA_BCO_CBA" Multiplicity="0..1" />
+          <End Role="T_TABLAS_BCO_CBA" Type="GE.Store.T_TABLAS_BCO_CBA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_TIPOS_TABLA_BCO_CBA">
+              <PropertyRef Name="ID_TIPO_TABLA_BCO_CBA" />
+            </Principal>
+            <Dependent Role="T_TABLAS_BCO_CBA">
+              <PropertyRef Name="ID_TIPO_TABLA_BCO_CBA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="GE" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+        <EntityContainer Name="GEContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="T_BENEFICIARIOS" EntityType="GE.T_BENEFICIARIOS" />
+          <EntitySet Name="T_CUENTAS_BANCO" EntityType="GE.T_CUENTAS_BANCO" />
+          <EntitySet Name="T_ESTADOS" EntityType="GE.T_ESTADOS" />
+          <EntitySet Name="T_FICHAS" EntityType="GE.T_FICHAS" />
+          <EntitySet Name="T_TABLAS_BCO_CBA" EntityType="GE.T_TABLAS_BCO_CBA" />
+          <EntitySet Name="T_TIPOS_TABLA_BCO_CBA" EntityType="GE.T_TIPOS_TABLA_BCO_CBA" />
+          <AssociationSet Name="T_BENEFICIARIOS_T_ESTADOS_FK1" Association="GE.T_BENEFICIARIOS_T_ESTADOS_FK1">
+            <End Role="T_ESTADOS" EntitySet="T_ESTADOS" />
+            <End Role="T_BENEFICIARIOS" EntitySet="T_BENEFICIARIOS" />
+          </AssociationSet>
+          <AssociationSet Name="T_BENEFICIARIOS_T_FICHAS_FK1" Association="GE.T_BENEFICIARIOS_T_FICHAS_FK1">
+            <End Role="T_FICHAS" EntitySet="T_FICHAS" />
+            <End Role="T_BENEFICIARIOS" EntitySet="T_BENEFICIARIOS" />
+          </AssociationSet>
+          <AssociationSet Name="T_CUENTAS_BANCO_T_BENEFIC_FK1" Association="GE.T_CUENTAS_BANCO_T_BENEFIC_FK1">
+            <End Role="T_BENEFICIARIOS" EntitySet="T_BENEFICIARIOS" />
+            <End Role="T_CUENTAS_BANCO" EntitySet="T_CUENTAS_BANCO" />
+          </AssociationSet>
+          <AssociationSet Name="T_CUENTAS_BANCO_MONEDA_FK" Association="GE.T_CUENTAS_BANCO_MONEDA_FK">
+            <End Role="T_TABLAS_BCO_CBA" EntitySet="T_TABLAS_BCO_CBA" />
+            <End Role="T_CUENTAS_BANCO" EntitySet="T_CUENTAS_BANCO" />
+          </AssociationSet>
+          <AssociationSet Name="T_CUENTAS_BANCO_SISTEMAFK1" Association="GE.T_CUENTAS_BANCO_SISTEMAFK1">
+            <End Role="T_TABLAS_BCO_CBA" EntitySet="T_TABLAS_BCO_CBA" />
+            <End Role="T_CUENTAS_BANCO" EntitySet="T_CUENTAS_BANCO" />
+          </AssociationSet>
+          <AssociationSet Name="T_CUENTAS_BANCO_SUCURSAL__FK1" Association="GE.T_CUENTAS_BANCO_SUCURSAL__FK1">
+            <End Role="T_TABLAS_BCO_CBA" EntitySet="T_TABLAS_BCO_CBA" />
+            <End Role="T_CUENTAS_BANCO" EntitySet="T_CUENTAS_BANCO" />
+          </AssociationSet>
+          <AssociationSet Name="T_TABLAS_BCO_CBA_T_TIPOS__FK1" Association="GE.T_TABLAS_BCO_CBA_T_TIPOS__FK1">
+            <End Role="T_TIPOS_TABLA_BCO_CBA" EntitySet="T_TIPOS_TABLA_BCO_CBA" />
+            <End Role="T_TABLAS_BCO_CBA" EntitySet="T_TABLAS_BCO_CBA" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="T_BENEFICIARIOS">
+          <Key>
+            <PropertyRef Name="ID_BENEFICIARIO" />
+          </Key>
+          <Property Type="Int32" Name="ID_BENEFICIARIO" Nullable="false" />
+          <Property Type="Int32" Name="ID_FICHA" />
+          <Property Type="Int16" Name="ID_PROGRAMA" />
+          <Property Type="Int16" Name="ID_ESTADO" />
+          <Property Type="DateTime" Name="FEC_ALTA" />
+          <Property Type="DateTime" Name="FEC_MODIF" />
+          <Property Type="Int32" Name="ID_USUARIO_MODIF" />
+          <Property Type="Int32" Name="ID_USUARIO_ALTA" />
+          <Property Type="String" Name="RESIDENTE" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="NACIONALIDAD" />
+          <Property Type="String" Name="EMAIL" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="TIPO_PERSONA" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="COD_ACT_BANCARIO" />
+          <Property Type="Int32" Name="COD_NAT_JURIDICA" />
+          <Property Type="Int32" Name="CONDICION_IVA" />
+          <NavigationProperty Name="T_ESTADOS" Relationship="GE.T_BENEFICIARIOS_T_ESTADOS_FK1" FromRole="T_BENEFICIARIOS" ToRole="T_ESTADOS" />
+          <NavigationProperty Name="T_FICHAS" Relationship="GE.T_BENEFICIARIOS_T_FICHAS_FK1" FromRole="T_BENEFICIARIOS" ToRole="T_FICHAS" />
+          <NavigationProperty Name="T_CUENTAS_BANCO" Relationship="GE.T_CUENTAS_BANCO_T_BENEFIC_FK1" FromRole="T_BENEFICIARIOS" ToRole="T_CUENTAS_BANCO" />
+        </EntityType>
+        <EntityType Name="T_CUENTAS_BANCO">
+          <Key>
+            <PropertyRef Name="ID_CUENTA_BANCO" />
+          </Key>
+          <Property Type="Int32" Name="ID_CUENTA_BANCO" Nullable="false" />
+          <Property Type="Int32" Name="ID_BENEFICIARIO" Nullable="false" />
+          <Property Type="Int16" Name="ID_SISTEMA" />
+          <Property Type="Int32" Name="NRO_CTA" />
+          <Property Type="String" Name="CBU" MaxLength="22" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="USUARIO_BANCO" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Type="Int16" Name="ID_SUCURSAL" />
+          <Property Type="Int16" Name="ID_MONEDA" />
+          <NavigationProperty Name="T_BENEFICIARIOS" Relationship="GE.T_CUENTAS_BANCO_T_BENEFIC_FK1" FromRole="T_CUENTAS_BANCO" ToRole="T_BENEFICIARIOS" />
+          <NavigationProperty Name="T_TABLAS_BCO_CBA" Relationship="GE.T_CUENTAS_BANCO_MONEDA_FK" FromRole="T_CUENTAS_BANCO" ToRole="T_TABLAS_BCO_CBA" />
+          <NavigationProperty Name="T_TABLAS_BCO_CBA1" Relationship="GE.T_CUENTAS_BANCO_SISTEMAFK1" FromRole="T_CUENTAS_BANCO" ToRole="T_TABLAS_BCO_CBA" />
+          <NavigationProperty Name="T_TABLAS_BCO_CBA2" Relationship="GE.T_CUENTAS_BANCO_SUCURSAL__FK1" FromRole="T_CUENTAS_BANCO" ToRole="T_TABLAS_BCO_CBA" />
+        </EntityType>
+        <EntityType Name="T_ESTADOS">
+          <Key>
+            <PropertyRef Name="ID_ESTADO" />
+          </Key>
+          <Property Type="Int16" Name="ID_ESTADO" Nullable="false" />
+          <Property Type="String" Name="N_ESTADO" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="T_BENEFICIARIOS" Relationship="GE.T_BENEFICIARIOS_T_ESTADOS_FK1" FromRole="T_ESTADOS" ToRole="T_BENEFICIARIOS" />
+        </EntityType>
+        <EntityType Name="T_FICHAS">
+          <Key>
+            <PropertyRef Name="ID_FICHA" />
+          </Key>
+          <Property Type="Int32" Name="ID_FICHA" Nullable="false" />
+          <Property Type="String" Name="CUIL" Nullable="false" MaxLength="13" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="APELLIDO" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="NOMBRE" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="FER_NAC" Nullable="false" Precision="6" />
+          <Property Type="Int32" Name="TIPO_DOCUMENTO" Nullable="false" />
+          <Property Type="String" Name="NUMERO_DOCUMENTO" Nullable="false" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="CALLE" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="NUMERO" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="PISO" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="DPTO" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="MONOBLOCK" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="PARCELA" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="MANZANA" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ENTRECALLES" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="BARRIO" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="CODIGO_POSTAL" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="ID_LOCALIDAD" />
+          <Property Type="String" Name="TEL_FIJO" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="TEL_CELULAR" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="CONTACTO" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="MAIL" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="TIENE_HIJOS" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="Int32" Name="CANTIDAD_HIJOS" Nullable="false" />
+          <Property Type="String" Name="ES_DISCAPACITADO" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="TIENE_DEF_MOTORA" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="TIENE_DEF_MENTAL" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="TIENE_DEF_SENSORIAL" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="TIENE_DEF_PSICOLOGICA" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="DEFICIENCIA_OTRA" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="SEXO" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="TIPO_FICHA" Nullable="false" />
+          <Property Type="Int32" Name="ESTADO_CIVIL" Nullable="false" />
+          <Property Type="String" Name="CODIGO_SEGURIDAD" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="FEC_ALTA" Precision="6" />
+          <Property Type="String" Name="USUARIO_ALTA" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="FEC_MODIF" Precision="6" />
+          <Property Type="String" Name="USUARIO_MODIF" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ORIGEN_CARGA" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="NRO_TRAMITE" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="ID_ESTADO_FICHA" />
+          <NavigationProperty Name="T_BENEFICIARIOS" Relationship="GE.T_BENEFICIARIOS_T_FICHAS_FK1" FromRole="T_FICHAS" ToRole="T_BENEFICIARIOS" />
+        </EntityType>
+        <EntityType Name="T_TABLAS_BCO_CBA">
+          <Key>
+            <PropertyRef Name="ID_TABLA_BCO_CBA" />
+          </Key>
+          <Property Type="Int16" Name="ID_TABLA_BCO_CBA" Nullable="false" />
+          <Property Type="String" Name="COD_BCO_CBA" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="DESCRIPCION" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Int16" Name="ID_TIPO_TABLA_BCO_CBA" />
+          <NavigationProperty Name="T_CUENTAS_BANCO" Relationship="GE.T_CUENTAS_BANCO_MONEDA_FK" FromRole="T_TABLAS_BCO_CBA" ToRole="T_CUENTAS_BANCO" />
+          <NavigationProperty Name="T_CUENTAS_BANCO1" Relationship="GE.T_CUENTAS_BANCO_SISTEMAFK1" FromRole="T_TABLAS_BCO_CBA" ToRole="T_CUENTAS_BANCO" />
+          <NavigationProperty Name="T_CUENTAS_BANCO2" Relationship="GE.T_CUENTAS_BANCO_SUCURSAL__FK1" FromRole="T_TABLAS_BCO_CBA" ToRole="T_CUENTAS_BANCO" />
+          <NavigationProperty Name="T_TIPOS_TABLA_BCO_CBA" Relationship="GE.T_TABLAS_BCO_CBA_T_TIPOS__FK1" FromRole="T_TABLAS_BCO_CBA" ToRole="T_TIPOS_TABLA_BCO_CBA" />
+        </EntityType>
+        <EntityType Name="T_TIPOS_TABLA_BCO_CBA">
+          <Key>
+            <PropertyRef Name="ID_TIPO_TABLA_BCO_CBA" />
+          </Key>
+          <Property Type="Int16" Name="ID_TIPO_TABLA_BCO_CBA" Nullable="false" />
+          <Property Type="String" Name="N_TIPO_TABLA_BCO_CBA" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="T_TABLAS_BCO_CBA" Relationship="GE.T_TABLAS_BCO_CBA_T_TIPOS__FK1" FromRole="T_TIPOS_TABLA_BCO_CBA" ToRole="T_TABLAS_BCO_CBA" />
+        </EntityType>
+        <Association Name="T_BENEFICIARIOS_T_ESTADOS_FK1">
+          <End Type="GE.T_ESTADOS" Role="T_ESTADOS" Multiplicity="0..1" />
+          <End Type="GE.T_BENEFICIARIOS" Role="T_BENEFICIARIOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_ESTADOS">
+              <PropertyRef Name="ID_ESTADO" />
+            </Principal>
+            <Dependent Role="T_BENEFICIARIOS">
+              <PropertyRef Name="ID_ESTADO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="T_BENEFICIARIOS_T_FICHAS_FK1">
+          <End Type="GE.T_FICHAS" Role="T_FICHAS" Multiplicity="0..1" />
+          <End Type="GE.T_BENEFICIARIOS" Role="T_BENEFICIARIOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_FICHAS">
+              <PropertyRef Name="ID_FICHA" />
+            </Principal>
+            <Dependent Role="T_BENEFICIARIOS">
+              <PropertyRef Name="ID_FICHA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="T_CUENTAS_BANCO_T_BENEFIC_FK1">
+          <End Type="GE.T_BENEFICIARIOS" Role="T_BENEFICIARIOS" Multiplicity="1" />
+          <End Type="GE.T_CUENTAS_BANCO" Role="T_CUENTAS_BANCO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_BENEFICIARIOS">
+              <PropertyRef Name="ID_BENEFICIARIO" />
+            </Principal>
+            <Dependent Role="T_CUENTAS_BANCO">
+              <PropertyRef Name="ID_BENEFICIARIO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="T_CUENTAS_BANCO_MONEDA_FK">
+          <End Type="GE.T_TABLAS_BCO_CBA" Role="T_TABLAS_BCO_CBA" Multiplicity="0..1" />
+          <End Type="GE.T_CUENTAS_BANCO" Role="T_CUENTAS_BANCO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_TABLAS_BCO_CBA">
+              <PropertyRef Name="ID_TABLA_BCO_CBA" />
+            </Principal>
+            <Dependent Role="T_CUENTAS_BANCO">
+              <PropertyRef Name="ID_MONEDA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="T_CUENTAS_BANCO_SISTEMAFK1">
+          <End Type="GE.T_TABLAS_BCO_CBA" Role="T_TABLAS_BCO_CBA" Multiplicity="0..1" />
+          <End Type="GE.T_CUENTAS_BANCO" Role="T_CUENTAS_BANCO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_TABLAS_BCO_CBA">
+              <PropertyRef Name="ID_TABLA_BCO_CBA" />
+            </Principal>
+            <Dependent Role="T_CUENTAS_BANCO">
+              <PropertyRef Name="ID_SISTEMA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="T_CUENTAS_BANCO_SUCURSAL__FK1">
+          <End Type="GE.T_TABLAS_BCO_CBA" Role="T_TABLAS_BCO_CBA" Multiplicity="0..1" />
+          <End Type="GE.T_CUENTAS_BANCO" Role="T_CUENTAS_BANCO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_TABLAS_BCO_CBA">
+              <PropertyRef Name="ID_TABLA_BCO_CBA" />
+            </Principal>
+            <Dependent Role="T_CUENTAS_BANCO">
+              <PropertyRef Name="ID_SUCURSAL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="T_TABLAS_BCO_CBA_T_TIPOS__FK1">
+          <End Type="GE.T_TIPOS_TABLA_BCO_CBA" Role="T_TIPOS_TABLA_BCO_CBA" Multiplicity="0..1" />
+          <End Type="GE.T_TABLAS_BCO_CBA" Role="T_TABLAS_BCO_CBA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_TIPOS_TABLA_BCO_CBA">
+              <PropertyRef Name="ID_TIPO_TABLA_BCO_CBA" />
+            </Principal>
+            <Dependent Role="T_TABLAS_BCO_CBA">
+              <PropertyRef Name="ID_TIPO_TABLA_BCO_CBA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs" Space="C-S">
+        <Alias Key="Model" Value="GE" />
+        <Alias Key="Target" Value="GE.Store" />
+        <EntityContainerMapping CdmEntityContainer="GEContainer" StorageEntityContainer="GEStoreContainer">
+          <EntitySetMapping Name="T_BENEFICIARIOS">
+            <EntityTypeMapping TypeName="GE.T_BENEFICIARIOS">
+              <MappingFragment StoreEntitySet="T_BENEFICIARIOS">
+                <ScalarProperty Name="CONDICION_IVA" ColumnName="CONDICION_IVA" />
+                <ScalarProperty Name="COD_NAT_JURIDICA" ColumnName="COD_NAT_JURIDICA" />
+                <ScalarProperty Name="COD_ACT_BANCARIO" ColumnName="COD_ACT_BANCARIO" />
+                <ScalarProperty Name="TIPO_PERSONA" ColumnName="TIPO_PERSONA" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+                <ScalarProperty Name="NACIONALIDAD" ColumnName="NACIONALIDAD" />
+                <ScalarProperty Name="RESIDENTE" ColumnName="RESIDENTE" />
+                <ScalarProperty Name="ID_USUARIO_ALTA" ColumnName="ID_USUARIO_ALTA" />
+                <ScalarProperty Name="ID_USUARIO_MODIF" ColumnName="ID_USUARIO_MODIF" />
+                <ScalarProperty Name="FEC_MODIF" ColumnName="FEC_MODIF" />
+                <ScalarProperty Name="FEC_ALTA" ColumnName="FEC_ALTA" />
+                <ScalarProperty Name="ID_ESTADO" ColumnName="ID_ESTADO" />
+                <ScalarProperty Name="ID_PROGRAMA" ColumnName="ID_PROGRAMA" />
+                <ScalarProperty Name="ID_FICHA" ColumnName="ID_FICHA" />
+                <ScalarProperty Name="ID_BENEFICIARIO" ColumnName="ID_BENEFICIARIO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_CUENTAS_BANCO">
+            <EntityTypeMapping TypeName="GE.T_CUENTAS_BANCO">
+              <MappingFragment StoreEntitySet="T_CUENTAS_BANCO">
+                <ScalarProperty Name="ID_MONEDA" ColumnName="ID_MONEDA" />
+                <ScalarProperty Name="ID_SUCURSAL" ColumnName="ID_SUCURSAL" />
+                <ScalarProperty Name="USUARIO_BANCO" ColumnName="USUARIO_BANCO" />
+                <ScalarProperty Name="CBU" ColumnName="CBU" />
+                <ScalarProperty Name="NRO_CTA" ColumnName="NRO_CTA" />
+                <ScalarProperty Name="ID_SISTEMA" ColumnName="ID_SISTEMA" />
+                <ScalarProperty Name="ID_BENEFICIARIO" ColumnName="ID_BENEFICIARIO" />
+                <ScalarProperty Name="ID_CUENTA_BANCO" ColumnName="ID_CUENTA_BANCO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_ESTADOS">
+            <EntityTypeMapping TypeName="GE.T_ESTADOS">
+              <MappingFragment StoreEntitySet="T_ESTADOS">
+                <ScalarProperty Name="N_ESTADO" ColumnName="N_ESTADO" />
+                <ScalarProperty Name="ID_ESTADO" ColumnName="ID_ESTADO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_FICHAS">
+            <EntityTypeMapping TypeName="GE.T_FICHAS">
+              <MappingFragment StoreEntitySet="T_FICHAS">
+                <ScalarProperty Name="ID_ESTADO_FICHA" ColumnName="ID_ESTADO_FICHA" />
+                <ScalarProperty Name="NRO_TRAMITE" ColumnName="NRO_TRAMITE" />
+                <ScalarProperty Name="ORIGEN_CARGA" ColumnName="ORIGEN_CARGA" />
+                <ScalarProperty Name="USUARIO_MODIF" ColumnName="USUARIO_MODIF" />
+                <ScalarProperty Name="FEC_MODIF" ColumnName="FEC_MODIF" />
+                <ScalarProperty Name="USUARIO_ALTA" ColumnName="USUARIO_ALTA" />
+                <ScalarProperty Name="FEC_ALTA" ColumnName="FEC_ALTA" />
+                <ScalarProperty Name="CODIGO_SEGURIDAD" ColumnName="CODIGO_SEGURIDAD" />
+                <ScalarProperty Name="ESTADO_CIVIL" ColumnName="ESTADO_CIVIL" />
+                <ScalarProperty Name="TIPO_FICHA" ColumnName="TIPO_FICHA" />
+                <ScalarProperty Name="SEXO" ColumnName="SEXO" />
+                <ScalarProperty Name="DEFICIENCIA_OTRA" ColumnName="DEFICIENCIA_OTRA" />
+                <ScalarProperty Name="TIENE_DEF_PSICOLOGICA" ColumnName="TIENE_DEF_PSICOLOGICA" />
+                <ScalarProperty Name="TIENE_DEF_SENSORIAL" ColumnName="TIENE_DEF_SENSORIAL" />
+                <ScalarProperty Name="TIENE_DEF_MENTAL" ColumnName="TIENE_DEF_MENTAL" />
+                <ScalarProperty Name="TIENE_DEF_MOTORA" ColumnName="TIENE_DEF_MOTORA" />
+                <ScalarProperty Name="ES_DISCAPACITADO" ColumnName="ES_DISCAPACITADO" />
+                <ScalarProperty Name="CANTIDAD_HIJOS" ColumnName="CANTIDAD_HIJOS" />
+                <ScalarProperty Name="TIENE_HIJOS" ColumnName="TIENE_HIJOS" />
+                <ScalarProperty Name="MAIL" ColumnName="MAIL" />
+                <ScalarProperty Name="CONTACTO" ColumnName="CONTACTO" />
+                <ScalarProperty Name="TEL_CELULAR" ColumnName="TEL_CELULAR" />
+                <ScalarProperty Name="TEL_FIJO" ColumnName="TEL_FIJO" />
+                <ScalarProperty Name="ID_LOCALIDAD" ColumnName="ID_LOCALIDAD" />
+                <ScalarProperty Name="CODIGO_POSTAL" ColumnName="CODIGO_POSTAL" />
+                <ScalarProperty Name="BARRIO" ColumnName="BARRIO" />
+                <ScalarProperty Name="ENTRECALLES" ColumnName="ENTRECALLES" />
+                <ScalarProperty Name="MANZANA" ColumnName="MANZANA" />
+                <ScalarProperty Name="PARCELA" ColumnName="PARCELA" />
+                <ScalarProperty Name="MONOBLOCK" ColumnName="MONOBLOCK" />
+                <ScalarProperty Name="DPTO" ColumnName="DPTO" />
+                <ScalarProperty Name="PISO" ColumnName="PISO" />
+                <ScalarProperty Name="NUMERO" ColumnName="NUMERO" />
+                <ScalarProperty Name="CALLE" ColumnName="CALLE" />
+                <ScalarProperty Name="NUMERO_DOCUMENTO" ColumnName="NUMERO_DOCUMENTO" />
+                <ScalarProperty Name="TIPO_DOCUMENTO" ColumnName="TIPO_DOCUMENTO" />
+                <ScalarProperty Name="FER_NAC" ColumnName="FER_NAC" />
+                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+                <ScalarProperty Name="APELLIDO" ColumnName="APELLIDO" />
+                <ScalarProperty Name="CUIL" ColumnName="CUIL" />
+                <ScalarProperty Name="ID_FICHA" ColumnName="ID_FICHA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_TABLAS_BCO_CBA">
+            <EntityTypeMapping TypeName="GE.T_TABLAS_BCO_CBA">
+              <MappingFragment StoreEntitySet="T_TABLAS_BCO_CBA">
+                <ScalarProperty Name="ID_TIPO_TABLA_BCO_CBA" ColumnName="ID_TIPO_TABLA_BCO_CBA" />
+                <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+                <ScalarProperty Name="COD_BCO_CBA" ColumnName="COD_BCO_CBA" />
+                <ScalarProperty Name="ID_TABLA_BCO_CBA" ColumnName="ID_TABLA_BCO_CBA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_TIPOS_TABLA_BCO_CBA">
+            <EntityTypeMapping TypeName="GE.T_TIPOS_TABLA_BCO_CBA">
+              <MappingFragment StoreEntitySet="T_TIPOS_TABLA_BCO_CBA">
+                <ScalarProperty Name="N_TIPO_TABLA_BCO_CBA" ColumnName="N_TIPO_TABLA_BCO_CBA" />
+                <ScalarProperty Name="ID_TIPO_TABLA_BCO_CBA" ColumnName="ID_TIPO_TABLA_BCO_CBA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram Name="GE" ZoomLevel="62" >
+        <EntityTypeShape EntityType="GE.T_BENEFICIARIOS" Width="1.5" PointX="8" PointY="4.75" Height="4.480205078125" />
+        <EntityTypeShape EntityType="GE.T_CUENTAS_BANCO" Width="1.5" PointX="5.25" PointY="1" Height="3.3263964843749996" />
+        <EntityTypeShape EntityType="GE.T_ESTADOS" Width="1.5" PointX="1.125" PointY="4.25" Height="1.5956835937499996" />
+        <EntityTypeShape EntityType="GE.T_FICHAS" Width="1.5" PointX="4.125" PointY="5.625" Height="9.0954394531249942" />
+        <EntityTypeShape EntityType="GE.T_TABLAS_BCO_CBA" Width="1.5" PointX="3" PointY="1.375" Height="2.5571907552083317" />
+        <EntityTypeShape EntityType="GE.T_TIPOS_TABLA_BCO_CBA" Width="1.5" PointX="0.75" PointY="1.875" Height="1.5956835937499996" />
+        <AssociationConnector Association="GE.T_BENEFICIARIOS_T_ESTADOS_FK1" >
+          <ConnectorPoint PointX="2.625" PointY="5.15625" />
+          <ConnectorPoint PointX="8" PointY="5.15625" />
+        </AssociationConnector>
+        <AssociationConnector Association="GE.T_BENEFICIARIOS_T_FICHAS_FK1" >
+          <ConnectorPoint PointX="5.625" PointY="7.4276025390625" />
+          <ConnectorPoint PointX="8" PointY="7.4276025390625" />
+        </AssociationConnector>
+        <AssociationConnector Association="GE.T_CUENTAS_BANCO_T_BENEFIC_FK1" >
+          <ConnectorPoint PointX="8" PointY="4.9218724999999992" />
+          <ConnectorPoint PointX="6.21875" PointY="4.9218724999999992" />
+          <ConnectorPoint PointX="6.21875" PointY="4.326396484375" />
+        </AssociationConnector>
+        <AssociationConnector Association="GE.T_CUENTAS_BANCO_MONEDA_FK" >
+          <ConnectorPoint PointX="4.5" PointY="2.6535953776041659" />
+          <ConnectorPoint PointX="5.25" PointY="2.6535953776041659" />
+        </AssociationConnector>
+        <AssociationConnector Association="GE.T_CUENTAS_BANCO_SISTEMAFK1" >
+          <ConnectorPoint PointX="4.5" PointY="1.9517976887586208" />
+          <ConnectorPoint PointX="5.25" PointY="1.9517976887586208" />
+        </AssociationConnector>
+        <AssociationConnector Association="GE.T_CUENTAS_BANCO_SUCURSAL__FK1" >
+          <ConnectorPoint PointX="4.5" PointY="3.3553930664497109" />
+          <ConnectorPoint PointX="5.25" PointY="3.3553930664497109" />
+        </AssociationConnector>
+        <AssociationConnector Association="GE.T_TABLAS_BCO_CBA_T_TIPOS__FK1" >
+          <ConnectorPoint PointX="2.25" PointY="2.672841796875" />
+          <ConnectorPoint PointX="3" PointY="2.672841796875" />
+        </AssociationConnector>
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

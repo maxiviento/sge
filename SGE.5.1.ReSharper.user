@@ -1,0 +1,1987 @@
+<Configuration>
+  <SettingsComponent>
+    <string />
+    <integer />
+    <boolean>
+      <setting name="livetemplates.csharp.usevar">True</setting>
+      <setting name="SolutionAnalysisEnabled">False</setting>
+    </boolean>
+  </SettingsComponent>
+  <RecentFiles>
+    <RecentFiles>
+      <File id="6B3D369D-C2CF-4AF4-8D63-31E185F4FDCD/f:BeneficiarioRepositorio.cs" caret="356734" fromTop="17" />
+      <File id="6B3D369D-C2CF-4AF4-8D63-31E185F4FDCD/f:LiquidacionRepositorio.cs" caret="15085" fromTop="0" />
+      <File id="6B3D369D-C2CF-4AF4-8D63-31E185F4FDCD/f:ConceptoRepositorio.cs" caret="6511" fromTop="0" />
+      <File id="78035A79-EBE1-4E95-98DF-6BE043078FEE/d:Servicio/f:BeneficiarioServicio.cs" caret="9869" fromTop="0" />
+      <File id="78035A79-EBE1-4E95-98DF-6BE043078FEE/d:Servicio/f:ReporteServicio.cs" caret="31180" fromTop="99" />
+      <File id="6B3D369D-C2CF-4AF4-8D63-31E185F4FDCD/f:FichaRepositorio.cs" caret="267656" fromTop="8" />
+      <File id="11455803-8068-4E28-8845-99C9D962D838/d:Comun/f:Enums.cs" caret="16192" fromTop="0" />
+      <File id="11455803-8068-4E28-8845-99C9D962D838/d:Entidades/f:Programa.cs" caret="0" fromTop="0" />
+      <File id="78035A79-EBE1-4E95-98DF-6BE043078FEE/d:Vista/f:ProgramaVista.cs" caret="372" fromTop="10" />
+      <File id="78035A79-EBE1-4E95-98DF-6BE043078FEE/d:Servicio/f:LiquidacionServicio.cs" caret="80365" fromTop="279" />
+      <File id="6B3D369D-C2CF-4AF4-8D63-31E185F4FDCD/f:UsuarioRepositorio.cs" caret="4328" fromTop="15" />
+      <File id="78035A79-EBE1-4E95-98DF-6BE043078FEE/d:Vista/f:LiquidacionVista.cs" caret="2568" fromTop="64" />
+      <File id="6B3D369D-C2CF-4AF4-8D63-31E185F4FDCD/f:RolRepositorio.cs" caret="2379" fromTop="12" />
+      <File id="78035A79-EBE1-4E95-98DF-6BE043078FEE/d:Vista/f:PermisosVista.cs" caret="282" fromTop="8" />
+      <File id="78035A79-EBE1-4E95-98DF-6BE043078FEE/d:Servicio/f:PermisoServicio.cs" caret="4792" fromTop="17" />
+      <File id="11455803-8068-4E28-8845-99C9D962D838/d:Entidades/f:FormularioAccion.cs" caret="92" fromTop="3" />
+      <File id="6B3D369D-C2CF-4AF4-8D63-31E185F4FDCD/f:FormularioAccionRepositorio.cs" caret="733" fromTop="13" />
+      <File id="78035A79-EBE1-4E95-98DF-6BE043078FEE/d:Servicio/f:ApoderadoServicio.cs" caret="10802" fromTop="26" />
+      <File id="6B3D369D-C2CF-4AF4-8D63-31E185F4FDCD/d:Modelo/f:ModelSGE.Designer.cs" caret="37317" fromTop="15" />
+      <File id="6B3D369D-C2CF-4AF4-8D63-31E185F4FDCD/f:ApoderadoRepositorio.cs" caret="7924" fromTop="0" />
+    </RecentFiles>
+    <RecentEdits>
+      <File id="78035A79-EBE1-4E95-98DF-6BE043078FEE/d:Servicio/f:LiquidacionServicio.cs" caret="98280" fromTop="17" />
+      <File id="78035A79-EBE1-4E95-98DF-6BE043078FEE/d:Servicio/f:LiquidacionServicio.cs" caret="99263" fromTop="19" />
+      <File id="78035A79-EBE1-4E95-98DF-6BE043078FEE/d:Servicio/f:LiquidacionServicio.cs" caret="98423" fromTop="8" />
+      <File id="78035A79-EBE1-4E95-98DF-6BE043078FEE/d:Servicio/f:LiquidacionServicio.cs" caret="107976" fromTop="17" />
+      <File id="78035A79-EBE1-4E95-98DF-6BE043078FEE/d:Servicio/f:LiquidacionServicio.cs" caret="103621" fromTop="20" />
+      <File id="78035A79-EBE1-4E95-98DF-6BE043078FEE/d:Servicio/f:LiquidacionServicio.cs" caret="107735" fromTop="23" />
+      <File id="78035A79-EBE1-4E95-98DF-6BE043078FEE/d:Servicio/f:LiquidacionServicio.cs" caret="107509" fromTop="19" />
+      <File id="78035A79-EBE1-4E95-98DF-6BE043078FEE/d:Servicio/f:LiquidacionServicio.cs" caret="97446" fromTop="17" />
+      <File id="78035A79-EBE1-4E95-98DF-6BE043078FEE/d:Servicio/f:LiquidacionServicio.cs" caret="98153" fromTop="17" />
+      <File id="78035A79-EBE1-4E95-98DF-6BE043078FEE/d:Servicio/f:LiquidacionServicio.cs" caret="96883" fromTop="8" />
+      <File id="78035A79-EBE1-4E95-98DF-6BE043078FEE/d:Servicio/f:LiquidacionServicio.cs" caret="97229" fromTop="11" />
+      <File id="78035A79-EBE1-4E95-98DF-6BE043078FEE/d:Servicio/f:ReporteServicio.cs" caret="31180" fromTop="12" />
+      <File id="11455803-8068-4E28-8845-99C9D962D838/d:Comun/f:Enums.cs" caret="16192" fromTop="4" />
+      <File id="78035A79-EBE1-4E95-98DF-6BE043078FEE/d:Servicio/f:LiquidacionServicio.cs" caret="80365" fromTop="22" />
+      <File id="78035A79-EBE1-4E95-98DF-6BE043078FEE/d:Servicio/f:LiquidacionServicio.cs" caret="80365" fromTop="0" />
+      <File id="78035A79-EBE1-4E95-98DF-6BE043078FEE/d:Servicio/f:LiquidacionServicio.cs" caret="80365" fromTop="3" />
+    </RecentEdits>
+  </RecentFiles>
+  <NAntValidationSettings>
+    <NAntPath value="" />
+  </NAntValidationSettings>
+  <UnitTestRunner>
+    <Providers />
+  </UnitTestRunner>
+  <UnitTestRunnerNUnit>
+    <NUnitInstallDir IsNull="False">
+    </NUnitInstallDir>
+    <UseAddins>Never</UseAddins>
+  </UnitTestRunnerNUnit>
+  <CompletionStatisticsManager>
+    <ItemStatistics item="Qualified:SGE.Servicio.ServicioInterfaces.IEmpresaServicio">
+      <Item value="GetEmpresas`0" priority="2" />
+      <Item value="CargarListaEmpresasDestino`0" priority="2" />
+      <Item value="GetEmpresa`0" priority="2" />
+      <Item value="EsNuevaEmpresa`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Linq.IQueryable`1">
+      <Item value="Join`4" priority="5" />
+      <Item value="ToList`1" priority="7" />
+      <Item value="Skip`1" priority="0" />
+      <Item value="Take`1" priority="0" />
+      <Item value="OrderBy`2" priority="10" />
+      <Item value="Where`1" priority="3" />
+      <Item value="SingleOrDefault`1" priority="1" />
+      <Item value="Count`1" priority="2" />
+      <Item value="Concat`1" priority="0" />
+      <Item value="AsEnumerable`1" priority="0" />
+      <Item value="FirstOrDefault`1" priority="5" />
+      <Item value="Cast`1" priority="0" />
+      <Item value="ToArray`1" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Default">
+      <Item value="ficha" priority="109" />
+      <Item value="mdb" priority="1" />
+      <Item value="var" priority="14" />
+      <Item value="SupportedJoinOperators`0" priority="1" />
+      <Item value="from" priority="9" />
+      <Item value="QFicha`0" priority="4" />
+      <Item value="T_FICHA_PPP`0" priority="5" />
+      <Item value="T_ACCIONES`0" priority="0" />
+      <Item value="join" priority="3" />
+      <Item value="c" priority="59" />
+      <Item value="f" priority="5" />
+      <Item value="where" priority="3" />
+      <Item value="idEmpresa" priority="6" />
+      <Item value="select" priority="3" />
+      <Item value="orderby" priority="0" />
+      <Item value="descending" priority="0" />
+      <Item value="return" priority="27" />
+      <Item value="a" priority="4" />
+      <Item value="skip" priority="2" />
+      <Item value="take" priority="1" />
+      <Item value="IEmpresaVista`0" priority="5" />
+      <Item value="empresaVista" priority="9" />
+      <Item value="vista" priority="158" />
+      <Item value="EmpresaVista`0" priority="12" />
+      <Item value="model" priority="53" />
+      <Item value="vis" priority="6" />
+      <Item value="int" priority="103" />
+      <Item value="empresa" priority="1" />
+      <Item value="public" priority="10" />
+      <Item value="ActionResult`0" priority="4" />
+      <Item value="new" priority="58" />
+      <Item value="empresaOrigen" priority="0" />
+      <Item value="empresaDestino" priority="0" />
+      <Item value="EmpresasVista`0" priority="0" />
+      <Item value="Descripcion" priority="3" />
+      <Item value="Cuit" priority="0" />
+      <Item value="IFichaPPP`0" priority="2" />
+      <Item value="FichaPPP`0" priority="0" />
+      <Item value="fichaPpp" priority="2" />
+      <Item value="Id_Ficha" priority="0" />
+      <Item value="FichaPPP" priority="0" />
+      <Item value="origen" priority="0" />
+      <Item value="foreach" priority="5" />
+      <Item value="destino" priority="0" />
+      <Item value="bool" priority="9" />
+      <Item value="true" priority="12" />
+      <Item value="private" priority="12" />
+      <Item value="ID_USUARIO" priority="0" />
+      <Item value="empModel" priority="0" />
+      <Item value="try" priority="0" />
+      <Item value="else" priority="18" />
+      <Item value="_empresaServicio" priority="6" />
+      <Item value="View`0" priority="3" />
+      <Item value="RedirectToAction`0" priority="1" />
+      <Item value="EmpresaController`0" priority="1" />
+      <Item value="SedeVista`0" priority="1" />
+      <Item value="ISedeServicio`0" priority="0" />
+      <Item value="IFichaServicio`0" priority="0" />
+      <Item value="SedeServicio`0" priority="1" />
+      <Item value="FichaServicio`0" priority="0" />
+      <Item value="_sedeServicio" priority="0" />
+      <Item value="_empresaRepositorio" priority="4" />
+      <Item value="_fichaRepositorio" priority="1" />
+      <Item value="FichaRepositorio" priority="0" />
+      <Item value="Numero_Documento" priority="0" />
+      <Item value="TempData" priority="4" />
+      <Item value="as" priority="2" />
+      <Item value="ViewData" priority="2" />
+      <Item value="_fichaServicio" priority="0" />
+      <Item value="string" priority="79" />
+      <Item value="nrodoc" priority="0" />
+      <Item value="GetSede`0" priority="0" />
+      <Item value="readonly" priority="8" />
+      <Item value="EmpresaServicio`0" priority="0" />
+      <Item value="EmpresaServicio" priority="0" />
+      <Item value="idSede" priority="0" />
+      <Item value="_institucionServicio" priority="0" />
+      <Item value="ModelState`0" priority="0" />
+      <Item value="ModelState" priority="0" />
+      <Item value="if" priority="42" />
+      <Item value="SecuenciaRepositorio`0" priority="3" />
+      <Item value="null" priority="69" />
+      <Item value="obj" priority="34" />
+      <Item value="emp" priority="0" />
+      <Item value="SedesVista`0" priority="0" />
+      <Item value="idApoderado" priority="0" />
+      <Item value="Enum`0" priority="4" />
+      <Item value="DateTime`0" priority="18" />
+      <Item value="false" priority="5" />
+      <Item value="IdUsuario" priority="0" />
+      <Item value="Json`0" priority="0" />
+      <Item value="apoderado" priority="1" />
+      <Item value="TieneApoderadoActivo`0" priority="0" />
+      <Item value="tieneApoderado" priority="3" />
+      <Item value="beneficiarios" priority="0" />
+      <Item value="Enums`0" priority="28" />
+      <Item value="estadoApoderado" priority="0" />
+      <Item value="Model" priority="3" />
+      <Item value="modelo" priority="3" />
+      <Item value="idFicha" priority="0" />
+      <Item value="CargarInstitucion`0" priority="0" />
+      <Item value="_institucionrepositorio" priority="0" />
+      <Item value="FichaVista`0" priority="4" />
+      <Item value="accion" priority="2" />
+      <Item value="CargarCarrera`0" priority="0" />
+      <Item value="_carrerarepositorio" priority="2" />
+      <Item value="Vista" priority="4" />
+      <Item value="Convert`0" priority="22" />
+      <Item value="_localidadrepositorio" priority="1" />
+      <Item value="static" priority="3" />
+      <Item value="void" priority="0" />
+      <Item value="idSector" priority="2" />
+      <Item value="CargarLocalidadEscuela`0" priority="0" />
+      <Item value="objFicha" priority="0" />
+      <Item value="NombreLocalidad" priority="3" />
+      <Item value="i" priority="7" />
+      <Item value="ViewBag" priority="0" />
+      <Item value="IFichaVista`0" priority="1" />
+      <Item value="vistaFicha" priority="0" />
+      <Item value="fichaVista" priority="0" />
+      <Item value="CargarLocalidad`0" priority="0" />
+      <Item value="CargarTipoDocumento`0" priority="0" />
+      <Item value="_ficharepositorio" priority="1" />
+      <Item value="CargarDepartamento`0" priority="0" />
+      <Item value="cuitEmpresa" priority="0" />
+      <Item value="cuit" priority="0" />
+      <Item value="fichappp" priority="20" />
+      <Item value="objPpp" priority="0" />
+      <Item value="CargarEstadosFicha`0" priority="0" />
+      <Item value="CargarEstadosFichaAlta`0" priority="1" />
+      <Item value="CargarTipoFichaAlta`0" priority="0" />
+      <Item value="_tipoficharepositorio" priority="0" />
+      <Item value="empid" priority="0" />
+      <Item value="objTerciario" priority="0" />
+      <Item value="objUniversitario" priority="0" />
+      <Item value="sexo" priority="1" />
+      <Item value="edad" priority="1" />
+      <Item value="fechaNacimiento" priority="0" />
+      <Item value="EsMenorDeEdad`0" priority="0" />
+      <Item value="T_BENEFICIARIOS`0" priority="0" />
+      <Item value="ID_BENEFICIARIO" priority="2" />
+      <Item value="idBeneficiario" priority="2" />
+      <Item value="ID_FICHA" priority="0" />
+      <Item value="ID_PROGRAMA" priority="0" />
+      <Item value="ID_ESTADO" priority="0" />
+      <Item value="FEC_ALTA" priority="0" />
+      <Item value="base" priority="0" />
+      <Item value="FEC_MODIF" priority="0" />
+      <Item value="ID_USUARIO_MODIF" priority="0" />
+      <Item value="usuario" priority="2" />
+      <Item value="ID_USUARIO_ALTA" priority="0" />
+      <Item value="RESIDENTE" priority="0" />
+      <Item value="NACIONALIDAD" priority="1" />
+      <Item value="EMAIL" priority="0" />
+      <Item value="TIPO_PERSONA" priority="0" />
+      <Item value="COD_ACT_BANCARIO" priority="0" />
+      <Item value="COD_NAT_JURIDICA" priority="0" />
+      <Item value="CONDICION_IVA" priority="0" />
+      <Item value="TIENEAPODERADO" priority="0" />
+      <Item value="IBeneficiario`0" priority="3" />
+      <Item value="Beneficiario`0" priority="4" />
+      <Item value="objbeneficiario" priority="0" />
+      <Item value="beneficiario" priority="33" />
+      <Item value="_beneficiariorepositorio" priority="1" />
+      <Item value="BeneficiarioRepositorio`0" priority="0" />
+      <Item value="IdFicha" priority="0" />
+      <Item value="IdPrograma" priority="1" />
+      <Item value="IdEstado" priority="0" />
+      <Item value="FechaAlta" priority="0" />
+      <Item value="FechaModificacion" priority="0" />
+      <Item value="IdUsuarioModificador" priority="0" />
+      <Item value="IdUsuarioAlta" priority="0" />
+      <Item value="Residente" priority="0" />
+      <Item value="Nacionalidad" priority="0" />
+      <Item value="Email" priority="0" />
+      <Item value="TipoPersona" priority="0" />
+      <Item value="CodigoActivacionBancaria" priority="0" />
+      <Item value="CodigoNaturalezaJuridica" priority="2" />
+      <Item value="CodigoMoneda" priority="0" />
+      <Item value="CondicionIva" priority="0" />
+      <Item value="TieneApoderado" priority="0" />
+      <Item value="cuentaBanco" priority="9" />
+      <Item value="ICuentaBancoRepositorio`0" priority="1" />
+      <Item value="set" priority="0" />
+      <Item value="_cuentaBancoRepositorio" priority="1" />
+      <Item value="CuentaBancoRepositorio`0" priority="0" />
+      <Item value="ICuentaBanco`0" priority="0" />
+      <Item value="CuentaBanco`0" priority="0" />
+      <Item value="T_CUENTAS_BANCO`0" priority="0" />
+      <Item value="_mdb" priority="10" />
+      <Item value="cuentaBancoModel" priority="2" />
+      <Item value="ID_CUENTA_BANCO" priority="0" />
+      <Item value="ID_SISTEMA" priority="0" />
+      <Item value="short" priority="6" />
+      <Item value="NRO_CTA" priority="0" />
+      <Item value="CBU" priority="0" />
+      <Item value="USUARIO_BANCO" priority="0" />
+      <Item value="ID_MONEDA" priority="1" />
+      <Item value="ID_SUCURSAL" priority="0" />
+      <Item value="FEC_SOL_CTA" priority="0" />
+      <Item value="IdCuentaBanco" priority="0" />
+      <Item value="IdBeneficiario" priority="0" />
+      <Item value="IdSistema" priority="0" />
+      <Item value="NroCta" priority="0" />
+      <Item value="Cbu" priority="0" />
+      <Item value="UsuarioBanco" priority="0" />
+      <Item value="IdSucursal" priority="0" />
+      <Item value="IdMoneda" priority="0" />
+      <Item value="FechaSolicitudCuenta" priority="0" />
+      <Item value="toLocation" priority="23" />
+      <Item value="item" priority="15" />
+      <Item value="archivo" priority="16" />
+      <Item value="_Application`0" priority="0" />
+      <Item value="oXL" priority="0" />
+      <Item value="_Worksheet`0" priority="0" />
+      <Item value="ApExcel" priority="0" />
+      <Item value="libro" priority="4" />
+      <Item value="for" priority="1" />
+      <Item value="fila" priority="10" />
+      <Item value="hoja1" priority="1" />
+      <Item value="fromlocation" priority="10" />
+      <Item value="col" priority="6" />
+      <Item value="FileAccess`0" priority="1" />
+      <Item value="total" priority="1" />
+      <Item value="while" priority="4" />
+      <Item value="toName" priority="0" />
+      <Item value="Excel" priority="0" />
+      <Item value="FileOptions`0" priority="0" />
+      <Item value="File`0" priority="4" />
+      <Item value="Array`0" priority="1" />
+      <Item value="QConyuges`0" priority="2" />
+      <Item value="make" priority="0" />
+      <Item value="apellido" priority="4" />
+      <Item value="nombre" priority="2" />
+      <Item value="cuil" priority="3" />
+      <Item value="ToString`0" priority="0" />
+      <Item value="o" priority="2" />
+      <Item value="id" priority="2" />
+      <Item value="T_CONYUGES`0" priority="0" />
+      <Item value="ID_CONYUGE" priority="0" />
+      <Item value="conyuge" priority="3" />
+      <Item value="CUIL" priority="0" />
+      <Item value="APELLIDO" priority="0" />
+      <Item value="NOMBRE" priority="0" />
+      <Item value="FEC_NAC" priority="0" />
+      <Item value="TIPO_DOCUMENTO" priority="0" />
+      <Item value="NUMERO_DOCUMENTO" priority="2" />
+      <Item value="SEXO" priority="0" />
+      <Item value="System" priority="2" />
+      <Item value="Data" priority="1" />
+      <Item value="NivelRepositorio`0" priority="0" />
+      <Item value="Workbook`0" priority="0" />
+      <Item value="DataTable" priority="2" />
+      <Item value="DataSource" priority="0" />
+      <Item value="encabezado" priority="0" />
+      <Item value="CellFormat`0" priority="0" />
+      <Item value="lineaSegunFicha" priority="1" />
+      <Item value="ObjRef" priority="0" />
+      <Item value="Stream`0" priority="1" />
+      <Item value="StreamWriter`0" priority="1" />
+      <Item value="textFile" priority="0" />
+      <Item value="StreamWriter" priority="0" />
+      <Item value="FileStream`0" priority="1" />
+      <Item value="cabecera" priority="4" />
+      <Item value="writer" priority="0" />
+      <Item value="stream" priority="0" />
+      <Item value="texto" priority="0" />
+      <Item value="dataSet" priority="1" />
+      <Item value="datos" priority="0" />
+      <Item value="cab" priority="1" />
+      <Item value="ID_SUCURSAL_BCO" priority="0" />
+      <Item value="suc" priority="0" />
+      <Item value="Id" priority="0" />
+      <Item value="ISucursalCobertura`0" priority="3" />
+      <Item value="sucursalCobertura" priority="1" />
+      <Item value="ISucursalCoberturaRepositorio`0" priority="0" />
+      <Item value="QSucursalCobertura`0" priority="5" />
+      <Item value="SucursalCobertura`0" priority="1" />
+      <Item value="IdLocalidad" priority="2" />
+      <Item value="IdTablaBcoCba" priority="1" />
+      <Item value="idSucursal" priority="9" />
+      <Item value="asignadas" priority="5" />
+      <Item value="idLocalidad" priority="11" />
+      <Item value="ISucursal`0" priority="4" />
+      <Item value="IDepartamento`0" priority="2" />
+      <Item value="ILocalidad`0" priority="4" />
+      <Item value="ListaDepartamentos" priority="0" />
+      <Item value="List" priority="3" />
+      <Item value="ListaLocalidades" priority="0" />
+      <Item value="idDepartamento" priority="5" />
+      <Item value="IComboBox`0" priority="0" />
+      <Item value="ISucursalesCoberturaVista`0" priority="3" />
+      <Item value="IBeneficiariosVista`0" priority="0" />
+      <Item value="ISucursalCoberturaServicio`0" priority="0" />
+      <Item value="l" priority="0" />
+      <Item value="SucursalesCoberturaVista`0" priority="2" />
+      <Item value="SucursalCoberturaRepositorio`0" priority="0" />
+      <Item value="SucursalCoberturaServicio`0" priority="0" />
+      <Item value="_sucursalCoberturaRepositorio" priority="6" />
+      <Item value="SucursalCoberturaRepositorio" priority="0" />
+      <Item value="_aut" priority="0" />
+      <Item value="AutenticacionServicio`0" priority="0" />
+      <Item value="q" priority="1" />
+      <Item value="Equals`0" priority="0" />
+      <Item value="ISucursalCoberturaVista`0" priority="1" />
+      <Item value="lSucursal" priority="2" />
+      <Item value="listaDepartamentos" priority="0" />
+      <Item value="lDepartamento" priority="1" />
+      <Item value="CargarDepartamentos`0" priority="0" />
+      <Item value="coberturaVista" priority="1" />
+      <Item value="SucursalCoberturaVista`0" priority="0" />
+      <Item value="LocalidadRepositorio`0" priority="0" />
+      <Item value="DepartamentoRepositorio`0" priority="0" />
+      <Item value="_localidadRepositorio" priority="7" />
+      <Item value="LocalidadRepositorio" priority="0" />
+      <Item value="_departamentoRepositorio" priority="1" />
+      <Item value="DepartamentoRepositorio" priority="0" />
+      <Item value="CargarSucursales`0" priority="0" />
+      <Item value="SucursalRepositorio`0" priority="0" />
+      <Item value="_sucursalRepositorio" priority="1" />
+      <Item value="SucursalRepositorio" priority="0" />
+      <Item value="IList" priority="2" />
+      <Item value="objreturn" priority="2" />
+      <Item value="TieneSucursalAsignada" priority="0" />
+      <Item value="QLocalidadSucursal`0" priority="1" />
+      <Item value="WebViewPage`0" priority="0" />
+      <Item value="Localidad`0" priority="0" />
+      <Item value="pager" priority="1" />
+      <Item value="QTitulos`0" priority="2" />
+      <Item value="Titulo`0" priority="1" />
+      <Item value="IdTitulo" priority="1" />
+      <Item value="titulo" priority="11" />
+      <Item value="IdUniversidad" priority="0" />
+      <Item value="T_TITULOS`0" priority="0" />
+      <Item value="ID_TITULO" priority="0" />
+      <Item value="N_TITULO" priority="0" />
+      <Item value="ID_UNIVERSIDAD" priority="0" />
+      <Item value="Int16`0" priority="9" />
+      <Item value="ITitulo`0" priority="3" />
+      <Item value="Titulos" priority="0" />
+      <Item value="ITitulosVista`0" priority="2" />
+      <Item value="ITituloVista`0" priority="4" />
+      <Item value="ITituloServicio`0" priority="0" />
+      <Item value="TituloRepositorio`0" priority="1" />
+      <Item value="TitulosVista`0" priority="1" />
+      <Item value="_tituloRepositorio" priority="8" />
+      <Item value="TituloVista`0" priority="0" />
+      <Item value="idTitulo" priority="0" />
+      <Item value="accionFicha" priority="3" />
+      <Item value="FechaInicioActividad" priority="4" />
+      <Item value="FechaFinActividad" priority="2" />
+      <Item value="IdModalidadAfip" priority="1" />
+      <Item value="FechaNotificacion" priority="1" />
+      <Item value="Notificado" priority="2" />
+      <Item value="ModalidadAfip" priority="1" />
+      <Item value="cu" priority="0" />
+      <Item value="QLiquidacionImputada`0" priority="0" />
+      <Item value="periodo" priority="4" />
+      <Item value="IConceptoRepositorio`0" priority="1" />
+      <Item value="_conceptoRepositorio" priority="3" />
+      <Item value="ConceptoRepositorio`0" priority="3" />
+      <Item value="idconcepto" priority="0" />
+      <Item value="concepto" priority="3" />
+      <Item value="año" priority="3" />
+      <Item value="mes" priority="3" />
+      <Item value="listaconceptos" priority="0" />
+      <Item value="FontPdf" priority="1" />
+      <Item value="fechaLiquidacion" priority="5" />
+      <Item value="Nullable`0" priority="0" />
+      <Item value="IConcepto`0" priority="5" />
+      <Item value="idConcepto" priority="0" />
+      <Item value="TipoDocumento" priority="4" />
+      <Item value="SucursalDescripcion" priority="0" />
+      <Item value="t" priority="2" />
+      <Item value="CodigoSucursal" priority="0" />
+      <Item value="PdfPTable`0" priority="0" />
+      <Item value="unaTabla" priority="0" />
+      <Item value="tablaTotales" priority="12" />
+      <Item value="liquidacion" priority="11" />
+      <Item value="totalBenef" priority="1" />
+      <Item value="importePlan" priority="2" />
+      <Item value="totalPagado" priority="1" />
+      <Item value="document" priority="1" />
+      <Item value="celdaUno" priority="4" />
+      <Item value="decimal" priority="8" />
+      <Item value="TipoDniBco`0" priority="1" />
+      <Item value="celdaNumeroDocumento" priority="0" />
+      <Item value="celdaApoNroDoc" priority="0" />
+      <Item value="celda" priority="3" />
+      <Item value="celdaPeriodo" priority="0" />
+      <Item value="celdaSucursal" priority="0" />
+      <Item value="celdaImporte" priority="0" />
+      <Item value="Rectangle" priority="10" />
+      <Item value="celdaCuatro" priority="0" />
+      <Item value="Element`0" priority="0" />
+      <Item value="PdfContentByte`0" priority="3" />
+      <Item value="celdaDos" priority="1" />
+      <Item value="celdaOrden" priority="0" />
+      <Item value="FichaPPPP`0" priority="0" />
+      <Item value="Int32`0" priority="0" />
+      <Item value="BeneficiarioServicio`0" priority="0" />
+      <Item value="_beneficiarioServicio" priority="1" />
+      <Item value="celldiscapacidad" priority="1" />
+      <Item value="cellnDepartamento" priority="0" />
+      <Item value="row" priority="3" />
+      <Item value="cellHorarioentren" priority="0" />
+      <Item value="QBeneficiarioExportarArt`0" priority="0" />
+      <Item value="EsDiscapacitado" priority="0" />
+      <Item value="Sede" priority="1" />
+      <Item value="Sede`0" priority="0" />
+      <Item value="Calle" priority="0" />
+      <Item value="T_EMPRESAS" priority="1" />
+      <Item value="ID_EMPRESA" priority="0" />
+      <Item value="Numero" priority="0" />
+      <Item value="Piso" priority="0" />
+      <Item value="Dpto" priority="0" />
+      <Item value="CodigoPostal" priority="1" />
+      <Item value="IHorarioFicha`0" priority="4" />
+      <Item value="HorarioFicha" priority="0" />
+      <Item value="HorarioEmpresa`0" priority="2" />
+      <Item value="HorarioFicha`0" priority="0" />
+      <Item value="DSemana" priority="1" />
+      <Item value="HorariosFicha" priority="1" />
+      <Item value="List&lt;IHorarioFicha&gt;" priority="0" />
+      <Item value="horarios" priority="2" />
+      <Item value="IHorarioEmpresa`0" priority="0" />
+      <Item value="IEnumerable" priority="1" />
+      <Item value="T_FICHAS" priority="0" />
+      <Item value="Apoderado" priority="0" />
+      <Item value="Apoderado`0" priority="0" />
+      <Item value="Apellido" priority="0" />
+      <Item value="cellDia" priority="0" />
+      <Item value="j" priority="5" />
+      <Item value="ppp" priority="0" />
+      <Item value="IdEmpresaHorario" priority="0" />
+      <Item value="Horario" priority="2" />
+      <Item value="HorarioEmpresa" priority="0" />
+      <Item value="HoraDesde" priority="0" />
+      <Item value="HoraHasta" priority="0" />
+      <Item value="MinutosDesde" priority="0" />
+      <Item value="HorarioDesde" priority="0" />
+      <Item value="Horadesde" priority="0" />
+      <Item value="Minutosdesde" priority="0" />
+      <Item value="MinutosHasta" priority="0" />
+      <Item value="DefaultHttpHandler`0" priority="0" />
+      <Item value="horario" priority="2" />
+      <Item value="fi" priority="11" />
+      <Item value="GetBeneficiarioSinCodigoPostaAsignado`0" priority="0" />
+      <Item value="sincodigopostal" priority="1" />
+      <Item value="apo" priority="1" />
+      <Item value="beneficariopago" priority="2" />
+      <Item value="_apoderadoRepositorio" priority="0" />
+      <Item value="listreturn" priority="1" />
+      <Item value="QBeneficiarioConSinCuentasActivosYRetenidos`0" priority="0" />
+      <Item value="QBeneficiariosRetenidos`0" priority="0" />
+      <Item value="ILiquidacionVista`0" priority="4" />
+      <Item value="_liquidacionRepositorio" priority="1" />
+      <Item value="_beneficiarioRepositorio" priority="3" />
+      <Item value="SubprogramaServicio`0" priority="0" />
+      <Item value="_subprogramaServicio" priority="9" />
+      <Item value="SubprogramaVista`0" priority="1" />
+      <Item value="ISubprogramasVista`0" priority="0" />
+      <Item value="ISubprogramaVista`0" priority="0" />
+      <Item value="IFichaReconversion`0" priority="7" />
+      <Item value="FichaReconversion`0" priority="4" />
+      <Item value="fichareconv" priority="4" />
+      <Item value="IdSubprograma" priority="0" />
+      <Item value="NombreProyecto" priority="1" />
+      <Item value="CantidadAcapacitar" priority="1" />
+      <Item value="FechaInicioProyecto" priority="2" />
+      <Item value="MesesDuracionProyecto" priority="1" />
+      <Item value="AportesDeLaEmpresa" priority="0" />
+      <Item value="ApellidoTutor" priority="0" />
+      <Item value="T_SUBPROGRAMAS`0" priority="0" />
+      <Item value="ID_SUBPROGRAMA" priority="1" />
+      <Item value="N_SUBPROGRAMA" priority="0" />
+      <Item value="DESCRIPCION" priority="0" />
+      <Item value="ISubprograma`0" priority="1" />
+      <Item value="subprograma" priority="1" />
+      <Item value="CargarSubprogramas`0" priority="2" />
+      <Item value="ISubprogramaRepositorio`0" priority="0" />
+      <Item value="_subprogramaRepositorio" priority="1" />
+      <Item value="Subprograma`0" priority="2" />
+      <Item value="SubprogramaRepositorio`0" priority="0" />
+      <Item value="objficha" priority="9" />
+      <Item value="Subprogramas" priority="2" />
+      <Item value="ComboBox" priority="1" />
+      <Item value="T_FICHA_REC_PROD`0" priority="0" />
+      <Item value="N_PROYECTO" priority="1" />
+      <Item value="CANT_CAPACITAR" priority="2" />
+      <Item value="FEC_INICIO_PROY" priority="0" />
+      <Item value="FEC_FIN_PROY" priority="0" />
+      <Item value="MESES_DURAC_PROY" priority="0" />
+      <Item value="APORTES_EMP" priority="0" />
+      <Item value="APELLIDO_TUTOR" priority="0" />
+      <Item value="NOMBRE_TUTOR" priority="0" />
+      <Item value="DNI_TUTOR" priority="0" />
+      <Item value="TELEFONO_TUTOR" priority="0" />
+      <Item value="EMAIL_TUTOR" priority="0" />
+      <Item value="PUESTO_TUTOR" priority="0" />
+      <Item value="FEC_SIST" priority="0" />
+      <Item value="Ficha`0" priority="2" />
+      <Item value="objRecProd" priority="7" />
+      <Item value="IProyecto`0" priority="4" />
+      <Item value="Proyecto" priority="2" />
+      <Item value="Proyecto`0" priority="3" />
+      <Item value="proyecto" priority="17" />
+      <Item value="IProyectoRepositorio`0" priority="1" />
+      <Item value="IdProyecto" priority="2" />
+      <Item value="FechaFinProyecto" priority="0" />
+      <Item value="IdUsuarioSistema" priority="0" />
+      <Item value="QProyecto`0" priority="0" />
+      <Item value="T_PROYECTOS`0" priority="0" />
+      <Item value="ID_PROYECTO" priority="1" />
+      <Item value="FEC_FIN" priority="1" />
+      <Item value="FEC_INICIO" priority="0" />
+      <Item value="MESES_DURAC" priority="0" />
+      <Item value="proyModel" priority="0" />
+      <Item value="fichaModel" priority="0" />
+      <Item value="ProyectoRepositorio`0" priority="0" />
+      <Item value="_proyectoRepositorio" priority="2" />
+      <Item value="fichaRecProd" priority="1" />
+      <Item value="proyec" priority="1" />
+      <Item value="char" priority="0" />
+      <Item value="T_PROYECTOS" priority="0" />
+      <Item value="idProyecto" priority="2" />
+      <Item value="ficharecprod" priority="10" />
+      <Item value="NroDocumentoTutor" priority="0" />
+      <Item value="FichaReconversion" priority="0" />
+      <Item value="EnvironmentVariableTarget`0" priority="0" />
+      <Item value="String`0" priority="1" />
+      <Item value="cellFecInicio" priority="0" />
+      <Item value="cellApeTutor" priority="0" />
+      <Item value="cellDocTutor" priority="0" />
+      <Item value="cellEmailTutor" priority="0" />
+      <Item value="cellCalle" priority="0" />
+      <Item value="cellNroSede" priority="0" />
+      <Item value="NombreSede" priority="0" />
+      <Item value="NombreContacto" priority="0" />
+      <Item value="cellApeContacto" priority="0" />
+      <Item value="cellNomContacto" priority="0" />
+      <Item value="cellLunes" priority="1" />
+      <Item value="break" priority="0" />
+      <Item value="cellhora" priority="1" />
+      <Item value="cellMartes" priority="0" />
+      <Item value="cellMier" priority="0" />
+      <Item value="cellJuev" priority="0" />
+      <Item value="cellVier" priority="0" />
+      <Item value="cellSab" priority="0" />
+      <Item value="cellDom" priority="0" />
+      <Item value="dia" priority="1" />
+      <Item value="HorarioFichaRepositorio`0" priority="0" />
+      <Item value="IHorarioFichaRepositorio`0" priority="0" />
+      <Item value="_horarioFicharepositorio" priority="0" />
+      <Item value="_horarioempresarepositorio" priority="0" />
+      <Item value="HorarioEmpresaRepositorio`0" priority="0" />
+      <Item value="T_FICHAS`0" priority="0" />
+      <Item value="IdEmpresa" priority="0" />
+      <Item value="idempresa" priority="0" />
+      <Item value="_horarioficharepositorio" priority="0" />
+      <Item value="horarioFicha" priority="3" />
+      <Item value="iddia" priority="0" />
+      <Item value="idempresaHorario" priority="0" />
+      <Item value="is" priority="1" />
+      <Item value="NotFiniteNumberException`0" priority="1" />
+      <Item value="tieneHorasCargadas" priority="0" />
+      <Item value="Programa`0" priority="1" />
+      <Item value="prog" priority="3" />
+      <Item value="SubprogramasVista`0" priority="0" />
+      <Item value="CargarLocalidadSede`0" priority="1" />
+      <Item value="Subprograma" priority="0" />
+      <Item value="CargarLocalidadEmpresa`0" priority="1" />
+      <Item value="IFichaEfectoresSociales`0" priority="5" />
+      <Item value="FichaEfectoresSociales`0" priority="6" />
+      <Item value="fichaefectores" priority="1" />
+      <Item value="T_FICHA_EFEC_SOC`0" priority="0" />
+      <Item value="pppModelEfectores" priority="0" />
+      <Item value="FichaEfectores" priority="0" />
+      <Item value="on" priority="0" />
+      <Item value="ben" priority="2" />
+      <Item value="equals" priority="0" />
+      <Item value="fic" priority="0" />
+      <Item value="be" priority="2" />
+      <Item value="queryDupFiles" priority="2" />
+      <Item value="fileGroup" priority="1" />
+      <Item value="ControlDatos`0" priority="0" />
+      <Item value="Identificador1" priority="0" />
+      <Item value="Identificador2" priority="0" />
+      <Item value="Identificador3" priority="0" />
+      <Item value="ModuloAccion" priority="0" />
+      <Item value="GetBeneficiarioConDocumentoDuplicado`0" priority="0" />
+      <Item value="dniduplicado" priority="1" />
+      <Item value="mreturnclear" priority="0" />
+      <Item value="Ficha" priority="0" />
+      <Item value="Liquidacion`0" priority="1" />
+      <Item value="LiquidacionVista`0" priority="2" />
+      <Item value="BeneficiariosEnLiquidacion" priority="0" />
+      <Item value="listabenef" priority="0" />
+      <Item value="List&lt;IBeneficiario&gt;" priority="1" />
+      <Item value="ListaBeneficiariosAnexo" priority="0" />
+      <Item value="ILiquidacion`0" priority="2" />
+      <Item value="objliquidacionperiodo" priority="2" />
+      <Item value="_liqrepo" priority="1" />
+      <Item value="LiquidacionRepositorio`0" priority="0" />
+      <Item value="idprog" priority="0" />
+      <Item value="idPrograma" priority="1" />
+      <Item value="localliquidacion" priority="2" />
+      <Item value="NombreEstado" priority="0" />
+      <Item value="IdEstadoFicha" priority="0" />
+      <Item value="TipoFicha" priority="1" />
+      <Item value="departamento" priority="2" />
+      <Item value="dpto" priority="0" />
+      <Item value="localidad" priority="1" />
+      <Item value="programa" priority="2" />
+      <Item value="loc" priority="0" />
+      <Item value="_conceptorepositorio" priority="0" />
+      <Item value="cellPago" priority="0" />
+      <Item value="ListaConceptosPago" priority="0" />
+      <Item value="agrupado" priority="1" />
+      <Item value="cellDepartamento" priority="0" />
+      <Item value="cellPrograma" priority="0" />
+      <Item value="cellCantidad" priority="0" />
+      <Item value="cantidadTotal" priority="2" />
+      <Item value="rowtotal" priority="0" />
+      <Item value="IReporteBecasAcademicas`0" priority="4" />
+      <Item value="class" priority="0" />
+      <Item value="IContenidoBecasAcademicas`0" priority="2" />
+      <Item value="ComboBox`0" priority="0" />
+      <Item value="ReporteBecasAcademicas`0" priority="1" />
+      <Item value="UniversidadRepositorio`0" priority="0" />
+      <Item value="IUniversidadRepositorio`0" priority="0" />
+      <Item value="_universidadrepositorio" priority="0" />
+      <Item value="listauniversidades" priority="0" />
+      <Item value="ICarreraRepositorio`0" priority="0" />
+      <Item value="CarreraRepositorio`0" priority="0" />
+      <Item value="IInstitucionRepositorio`0" priority="0" />
+      <Item value="InstitucionesVista`0" priority="0" />
+      <Item value="InstitucionRepositorio`0" priority="0" />
+      <Item value="CargarPrograma`0" priority="0" />
+      <Item value="sector" priority="1" />
+      <Item value="institucion" priority="1" />
+      <Item value="carrera" priority="1" />
+      <Item value="idInstitucion" priority="2" />
+      <Item value="idCarrera" priority="2" />
+      <Item value="idsector" priority="1" />
+      <Item value="idprograma" priority="3" />
+      <Item value="idinstitucion" priority="2" />
+      <Item value="idcarrera" priority="1" />
+      <Item value="ContenidoBecasAcademicas`0" priority="0" />
+      <Item value="IdSectorProductivo" priority="0" />
+      <Item value="IdSector" priority="0" />
+      <Item value="SectorProductivo" priority="0" />
+      <Item value="NombreSector" priority="0" />
+      <Item value="IdInstitucion" priority="1" />
+      <Item value="Institucion" priority="0" />
+      <Item value="NombreInstitucion" priority="0" />
+      <Item value="IdCarrera" priority="3" />
+      <Item value="Carrera" priority="0" />
+      <Item value="NombreCarrera" priority="0" />
+      <Item value="CarreraFicha" priority="0" />
+      <Item value="QFichaCompleto`0" priority="0" />
+      <Item value="efec" priority="0" />
+      <Item value="montoPagado" priority="0" />
+      <Item value="listaLiquidacionBeneficiario" priority="1" />
+      <Item value="beneficiarioLiquidacion" priority="0" />
+      <Item value="importeAliquidar" priority="1" />
+      <Item value="monto" priority="1" />
+      <Item value="_programaRepositorio" priority="0" />
+      <Item value="EditarMontoLiquidar`0" priority="0" />
+      <Item value="QLiquidacionSimple`0" priority="0" />
+      <Item value="T_BENEFICIARIO_CONCEP_LIQ`0" priority="0" />
+      <Item value="idLiquidacion" priority="1" />
+      <Item value="Concepto`0" priority="0" />
+      <Item value="idbeneficiario" priority="0" />
+      <Item value="_liquidacionServicio" priority="0" />
+      <Item value="IProgramaServicio`0" priority="0" />
+      <Item value="_programaServicio" priority="1" />
+      <Item value="ProgramaServicio`0" priority="0" />
+      <Item value="importeModificado" priority="3" />
+      <Item value="_conceprepo" priority="2" />
+      <Item value="montoModificado" priority="0" />
+      <Item value="PdfPCell" priority="0" />
+      <Item value="totalPagadoEfectores" priority="2" />
+      <Item value="montobenef" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:SGE.Repositorio.Modelo.DataSGE">
+      <Item value="T_FICHA_PPP" priority="6" />
+      <Item value="T_APODERADOS" priority="0" />
+      <Item value="T_BENEFICIARIOS" priority="3" />
+      <Item value="T_CUENTAS_BANCO" priority="0" />
+      <Item value="SaveChanges`0" priority="0" />
+      <Item value="T_CONYUGES" priority="0" />
+      <Item value="T_TABLAS_BCO_CBA" priority="2" />
+      <Item value="T_LOCALIDADES" priority="5" />
+      <Item value="T_TIPOS_TABLA_BCO_CBA" priority="0" />
+      <Item value="T_TITULOS" priority="2" />
+      <Item value="T_EMP_HORARIOS" priority="2" />
+      <Item value="T_FICHAS_EMP_HOR" priority="2" />
+      <Item value="T_AUD_FICHAS_EMP_HOR" priority="0" />
+      <Item value="T_SUBPROGRAMAS" priority="4" />
+      <Item value="T_FICHA_REC_PROD" priority="4" />
+      <Item value="T_PROGRAMAS" priority="0" />
+      <Item value="T_PROYECTOS" priority="4" />
+      <Item value="T_SEDES" priority="0" />
+      <Item value="T_FICHA_EFEC_SOC" priority="5" />
+      <Item value="T_FICHAS" priority="0" />
+      <Item value="T_BENEFICIARIO_CONCEP_LIQ" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:SGE.Model.Entidades.Interfaces.IFicha">
+      <Item value="Id_Ficha" priority="4" />
+      <Item value="ficha" priority="0" />
+      <Item value="Apellido" priority="4" />
+      <Item value="Ficha" priority="1" />
+      <Item value="Deficiencia_Otra" priority="1" />
+      <Item value="Id_Departamento_Esc_Univ" priority="0" />
+      <Item value="FichaPpp" priority="21" />
+      <Item value="IdEmpresa" priority="2" />
+      <Item value="Promedio_Terciaria" priority="0" />
+      <Item value="Promedio_Universitaria" priority="0" />
+      <Item value="Tipo_Ficha" priority="1" />
+      <Item value="Mail" priority="1" />
+      <Item value="Nombre" priority="1" />
+      <Item value="Fecha_Nacimineto" priority="0" />
+      <Item value="Tipo_Documento" priority="0" />
+      <Item value="Numero_Documento" priority="0" />
+      <Item value="Cuil" priority="0" />
+      <Item value="Calle" priority="0" />
+      <Item value="Piso" priority="0" />
+      <Item value="Numero" priority="2" />
+      <Item value="Dpto" priority="4" />
+      <Item value="Monoblock" priority="0" />
+      <Item value="Parcela" priority="0" />
+      <Item value="Manzana" priority="0" />
+      <Item value="EntreCalles" priority="0" />
+      <Item value="Barrio" priority="0" />
+      <Item value="Nombre_Departamento" priority="0" />
+      <Item value="Localidad" priority="0" />
+      <Item value="Codigo_Postal" priority="0" />
+      <Item value="Telefono_Fijo" priority="0" />
+      <Item value="Telefono_Celular" priority="0" />
+      <Item value="Contacto" priority="0" />
+      <Item value="Es_Discapacitado" priority="0" />
+      <Item value="Tiene_Deficiencia_Motora" priority="0" />
+      <Item value="Tiene_Deficiencia_Mental" priority="0" />
+      <Item value="Tiene_Deficiencia_Sensorial" priority="0" />
+      <Item value="Tiene_Deficiencia_Psicologia" priority="0" />
+      <Item value="Sexo" priority="0" />
+      <Item value="Estado_Civil" priority="0" />
+      <Item value="Tiene_Hijos" priority="0" />
+      <Item value="Cantidad_Hijos" priority="0" />
+      <Item value="Nombre_Tipo_Ficha" priority="1" />
+      <Item value="Fecha_Alta" priority="0" />
+      <Item value="Id_Sector_Terciaria" priority="0" />
+      <Item value="Id_Estado_Ficha" priority="1" />
+      <Item value="Nombre_Estado_Ficha" priority="0" />
+      <Item value="Id_Carrera_Universitaria" priority="0" />
+      <Item value="Tareas" priority="0" />
+      <Item value="DeseaTermNivel" priority="1" />
+      <Item value="IdNivelEscolaridad" priority="0" />
+      <Item value="FichaPppp" priority="6" />
+      <Item value="TipoDocumento" priority="0" />
+      <Item value="NombreProyecto" priority="4" />
+      <Item value="ApellidoTutor" priority="3" />
+      <Item value="NombreTutor" priority="3" />
+      <Item value="NroDocumentoTutor" priority="3" />
+      <Item value="TelefonoCelular" priority="1" />
+      <Item value="TelefonoTutor" priority="3" />
+      <Item value="CantidadAcapacitar" priority="4" />
+      <Item value="FechaInicioProyecto" priority="3" />
+      <Item value="FechaFinProyecto" priority="3" />
+      <Item value="MesesDuracionProyecto" priority="3" />
+      <Item value="PuestoTutor" priority="2" />
+      <Item value="AportesDeLaEmpresa" priority="3" />
+      <Item value="Modalidad" priority="0" />
+      <Item value="FichaReconversion" priority="10" />
+      <Item value="Subprogramas" priority="1" />
+      <Item value="EmailTutor" priority="3" />
+      <Item value="FechaSistema" priority="1" />
+      <Item value="IdSubprograma" priority="5" />
+      <Item value="IdProyecto" priority="6" />
+      <Item value="TipoFicha" priority="3" />
+      <Item value="IdSectorTerciaria" priority="2" />
+      <Item value="IdSede" priority="0" />
+      <Item value="IdFicha" priority="1" />
+      <Item value="FichaEfectores" priority="3" />
+      <Item value="FichaVat" priority="3" />
+      <Item value="NombreTipoFicha" priority="0" />
+      <Item value="CarreraFicha" priority="9" />
+      <Item value="BeneficiarioFicha" priority="1" />
+      <Item value="IdSectorUniversitaria" priority="2" />
+      <Item value="IdInstitucionUniversitaria" priority="1" />
+      <Item value="IdCarreraUniversitaria" priority="0" />
+      <Item value="IdInstitucionTerciaria" priority="0" />
+      <Item value="IdCarreraTerciaria" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:SGE.Repositorio.Modelo.T_FICHA_PPP">
+      <Item value="ID_FICHA" priority="2" />
+      <Item value="ID_EMPRESA" priority="3" />
+      <Item value="CURSANDO" priority="0" />
+      <Item value="AT_FECHA_INICIO" priority="1" />
+      <Item value="AT_FECHA_CESE" priority="1" />
+      <Item value="ID_MOD_CONT_AFIP" priority="1" />
+      <Item value="MODALIDAD" priority="0" />
+      <Item value="T_MOD_CONT_AFIP" priority="0" />
+      <Item value="T_SEDES" priority="6" />
+      <Item value="T_EMPRESAS" priority="0" />
+      <Item value="T_FICHAS" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:SGE.Servicio.VistaInterfaces.IEmpresaVista">
+      <Item value="Descripcion" priority="4" />
+      <Item value="Cuit" priority="1" />
+      <Item value="Id" priority="6" />
+      <Item value="Sedes" priority="0" />
+      <Item value="ListadoFichasPpp" priority="4" />
+      <Item value="BusquedaFicha" priority="7" />
+      <Item value="FichaEncontrada" priority="0" />
+      <Item value="BusquedaSede" priority="1" />
+      <Item value="Accion" priority="2" />
+      <Item value="IdUsuario" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:SGE.Servicio.Vista.EmpresasVista">
+      <Item value="Descripcion" priority="1" />
+      <Item value="Cuit" priority="0" />
+      <Item value="IdEmpresaOrigen" priority="5" />
+      <Item value="EmpresaOrigen" priority="0" />
+      <Item value="EmpresaDestino" priority="1" />
+      <Item value="Empresas" priority="0" />
+      <Item value="IdEmpresaDestino" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:SGE.Servicio.VistaInterfaces.IEmpresasVista">
+      <Item value="Descripcion" priority="1" />
+      <Item value="EmpresaOrigen" priority="3" />
+      <Item value="CuitOrigen" priority="0" />
+      <Item value="IdEmpresaOrigen" priority="0" />
+      <Item value="EmpresaDestino" priority="0" />
+      <Item value="Cuit" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Nullable`1">
+      <Item value="Value" priority="13" />
+      <Item value="GetValueOrDefault`0" priority="2" />
+      <Item value="ToString`0" priority="9" />
+      <Item value="HasValue" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Collections.Generic.IList`1">
+      <Item value="Indexer" priority="6" />
+      <Item value="Count" priority="5" />
+      <Item value="FirstOrDefault`1" priority="3" />
+      <Item value="OrderBy`2" priority="1" />
+      <Item value="Where`1" priority="3" />
+      <Item value="Union`1" priority="3" />
+      <Item value="ToList`1" priority="0" />
+      <Item value="Take`1" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:SGE.Model.Entidades.Interfaces.IEmpresa">
+      <Item value="Id_Empresa" priority="0" />
+      <Item value="Nombre_Empresa" priority="0" />
+      <Item value="IdEmpresa" priority="2" />
+      <Item value="IdUsuario" priority="0" />
+      <Item value="IdLocalidad" priority="1" />
+      <Item value="LocalidadEmpresa" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:SGE.Repositorio.Modelo.T_USUARIOS_EMPRESA">
+      <Item value="NOMBRE" priority="0" />
+      <Item value="APELLIDO" priority="0" />
+      <Item value="ID_USUARIO" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:SGE.Model.Entidades.Interfaces.ISede">
+      <Item value="IdEmpresa" priority="0" />
+      <Item value="Calle" priority="0" />
+      <Item value="Numero" priority="1" />
+      <Item value="IdLocalidad" priority="2" />
+      <Item value="NombreLocalidad" priority="1" />
+      <Item value="Dpto" priority="0" />
+      <Item value="IdSede" priority="0" />
+      <Item value="NombreSede" priority="0" />
+      <Item value="CodigoPostal" priority="0" />
+      <Item value="ApellidoContacto" priority="0" />
+      <Item value="NombreContacto" priority="0" />
+      <Item value="Email" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:SGE.Servicio.ServicioInterfaces.ISedeServicio">
+      <Item value="GetSede`0" priority="1" />
+      <Item value="GetSedesByEmpresa`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:SGE.Servicio.VistaInterfaces.ISedeVista">
+      <Item value="IdEmpresa" priority="3" />
+      <Item value="Descripcion" priority="0" />
+      <Item value="Empresas" priority="0" />
+      <Item value="Id" priority="1" />
+      <Item value="Localidades" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:SGE.Servicio.Vista.SedeVista">
+      <Item value="IdEmpresa" priority="10" />
+      <Item value="Accion" priority="8" />
+      <Item value="Id" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.String">
+      <Item value="ToString`0" priority="15" />
+      <Item value="Substring`0" priority="0" />
+      <Item value="Remove`0" priority="2" />
+      <Item value="Replace`0" priority="3" />
+      <Item value="PadRight`0" priority="0" />
+      <Item value="ToLower`0" priority="4" />
+      <Item value="Contains`0" priority="1" />
+      <Item value="Split`0" priority="0" />
+      <Item value="ToUpper`0" priority="2" />
+      <Item value="Trim`0" priority="0" />
+      <Item value="FirstOrDefault`1" priority="0" />
+      <Item value="Indexer" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:SGE.Servicio.Vista.EmpresaVista">
+      <Item value="Id" priority="3" />
+      <Item value="BusquedaSede" priority="0" />
+      <Item value="BusquedaFicha" priority="2" />
+      <Item value="Accion" priority="0" />
+      <Item value="Password" priority="0" />
+      <Item value="OrigenLlamada" priority="0" />
+      <Item value="Cuil" priority="0" />
+      <Item value="Cuit" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:SGE.Repositorio.EmpresaRepositorio">
+      <Item value="GetEmpresa`0" priority="1" />
+      <Item value="AddEmpresa`0" priority="0" />
+      <Item value="EsNuevaEmpresa`0" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:SGE.Repositorio.FichaRepositorio">
+      <Item value="GetFichasByEmpresa`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:SGE.Servicio.ServicioInterfaces.IFichaServicio">
+      <Item value="GetFichas`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:SGE.Servicio.VistaInterfaces.IDepartamentoVista">
+      <Item value="Id" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:SGE.Servicio.ServicioInterfaces.IDepartamentoServicio">
+      <Item value="AddDepartamento`0" priority="0" />
+      <Item value="GetDepartamento`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:SGE.Servicio.ServicioInterfaces.IInstitucionServicio">
+      <Item value="GetInstitucion`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Web.Mvc.ModelStateDictionary">
+      <Item value="Clear`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:SGE.Servicio.Servicio.EmpresaServicio">
+      <Item value="ExistsEmpresa`0" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@SGE.Repositorio.SecuenciaRepositorio">
+      <Item value="GetID`0" priority="0" />
+      <Item value="GetId`0" priority="2" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:SGE.Repositorio.Modelo.T_EMPRESAS">
+      <Item value="ID_USUARIO" priority="0" />
+      <Item value="T_LOCALIDADES" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.DateTime">
+      <Item value="ToShortDateString`0" priority="3" />
+      <Item value="Year" priority="6" />
+      <Item value="Date" priority="0" />
+      <Item value="Month" priority="3" />
+      <Item value="GetDateTimeFormats`0" priority="0" />
+      <Item value="ToLongDateString`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:SGE.Model.Entidades.Interfaces.IApoderado">
+      <Item value="ApoderadoHasta" priority="0" />
+      <Item value="IdBeneficiario" priority="3" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:SGE.Servicio.VistaInterfaces.IBeneficiarioVista">
+      <Item value="TieneApoderadoActivo" priority="0" />
+      <Item value="FechaNotificacion" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:SGE.Model.Entidades.Interfaces.IBeneficiario">
+      <Item value="IdBeneficiario" priority="4" />
+      <Item value="TieneApoderado" priority="0" />
+      <Item value="Email" priority="0" />
+      <Item value="IdUsuarioAlta" priority="0" />
+      <Item value="IdUsuarioModificador" priority="0" />
+      <Item value="IdPrograma" priority="5" />
+      <Item value="IdFicha" priority="3" />
+      <Item value="Residente" priority="0" />
+      <Item value="TipoPersona" priority="0" />
+      <Item value="CodigoActivacionBancaria" priority="0" />
+      <Item value="CondicionIva" priority="0" />
+      <Item value="IdEstado" priority="6" />
+      <Item value="FechaAlta" priority="0" />
+      <Item value="FechaModificacion" priority="0" />
+      <Item value="Ficha" priority="10" />
+      <Item value="IdSucursal" priority="0" />
+      <Item value="Sucursal" priority="0" />
+      <Item value="SucursalDescripcion" priority="1" />
+      <Item value="CodigoSucursal" priority="1" />
+      <Item value="ImportePagoPlan" priority="1" />
+      <Item value="Modalidad" priority="1" />
+      <Item value="IdApoderadoPago" priority="2" />
+      <Item value="FechaNotificacion" priority="0" />
+      <Item value="ListaConceptos" priority="0" />
+      <Item value="NumeroCuenta" priority="0" />
+      <Item value="ConceptosBeneficiario" priority="2" />
+      <Item value="localliquidacion" priority="0" />
+      <Item value="IdBeneficiarioExport" priority="0" />
+      <Item value="MontoPrograma" priority="2" />
+      <Item value="Programa" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@SGE.Model.Comun.Enums+EstadoApoderado">
+      <Item value="Activo" priority="4" />
+      <Item value="Reemplazado" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:SGE.Model.Repositorio.IApoderadoRepositorio">
+      <Item value="TieneApoderadoActivo`0" priority="0" />
+      <Item value="GetApoderadosByBeneficiario`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:SGE.Servicio.VistaInterfaces.IApoderadoVista">
+      <Item value="IdEstadoApoderado" priority="0" />
+      <Item value="ApoderadoHasta" priority="0" />
+      <Item value="EstadosApoderados" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@SGE.Model.Comun.Enums">
+      <Item value="EstadoApoderado`0" priority="3" />
+      <Item value="TipoFicha`0" priority="4" />
+      <Item value="EstadoFicha`0" priority="4" />
+      <Item value="EstadoLiquidacion`0" priority="0" />
+      <Item value="TipoDocumento`0" priority="1" />
+      <Item value="Programas`0" priority="9" />
+      <Item value="Modalidad`0" priority="2" />
+      <Item value="EstadoBeneficiario`0" priority="5" />
+      <Item value="Acciones`0" priority="0" />
+      <Item value="DiaSemana`0" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.DateTime">
+      <Item value="Now" priority="7" />
+      <Item value="MinValue" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:SGE.Servicio.VistaInterfaces.Shared.IComboBox">
+      <Item value="Selected" priority="19" />
+      <Item value="Enabled" priority="3" />
+      <Item value="Combo" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:SGE.Model.Comun.Enums+EstadoApoderado">
+      <Item value="ToString`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:SGE.Repositorio.Modelo.T_APODERADOS">
+      <Item value="ID_BENEFICIARIO" priority="0" />
+      <Item value="TIPO_DOCUMENTO" priority="0" />
+      <Item value="CODIGO_POSTAL" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:SGE.Repositorio.Modelo.T_BENEFICIARIOS">
+      <Item value="TIENEAPODERADO" priority="1" />
+      <Item value="ID_BENEFICIARIO" priority="1" />
+      <Item value="FEC_NOTIF" priority="5" />
+      <Item value="NOTIFICADO" priority="7" />
+      <Item value="T_FICHAS" priority="7" />
+      <Item value="ID_FICHA" priority="1" />
+      <Item value="ID_ESTADO" priority="0" />
+      <Item value="T_ESTADOS" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Int32">
+      <Item value="ToString`0" priority="22" />
+      <Item value="Equals`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:SGE.Servicio.VistaInterfaces.IFichaVista">
+      <Item value="Nombre" priority="0" />
+      <Item value="Barrio" priority="0" />
+      <Item value="CantidadHijos" priority="0" />
+      <Item value="IdFicha" priority="2" />
+      <Item value="TipoFicha" priority="7" />
+      <Item value="Estado" priority="1" />
+      <Item value="Accion" priority="5" />
+      <Item value="IdInstitucionTerciaria" priority="0" />
+      <Item value="Institucion" priority="0" />
+      <Item value="SectorProductivo" priority="2" />
+      <Item value="DepartamentosEscuela" priority="0" />
+      <Item value="LocalidadesEscuela" priority="0" />
+      <Item value="CuitEmpresa" priority="4" />
+      <Item value="Localidades" priority="1" />
+      <Item value="Sexo" priority="3" />
+      <Item value="IdEmpresa" priority="2" />
+      <Item value="ComboTipoFicha" priority="7" />
+      <Item value="ComboEstadoFicha" priority="9" />
+      <Item value="FechaNacimineto" priority="0" />
+      <Item value="Mail" priority="0" />
+      <Item value="NumeroDocumento" priority="1" />
+      <Item value="ComboUniversidad" priority="1" />
+      <Item value="IdInstitucionUniversitaria" priority="0" />
+      <Item value="FichaPpp" priority="2" />
+      <Item value="FichaReconversion" priority="63" />
+      <Item value="Subprogramas" priority="7" />
+      <Item value="NombreProyecto" priority="1" />
+      <Item value="NombreTutor" priority="0" />
+      <Item value="ApellidoTutor" priority="0" />
+      <Item value="NroDocumentoTutor" priority="1" />
+      <Item value="CantidadAcapacitar" priority="0" />
+      <Item value="FechaInicioProyecto" priority="0" />
+      <Item value="FechaFinProyecto" priority="0" />
+      <Item value="MesesDuracionProyecto" priority="0" />
+      <Item value="AportesDeLaEmpresa" priority="0" />
+      <Item value="TelefonoTutor" priority="0" />
+      <Item value="EmailTutor" priority="0" />
+      <Item value="PuestoTutor" priority="0" />
+      <Item value="IdProyecto" priority="1" />
+      <Item value="LocalidadesEmpresa" priority="0" />
+      <Item value="LocalidadesSedes" priority="0" />
+      <Item value="FichaEfectores" priority="2" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:SGE.Servicio.Vista.FichaVista">
+      <Item value="TipoFicha" priority="1" />
+      <Item value="CuitEmpresa" priority="0" />
+      <Item value="ComboTipoFicha" priority="0" />
+      <Item value="ComboEstadoFicha" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@SGE.Model.Comun.Enums+TipoFicha">
+      <Item value="Universitaria" priority="0" />
+      <Item value="Terciaria" priority="0" />
+      <Item value="ReconversionProductiva" priority="12" />
+      <Item value="EfectoresSociales" priority="12" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:SGE.Model.Repositorio.IInstitucionRepositorio">
+      <Item value="GetInstituciones`0" priority="0" />
+      <Item value="GetInstitucionesBySectorProductivo`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:SGE.Model.Repositorio.ICarreraRepositorio">
+      <Item value="GetCarreras`0" priority="2" />
+      <Item value="GetCarrerasByInstitucion`0" priority="1" />
+      <Item value="GetCarrerasByInstitucionBySector`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:SGE.Model.Repositorio.IEscuelaRepositorio">
+      <Item value="GetEscuelas`0" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@SGE.Model.Comun.Enums+EstadoFicha">
+      <Item value="Apta" priority="3" />
+      <Item value="RechazoFormal" priority="0" />
+      <Item value="Beneficiario" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:SGE.Servicio.Vista.Shared.ComboBox">
+      <Item value="Selected" priority="11" />
+      <Item value="Enabled" priority="2" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Convert">
+      <Item value="ToInt32`0" priority="15" />
+      <Item value="ToInt16`0" priority="4" />
+      <Item value="ToDecimal`0" priority="1" />
+      <Item value="ToString`0" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:SGE.Model.Repositorio.ILocalidadRepositorio">
+      <Item value="GetLocalidades`0" priority="5" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:SGE.Model.Entidades.Interfaces.ICarrera">
+      <Item value="IdSector" priority="2" />
+      <Item value="IdCarrera" priority="3" />
+      <Item value="InstitucionCarrera" priority="0" />
+      <Item value="NombreSector" priority="0" />
+      <Item value="NombreInstitucion" priority="0" />
+      <Item value="IdInstitucion" priority="1" />
+      <Item value="NombreCarrera" priority="0" />
+      <Item value="SectorCarrera" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:SGE.Repositorio.Modelo.T_LOCALIDADES">
+      <Item value="N_LOCALIDAD" priority="1" />
+      <Item value="T_TABLAS_BCO_CBA" priority="2" />
+      <Item value="ID_LOCALIDAD" priority="2" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Web.Mvc.ViewDataDictionary">
+      <Item value="Clear`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:SGE.Model.Entidades.Interfaces.IFichaPPP">
+      <Item value="Id_Empresa" priority="0" />
+      <Item value="Id_Nivel_Escolaridad" priority="0" />
+      <Item value="Cursando" priority="0" />
+      <Item value="Finalizado" priority="0" />
+      <Item value="Modalidad" priority="1" />
+      <Item value="Desea_Term_Nivel" priority="0" />
+      <Item value="FechaFinActividad" priority="0" />
+      <Item value="ModalidadAfip" priority="3" />
+      <Item value="IdModalidadAfip" priority="2" />
+      <Item value="Sede" priority="11" />
+      <Item value="Empresa" priority="1" />
+      <Item value="HorariosFicha" priority="13" />
+      <Item value="IdEmpresa" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:SGE.Model.Entidades.FichaPPP">
+      <Item value="Empresa" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:SGE.Model.Repositorio.IEmpresaRepositorio">
+      <Item value="GetEmpresa`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:SGE.Model.Repositorio.ITipoFichaRepositorio">
+      <Item value="GetTiposFicha`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:SGE.Repositorio.Modelo.T_FICHA_TERCIARIO">
+      <Item value="PROMEDIO" priority="0" />
+      <Item value="T_CARRERAS" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:SGE.Repositorio.Modelo.T_FICHA_UNIVERSITARIO">
+      <Item value="PropertyChanged" priority="0" />
+      <Item value="PROMEDIO" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:SGE.Model.Repositorio.IBeneficiarioRepositorio">
+      <Item value="AddBeneficiario`0" priority="0" />
+      <Item value="GetBeneficiarioForAnexoI`0" priority="1" />
+      <Item value="GetBeneficiarioForLiquidacionExcluidos`0" priority="0" />
+      <Item value="GetBeneficiarios`0" priority="0" />
+      <Item value="GetBeneficiariosRetenidosForAnexoI`0" priority="0" />
+      <Item value="GetBeneficiariosCompleto`0" priority="0" />
+      <Item value="GetBeneficiariosAnexoActivosRetenidos`0" priority="0" />
+      <Item value="GetBeneficiario`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:SGE.Model.Repositorio.ICuentaBancoRepositorio">
+      <Item value="AddCuentaBanco`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Data.Objects.ObjectSet`1">
+      <Item value="AddObject`0" priority="0" />
+      <Item value="Select`0" priority="2" />
+      <Item value="Top`0" priority="0" />
+      <Item value="Join`4" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:SGE.Repositorio.Modelo.T_CUENTAS_BANCO">
+      <Item value="ID_CUENTA_BANCO" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:SGE.Model.Entidades.Interfaces.ICuentaBanco">
+      <Item value="IdBeneficiario" priority="0" />
+      <Item value="IdSistema" priority="0" />
+      <Item value="NroCta" priority="0" />
+      <Item value="Cbu" priority="0" />
+      <Item value="UsuarioBanco" priority="0" />
+      <Item value="IdSucursal" priority="0" />
+      <Item value="IdMoneda" priority="0" />
+      <Item value="FechaSolicitudCuenta" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:SGE.Servicio.Vista.FichasVista">
+      <Item value="Fichas" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:SGE.Servicio.VistaInterfaces.IFichasVista">
+      <Item value="Fichas" priority="4" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.IO.StreamWriter">
+      <Item value="WriteLine`0" priority="5" />
+      <Item value="Close`0" priority="1" />
+      <Item value="AutoFlush" priority="2" />
+      <Item value="Encoding" priority="0" />
+      <Item value="FormatProvider" priority="0" />
+      <Item value="Write`0" priority="3" />
+      <Item value="CreateObjRef`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Type">
+      <Item value="Missing" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Microsoft.Office.Interop.Excel.Application">
+      <Item value="Visible" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Microsoft.Office.Interop.Excel.Sheets">
+      <Item value="Add`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Microsoft.Office.Interop.Excel.Workbook">
+      <Item value="_CodeName" priority="0" />
+      <Item value="Save`0" priority="0" />
+      <Item value="Saved" priority="0" />
+      <Item value="SaveAs`0" priority="0" />
+      <Item value="Path" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Microsoft.Office.Interop.Excel.Worksheet">
+      <Item value="Copy`0" priority="0" />
+      <Item value="Cells" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.IO.File">
+      <Item value="WriteAllLines`0" priority="0" />
+      <Item value="Copy`0" priority="2" />
+      <Item value="Create`0" priority="0" />
+      <Item value="OpenWrite`0" priority="0" />
+      <Item value="AppendText`0" priority="0" />
+      <Item value="CreateText`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:SGE.Model.Entidades.Interfaces.IConyuge">
+      <Item value="Apellido" priority="5" />
+      <Item value="Nombre" priority="2" />
+      <Item value="Cuil" priority="2" />
+      <Item value="IdBeneficiario" priority="2" />
+      <Item value="IdConyugue" priority="1" />
+      <Item value="FechaNacimiento" priority="1" />
+      <Item value="TipoDocumento" priority="1" />
+      <Item value="NumeroDocumento" priority="1" />
+      <Item value="Sexo" priority="1" />
+      <Item value="Nacionalidad" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Linq.IOrderedQueryable`1">
+      <Item value="ToList`1" priority="4" />
+      <Item value="Count`1" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Collections.Generic.List`1">
+      <Item value="Skip`1" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Collections.Generic.IEnumerable`1">
+      <Item value="Max`2" priority="0" />
+      <Item value="Take`1" priority="1" />
+      <Item value="Equals`0" priority="0" />
+      <Item value="FirstOrDefault`1" priority="12" />
+      <Item value="Where`1" priority="2" />
+      <Item value="Count`1" priority="3" />
+      <Item value="OrderBy`2" priority="2" />
+      <Item value="SingleOrDefault`1" priority="1" />
+      <Item value="AsEnumerable`1" priority="2" />
+      <Item value="AsQueryable`0" priority="2" />
+      <Item value="GetEnumerator`0" priority="1" />
+      <Item value="OrderByDescending`2" priority="0" />
+      <Item value="MinutosHasta" priority="0" />
+      <Item value="HoraHasta" priority="0" />
+      <Item value="ToList`1" priority="1" />
+      <Item value="ToArray`1" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.String">
+      <Item value="Empty" priority="9" />
+      <Item value="IsNullOrEmpty`0" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:SGE.Repositorio.Modelo.T_CONYUGES">
+      <Item value="ID_CONYUGE" priority="1" />
+      <Item value="ID_BENEFICIARIO" priority="0" />
+      <Item value="CUIL" priority="0" />
+      <Item value="APELLIDO" priority="0" />
+      <Item value="NOMBRE" priority="0" />
+      <Item value="FEC_NAC" priority="0" />
+      <Item value="TIPO_DOCUMENTO" priority="0" />
+      <Item value="NUMERO_DOCUMENTO" priority="0" />
+      <Item value="SEXO" priority="0" />
+      <Item value="NACIONALIDAD" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Data.DataTable">
+      <Item value="DataSet" priority="1" />
+      <Item value="Select`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.IFormatProvider">
+      <Item value="GetFormat`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Void">
+      <Item value="WriteLine`0" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.IO.FileStream">
+      <Item value="Read`0" priority="0" />
+      <Item value="CopyTo`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Text.Encoding">
+      <Item value="UTF8" priority="1" />
+      <Item value="ASCII" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Data.InternalDataCollectionBase">
+      <Item value="CopyTo`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@SGE.Web.Infrastucture.Formularios">
+      <Item value="Liquidacion" priority="2" />
+      <Item value="SubProgramas" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@SGE.Web.Infrastucture.Acciones">
+      <Item value="Agregar" priority="0" />
+      <Item value="CambiarEstado" priority="0" />
+      <Item value="Modificar" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:SGE.Repositorio.Modelo.T_TABLAS_BCO_CBA">
+      <Item value="ID_TABLA_BCO_CBA" priority="2" />
+      <Item value="COD_BCO_CBA" priority="1" />
+      <Item value="T_LOCALIDADES" priority="0" />
+      <Item value="DESCRIPCION" priority="2" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Int16">
+      <Item value="ToString`0" priority="5" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:SGE.Model.Entidades.Interfaces.ITablaBcoCba">
+      <Item value="CodigoBcoCba" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:SGE.Model.Entidades.Interfaces.ISucursalCobertura">
+      <Item value="Localidad" priority="2" />
+      <Item value="Sucusal" priority="1" />
+      <Item value="IdTablaBcoCba" priority="3" />
+      <Item value="IdLocalidad" priority="1" />
+      <Item value="IdDepartamento" priority="0" />
+      <Item value="TieneSucursalAsignada" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:SGE.Repositorio.SucursalCoberturaRepositorio">
+      <Item value="GetSucursalesCoberturaCount`0" priority="1" />
+      <Item value="GetSucursalesCobertura`0" priority="2" />
+      <Item value="LocalidadTieneSucursal`0" priority="0" />
+      <Item value="GetSucursalCobertura`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:SGE.Servicio.VistaInterfaces.ISucursalesCoberturaVista">
+      <Item value="ListaSucursalesCobertura" priority="1" />
+      <Item value="Pager" priority="1" />
+      <Item value="Localidades" priority="0" />
+      <Item value="Sucursales" priority="1" />
+      <Item value="Departamentos" priority="2" />
+      <Item value="Asignadas" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:SGE.Servicio.Vista.Shared.IPager">
+      <Item value="Skip" priority="0" />
+      <Item value="PageSize" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:SGE.Repositorio.Modelo.T_TIPOS_TABLA_BCO_CBA">
+      <Item value="EntityKey" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:SGE.Servicio.VistaInterfaces.ISucursalCoberturaVista">
+      <Item value="Sucursales" priority="1" />
+      <Item value="IdLocalidad" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:SGE.Model.Entidades.Interfaces.ISucursal">
+      <Item value="IdSucursal" priority="1" />
+      <Item value="CodigoBanco" priority="1" />
+      <Item value="Detalle" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:SGE.Model.Entidades.Interfaces.IDepartamento">
+      <Item value="GetType`0" priority="0" />
+      <Item value="IdDepartamento" priority="0" />
+      <Item value="NombreDepartamento" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:SGE.Repositorio.DepartamentoRepositorio">
+      <Item value="GetDepartamentos`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:SGE.Model.Entidades.Interfaces.ILocalidad">
+      <Item value="Sucursales" priority="4" />
+      <Item value="NombreLocalidad" priority="0" />
+      <Item value="IdLocalidad" priority="2" />
+      <Item value="Sucursalee" priority="1" />
+      <Item value="NombreDepartamento" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:SGE.Repositorio.LocalidadRepositorio">
+      <Item value="GetSucursalesforLocalidad`0" priority="0" />
+      <Item value="GetSucursalCoberturaByLocalidad`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:SGE.Servicio.Vista.Shared.Pager">
+      <Item value="Skip" priority="0" />
+      <Item value="PageSize" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:SGE.Model.Entidades.Interfaces.ITitulo">
+      <Item value="IdTitulo" priority="5" />
+      <Item value="Descripcion" priority="3" />
+      <Item value="IdUniversidad" priority="3" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:SGE.Model.Entidades.Titulo">
+      <Item value="IdTitulo" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:SGE.Repositorio.Modelo.T_TITULOS">
+      <Item value="ID_TITULO" priority="2" />
+      <Item value="ID_UNIVERSIDAD" priority="0" />
+      <Item value="N_TITULO" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:SGE.Repositorio.TituloRepositorio">
+      <Item value="GetTituloCount`0" priority="0" />
+      <Item value="GetTitulos`0" priority="4" />
+      <Item value="GetTitulo`0" priority="0" />
+      <Item value="AddTitulo`0" priority="0" />
+      <Item value="UpdateTitulo`0" priority="0" />
+      <Item value="DeleteTitulo`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:SGE.Servicio.VistaInterfaces.ITitulosVista">
+      <Item value="Titulos" priority="2" />
+      <Item value="BusquedaPorDescripcion" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:SGE.Servicio.VistaInterfaces.ITituloVista">
+      <Item value="IdUniversidad" priority="0" />
+      <Item value="Universidades" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:SGE.Servicio.VistaInterfaces.IFichaObservacionVista">
+      <Item value="Accion" priority="1" />
+      <Item value="AccionFicha" priority="3" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:SGE.Servicio.Vista.FichaObservacionVista">
+      <Item value="AccionFicha" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:SGE.Servicio.VistaInterfaces.IFichaObservacionesVista">
+      <Item value="AccionFicha" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:SGE.Repositorio.Modelo.T_MOD_CONT_AFIP">
+      <Item value="N_MOD_CONT_AFIP" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:SGE.Repositorio.Modelo.T_FICHAS">
+      <Item value="T_FICHA_VAT" priority="2" />
+      <Item value="TIPO_DOCUMENTO" priority="1" />
+      <Item value="ES_DISCAPACITADO" priority="0" />
+      <Item value="T_FICHAS_EMP_HOR" priority="6" />
+      <Item value="T_FICHA_PPP" priority="0" />
+      <Item value="CODIGO_POSTAL" priority="1" />
+      <Item value="ID_FICHA" priority="0" />
+      <Item value="NUMERO" priority="0" />
+      <Item value="NUMERO_DOCUMENTO" priority="9" />
+      <Item value="APELLIDO" priority="0" />
+      <Item value="NOMBRE" priority="0" />
+      <Item value="ID_ESTADO_FICHA" priority="0" />
+      <Item value="TIPO_FICHA" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:SGE.Repositorio.Modelo.T_FICHA_VAT">
+      <Item value="AT_FECHA_INICIO" priority="0" />
+      <Item value="AT_FECHA_CESE" priority="0" />
+      <Item value="ID_MOD_CONT_AFIP" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:SGE.Model.Entidades.Interfaces.IFichaPPPP">
+      <Item value="FechaInicioActividad" priority="0" />
+      <Item value="IdModalidadAFIP" priority="0" />
+      <Item value="Modalidad" priority="0" />
+      <Item value="ModalidadAFIP" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:SGE.Model.Entidades.Interfaces.ILiquidacion">
+      <Item value="Beneficiarios" priority="18" />
+      <Item value="NombreEstado" priority="0" />
+      <Item value="ListaBeneficiarios" priority="1" />
+      <Item value="CantBenef" priority="1" />
+      <Item value="IdLiquidacion" priority="0" />
+      <Item value="FechaLiquidacion" priority="0" />
+      <Item value="IdPrograma" priority="7" />
+      <Item value="Programa" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:SGE.Servicio.VistaInterfaces.ILiquidacionVista">
+      <Item value="BeneficiariosEnLiquidacion" priority="8" />
+      <Item value="Liquidacion" priority="6" />
+      <Item value="ListaBeneficiario" priority="1" />
+      <Item value="Conceptos" priority="1" />
+      <Item value="Programas" priority="1" />
+      <Item value="ListaBeneficiariosAnexo" priority="6" />
+      <Item value="IdLiquidacion" priority="3" />
+      <Item value="SeleccionadoBeneficiario" priority="9" />
+      <Item value="ImportePlanEfe" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:SGE.Model.Repositorio.ILiquidacionRepositorio">
+      <Item value="GetLiquidacionImputadoEnCuenta`0" priority="0" />
+      <Item value="GetLiquidacion`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:SGE.Model.Entidades.Beneficiario">
+      <Item value="IdEstadoBenConcLiq" priority="0" />
+      <Item value="IdFicha" priority="2" />
+      <Item value="Ficha" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@SGE.Model.Comun.Enums+EstadoBeneficiarioLiquidacion">
+      <Item value="ImputadoEnCuenta" priority="1" />
+      <Item value="EnviadoAlBanco" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:SGE.Model.Repositorio.IConceptoRepositorio">
+      <Item value="GetConcepto`0" priority="1" />
+      <Item value="GetConceptos`0" priority="1" />
+      <Item value="GetConceptosByBeneficiarioEfectores`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:SGE.Repositorio.Modelo.T_BENEFICIARIO_CONCEP_LIQ">
+      <Item value="T_TABLAS_BCO_CBA" priority="3" />
+      <Item value="T_BENEFICIARIOS" priority="0" />
+      <Item value="APODERADO" priority="0" />
+      <Item value="MONTO" priority="0" />
+      <Item value="ID_LIQUIDACION" priority="0" />
+      <Item value="ID_BENEFICIARIO" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:iTextSharp.text.Paragraph">
+      <Item value="Indexer" priority="0" />
+      <Item value="Alignment" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:iTextSharp.text.Document">
+      <Item value="Add`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:iTextSharp.text.pdf.PdfPCell">
+      <Item value="Border" priority="4" />
+      <Item value="HorizontalAlignment" priority="6" />
+      <Item value="BorderColorLeft" priority="0" />
+      <Item value="BorderColorRight" priority="0" />
+      <Item value="Table" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@iTextSharp.text.pdf.PdfContentByte">
+      <Item value="ALIGN_RIGHT" priority="1" />
+      <Item value="ALIGN_LEFT" priority="3" />
+      <Item value="ALIGN_CENTER" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@iTextSharp.text.Rectangle">
+      <Item value="BOTTOM_BORDER" priority="0" />
+      <Item value="TOP_BORDER" priority="1" />
+      <Item value="LEFT_BORDER" priority="2" />
+      <Item value="RIGHT_BORDER" priority="3" />
+      <Item value="BOX" priority="3" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@iTextSharp.text.Element">
+      <Item value="ALIGN_LEFT" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:iTextSharp.text.pdf.PdfPTable">
+      <Item value="HorizontalAlignment" priority="1" />
+      <Item value="Type" priority="0" />
+      <Item value="DefaultCell" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@iTextSharp.text.BaseColor">
+      <Item value="WHITE" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@SGE.Model.Comun.Enums+Formulario">
+      <Item value="RepAnexoIResolucion" priority="0" />
+      <Item value="RepArtHorariosEntrenamiento" priority="2" />
+      <Item value="AbmSucursalesCobertura" priority="0" />
+      <Item value="AbmSubprogramas" priority="5" />
+      <Item value="RepArtHorariosEntReconversion" priority="1" />
+      <Item value="RepBecasAcademicas" priority="1" />
+      <Item value="RepEfectoresYReconversion" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:SGE.Model.Entidades.Interfaces.IControlDatos">
+      <Item value="Descripcion" priority="2" />
+      <Item value="Identificador2" priority="3" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Linq.IOrderedEnumerable`1">
+      <Item value="OrderBy`2" priority="0" />
+      <Item value="ToList`1" priority="1" />
+      <Item value="ThenBy`2" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@iTextSharp.text.PageSize">
+      <Item value="LEGAL" priority="2" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:iTextSharp.text.Rectangle">
+      <Item value="Rotate`0" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:SGE.Servicio.Servicio.BeneficiarioServicio">
+      <Item value="ReporteBeneficiarioArtHorariosEntrenamiento`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:SGE.Servicio.ServicioInterfaces.IBeneficiarioServicio">
+      <Item value="ExportReporteArtHorariosEntrenamiento`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:NPOI.SS.UserModel.IRow">
+      <Item value="CreateCell`0" priority="3" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:NPOI.SS.UserModel.ICell">
+      <Item value="SetCellValue`0" priority="11" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@SGE.Model.Comun.Enums+Programas">
+      <Item value="Ppp" priority="3" />
+      <Item value="ReconversionProductiva" priority="0" />
+      <Item value="Universitaria" priority="2" />
+      <Item value="Terciaria" priority="1" />
+      <Item value="EfectoresSociales" priority="6" />
+      <Item value="PppProf" priority="0" />
+      <Item value="Vat" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@SGE.Model.Comun.Enums+Modalidad">
+      <Item value="Entrenamiento" priority="2" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@SGE.Model.Comun.Enums+EstadoBeneficiario">
+      <Item value="Activo" priority="3" />
+      <Item value="Pendiente" priority="3" />
+      <Item value="BeneficiarioRetenido" priority="3" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:SGE.Repositorio.Modelo.T_SEDES">
+      <Item value="CALLE" priority="1" />
+      <Item value="NUMERO" priority="0" />
+      <Item value="PISO" priority="0" />
+      <Item value="DPTO" priority="0" />
+      <Item value="CODIGO_POSTAL" priority="0" />
+      <Item value="ID_LOCALIDAD" priority="1" />
+      <Item value="T_LOCALIDADES" priority="2" />
+      <Item value="ID_SEDE" priority="0" />
+      <Item value="N_SEDE" priority="0" />
+      <Item value="NOM_CONTACTO" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:SGE.Repositorio.Modelo.T_FICHAS_EMP_HOR">
+      <Item value="ID_FICHA" priority="2" />
+      <Item value="ID_EMP_HORARIO" priority="1" />
+      <Item value="T_EMP_HORARIOS" priority="4" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:SGE.Repositorio.Modelo.T_EMP_HORARIOS">
+      <Item value="ID_EMP_HORARIO" priority="1" />
+      <Item value="T_DIAS_SEMANA" priority="2" />
+      <Item value="HORAS_DESDE" priority="2" />
+      <Item value="MINUTOS_DESDE" priority="3" />
+      <Item value="HORAS_HASTA" priority="1" />
+      <Item value="MINUTOS_HASTA" priority="1" />
+      <Item value="ID_EMPRESA" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:SGE.Repositorio.Modelo.T_DIAS_SEMANA">
+      <Item value="N_DIA" priority="2" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:SGE.Model.Entidades.Interfaces.IHorarioFicha">
+      <Item value="DSemana" priority="10" />
+      <Item value="IdEmpresaHorario" priority="2" />
+      <Item value="Horario" priority="1" />
+      <Item value="HorarioDesde" priority="0" />
+      <Item value="Horadesde" priority="2" />
+      <Item value="Minutosdesde" priority="0" />
+      <Item value="HoraHasta" priority="0" />
+      <Item value="MinutosHasta" priority="0" />
+      <Item value="IdEmpresa" priority="0" />
+      <Item value="IdFicha" priority="0" />
+      <Item value="Corte" priority="2" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:SGE.Model.Entidades.HorarioEmpresa">
+      <Item value="HoraDesde" priority="0" />
+      <Item value="MinutosDesde" priority="1" />
+      <Item value="HoraHasta" priority="1" />
+      <Item value="MinutosHasta" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:SGE.Servicio.VistaInterfaces.IBeneficiarioLiquidacion">
+      <Item value="IdEstado" priority="0" />
+      <Item value="Ficha" priority="0" />
+      <Item value="IdPrograma" priority="2" />
+      <Item value="MontoPrograma" priority="13" />
+      <Item value="IdBeneficiario" priority="0" />
+      <Item value="Programa" priority="1" />
+      <Item value="ImportePagoPlan" priority="1" />
+      <Item value="Test" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:SGE.Servicio.ServicioInterfaces.ISubprogramaServicio">
+      <Item value="GetSubprograma`0" priority="2" />
+      <Item value="GetSubprogramas`0" priority="3" />
+      <Item value="AddSubprogramaLast`0" priority="0" />
+      <Item value="AddSubprograma`0" priority="0" />
+      <Item value="UpdateSubprograma`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:SGE.Model.Entidades.Interfaces.ISubprograma">
+      <Item value="IdPrograma" priority="0" />
+      <Item value="IdSubprograma" priority="2" />
+      <Item value="Descripcion" priority="1" />
+      <Item value="NombreSubprograma" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:SGE.Repositorio.Modelo.T_SUBPROGRAMAS">
+      <Item value="ID_SUBPROGRAMA" priority="4" />
+      <Item value="N_SUBPROGRAMA" priority="2" />
+      <Item value="DESCRIPCION" priority="1" />
+      <Item value="ID_PROGRAMA" priority="0" />
+      <Item value="N_PROGRAMA" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:SGE.Servicio.VistaInterfaces.ISubprogramaVista">
+      <Item value="Id" priority="0" />
+      <Item value="Nombre" priority="2" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:SGE.Model.Repositorio.IFichaRepositorio">
+      <Item value="GetFormFichaReconversion`0" priority="0" />
+      <Item value="GetFichaReconversion`0" priority="1" />
+      <Item value="GetFichaEfectores`0" priority="1" />
+      <Item value="GetFormFichaEfectores`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:SGE.Model.Entidades.Interfaces.IFichaReconversion">
+      <Item value="ModalidadAfip" priority="2" />
+      <Item value="Modalidad" priority="1" />
+      <Item value="NombreProyecto" priority="3" />
+      <Item value="ApellidoTutor" priority="3" />
+      <Item value="NombreTutor" priority="3" />
+      <Item value="NroDocumentoTutor" priority="4" />
+      <Item value="TelefonoTutor" priority="3" />
+      <Item value="CantidadAcapacitar" priority="2" />
+      <Item value="FechaInicioProyecto" priority="2" />
+      <Item value="FechaFinProyecto" priority="2" />
+      <Item value="MesesDuracionProyecto" priority="2" />
+      <Item value="PuestoTutor" priority="4" />
+      <Item value="AportesDeLaEmpresa" priority="4" />
+      <Item value="IdSubprograma" priority="3" />
+      <Item value="FechaInicioActividad" priority="0" />
+      <Item value="EmailTutor" priority="2" />
+      <Item value="IdProyecto" priority="1" />
+      <Item value="Proyecto" priority="21" />
+      <Item value="CuitEmpresa" priority="1" />
+      <Item value="Subprograma" priority="0" />
+      <Item value="Sede" priority="2" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:SGE.Model.Repositorio.ISubprogramaRepositorio">
+      <Item value="GetSubprogramas`0" priority="1" />
+      <Item value="GetSubrogramas`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:SGE.Repositorio.Modelo.T_FICHA_REC_PROD">
+      <Item value="ID_SUBPROGRAMA" priority="2" />
+      <Item value="NOMBRE_TUTOR" priority="2" />
+      <Item value="N_PROYECTO" priority="1" />
+      <Item value="CANT_CAPACITAR" priority="1" />
+      <Item value="FEC_INICIO_PROY" priority="1" />
+      <Item value="FEC_FIN_PROY" priority="1" />
+      <Item value="MESES_DURAC_PROY" priority="1" />
+      <Item value="APORTES_EMP" priority="1" />
+      <Item value="APELLIDO_TUTOR" priority="1" />
+      <Item value="DNI_TUTOR" priority="2" />
+      <Item value="TELEFONO_TUTOR" priority="1" />
+      <Item value="EMAIL_TUTOR" priority="1" />
+      <Item value="PUESTO_TUTOR" priority="1" />
+      <Item value="T_PROYECTOS" priority="5" />
+      <Item value="ID_PROYECTO" priority="2" />
+      <Item value="T_PROYECTOSReference" priority="1" />
+      <Item value="ALTA_TEMPRANA" priority="0" />
+      <Item value="T_SUBPROGRAMAS" priority="0" />
+      <Item value="T_SEDES" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:SGE.Repositorio.Modelo.T_PROYECTOS">
+      <Item value="ID_PROYECTO" priority="5" />
+      <Item value="N_PROYECTO" priority="2" />
+      <Item value="CANT_CAPACITAR" priority="2" />
+      <Item value="FEC_INICIO" priority="3" />
+      <Item value="FEC_FIN" priority="3" />
+      <Item value="MESES_DURAC" priority="2" />
+      <Item value="T_FICHA_REC_PROD" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:SGE.Model.Entidades.Interfaces.IProyecto">
+      <Item value="IdProyecto" priority="11" />
+      <Item value="NombreProyecto" priority="4" />
+      <Item value="CantidadAcapacitar" priority="3" />
+      <Item value="FechaInicioProyecto" priority="4" />
+      <Item value="FechaFinProyecto" priority="5" />
+      <Item value="MesesDuracionProyecto" priority="4" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:SGE.Model.Repositorio.IProyectoRepositorio">
+      <Item value="AddProyecto`0" priority="0" />
+      <Item value="UpdateProyecto`0" priority="0" />
+      <Item value="DeleteProyecto`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Data.Objects.DataClasses.EntityCollection`1">
+      <Item value="Remove`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@SGE.Model.Comun.Enums+Acciones">
+      <Item value="CambiarEstado" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@SGE.Model.Comun.Enums+DiaSemana">
+      <Item value="Lunes" priority="2" />
+      <Item value="Martes" priority="1" />
+      <Item value="Miércoles" priority="0" />
+      <Item value="Jueves" priority="0" />
+      <Item value="Sábado" priority="0" />
+      <Item value="Domingo" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Char">
+      <Item value="ToString`0" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:SGE.Model.Repositorio.IHorarioFichaRepositorio">
+      <Item value="GetHorarioFichaByDiaByEmpresa`0" priority="0" />
+      <Item value="GetHorarioFichaByEmpresa`0" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:SGE.Model.Repositorio.IHorarioEmpresaRepositorio">
+      <Item value="GetHorarioEmpresaForFicha`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:SGE.Model.Entidades.Interfaces.IHorarioEmpresa">
+      <Item value="IdDia" priority="0" />
+      <Item value="IdEmpresaHorario" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:SGE.Repositorio.Modelo.T_FICHA_EFEC_SOC">
+      <Item value="T_EMPRESAS" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Linq.IGrouping`2">
+      <Item value="Key" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:SGE.Servicio.Vista.LiquidacionVista">
+      <Item value="FechaLiquidacion" priority="1" />
+      <Item value="Liquidacion" priority="4" />
+      <Item value="ListaBeneficiario" priority="0" />
+      <Item value="SeleccionadoBeneficiario" priority="1" />
+      <Item value="ImportePlanEfe" priority="2" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:SGE.Model.Entidades.Interfaces.IConcepto">
+      <Item value="Año" priority="1" />
+      <Item value="Mes" priority="1" />
+      <Item value="MontoPagado" priority="3" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:SGE.Repositorio.Modelo.T_ESTADOS">
+      <Item value="N_ESTADO" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:SGE.Model.Entidades.Interfaces.IInstitucion">
+      <Item value="IdInstitucion" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:SGE.Servicio.Servicio.ReporteServicio">
+      <Item value="ExportReporteCantidades`0" priority="0" />
+      <Item value="ExportReporteDetalle`0" priority="0" />
+      <Item value="GetReporteBecasAcademicasChangeCombos`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:SGE.Servicio.VistaInterfaces.IContenidoDepLocProgEsta">
+      <Item value="Departamento" priority="1" />
+      <Item value="Localidad" priority="0" />
+      <Item value="Programa" priority="0" />
+      <Item value="Cantidad" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:SGE.Model.Repositorio.IUniversidadRepositorio">
+      <Item value="GetUniversidades`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:SGE.Servicio.VistaInterfaces.IReporteBecasAcademicas">
+      <Item value="BusquedaUniversidades" priority="1" />
+      <Item value="BusquedaAreas" priority="0" />
+      <Item value="BusquedaSectorProductivo" priority="1" />
+      <Item value="BusquedaProgramas" priority="0" />
+      <Item value="BusquedaInsituciones" priority="1" />
+      <Item value="BusquedaCarreras" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:SGE.Servicio.Vista.ReporteBecasAcademicas">
+      <Item value="BusquedaSectorProductivo" priority="0" />
+      <Item value="BusquedaInstituciones" priority="0" />
+      <Item value="BusquedaCarreras" priority="0" />
+      <Item value="BusquedaProgramas" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:SGE.Servicio.VistaInterfaces.IContenidoBecasAcademicas">
+      <Item value="SectorProductivo" priority="0" />
+      <Item value="Institucion" priority="0" />
+      <Item value="Carrera" priority="0" />
+      <Item value="Programa" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:SGE.Repositorio.Modelo.T_CARRERAS">
+      <Item value="N_CARRERA" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:SGE.Model.Entidades.Interfaces.ISector">
+      <Item value="IdSector" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:SGE.Servicio.ServicioInterfaces.ILiquidacionServicio">
+      <Item value="EditarMontoBeneficiario`0" priority="0" />
+      <Item value="EditarMontoLiquidar`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:SGE.Model.Repositorio.IProgramaRepositorio">
+      <Item value="GetPrograma`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:SGE.Model.Entidades.Interfaces.IPrograma">
+      <Item value="MontoPrograma" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Decimal">
+      <Item value="ToString`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:SGE.Servicio.ServicioInterfaces.IProgramaServicio">
+      <Item value="GetPrograma`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:SGE.Servicio.VistaInterfaces.IProgramaVista">
+      <Item value="MontoPrograma" priority="0" />
+    </ItemStatistics>
+  </CompletionStatisticsManager>
+</Configuration>

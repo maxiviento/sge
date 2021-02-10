@@ -1,0 +1,76 @@
+﻿@model LiquidacionesVista
+@{
+    ViewBag.Title = "Liquidacion";
+    ViewBag.SubMenuSelected = "Exportar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    
+}
+@section Scripts{
+    @Content.Script("SGE.Liquidacion.js", Url)
+}
+<div class="box">
+    <h2>
+        Liquidación - Exportar</h2>
+    @using (Html.BeginForm("IndexPager", "Liquidacion", FormMethod.Post, new { Id = "FormIndexLiquidacion" }))
+    {
+        <table align="center" style="width: 930px;">
+            <tr>
+                <td>
+                    <fieldset style="width: 925px;">
+                        <legend><b>Filtro</b></legend>
+                        <table>
+                            <tr>
+                                <td style="width: 20%; text-align: right;">
+                                    <b>Apellido: </b>
+                                </td>
+                                <td style="width: 30%; text-align: left;">@Html.TextBoxFor(c => c.Apellido)
+                                </td>
+                                <td style="width: 15%; text-align: right;">
+                                    <b>Nombre: </b>
+                                </td>
+                                <td style="width: 35%; text-align: left;">@Html.TextBoxFor(c => c.Nombre)
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width: 25%; text-align: right;">
+                                    <b>CBU: </b>
+                                </td>
+                                <td style="width: 25%; text-align: left;">@Html.TextBoxFor(c => c.Cbu)
+                                </td>
+                                <td style="width: 25%; text-align: right;">
+                                    <b>Nro. Doc.: </b>
+                                </td>
+                                <td style="width: 25%; text-align: left;">@Html.TextBoxFor(c => c.Numero_Documento)
+                                </td>
+                            </tr>
+                        </table>
+                        <br />
+                        <div>
+                            <a class="btnIngresar" id="Buscar" href="#">Buscar</a>
+                            @if (Model.Liquidaciones.Count > 0)
+                              {
+                                <a class="btnIngresar" href="#" id="GenerarFile">Generar Archivo</a>
+                              }
+                        </div>
+                        <br />
+                    </fieldset>
+                </td>
+            </tr>
+        </table>
+        <table>
+            <tr>
+                <td style="font-weight: bold">
+                    <div id="titulo">
+                    </div>
+                    <div id="DivSuperviciones">
+                        @Html.Partial("_ListaLiquidacion", Model)
+                    </div>
+                </td>
+            </tr>
+        </table>
+        @Html.Partial("_Pager", Model.Pager) 
+        @Html.HiddenFor(c => c.FileDownload)
+        @Html.HiddenFor(c => c.FileNombre)
+    }
+    <br />
+</div>

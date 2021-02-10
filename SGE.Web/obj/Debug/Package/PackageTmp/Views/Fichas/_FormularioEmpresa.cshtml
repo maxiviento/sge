@@ -1,0 +1,114 @@
+﻿@model FichaVista
+@Html.HiddenFor(c => c.IdEmpresa)
+@Html.HiddenFor(c => c.FichaPpp.Modalidad)
+<table>
+    <tr>
+        <td colspan="4">
+            <p class="similLegend">
+                <b>Datos de la Empresa</b></p>
+        </td>
+    </tr>
+    <tr>
+        <td align="right">
+            <b>CUIT: </b>
+        </td>
+        <td align="left" valign="middle">
+            @Html.TextBoxFor(c => c.CuitEmpresa, new { style = "width:100px; text-align: right;", MaxLength = "13" })
+            <a class="btnIngresar" href="#" id="ValidarCuit">Verificar existencia</a>
+        </td>
+    </tr>
+    <tr>
+        <td align="right">
+            <b>Razón Social: </b>
+        </td>
+        <td align="left" valign="middle">
+            @Html.TextBoxFor(c => c.DescripcionEmpresa, new { disabled = "disabled", style = "width:400px;" })
+        </td>
+        <td align="right">
+            <b>Localidad: </b>
+        </td>
+        <td align="left" valign="middle">
+            @Html.TextBoxFor(model => model.EmpresaLocalidad, new { disabled = "disabled", style = "width:180px;" })
+        </td>
+    </tr>
+    <tr>
+        <td align="right">
+            <b>Código de Actividad: </b>
+        </td>
+        <td align="left" valign="middle">
+            @Html.TextBoxFor(c => c.EmpresaCodigoActividad, new { disabled = "disabled", style = "width:80px;" })
+        </td>
+        <td align="right">
+            <b>Cantidad de Empleados: </b>
+        </td>
+        <td align="left" valign="middle">
+            @Html.TextBoxFor(model => model.EmpresaCantidadEmpleados, new { disabled = "disabled", style = "width:80px;", MaxLength = "5" })
+        </td>
+    </tr>
+    <tr>
+        <td align="right">
+            <b>Calle: </b>
+        </td>
+        <td align="left" valign="middle">
+            @Html.TextBoxFor(model => model.EmpresaCalle, new { disabled = "disabled", style = "width:300px;" })
+        </td>
+        <td align="right">
+            <b>Número: </b>
+        </td>
+        <td align="left" valign="middle">
+            @Html.TextBoxFor(model => model.EmpresaNumero, new { disabled = "disabled", style = "width:80px;" })
+        </td>
+    </tr>
+    <tr>
+        <td align="right">
+            <b>Piso: </b>
+        </td>
+        <td align="left" valign="middle">
+            @Html.TextBoxFor(model => model.EmpresaPiso, new { disabled = "disabled", style = "width:80px;" })
+        </td>
+        <td align="right">
+            <b>Dpto.: </b>
+        </td>
+        <td align="left" valign="middle">
+            @Html.TextBoxFor(model => model.EmpresaDpto, new { disabled = "disabled", style = "width:80px;" })
+        </td>
+    </tr>
+    <tr>
+        <td align="right">
+            <b>Código Postal: </b>
+        </td>
+        <td align="left" valign="middle">
+            @Html.TextBoxFor(model => model.EmpresaCodigoPostal, new { disabled = "disabled", style = "width:80px;" })
+        </td>
+        <td align="right">
+            <b>Domicilio Laboral Idem: </b>
+        </td>
+        <td align="left" valign="middle">
+            @Html.TextBoxFor(model => model.EmpresaDomicilioLaboralIdem, new { disabled = "disabled", style = "width:180px;" })
+        </td>
+    </tr>
+    <tr>
+        <td align="right">
+            <b>Tareas: </b>
+        </td>
+        <td align="left" valign="middle">
+            @Html.TextBoxFor(model => model.Tareas, new { style = "width:280px;" })
+        </td>
+    </tr>
+    <tr>
+        <td align="right" valign="top">
+            <b>Modalidad: </b>
+        </td>
+        <td align="left" valign="middle">
+            @Html.RadioButton("Modalidad", 1, (Model.FichaPpp.Modalidad == 1 ? true : false), new { Class = "ClassModalidad" })<span><b>Entrenamiento</b></span>
+            @Html.RadioButton("Modalidad", 2, (Model.FichaPpp.Modalidad == 2 ? true : false), new { Class = "ClassModalidad" })<span><b>CTI</b></span>
+        </td>
+        <td align="right" valign="top">
+            <b>Alta Temprana: </b>
+        </td>
+        <td align="left" valign="middle">
+            @Html.RadioButton("AltaTemprana", "S", (Model.FichaPpp.AltaTemprena == "S" ? true : false), new { Class = "ClassAltaTemprana" })<span><b>Si</b></span>
+            @Html.RadioButton("AltaTemprana", "N", (Model.FichaPpp.AltaTemprena == "N" ? true : false), new { Class = "ClassAltaTemprana" })<span><b>No</b></span>
+        </td>
+    </tr>
+</table>

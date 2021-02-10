@@ -1,0 +1,207 @@
+﻿@model PersonaVista
+@{
+    ViewBag.Title = "Persona Actor";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section Scripts{
+    @Content.Script("SGE.Personas.js", Url)
+}
+<div class="box">
+    <h2>
+        Persona Actor</h2>
+    @using (Html.BeginForm("ModificarActor", "Personas", FormMethod.Post, new { Id = "FormularioActor" }))
+    {
+        <table align="center" style="width: 930px; border: 1px">
+            <tr>
+                <td>
+                    <fieldset style="width: 925px;">
+                        <legend align="center"><b>@Model.Accion</b></legend>
+                        <table align="left" style="width: 920px;">
+                            <tr>
+                                <td align="right" valign="top">
+                                    <b>Apellido: </b>
+                                </td>
+                                <td align="left" valign="middle">
+
+                                        @Html.TextBoxFor(model => model.apellido, new { disabled = "disabled", style = "width:300px;" })
+
+                                </td>
+                                <td align="right" valign="top">
+                                    <b>Nombre: </b>
+                                </td>
+                                <td align="left" valign="middle">
+
+                                        @Html.TextBoxFor(model => model.nombre, new { disabled = "disabled", style = "width:300px;" })
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right" valign="top">
+                                    <b>DNI: </b>
+                                </td>
+                                <td align="left" valign="middle">
+
+                                        @Html.TextBoxFor(model => model.dni, new { disabled = "disabled", style = "width:300px;" })
+
+                                </td>
+                                <td align="right" valign="top">
+                                    <b>CUIL: </b>
+                                </td>
+                                <td align="left" valign="middle">
+
+                                        @Html.TextBoxFor(model => model.cuil, new { disabled = "disabled", style = "width:300px;" })
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right" valign="top">
+                                    <b>CELULAR: </b>
+                                </td>
+                                <td align="left" valign="middle">
+
+                                        @Html.TextBoxFor(model => model.celular, new { disabled = "disabled", style = "width:300px;" })
+
+                                </td>
+                                <td align="right" valign="top">
+                                    <b>TELEFONO: </b>
+                                </td>
+                                <td align="left" valign="middle">
+
+                                        @Html.TextBoxFor(model => model.telefono, new { disabled = "disabled", style = "width:300px;" })
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right" valign="top">
+                                    <b>MAIL: </b>
+                                </td>
+                                <td align="left" valign="middle">
+
+                                        @Html.TextBoxFor(model => model.mail, new { disabled = "disabled", style = "width:300px;" })
+
+                                </td>
+                                <td align="right">
+                                    <b>Empleado: </b>
+                                </td>
+                                <td align="left" valign="middle" colspan="2">
+                                    @{
+
+                                    @Html.RadioButton("empleado", "S", (Model.empleado == "S" ? true : false), new { @disabled = "disabled" })<span>Si</span>
+                                    @Html.RadioButton("empleado", "N", (Model.empleado == "N" ? true : false), new { @disabled = "disabled" })<span>No</span>
+                                
+                                    }
+
+                                </td>
+                                
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td align="right" valign="top">
+                                    <b>Tipo Rol del actor: </b>
+                                </td>
+                                <td align="left" valign="middle">
+
+                                        @Html.EditorFor(model => model.ActorRoles, new { style = "width:220px;" })
+
+                                </td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </table>
+                        @Html.ValidationSummary(true)
+                    </fieldset>
+                </td>
+            </tr>
+        </table>
+        <br />
+        
+        @Html.HiddenFor(model => model.Accion)
+        @Html.HiddenFor(model => model.id_persona)
+        @Html.HiddenFor(model => model.id_localidad)
+        @Html.HiddenFor(model => model.id_barrio)
+        @Html.HiddenFor(model => model.empleado)
+   //@Html.HiddenFor(model => model.id)
+        <table id="btnfin" width="100%">
+            <tr>
+                <td align="center" valign="middle">
+@*                    @switch (Model.Accion)
+                    {
+                        case "Ver":
+                            break;
+                        case "Agregar":
+                        <a class="btnIngresar" href="#" id="AgregarRol">Guardar</a>
+                            break;
+                        case "Modificar":
+                        <a class="btnIngresar" href="#" id="Modificar">Guardar</a>
+                            break;
+
+                    }*@
+                    <a class="btnIngresar" href="#" id="AgregarRol">Guardar</a>
+                    &nbsp;&nbsp;@Html.ActionLink("Cancelar", "Index", "Personas", null, new { Class = "btnIngresar" })
+                </td>
+            </tr>
+        </table>
+            <br />
+<div class="box" style="width: 500px;text-align:center;">    
+        <h2>
+        Roles como Actor</h2>
+        <table align="center" style="width: 490px; border: 1px">
+        <thead>
+                <tr>
+                    <th height="30px" width="150px">
+                        <div align="center">Id Actor</div>
+                    </th>
+                    <th width="250px">
+                        <div align="center">Rol Actor</div>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+        @if (Model.listActorRol != null)
+        {
+
+            foreach (var item in Model.listActorRol)
+            {
+            <tr>
+                <td align="left" valign="middle">
+                     @item.ID_ACTOR
+                </td>
+                <td align="left" valign="middle">
+                     @item.N_ACTOR_ROL
+                </td>
+            </tr>
+            }
+        }
+             </tbody>
+         </table>
+         </div>
+        <br />       
+        
+        <table>
+            <tr>
+                <td>
+                    <div id="MensajeError">
+                        @TempData["MensajeError"]
+                    </div>
+                </td>
+            </tr>
+        </table>
+        
+
+    }
+</div>
+<div id="dialogConfirmarEliminar" title="Mensaje">
+    <p>¿Está seguro que desea eliminar este registro?</p>
+</div>
+<div id="dialog" title="Mensaje">
+    <p>Este actor no se puede eliminar porque está en uso.</p>
+</div>
+
+
+
+

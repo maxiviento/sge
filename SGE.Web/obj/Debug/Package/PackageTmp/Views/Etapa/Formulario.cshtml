@@ -1,0 +1,165 @@
+﻿@model EtapaVista
+@{
+    ViewBag.Title = "Etapa";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section Scripts{
+    @Content.Script("SGE.Etapas.js", Url)
+}
+<div class="box">
+    <h2>
+        Etapa</h2>
+    @using (Html.BeginForm("Modificar", "Etapa", FormMethod.Post, new { Id = "FormularioEtapa" }))
+    {
+        <table align="center" style="width: 930px; border: 1px">
+            <tr>
+                <td>
+                    <fieldset style="width: 925px;">
+                        <legend align="center"><b>@Model.Accion</b></legend>
+                        <table align="left" style="width: 920px;">
+                            <tr>
+                                <td align="right" valign="top">
+                                    <b>Etapa: </b>
+                                </td>
+                                <td align="left" valign="middle">
+                                    @if (Model.Accion == "Ver" || Model.Accion == "Eliminar")
+                                    {
+                                        @Html.TextBoxFor(model => model.N_ETAPA, new { disabled = "disabled", style = "width:650px;" })
+                                    }
+                                    else
+                                    {
+                                        @Html.TextBoxFor(model => model.N_ETAPA, new { style = "width:650px;", MaxLength = "100" })
+                                    }
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right" valign="top">
+                                    <b>@Html.LabelFor(model => model.Programas): </b>
+                                </td>
+                                <td align="left" valign="middle">
+                                    @if (Model.Accion == "Ver" || Model.Accion == "Eliminar")
+                                    {
+                                        @Html.EditorFor(model => model.Programas, new { disabled = "disabled", style = "width:220px;" })
+                                    }
+                                    else
+                                    {
+                                        @Html.EditorFor(model => model.Programas, new { style = "width:220px;" })
+                                    }
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right" valign="top">
+                                    <b>@Html.LabelFor(model => model.EJERCICIO): </b>
+                                </td>
+                                <td align="left" valign="middle">
+                                    @if (Model.Accion == "Ver" || Model.Accion == "Eliminar")
+                                    {
+                                        @Html.TextBoxFor(model => model.EJERCICIO, new { disabled = "disabled", style = "width:220px;" })
+                                    }
+                                    else
+                                    {
+                                        @Html.TextBoxFor(model => model.EJERCICIO, new { style = "width:220px;" })
+                                    }
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right" valign="top">
+                                    <b>@Html.LabelFor(model => model.FEC_INCIO): </b>
+                                </td>
+                                <td align="left" valign="middle">
+                                    @if (Model.Accion == "Ver" || Model.Accion == "Eliminar")
+                                    {
+                                        @Html.TextBox("FEC_INCIO", Model.FEC_INCIO.ToShortDateString(), new { disabled = "disabled", style = "width:220px;" })
+                                    }
+                                    else
+                                    {
+                                        @Html.EditorFor(model => model.FEC_INCIO, new { style = "width:220px;" })
+                                    }
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td align="right" valign="top">
+                                    <b>@Html.LabelFor(model => model.FEC_FIN): </b>
+                                </td>
+                                <td align="left" valign="middle">
+                                    @if (Model.Accion == "Ver" || Model.Accion == "Eliminar")
+                                    {
+                                        @Html.TextBox("FEC_FIN", Convert.ToString(Model.FEC_FIN == null ?  "" : Model.FEC_FIN.Value.ToShortDateString() ), new { disabled = "disabled", style = "width:220px;" })
+                                    }
+                                    else
+                                    {
+                                        @Html.EditorFor(model => model.FEC_FIN, new { style = "width:220px;" })
+                                    }
+                                </td>
+                            </tr>
+                                                        <tr>
+                                <td align="right" valign="top">
+                                    <b>Monto Etapa: </b>
+                                </td>
+                                <td align="left" valign="middle">
+                                    @if (Model.Accion == "Ver" || Model.Accion == "Eliminar")
+                                    {
+                                        @Html.TextBoxFor(model => model.MONTO_ETAPA, new { disabled = "disabled", style = "width:220px;" })
+                                    }
+                                    else
+                                    {
+                                        @Html.TextBoxFor(model => model.MONTO_ETAPA, new { style = "width:220px;" })
+                                    }
+                                </td>
+                            </tr>
+
+
+                        </table>
+                        @Html.ValidationSummary(false)
+                    </fieldset>
+                </td>
+            </tr>
+        </table>
+        <br />
+        @Html.HiddenFor(model => model.Accion)
+        @Html.HiddenFor(model => model.ID_ETAPA)
+
+        
+        <table id="btnfin" width="100%">
+            <tr>
+                <td align="center" valign="middle">
+                    @switch (Model.Accion)
+                    {
+                        case "Ver":
+                            break;
+                        case "Agregar":
+                        <a class="btnIngresar" href="#" id="AgregarEtapa">Guardar</a>
+                        
+                            break;
+                        case "Modificar":
+                        <a class="btnIngresar" href="#" id="ModificarEtapa">Guardar</a>
+                            break;
+                        case "Eliminar":
+                        <a class="btnIngresar" href="#" id="EliminarEtapa">Eliminar</a>
+                            break;
+                    }
+                    &nbsp;&nbsp;@Html.ActionLink("Cancelar", "Index", "Etapa", null, new { Class = "btnIngresar" })
+                    
+                </td>
+            </tr>
+        </table>
+        <table>
+            <tr>
+                <td>
+                    <div id="MensajeError">
+                        @TempData["MensajeError"]
+                    </div>
+                </td>
+            </tr>
+        </table>
+    }
+</div>
+@*<div id="dialogConfirmarEliminar" title="Mensaje">
+    <p>¿Está seguro que desea eliminar este registro?</p>
+</div>*@
+<div id="dialog" title="Mensaje">
+    <p>Esta Carrera no se puede eliminar porque está en uso.</p>
+</div>
+
+

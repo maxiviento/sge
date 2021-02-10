@@ -1,0 +1,49 @@
+﻿@model ArchivosVista
+@{
+    ViewBag.Title = "Beneficiarios";
+    ViewBag.SubMenuSelected = "Archivos Generado";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section Scripts{
+    @Content.Script("SGE.Beneficiario.js", Url)
+}
+<div class="box">
+    <h2>
+        Beneficiarios - Archivos Generados</h2>
+    <br />
+    @using (Html.BeginForm("IndexPager", "CausasRechazo", FormMethod.Post, new { Id = "FormArchivos" }))
+    {
+        <table align="center" style="width: 950px;">
+            <tr>
+                <td>
+                    <fieldset style="width: 925px;">
+                        <legend align="center"><b>Archivos Creados</b></legend>
+                        <table align="center" style="width: 915px;">
+                            <tr>
+                                <td style="font-weight: bold">
+                                    <div id="titulo">
+                                    </div>
+                                    <div id="DivSuperviciones">
+                                        @Html.Partial("_ListaArchivos", Model)
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                        @Html.ValidationSummary(false)
+                        <br />
+                        <div>
+                            @Html.ActionLink("Cancelar", "Index", "Beneficiarios", null, new { Class = "btnIngresar" })
+                        </div>
+                        <br />
+                    </fieldset>
+                </td>
+            </tr>
+        </table>
+        @Html.HiddenFor(c => c.FechaLimpieza)
+     
+    }
+</div>
+<div id="dialogConfirmar" title="Mensaje">
+    <p>
+        Está seguro que desea limpiar la Fecha de Solicitud de Cuenta?</p>
+</div>

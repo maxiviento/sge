@@ -1,0 +1,69 @@
+﻿@model ConceptosVista         
+@{
+    var acciones = ViewData["Acciones"] as IList<string>;  
+}
+@if (Model.Conceptos != null && Model.Conceptos.Count > 0)
+{ 
+    <div style="text-align: center;">
+        <table id="grilla" width="925px" cellpadding="0" cellspacing="0">
+            <thead>
+                <tr>
+                    <th style="width: 20px; height: 30px;">
+                        <div align="center">
+                            Año</div>
+                    </th>
+                    <th style="width: 50px;">
+                        <div align="center">
+                            Mes</div>
+                    </th>
+                    <th style="width: 400px;">
+                        <div align="center">
+                            Observación</div>
+                    </th>
+                    <th style="width: 60px;">
+                        <div align="center">
+                            Acciones</div>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Conceptos)
+                {
+                    <tr>
+                        <td align="right" height="28px">
+                            @item.Año
+                        </td>
+                        <td align="left">
+                            @CultureInfo.CurrentCulture.DateTimeFormat.MonthNames[item.Mes - 1].ToUpper()
+                        </td>
+                        <td align="left">
+                            <div class="CortarPalabras">@item.Observacion</div>
+                        </td>
+                        <td>
+                            @{                    
+                            if (acciones.Contains(((int)Enums.Acciones.Consultar).ToString()))
+                            {
+                                @Html.ActionLink("Ver", "Ver", "Conceptos", new { Id_Concepto = item.Id_Concepto }, new { @class = "Lupa", title = "Ver Periodo" })
+                            }
+                            if (acciones.Contains(((int)Enums.Acciones.Modificar).ToString()))
+                            {
+                                @Html.ActionLink("Modificar", "Modificar", "Conceptos", new { Id_Concepto = item.Id_Concepto }, new { @class = "Modificar", title = "Modificar Periodo" })
+                            }                         
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
+else
+{
+    <table id="grilla" align="center" width="930px" cellpadding="0" cellspacing="0">
+        <tr>
+            <td style="width: 930px;">
+                @Html.Partial("_SinDatos", "Conceptos")
+            </td>
+        </tr>
+    </table>
+}

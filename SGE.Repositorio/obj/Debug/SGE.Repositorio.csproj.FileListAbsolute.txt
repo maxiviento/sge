@@ -1,0 +1,64 @@
+D:\SGE\trunk\06-Implementacion\Src\SGE.Repositorio\bin\Debug\SGE.Repositorio.dll.config
+D:\SGE\trunk\06-Implementacion\Src\SGE.Repositorio\bin\Debug\SGE.Repositorio.dll
+D:\SGE\trunk\06-Implementacion\Src\SGE.Repositorio\bin\Debug\SGE.Repositorio.pdb
+D:\SGE\trunk\06-Implementacion\Src\SGE.Repositorio\bin\Debug\SGE.Model.dll
+D:\SGE\trunk\06-Implementacion\Src\SGE.Repositorio\bin\Debug\SGE.Model.pdb
+D:\SGE\trunk\06-Implementacion\Src\SGE.Repositorio\obj\Debug\ResolveAssemblyReference.cache
+D:\SGE\trunk\06-Implementacion\Src\SGE.Repositorio\obj\Debug\SGE.Repositorio.dll
+D:\SGE\trunk\06-Implementacion\Src\SGE.Repositorio\obj\Debug\SGE.Repositorio.pdb
+E:\Proyecto\SGE_Codigo_Fuente\Src\SGE.Repositorio\bin\Debug\SGE.Repositorio.dll.config
+E:\Proyecto\SGE_Codigo_Fuente\Src\SGE.Repositorio\bin\Debug\SGE.Repositorio.dll
+E:\Proyecto\SGE_Codigo_Fuente\Src\SGE.Repositorio\bin\Debug\SGE.Repositorio.pdb
+E:\Proyecto\SGE_Codigo_Fuente\Src\SGE.Repositorio\bin\Debug\SGE.Model.dll
+E:\Proyecto\SGE_Codigo_Fuente\Src\SGE.Repositorio\bin\Debug\SGE.Model.pdb
+E:\Proyecto\SGE_Codigo_Fuente\Src\SGE.Repositorio\obj\Debug\ResolveAssemblyReference.cache
+E:\Proyecto\SGE_Codigo_Fuente\Src\SGE.Repositorio\obj\Debug\SGE.Repositorio.dll
+E:\Proyecto\SGE_Codigo_Fuente\Src\SGE.Repositorio\obj\Debug\SGE.Repositorio.pdb
+D:\Oracle - SGE\Soft\SGE_Codigo_Fuente\Src\SGE.Repositorio\bin\Debug\SGE.Repositorio.dll.config
+D:\Oracle - SGE\Soft\SGE_Codigo_Fuente\Src\SGE.Repositorio\bin\Debug\SGE.Repositorio.dll
+D:\Oracle - SGE\Soft\SGE_Codigo_Fuente\Src\SGE.Repositorio\bin\Debug\SGE.Repositorio.pdb
+D:\Oracle - SGE\Soft\SGE_Codigo_Fuente\Src\SGE.Repositorio\bin\Debug\SGE.Model.dll
+D:\Oracle - SGE\Soft\SGE_Codigo_Fuente\Src\SGE.Repositorio\bin\Debug\SGE.Model.pdb
+D:\Oracle - SGE\Soft\SGE_Codigo_Fuente\Src\SGE.Repositorio\obj\Debug\ResolveAssemblyReference.cache
+D:\Oracle - SGE\Soft\SGE_Codigo_Fuente\Src\SGE.Repositorio\obj\Debug\SGE.Repositorio.dll
+D:\Oracle - SGE\Soft\SGE_Codigo_Fuente\Src\SGE.Repositorio\obj\Debug\SGE.Repositorio.pdb
+D:\Oracle - SGE\SGE_Codigo_Fuente\Src\SGE.Repositorio\bin\Debug\SGE.Repositorio.dll.config
+D:\Oracle - SGE\SGE_Codigo_Fuente\Src\SGE.Repositorio\bin\Debug\SGE.Repositorio.dll
+D:\Oracle - SGE\SGE_Codigo_Fuente\Src\SGE.Repositorio\bin\Debug\SGE.Repositorio.pdb
+D:\Oracle - SGE\SGE_Codigo_Fuente\Src\SGE.Repositorio\bin\Debug\SGE.Model.dll
+D:\Oracle - SGE\SGE_Codigo_Fuente\Src\SGE.Repositorio\bin\Debug\SGE.Model.pdb
+D:\Oracle - SGE\SGE_Codigo_Fuente\Src\SGE.Repositorio\obj\Debug\ResolveAssemblyReference.cache
+D:\Oracle - SGE\SGE_Codigo_Fuente\Src\SGE.Repositorio\obj\Debug\RdlCompile.cache
+D:\Oracle - SGE\SGE_Codigo_Fuente\Src\SGE.Repositorio\obj\Debug\RdlCompile.compiled
+D:\Oracle - SGE\SGE_Codigo_Fuente\Src\SGE.Repositorio\obj\Debug\SGE.Repositorio.dll
+D:\Oracle - SGE\SGE_Codigo_Fuente\Src\SGE.Repositorio\obj\Debug\SGE.Repositorio.pdb
+D:\SGE\trunk\SGE_Codigo_Fuente\Src\SGE.Repositorio\bin\Debug\SGE.Repositorio.dll.config
+D:\SGE\trunk\SGE_Codigo_Fuente\Src\SGE.Repositorio\bin\Debug\SGE.Repositorio.dll
+D:\SGE\trunk\SGE_Codigo_Fuente\Src\SGE.Repositorio\bin\Debug\SGE.Repositorio.pdb
+D:\SGE\trunk\SGE_Codigo_Fuente\Src\SGE.Repositorio\bin\Debug\SGE.Model.dll
+D:\SGE\trunk\SGE_Codigo_Fuente\Src\SGE.Repositorio\bin\Debug\SGE.Model.pdb
+D:\SGE\trunk\SGE_Codigo_Fuente\Src\SGE.Repositorio\obj\Debug\ResolveAssemblyReference.cache
+D:\SGE\trunk\SGE_Codigo_Fuente\Src\SGE.Repositorio\obj\Debug\RdlCompile.cache
+D:\SGE\trunk\SGE_Codigo_Fuente\Src\SGE.Repositorio\obj\Debug\RdlCompile.compiled
+D:\SGE\trunk\SGE_Codigo_Fuente\Src\SGE.Repositorio\obj\Debug\SGE.Repositorio.dll
+D:\SGE\trunk\SGE_Codigo_Fuente\Src\SGE.Repositorio\obj\Debug\SGE.Repositorio.pdb
+Z:\AgenciaEmpleos\SGE\trunk\SGE_Codigo_Fuente\Src\SGE.Repositorio\bin\Debug\SGE.Repositorio.dll.config
+Z:\AgenciaEmpleos\SGE\trunk\SGE_Codigo_Fuente\Src\SGE.Repositorio\bin\Debug\SGE.Repositorio.dll
+Z:\AgenciaEmpleos\SGE\trunk\SGE_Codigo_Fuente\Src\SGE.Repositorio\bin\Debug\SGE.Repositorio.pdb
+Z:\AgenciaEmpleos\SGE\trunk\SGE_Codigo_Fuente\Src\SGE.Repositorio\bin\Debug\SGE.Model.dll
+Z:\AgenciaEmpleos\SGE\trunk\SGE_Codigo_Fuente\Src\SGE.Repositorio\bin\Debug\SGE.Model.pdb
+Z:\AgenciaEmpleos\SGE\trunk\SGE_Codigo_Fuente\Src\SGE.Repositorio\obj\Debug\ResolveAssemblyReference.cache
+Z:\AgenciaEmpleos\SGE\trunk\SGE_Codigo_Fuente\Src\SGE.Repositorio\obj\Debug\RdlCompile.cache
+Z:\AgenciaEmpleos\SGE\trunk\SGE_Codigo_Fuente\Src\SGE.Repositorio\obj\Debug\RdlCompile.compiled
+Z:\AgenciaEmpleos\SGE\trunk\SGE_Codigo_Fuente\Src\SGE.Repositorio\obj\Debug\SGE.Repositorio.dll
+Z:\AgenciaEmpleos\SGE\trunk\SGE_Codigo_Fuente\Src\SGE.Repositorio\obj\Debug\SGE.Repositorio.pdb
+E:\SGE\trunk\SGE_Codigo_Fuente\Src\SGE.Repositorio\obj\Debug\ResolveAssemblyReference.cache
+E:\SGE\trunk\SGE_Codigo_Fuente\Src\SGE.Repositorio\obj\Debug\RdlCompile.cache
+E:\SGE\trunk\SGE_Codigo_Fuente\Src\SGE.Repositorio\obj\Debug\RdlCompile.compiled
+E:\SGE\trunk\SGE_Codigo_Fuente\Src\SGE.Repositorio\bin\Debug\SGE.Repositorio.dll.config
+E:\SGE\trunk\SGE_Codigo_Fuente\Src\SGE.Repositorio\bin\Debug\SGE.Repositorio.dll
+E:\SGE\trunk\SGE_Codigo_Fuente\Src\SGE.Repositorio\bin\Debug\SGE.Repositorio.pdb
+E:\SGE\trunk\SGE_Codigo_Fuente\Src\SGE.Repositorio\bin\Debug\SGE.Model.dll
+E:\SGE\trunk\SGE_Codigo_Fuente\Src\SGE.Repositorio\bin\Debug\SGE.Model.pdb
+E:\SGE\trunk\SGE_Codigo_Fuente\Src\SGE.Repositorio\obj\Debug\SGE.Repositorio.dll
+E:\SGE\trunk\SGE_Codigo_Fuente\Src\SGE.Repositorio\obj\Debug\SGE.Repositorio.pdb

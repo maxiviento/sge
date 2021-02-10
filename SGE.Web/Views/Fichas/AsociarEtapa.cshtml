@@ -1,0 +1,197 @@
+﻿@model EtapaVista
+@{
+    ViewBag.Title = "Asociar Etapa";
+    ViewBag.SubMenuSelected = "AsociarEtapa";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var acciones = ViewData["Acciones"] as IList<string>;
+    TempData["EtapaVista"] = Model; 
+
+
+    int nro_doc;
+}
+@section Scripts{
+    @Content.Script("SGE.Fichas.js", Url)
+}
+
+<div class="box">
+   <h2>Carga Masiva de Beneficiarios</h2>
+    @using (Html.BeginForm("AsociarEtapa", "Etapa", FormMethod.Post, new { Id = "FormAsociarEtapa", enctype = "multipart/form-data" }))
+    {
+ 
+     <table align="center" style="width: 950px;">
+            <tr>
+                <td>
+                    <fieldset style="width: 925px;">
+                    @if (Model.cantProcesados == 0)
+                    {
+                        if (Model.ProcesarExcel == false)
+                        {<legend><b>Cargar archivo</b></legend>}
+                        else
+                        {<legend><b>Procesar Archivo</b></legend>}
+                    }
+                    else
+                    {<legend><b>Cantidad de Fichas Procesadas: @Model.cantProcesados de @Model.Fichas.Count</b></legend> }
+                        <table align="center" style="width: 915px;">
+                         @if (Model.ProcesarExcel == false)
+                         { 
+                            <tr>
+                                <td>
+                                    <input type="file" id="archivoFichas" name="archivoFichas" size="20"  onchange="check_extension(this.value,'btnsubir');" />
+                                    <a id="btnsubirArchivoFichas" class="btnIngresar" href="#" style="display: none;">Subir</a>
+                                </td>
+                            </tr>}
+                                 
+                            <tr>
+                                <td>
+                                    <br />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <table>
+                                        <tr>
+                                            <td>
+                                            
+                                                <b style="text-decoration: underline">Importante</b>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                Debe crear un Excel, con la columna, cuya cabecera se llame "ID_FICHA".
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+
+                        </table>
+                        <br />
+                        <div>
+                            @if (Model.Fichas.Count > 0 && Model.cantProcesados == 0)
+                            {
+                                
+                                <a class="btnIngresar" id="AltaMasiva">Alta Masiva</a>
+                            }
+                            else
+                            {
+                                if (Model.ProcesarExcel == true  && Model.cantProcesados == 0)
+                                {   //CargarMasivaFichasXLS
+                                    //CargarMasivaFichasXLS
+                                    //<a class="btnIngresar" id="ProcAltaMasivaXLS">Procesar Excel</a>
+                                    @Html.ActionLink("Procesar Excel", "CargarMasivaFichasXLS", "Fichas", new { ExcelNombre = Model.ExcelNombre }, new { Class = "btnIngresar" })
+                                
+                                }
+
+                            }
+                            @Html.ActionLink("Cancelar", "ALtaMasivaBeneficiarios", "Fichas", null, new { Class = "btnIngresar" })</div>
+                        <br />
+                    </fieldset>
+                </td>
+            </tr>
+        </table>
+        @Html.HiddenFor(c => c.ExcelUrl)
+        @Html.HiddenFor(c => c.ExcelNombre)
+        @Html.Hidden("ContFichas", Model.Fichas.Count, new { name = "ContFichas" })
+        
+
+        
+
+   if (Model.Fichas != null && Model.Fichas.Count > 0)
+   { 
+    <div style="text-align: center;">
+        <table id="tblFichas" align="center" width="925px" cellpadding="0" cellspacing="0">
+            <thead>
+                <tr>
+                    <th style="height: 30px; width: 120px;">
+                        <div align="center">
+                            Apellido</div>
+                    </th>
+                    <th style="width: 120px;">
+                        <div align="center">
+                            Nombre</div>
+                    </th>
+                    <th style="width: 80px;">
+                        <div align="center">
+                            CUIL</div>
+                    </th>
+                    <th style="width: 80px;">
+                        <div align="center">
+                            Nro. Doc.</div>
+                    </th>
+                    <th style="width: 90px;">
+                        <div align="center">
+                            Tipo de Ficha</div>
+                    </th>
+                    <th style="width: 120px;">
+                        <div align="center">
+                            Estado</div>
+                    </th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Fichas)
+                {
+                    <tr>
+                        <td style="height: 28px; width: 120px; text-align: left;">
+                            @item.Apellido.ToMaxLenght(30)
+                        </td>
+                        <td style="text-align: left; width: 120px;">
+                            @item.Nombre.ToMaxLenght(30)
+                        </td>
+                        <td style="text-align: right;">
+                            @item.Cuil.ToMaxLenght(30)
+                        </td>
+                        <td style="text-align: right; padding-right: 5px;">
+                            @{
+                       if (int.TryParse(item.NumeroDocumento, out nro_doc))
+                       {
+                                    @string.Format("{0:##,###,###}", Convert.ToInt32(nro_doc))
+                       }
+                       else
+                       {
+                                    @item.NumeroDocumento
+                       }
+                            }
+                        </td>
+                        <td style="text-align: left; width: 100px;">
+                            @item.NombreTipoFicha.ToMaxLenght(30)
+                        </td>
+                        <td style="text-align: left; width: 120px;">
+                            @item.NombreEstadoFicha.ToMaxLenght(30)
+                        </td>
+
+                    </tr>
+                }
+            </tbody>
+
+        </table>
+        <table align="center" width="925px" cellpadding="0" cellspacing="0"> 
+            <tr>
+                <td>                     
+                     <div id="Paginador"></div>
+               </td>
+           </tr>
+       </table>                 
+    </div>
+   }
+   else
+   {
+    <table id="grilla" align="center" width="930px" cellpadding="0" cellspacing="0">
+        <tr>
+            <td width="930px">
+                @Html.Partial("_SinDatos", "Fichas")
+            </td>
+        </tr>
+    </table>
+        }
+
+        
+          //  @Html.Partial("_Pager", Model.pager) 
+
+    }
+
+
+</div>
+
+

@@ -1,0 +1,61 @@
+﻿@model CausasRechazoVista
+@{
+    var acciones = ViewData["Acciones"] as IList<string>;    
+}
+@if (Model.CausasRechazo != null && Model.CausasRechazo.Count > 0)
+{ 
+    <div style="text-align: center;">
+        <table id="grilla" align="center" width="925px" cellpadding="0" cellspacing="0">
+            <thead>
+                <tr>
+                    <th height="30px" width="100px">
+                        <div align="center">Id</div>
+                    </th>
+                    <th width="725px">
+                        <div align="center">Descripción</div>
+                    </th>
+                    <th width="100px">
+                        <div align="center">Acciones</div>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.CausasRechazo)
+                {
+                    <tr>
+                        <td style="text-align: center; height: 28px;">
+                            @item.IdCausaRechazo.ToString()&nbsp;&nbsp;
+                        </td>
+                        <td style="text-align: left;">
+                            @item.NombreCausaRechazo
+                        </td>
+                        <td>
+                           @if (acciones.Contains(((int)Enums.Acciones.Consultar).ToString()))
+                           {
+                                @Html.ActionLink("Ver", "Ver", "CausasRechazo", new { idCausaRechazo = item.IdCausaRechazo, busquedaAnterior = Model.BuscarDescripcion }, new { @class = "Lupa", title = "Ver Causa Rechazo" })
+                           }
+                           @if (acciones.Contains(((int)Enums.Acciones.Modificar).ToString()))
+                           {
+                                @Html.ActionLink("Modificar", "Modificar", "CausasRechazo", new { idCausaRechazo = item.IdCausaRechazo, busquedaAnterior = Model.BuscarDescripcion }, new { @class = "Modificar", title = "Modificar Causa Rechazo" })
+                           }
+                           @if (acciones.Contains(((int)Enums.Acciones.Eliminar).ToString()))
+                           {
+                                @Html.ActionLink("Eliminar", "Eliminar", "CausasRechazo", new { idCausaRechazo = item.IdCausaRechazo, busquedaAnterior = Model.BuscarDescripcion }, new { @class = "Eliminar", title = "Eliminar Causa Rechazo" })
+                           }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
+else
+{
+    <table align="center" width="930px" cellpadding="0" cellspacing="0">
+        <tr>
+            <td width="930px">
+                @Html.Partial("_SinDatos", "CausasRechazo")
+            </td>
+        </tr>
+    </table>
+}

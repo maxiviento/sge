@@ -1,0 +1,53 @@
+﻿@model FichaObservacionesVista
+@{
+    ViewBag.Title = "Observaciones";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var acciones = ViewData["Acciones"] as IList<string>; 
+}
+@section Scripts{
+    @Content.Script("SGE.FichaObservacion.js", Url)
+}
+
+
+<div class="box">
+    <h2>
+        Listado de Observaciones correspondientes a la Ficha Id.: @Model.IdFicha</h2>
+    @using (Html.BeginForm("IndexPager", "FichaObservacion", FormMethod.Post, new { Id = "FormIndexObservaciones" }))
+    {
+        <table align="center" style="width: 930px;">
+            <tr>
+                <td>
+                    <fieldset style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 925px;
+                        text-align: center;">
+                        <div class="div-filtro">
+                            <div class="div-filtro-btn">
+                                <p>
+                                    @if (acciones.Contains(((int)Enums.Acciones.Agregar).ToString()) || acciones.Contains(((int)Enums.Acciones.Modificar).ToString()))
+                                    {
+                                        @Html.ActionLink("Agregar", "Agregar", "FichaObservacion",  new { idFicha = Model.IdFicha, accionFicha=Model.AccionFicha }, new { Class = "btnIngresar" })
+                                    }
+                                    <a class="btnIngresar" href="#" id="VolverFormFicha">Volver</a>
+                                </p>
+                            </div>
+                        </div>
+                    </fieldset>
+                </td>
+            </tr>
+        </table>
+        @Html.HiddenFor(model => model.AccionFicha)
+        @Html.HiddenFor(model => Model.IdFicha)
+        <table>
+            <tr>
+                <td style="font-weight: bold">
+                    <div id="titulo">
+                    </div>
+                    <div id="DivSuperviciones">
+                        @Html.Partial("_Lista", Model)
+                    </div>
+                </td>
+            </tr>
+        </table>  
+        @Html.Partial("_Pager", Model.Pager)
+    }
+</div>
+

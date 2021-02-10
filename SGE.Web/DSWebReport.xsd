@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DSWebReport" targetNamespace="http://tempuri.org/DSWebReport.xsd" xmlns:mstns="http://tempuri.org/DSWebReport.xsd" xmlns="http://tempuri.org/DSWebReport.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DSWebReport" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DSWebReport" msprop:Generator_UserDSName="DSWebReport">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DTFichasNotif" msprop:Generator_TableClassName="DTFichasNotifDataTable" msprop:Generator_TableVarName="tableDTFichasNotif" msprop:Generator_TablePropName="DTFichasNotif" msprop:Generator_RowDeletingName="DTFichasNotifRowDeleting" msprop:Generator_UserTableName="DTFichasNotif" msprop:Generator_RowChangingName="DTFichasNotifRowChanging" msprop:Generator_RowEvHandlerName="DTFichasNotifRowChangeEventHandler" msprop:Generator_RowDeletedName="DTFichasNotifRowDeleted" msprop:Generator_RowEvArgName="DTFichasNotifRowChangeEvent" msprop:Generator_RowChangedName="DTFichasNotifRowChanged" msprop:Generator_RowClassName="DTFichasNotifRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="IdFicha" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnIdFicha" msprop:Generator_ColumnPropNameInRow="IdFicha" msprop:Generator_ColumnPropNameInTable="IdFichaColumn" msprop:Generator_UserColumnName="IdFicha" type="xs:int" minOccurs="0" />
+              <xs:element name="TipoFicha" msprop:Generator_ColumnVarNameInTable="columnTipoFicha" msprop:Generator_ColumnPropNameInRow="TipoFicha" msprop:Generator_ColumnPropNameInTable="TipoFichaColumn" msprop:Generator_UserColumnName="TipoFicha" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
